@@ -1,0 +1,102 @@
+@use "sass:map";
+@use "./variables" as *;
+
+
+header{
+  height: 30vh;
+
+  @include listFlex;
+//  basic settings
+}
+
+
+// <nav class="navbar">
+// <div class="header-list header-list-display">
+// 
+
+.navbar-logo_img{
+  width: 100px;
+  margin: 0.65em; 
+
+}
+
+.navbar-hide-list .navbar-hide-list_link{
+  border: 1px solid white;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255, 0.3);
+
+}
+
+@include respond(tablet){
+header{
+  height: 30vh;
+}
+
+.navbar-logo_img{
+  width: 65px;
+  margin: 0.55em; 
+
+}
+
+
+.navbar {
+    gap: 0em;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+.navbar .header-list-display{
+  display: none;
+}
+
+.header-list ul {
+    gap: 0em;
+  }
+
+  .header-link p{
+    font-size: 10px;
+    margin-left: 0em;
+  }
+
+}
+
+
+
+@include respond(phone){
+header{
+  height: 30vh;
+}
+
+.navbar-logo_img{
+  width: 65px;
+  margin: 0.55em; 
+
+}
+
+
+.navbar {
+    gap: 0em;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+.navbar .header-list-display{
+  display: none;
+}
+
+.header-list ul {
+    gap: 0em;
+  }
+
+  .header-link p{
+    font-size: 10px;
+    margin-left: 0em;
+  }
+
+}
+
+
