@@ -1,42 +1,65 @@
 import logoParadise from '../content/logo/logoParadisePng.png'
+import headerBgr from '../content/back_photo/headerBcgr.png'
 
 export function renderHeader() {
   return `
-    <header class="pc89-header">
-        <nav class="navbar">
-<!-- F -->
-          <div class="header-list header-list-display">
-                <ul>
-                    <li class="header-item">
-                        <a class="header-link"  href="frames/reseach.html"><p>Research</p></a>
-                    </li>
-                    <li class="header-item">
-                        <a  class="header-link" href="frames/division.html"><p>Divisions</p></a>
-                    </li>
-                  </ul>
-          </div>
-            <!-- лого -->
-          <div class="header-list">
-            <ul>
-                <li class="header-item">
-                    <img class="navbar-logo_img" src="${logoParadise}" alt="Logo">
-                </li>
-            </ul>
-          </div>
+<header class="pc89-header">
+  <img class="pc89-header__bg" src="${headerBgr}" alt="">
 
-          <div class="header-list header-list-display">
-                <ul>
-                    <li class="header-item">
-                        <a class="header-link"  href="frames/archives.html"><p>Archives</p></a>
-                    </li>
+  <nav class="navbar">
+    <div class="header-list header-list-display">
+      <ul>
+        <li class="header-item header-item-first">
+          <a class="header-link link-research" href="#">Research</a>
+        </li>
+        <li class="header-item header-item-second">
+          <a class="header-link link-divisions" href="#">Divisions</a>
+        </li>
+      </ul>
+    </div>
 
-                    <li class="header-item">
-                        <a  class="header-link" href="#"><p>Access</p></a>
-                    </li>
+    <div class="header-list">
+      <ul>
+        <li class="header-item header-item-img">
+          <img class="navbar-logo_img" src="${logoParadise}" alt="Logo">
+        </li>
+      </ul>
+    </div>
 
-                </ul>
-          </div>
-     </nav>
-    </header>
+    <div class="header-list header-list-display">
+      <ul>
+        <li class="header-item header-item-third">
+          <a class="header-link link-archives" href="#">Archives</a>
+        </li>
+        <li class="header-item header-item-fourth">
+          <a class="header-link link-access" href="#">Access</a>
+        </li>
+      </ul>
+    </div>
+
+    <button class="header-burger" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="header-mobile-menu">
+      <ul class="header-mobile-list">
+        <li class="header-item header-item-first">
+          <a class="header-link link-research" href="#">Research</a>
+        </li>
+        <li class="header-item header-item-second">
+          <a class="header-link link-divisions" href="#">Divisions</a>
+        </li>
+        <li class="header-item header-item-third">
+          <a class="header-link link-archives" href="#">Archives</a>
+        </li>
+        <li class="header-item header-item-fourth">
+          <a class="header-link link-access" href="#">Access</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
   `
 }   
