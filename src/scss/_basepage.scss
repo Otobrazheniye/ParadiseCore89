@@ -1,0 +1,65 @@
+//#region RESEARCH
+.research-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px;
+}
+
+//#region Block1
+.research-block1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+
+  .body-intro {
+    flex: 1;
+
+    .research-text{
+      max-width: 600px;
+      line-height: 1.6;
+    }
+  }
+
+  .research-img {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}
+//#endregion 
+
+//#region Block2
+.research-block2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+
+  .research-description {
+    flex: 2;
+
+    p {
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+  }
+
+  .research-fact {
+    flex: 1;
+
+    p {
+      line-height: 1.6;
+    }
+  }
+}
+//#endregion
+
+//#endregion
