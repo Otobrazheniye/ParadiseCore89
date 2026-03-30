@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/ParadiseCore89/',  
+  base: '/',
   css: {
     preprocessorOptions: {
       scss: {
@@ -10,7 +10,6 @@ export default defineConfig({
     }
   }
 })
-
 
 
 
