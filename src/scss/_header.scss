@@ -3,13 +3,17 @@
 
 header {
   min-height: 180px;
-  height: 25vh;
+  height: 18vh;
   width: 100%;
   padding: 0;
   margin: 0;
   position: relative;
   overflow: visible;
-  background: linear-gradient(180deg, #15002c 0%, #0f131a 100%);
+  // background: linear-gradient(180deg, #80061b 0%, #0f131a 100%);
+  background: linear-gradient(180deg, #001a33 0%, #0f131a 100%);
+  background: linear-gradient(180deg, #0a0f2a 0%, #1a1400 100%);
+  
+  
   @include listFlex;
 }
 
@@ -18,9 +22,9 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: clamp(60px, 12vw, 110px);
-  object-fit: cover;
-  object-position: center;
+  height: clamp(130px, 150px, 170px);
+  object-fit: contain;
+  object-position: top center;
   z-index: 0;
 }
 
@@ -126,7 +130,8 @@ header {
   }
 
   .pc89-header__bg {
-    height: 90px;
+    height: clamp(50px, 80px, 80px);
+    object-fit:cover;
     z-index: 1;
   }
 
@@ -145,18 +150,22 @@ header {
   }
 
   .header-item-img {
-    display: none;
+    // display: none;
+    padding-top: 0em;
   }
 
-  .navbar-logo_img {
-    display: none;
+  header .navbar-logo_img {
+    // width: 100px;
+    // margin: 0.65em;
+    padding-top: 0em;
+
   }
 
   // burger button
   .header-burger {
     display: block;
     position: absolute;
-    top: 1rem;
+    top: 3.0rem;
     right: 1rem;
     width: 46px;
     height: 46px;
