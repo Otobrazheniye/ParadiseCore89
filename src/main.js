@@ -1,8 +1,12 @@
 import './main.scss'
 import { renderHeader } from './components/header.js'
+import { renderBasePageTopics} from './components/basepage.js'
 
 document.querySelector('#app').innerHTML = `
   ${renderHeader()}
+`
+document.querySelector('#basepage-topics').innerHTML = `
+  ${renderBasePageTopics()}
 `
 
 const burgerBtn = document.querySelector('.header-burger');
