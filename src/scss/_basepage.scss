@@ -147,3 +147,93 @@
 }
 //#endregion
 //#endregion
+
+.divisions-content {
+  width: min(1440px, 92vw);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.divisions-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  padding-bottom: 80px;
+}
+
+.divisions-img {
+  width: min(1100px, 100%);
+  margin-left: auto;
+
+  img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.divisions-intro {
+  position: absolute;
+  left: 0;
+  bottom: 120px;
+  width: min(620px, 90%);
+}
+
+.divisions-fact {
+  position: absolute;
+  right: 40px;
+  bottom: 0;
+  width: min(320px, 90%);
+}
+
+.divisions-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.divisions-description {
+  width: min(980px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.divisions-text,
+.divisions-quote {
+  margin: 0;
+  line-height: 1.65;
+}
+
+
+@include respond(tablet) {
+  .divisions-content {
+    gap: 32px;
+  }
+
+  .divisions-hero {
+    padding-bottom: 0;
+    gap: 20px;
+  }
+
+  .divisions-img {
+    width: 100%;
+
+    img {
+      height: auto;
+    }
+  }
+
+  .divisions-intro,
+  .divisions-fact {
+    position: static;
+    width: 100%;
+  }
+
+  .divisions-description {
+    width: 100%;
+  }
+}
+
