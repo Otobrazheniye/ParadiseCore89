@@ -3,7 +3,7 @@
 
 //#region RESEARCH
 .research-content {
-  width: 70 vw;
+  width: 99vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -106,19 +106,43 @@
 
 @include respond(tablet) {
 
-  .research-block2 {
+  .research-content {
+    width: 100%;
+    padding: 20px;
+    gap: 32px;
+  }
+
+  .research-block1 {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  // текст блок
+  .body-intro {
+    width: 100%;
   }
 
   .research-img {
-    justify-content: stretch;
+    justify-content: center;
 
     img {
+      width: 100%;
       max-width: 100%;
+      height: auto;
     }
   }
 
+  .research-block2 {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .research-description {
+    width: 100%;
+  }
+
   .research-fact {
+    width: 100%;
     max-width: 100%;
   }
 }
