@@ -320,20 +320,20 @@ $breakpoints: (
   $size: clamp(17px, 1.05vw, 19px),
   $lineHeight: 1.85,
   $letterSpacing: 0.012em) {
-  margin: 0;
-  color: $color;
-  font-size: $size;
-  line-height: $lineHeight;
-  letter-spacing: $letterSpacing;
+   margin: 0;
+   color: $color;
+   font-size: $size;
+   line-height: $lineHeight;
+   letter-spacing: $letterSpacing;
 
-  text-shadow:
-    0 0 8px rgba(255, 196, 72, 0.08),
-    0 0 18px rgba(255, 170, 60, 0.04);
+   text-shadow:
+     0 0 8px rgba(255, 196, 72, 0.08),
+     0 0 18px rgba(255, 170, 60, 0.04);
 }
 //#endregion
 
-// <<-- quote -->>
-//#region Neon Quote
+// <<-- QUOTE -->>
+//#region Neon Quote 
 @mixin NeonFactCard(
   $radius: 18px,
   $bg-start: rgba(20, 12, 38, 0.95),
@@ -467,6 +467,63 @@ $breakpoints: (
   }
 }
 //#endregion
+
+// <<-- KeyBlock -->>
+//#region Key Block 1
+@mixin SectionKeyBlock($maxWidth: 1100px, $gap: 10px, $mb: 32px) {
+  width: min(#{$maxWidth}, 100%);
+  margin: 0 auto $mb;
+  margin-top: 2em;
+  margin-bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+@mixin SectionKeyText(
+  $labelSize: 12px,
+  $titleMin: 32px,
+  $titleMax: 60px,
+  $subtitleWidth: 760px) {
+
+  .section-key-block1_label {
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 6px 12px;
+    border-radius: 999px;
+
+    font-size: 25px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .section-key-block1_title {
+    margin: 0;
+    font-size: clamp(#{$titleMin}, 4vw, #{$titleMax});
+    line-height: 1.05;
+  }
+
+  .section-key-block1_subtitle {
+    margin: 0;
+    max-width: $subtitleWidth;
+    line-height: 1.6;
+  }
+}
+//#region frame HTML 
+      // <div class="section-key-block1">
+      //   <span class="section-key-block1_label">DIVISION OVERVIEW</span>
+      //   <h2 class="section-key-block1_title">Strategic Architecture</h2>
+      //   <p class="section-key-block1_subtitle">
+      //     Five synchronized operational branches connected to one analytical core.
+      //   </p>
+      // </div>
+      // <div class="section-divider">
+      //   <span class="section-divider_line"></span>
+      //   <span class="section-divider_dot"></span>
+      //   <span class="section-divider_line"></span>
+      // </div>
+//#endregion
+//#endregion
+// <<-- KeyLine -->>
 
 
 

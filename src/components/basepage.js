@@ -44,6 +44,15 @@ export function renderBasePageTopics() {
         </div>
       </div>
 
+      <div class="section-key-block1">
+        <span class="section-key-block1_label">DIVISION OVERVIEW</span>
+        <h2 class="section-key-block1_title">Strategic Architecture</h2>
+        <p class="section-key-block1_subtitle">
+          Five synchronized operational branches connected to one analytical core.
+        </p>
+      </div>
+ 
+      
       <div class="divisions-content">
         <div class="divisions-hero">
           <div class="divisions-img">
