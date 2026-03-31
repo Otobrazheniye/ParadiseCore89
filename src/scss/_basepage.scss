@@ -32,7 +32,6 @@
     }
   }
 
-
   .research-img {
     flex: 1;
     display: flex;
@@ -59,8 +58,6 @@
         0 20px 45px rgba(0, 0, 0, 0.42);
     }
 
-  
-
     &::after {
       content: "";
       position: absolute;
@@ -73,9 +70,6 @@
       filter: drop-shadow(0 0 10px rgba(150, 90, 255, 0.4));
     }
   }
-  
-
-  
 }
 //#endregion 
 
@@ -103,7 +97,7 @@
     }
   }
 }
-
+//#endregion
 @include respond(tablet) {
 
   .research-content {
@@ -146,14 +140,18 @@
   }
 }
 //#endregion
-//#endregion
 
+//#region Divisions
+//#region Block1
 .divisions-content {
-  width: min(1440px, 92vw);
+  width: 99vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 48px;
+  background:
+  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
+  url("../content/back_photo/DivisionsBckg2.png") center/cover no-repeat;
 }
 
 .divisions-hero {
@@ -164,14 +162,33 @@
 }
 
 .divisions-img {
-  width: min(1100px, 100%);
-  margin-left: auto;
+  width: min(1180px, 100%);
+  position: relative;
 
   img {
     width: 100%;
-    height: 520px;
+    height: 560px;
     object-fit: cover;
     display: block;
+    border-radius: 22px;
+
+    border: 1px solid rgba(255, 196, 72, 0.22);
+
+    box-shadow:
+      0 0 0 1px rgba(255, 226, 160, 0.05) inset,
+      0 0 30px rgba(255, 180, 60, 0.08),
+      0 28px 60px rgba(0, 0, 0, 0.42);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.18)),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.3), transparent 32%);
+    pointer-events: none;
   }
 }
 
@@ -180,6 +197,7 @@
   left: 0;
   bottom: 120px;
   width: min(620px, 90%);
+  @include glassGoldPanel();
 }
 
 .divisions-fact {
@@ -187,27 +205,36 @@
   right: 40px;
   bottom: 0;
   width: min(320px, 90%);
+  @include glassGoldQuote();
 }
-
+//#endregion
+//#region Block2
 .divisions-body {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
 }
+
 
 .divisions-description {
   width: min(980px, 100%);
   display: flex;
   flex-direction: column;
   gap: 20px;
+  @include glassGoldDescription();
 }
 
-.divisions-text,
-.divisions-quote {
+.divisions-text {
   margin: 0;
   line-height: 1.65;
+  @include glassGoldText
 }
 
-
+.divisions-quote {
+  margin: 0;
+  line-height: 0.65;
+  @include glassGoldQuote2();
+}
+//#endregion
 @include respond(tablet) {
   .divisions-content {
     gap: 32px;
@@ -236,4 +263,5 @@
     width: 100%;
   }
 }
+//#endregion
 
