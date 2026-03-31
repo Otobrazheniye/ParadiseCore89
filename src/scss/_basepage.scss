@@ -1,21 +1,30 @@
+@use "sass:map";
+@use "./variables" as *;
+
 //#region RESEARCH
 .research-content {
+  width: 70 vw;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 40px;
   padding: 40px;
+  gap: clamp(36px, 4vw, 72px);
+}
+
+.research-text {
+@include NeonText();
 }
 
 //#region Block1
 .research-block1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1em;
+  align-items: center;
 
   .body-intro {
     flex: 1;
-
+    @include NeonIntroBox();
     .research-text{
       max-width: 600px;
       line-height: 1.6;
@@ -45,7 +54,7 @@
 
   .research-description {
     flex: 2;
-
+    @include NeonDescriptionBox();
     p {
       margin-bottom: 16px;
       line-height: 1.6;
@@ -54,12 +63,10 @@
 
   .research-fact {
     flex: 1;
-
     p {
       line-height: 1.6;
     }
   }
 }
 //#endregion
-
 //#endregion

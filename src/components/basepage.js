@@ -1,3 +1,5 @@
+import researchImg from '../content/back_photo/ResearchBckg.png'
+
 export function renderBasePageTopics() {
     return `
     <section class="body-block">
@@ -11,7 +13,7 @@ export function renderBasePageTopics() {
         </div>
 
         <div class="research-img">
-          <img src="/images/research.jpg" alt="Research Division">
+          <img src="${researchImg}" alt="Research Division">
         </div>  
       </div>
 
@@ -29,7 +31,7 @@ export function renderBasePageTopics() {
             Through bioanalysis and synthetic systems, we decode biological data to predict health conditions, monitor ecosystems, and engineer new materials. 
             Our goal is to harmonize technological progress with natural processes.
           </p>
-          <p class="research-quote">
+          <p class="research-text">
             We also pioneer advanced human-machine interfaces, enabling seamless interaction between operators and complex systems across any distance or environment.
           </p>
         </div>
