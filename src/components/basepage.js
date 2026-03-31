@@ -13,7 +13,7 @@ export function renderBasePageTopics() {
         </div>
 
         <div class="research-img">
-          <img src="${researchImg}" alt="Research Division">
+          <img src="${researchImg}" loading="lazy" alt="Research Division">
         </div>  
       </div>
 
