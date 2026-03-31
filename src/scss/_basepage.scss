@@ -1,0 +1,126 @@
+@use "sass:map";
+@use "./variables" as *;
+
+//#region RESEARCH
+.research-content {
+  width: 70 vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  gap: clamp(36px, 4vw, 72px);
+  background: center/cover no-repeat url("../content/back_photo/TechBack2.png");
+}
+
+.research-text {
+@include NeonText();
+}
+
+//#region Block1
+.research-block1 {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1em;
+  align-items: center;
+
+  .body-intro {
+    flex: 1;
+    @include NeonIntroBox();
+    .research-text{
+      max-width: 600px;
+      line-height: 1.6;
+    }
+  }
+
+
+  .research-img {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+      width: 100%;
+      max-width: 620px;
+      height: clamp(260px, 28vw, 460px);
+      object-fit: cover;
+      display: block;
+      border-radius: 18px;
+      border: 1px solid rgba(160, 120, 255, 0.22);
+
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+        0 0 34px rgba(126, 74, 255, 0.18),
+        0 20px 45px rgba(0, 0, 0, 0.42);
+    }
+
+  
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: auto 18px 18px auto;
+      width: 120px;
+      height: 120px;
+      border-right: 1px solid rgba(190, 150, 255, 0.3);
+      border-bottom: 1px solid rgba(190, 150, 255, 0.3);
+      pointer-events: none;
+      filter: drop-shadow(0 0 10px rgba(150, 90, 255, 0.4));
+    }
+  }
+  
+
+  
+}
+//#endregion 
+
+//#region Block2
+.research-block2 {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 30px;
+  align-items: start;
+
+  .research-description {
+    flex: 2;
+    @include NeonDescriptionBox();
+    p {
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+  }
+
+  .research-fact {
+    flex: 1;
+    @include NeonFactCard();
+    p {
+      line-height: 1.6;
+    }
+  }
+}
+
+@include respond(tablet) {
+
+  .research-block2 {
+    grid-template-columns: 1fr;
+  }
+
+  .research-img {
+    justify-content: stretch;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .research-fact {
+    max-width: 100%;
+  }
+}
+//#endregion
+//#endregion

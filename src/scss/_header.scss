@@ -1,0 +1,335 @@
+@use "sass:map";
+@use "./variables" as *;
+
+header {
+  min-height: 180px;
+  height: 25vh;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: visible;
+  // background: linear-gradient(180deg, #80061b 0%, #0f131a 100%);
+  background: linear-gradient(180deg, #001a33 0%, #0f131a 100%);
+  background: linear-gradient(180deg, #0a0f2a 0%, #1a1400 100%);
+  
+  
+  @include listFlex;
+}
+
+.pc89-header__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(130px, 150px, 170px);
+  object-fit: contain;
+  object-position: top center;
+  z-index: 0;
+}
+
+.navbar {
+  width: 92vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 3;
+}
+
+.header-list {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+
+  &:first-child {
+    justify-content: flex-end;
+  }
+
+  &:last-child {
+    justify-content: flex-start;
+  }
+}
+
+.header-list ul {
+  display: flex;
+  gap: 2.5em;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.header-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 40px;
+  padding: 0.35em 0.9em;
+  margin-top: 5em;
+  text-decoration: none;
+  color: $gold-2;
+  letter-spacing: 0.08em;
+  font-size: clamp(0.95rem, 1.15vw, 1.08rem);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+.navbar-logo_img {
+  width: 100px;
+  margin: 0.65em;
+  padding-top: 5.8em;
+}
+
+// hover
+.link-research:hover {
+  color: #9a6bff;
+  text-shadow: 0 0 8px rgba(154, 107, 255, 0.4);
+}
+
+.link-divisions:hover {
+  color: $gold-1;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.link-archives:hover {
+  color: #c0c6d6;
+  text-shadow: 0 0 6px rgba(200, 200, 255, 0.2);
+}
+
+.link-access:hover {
+  color: #ff4d6d;
+  text-shadow: 0 0 8px rgba(255, 77, 109, 0.35);
+}
+
+// burger hidden on desktop
+.header-burger,
+.header-mobile-menu {
+  display: none;
+}
+
+// ==========================
+// TABLET / PHONE
+// ==========================
+@include respond(tablet) {
+  header {
+    height: 15vh;
+    min-height: 10px;
+    height: auto;
+    padding: 0.75rem 0 1rem;
+  }
+
+  .pc89-header__bg {
+    height: clamp(50px, 80px, 80px);
+    object-fit:cover;
+    z-index: 1;
+  }
+
+  .navbar {
+    width: 100%;
+    min-height: 90px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    gap: 0;
+  }
+
+  // desktop navigation hidden
+  .header-list-display li{
+    display: none;
+  }
+
+  .header-item-img {
+    // display: none;
+    padding-top: 0em;
+  }
+
+  header .navbar-logo_img {
+    // width: 100px;
+    // margin: 0.65em;
+    padding-top: 0em;
+
+  }
+
+  // burger button
+  .header-burger {
+    display: block;
+    position: absolute;
+    top: 3.0rem;
+    right: 1rem;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: 1px solid rgba(255, 215, 0, 0.28);
+    border-radius: 10px;
+    background: rgba(8, 10, 20, 0.78);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    z-index: 12;
+  }
+
+  .header-burger span {
+    position: absolute;
+    left: 10px;
+    width: 24px;
+    height: 2px;
+    background: #ffd700;
+    transition: 0.25s ease;
+  }
+
+  .header-burger span:nth-child(1) {
+    top: 14px;
+  }
+
+  .header-burger span:nth-child(2) {
+    top: 22px;
+  }
+
+  .header-burger span:nth-child(3) {
+    top: 30px;
+  }
+
+  .header-burger.is-active span:nth-child(1) {
+    top: 22px;
+    transform: rotate(45deg);
+  }
+
+  .header-burger.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header-burger.is-active span:nth-child(3) {
+    top: 22px;
+    transform: rotate(-45deg);
+  }
+
+  // mobile menu
+  .header-mobile-menu {
+    display: block;
+    position: absolute;
+    top: calc(100% + 0.4rem);
+    left: 1rem;
+    right: 1rem;
+    z-index: 11;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: 0.25s ease;
+  }
+
+  .header-mobile-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .header-mobile-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: rgba(8, 10, 18, 0.95);
+    border: 1px solid rgba(255, 215, 0, 0.16);
+    border-radius: 14px;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(10px);
+  }
+
+  .header-mobile-list .header-item {
+    width: 100%;
+    min-height: 68px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .header-mobile-list .header-item-first {
+    background-image: url("../content/back_photo/ResearchBckg.png");
+  }
+
+  .header-mobile-list .header-item-second {
+    background-image: url("../content/back_photo/DivisionBckg.png");
+  }
+
+  .header-mobile-list .header-item-third {
+    background-image: url("../content/back_photo/ArchivesBckg.png");
+  }
+
+  .header-mobile-list .header-item-fourth {
+    background-image: url("../content/back_photo/AccesBckg.png");
+  }
+
+  .header-mobile-list .header-link {
+    width: 100%;
+    min-height: 68px;
+    margin-top: 0;
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: linear-gradient(
+      180deg,
+      rgba(5, 8, 20, 0.08) 0%,
+      rgba(5, 8, 20, 0.26) 100%
+    );
+    text-decoration: none;
+    color: $gold-2;
+    font-size: clamp(1rem, 2.8vw, 1.1rem);
+    letter-spacing: 0.06em;
+  }
+}
+
+//#region <<- MEDIA P->>
+@include respond(phone){
+header{
+  height: 11vh;
+}
+
+.navbar-logo_img{
+  width: 65px;
+  margin: 0.55em; 
+}
+
+.navbar {
+    gap: 0em;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .header-list-display{
+  display: none;
+}
+
+.header-list ul {
+    gap: 0em;
+  }
+
+  .header-link p{
+    font-size: 10px;
+    margin-left: 0em;
+  }
+}
+//#endregion
+
