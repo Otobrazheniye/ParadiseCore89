@@ -150,9 +150,7 @@
   background-color: rgb(0, 0, 0);
 }
 
-
 //#region Divisions
-//#region Block1
 .divisions-content {
   width: 99vw;
   margin: 0 auto;
@@ -160,21 +158,57 @@
   flex-direction: column;
   gap: 48px;
   background:
-  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
-  url("../content/back_photo/DivisionsBckg2.png") center/cover no-repeat;
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
+    url("../content/back_photo/DivisionsBckg2.png") center/cover no-repeat;
+
+  @include respond(laptop) {
+    gap: 40px;
+  }
+
+  @include respond(tablet) {
+    width: 100%;
+    gap: 32px;
+    padding: 0 16px 32px;
+    box-sizing: border-box;
+  }
+
+  @include respond(phone) {
+    gap: 24px;
+    padding: 0 10px 24px;
+  }
 }
 
+//#region Block1
 .divisions-hero {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   padding-bottom: 80px;
+
+  @include respond(laptop) {
+    padding-bottom: 64px;
+  }
+
+  @include respond(tablet) {
+    padding-bottom: 0;
+    gap: 20px;
+  }
+
+  @include respond(phone) {
+    gap: 16px;
+  }
 }
 
 .divisions-img {
   width: min(1180px, 100%);
   margin-left: auto;
   position: relative;
+
+  @include respond(tablet) {
+    width: 100%;
+    margin-left: 0;
+  }
+
   img {
     width: 100%;
     height: 560px;
@@ -188,6 +222,20 @@
       0 0 0 1px rgba(255, 226, 160, 0.05) inset,
       0 0 30px rgba(255, 180, 60, 0.08),
       0 28px 60px rgba(0, 0, 0, 0.42);
+
+    @include respond(laptop) {
+      height: 500px;
+    }
+
+    @include respond(tablet) {
+      height: auto;
+      min-height: 320px;
+    }
+
+    @include respond(phone) {
+      min-height: 220px;
+      border-radius: 16px;
+    }
   }
 
   &::after {
@@ -199,6 +247,10 @@
       linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.18)),
       linear-gradient(90deg, rgba(0, 0, 0, 0.3), transparent 32%);
     pointer-events: none;
+
+    @include respond(phone) {
+      border-radius: 16px;
+    }
   }
 }
 
@@ -208,6 +260,16 @@
   bottom: 120px;
   width: min(620px, 90%);
   @include glassGoldPanel();
+
+  @include respond(laptop) {
+    width: min(540px, 88%);
+    bottom: 165px;
+  }
+
+  @include respond(tablet) {
+    position: static;
+    width: 100%;
+  }
 }
 
 .divisions-fact {
@@ -216,14 +278,24 @@
   bottom: 0;
   width: min(320px, 90%);
   @include glassGoldQuote();
+
+  @include respond(laptop) {
+    right: 14px;
+    width: min(300px, 88%);
+  }
+
+  @include respond(tablet) {
+    position: static;
+    width: 100%;
+  }
 }
 //#endregion
+
 //#region Block2
 .divisions-body {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
 }
-
 
 .divisions-description {
   width: min(980px, 100%);
@@ -231,47 +303,53 @@
   flex-direction: column;
   gap: 20px;
   @include glassGoldDescription();
+
+  @include respond(laptop) {
+    width: min(900px, 100%);
+    gap: 18px;
+  }
+
+  @include respond(tablet) {
+    width: 100%;
+    gap: 16px;
+  }
+
+  @include respond(phone) {
+    gap: 14px;
+  }
 }
 
 .divisions-text {
   margin: 0;
   line-height: 1.65;
-  @include glassGoldText
+  @include glassGoldText;
+
+  @include respond(laptop) {
+    line-height: 1.6;
+  }
+
+  @include respond(tablet) {
+    line-height: 1.55;
+  }
+
+  @include respond(phone) {
+    line-height: 1.5;
+  }
 }
 
 .divisions-quote {
   margin: 0;
-  line-height: 0.65;
+  line-height: 1.4;
   @include glassGoldQuote2();
+
+  @include respond(tablet) {
+    line-height: 1.5;
+  }
+
+  @include respond(phone) {
+    line-height: 1.55;
+  }
 }
 //#endregion
-@include respond(tablet) {
-  .divisions-content {
-    gap: 32px;
-  }
-
-  .divisions-hero {
-    padding-bottom: 0;
-    gap: 20px;
-  }
-
-  .divisions-img {
-    width: 100%;
-
-    img {
-      height: auto;
-    }
-  }
-
-  .divisions-intro,
-  .divisions-fact {
-    position: static;
-    width: 100%;
-  }
-
-  .divisions-description {
-    width: 100%;
-  }
-}
 //#endregion
 
