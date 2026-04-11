@@ -3,8 +3,16 @@ import researchImg from '../content/back_photo/ResearchBckg.png'
 export function renderBasePageTopics() {
     return `
     <section class="body-block">
-      <div class="research-content">
 
+      <div class="section-key-block1">
+        <span class="section-key-block1_label">RESEARCH DIVISION</span>
+        <h2 class="section-key-block1_title">Cognitive Systems & Intelligence</h2>
+        <p class="section-key-block1_subtitle">
+          Exploring the convergence of artificial intelligence, bioanalysis, and neural architectures to redefine how knowledge is created, processed, and evolved.
+        </p>
+      </div>
+
+      <div class="research-content">
         <div class="research-block1">
           <div class="body-intro">
             <p class="research-text">
@@ -16,7 +24,7 @@ export function renderBasePageTopics() {
             <img src="${researchImg}" loading="lazy" alt="Research Division">
           </div>  
         </div>
-
+    
         <div class="research-block2">
           <div class="research-description">
             <p class="research-text">

@@ -473,7 +473,8 @@ $breakpoints: (
 @mixin SectionKeyBlock($maxWidth: 1100px, $gap: 10px, $mb: 32px) {
   width: min(#{$maxWidth}, 100%);
   margin: 0 auto $mb;
-  margin-top: 2em;
+  margin-top: 0em;
+  padding-top: 2em;
   margin-bottom: 5em;
   display: flex;
   flex-direction: column;
@@ -488,7 +489,7 @@ $breakpoints: (
   .section-key-block1_label {
     display: inline-flex;
     align-self: flex-start;
-    padding: 6px 12px;
+    padding: 0.2em 2em;
     border-radius: 999px;
 
     color:$gold-3;
@@ -501,6 +502,7 @@ $breakpoints: (
     color:$gold-2;
     margin: 0;
     font-size: clamp(#{$titleMin}, 4vw, #{$titleMax});
+    padding: 0.1em 1em;
     line-height: 1.05;
   }
 
@@ -508,10 +510,12 @@ $breakpoints: (
     color:$goldText;
     margin: 0;
     max-width: $subtitleWidth;
+    padding: 0em 0.6em;
     line-height: 1.6;
   }
 }
 //#region frame HTML 
+//logic for use
       // <div class="section-key-block1">
       //   <span class="section-key-block1_label">DIVISION OVERVIEW</span>
       //   <h2 class="section-key-block1_title">Strategic Architecture</h2>
