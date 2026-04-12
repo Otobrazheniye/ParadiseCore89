@@ -2,6 +2,7 @@
 @use "./variables" as *;
 
 //#region RESEARCH
+
 .research-content {
   width: 99vw;
   margin: 0 auto;
@@ -10,10 +11,25 @@
   padding: 40px;
   gap: clamp(36px, 4vw, 72px);
   background: center/cover no-repeat url("../content/back_photo/TechBack2.png");
+
+  @include respond(laptop) {
+    padding: 32px;
+  }
+
+  @include respond(tablet) {
+    width: 100%;
+    padding: 20px;
+    gap: 32px;
+  }
+
+  @include respond(phone) {
+    padding: 12px;
+    gap: 24px;
+  }
 }
 
 .research-text {
-@include NeonText();
+  @include NeonText();
 }
 
 //#region Block1
@@ -23,27 +39,44 @@
   gap: 1em;
   align-items: center;
 
+  @include respond(tablet) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @include respond(phone) {
+    gap: 12px;
+  }
+
   .body-intro {
     flex: 1;
+    width: 100%;
     @include NeonIntroBox();
-    .research-text{
+
+    .research-text {
       max-width: 600px;
       line-height: 1.6;
+
+      @include respond(phone) {
+        max-width: 100%;
+        line-height: 1.5;
+      }
     }
   }
 
   .research-img {
     flex: 1;
-    display: flex;
-    justify-content: flex-end;
     position: relative;
     min-height: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 
+    @include respond(tablet) {
+      justify-content: center;
+    }
+
     img {
-      max-width: 100%;
       width: 100%;
       max-width: 620px;
       height: clamp(260px, 28vw, 460px);
@@ -56,6 +89,15 @@
         0 0 0 1px rgba(255, 255, 255, 0.03) inset,
         0 0 34px rgba(126, 74, 255, 0.18),
         0 20px 45px rgba(0, 0, 0, 0.42);
+
+      @include respond(tablet) {
+        max-width: 100%;
+        height: auto;
+      }
+
+      @include respond(phone) {
+        border-radius: 14px;
+      }
     }
 
     &::after {
@@ -68,10 +110,22 @@
       border-bottom: 1px solid rgba(190, 150, 255, 0.3);
       pointer-events: none;
       filter: drop-shadow(0 0 10px rgba(150, 90, 255, 0.4));
+
+      @include respond(tablet) {
+        width: 90px;
+        height: 90px;
+      }
+
+      @include respond(phone) {
+        width: 64px;
+        height: 64px;
+        right: 12px;
+        bottom: 12px;
+      }
     }
   }
 }
-//#endregion 
+//#endregion
 
 //#region Block2
 .research-block2 {
@@ -80,63 +134,49 @@
   gap: 30px;
   align-items: start;
 
+  @include respond(laptop) {
+    grid-template-columns: 1fr 280px;
+    gap: 24px;
+  }
+
+  @include respond(tablet) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @include respond(phone) {
+    gap: 12px;
+  }
+
   .research-description {
     flex: 2;
+    width: 100%;
     @include NeonDescriptionBox();
+
     p {
       margin-bottom: 16px;
       line-height: 1.6;
+
+      @include respond(phone) {
+        margin-bottom: 12px;
+        line-height: 1.5;
+      }
     }
   }
 
   .research-fact {
     flex: 1;
-    @include NeonFactCard();
-    p {
-      line-height: 1.6;
-    }
-  }
-}
-//#endregion
-@include respond(tablet) {
-
-  .research-content {
-    width: 100%;
-    padding: 20px;
-    gap: 32px;
-  }
-
-  .research-block1 {
-    gap: 4px;
-  }
-
-  // текст блок
-  .body-intro {
-    width: 100%;
-  }
-
-  .research-img {
-    justify-content: center;
-
-    img {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-    }
-  }
-
-  .research-block2 {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-
-  .research-description {
-    width: 100%;
-  }
-
-  .research-fact {
     width: 100%;
     max-width: 100%;
+    @include NeonFactCard();
+
+    p {
+      line-height: 1.6;
+
+      @include respond(phone) {
+        line-height: 1.5;
+      }
+    }
   }
 }
 //#endregion
@@ -302,6 +342,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin: 0.7em;
   @include glassGoldDescription();
 
   @include respond(laptop) {
