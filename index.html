@@ -23,6 +23,50 @@
       <button class="basepage-main-auth__btn wish-auth__btn--login" type="button">
         Login
       </button>
+
+
+    <dialog id="auth-dialog" aria-labelledby="authTitle">
+      <div class="auth-modal">
+        <div class="auth-modal__header">
+          <h2 id="authTitle">Authentication</h2>
+          <button type="button" data-auth-close aria-label="Close">×</button>
+        </div>
+
+        <div class="auth-modal__tabs">
+          <button type="button" data-auth-tab="login">Login</button>
+          <button type="button" data-auth-tab="register">Register</button>
+        </div>
+
+        <form data-auth-form="login">
+            <label>
+           Email
+            <input type="email" name="email" required />
+            </label>
+
+         <label>
+            Password
+            <input type="password" name="password" required />
+          </label>
+
+          <button type="submit">Sign in</button>
+        </form>
+
+        <form data-auth-form="register" hidden>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+
+          <label>
+            Password
+            <input type="password" name="password" required />
+          </label>
+
+          <button type="submit">Create account</button>
+        </form>
+      </div>
+    </dialog>
+
     </div>
 
     <div class="wish-language">
@@ -37,12 +81,8 @@
 
       <div class="division-card division-card--logistics">
         
-        <div class="division-card__frame">
-          <div class="division-card__image">
-            <img src="/src/content/back_photo/1originalSize/basepage-main_logistic-flag.png" alt="Logistics Division">
-          </div>
+        <div class="division-card__frame logistic-bckg-card">
           <div class="division-card__content">
-            <h2 class="division-card__title">Logistics Division</h2>
             <button class="division-card__button" type="button">Enter</button>
           </div>
         </div>
@@ -50,12 +90,8 @@
 
       <div class="division-card division-card--scorb">
        
-        <div class="division-card__frame">
-          <div class="division-card__image">
-            <img src="/src/content/back_photo/1originalSize/basepage-main_scorb-flag.png" alt="SCORB Project">
-          </div>
+        <div class="division-card__frame scorb-bckg-card">
           <div class="division-card__content">
-            <h2 class="division-card__title">SCORB Project</h2>
             <button class="division-card__button" type="button">Enter</button>
           </div>
         </div>
@@ -63,12 +99,8 @@
 
       <div class="division-card division-card--medical">
         
-        <div class="division-card__frame">
-          <div class="division-card__image">
-            <img src="/src/content/back_photo/1originalSize/basepage-main_medical-flag.png" alt="Medical Division">
-          </div>
+        <div class="division-card__frame divisions-bckg-card">
           <div class="division-card__content">
-            <h2 class="division-card__title">Medical Division</h2>
             <button class="division-card__button" type="button">Enter</button>
           </div>
         </div>
@@ -76,12 +108,8 @@
 
       <div class="division-card division-card--mining">
      
-        <div class="division-card__frame">
-          <div class="division-card__image">
-            <img src="/src/content/back_photo/1originalSize/basepage-main_mining-flag.png" alt="Mining Division">
-          </div>
+        <div class="division-card__frame mining-bckg-card">
           <div class="division-card__content">
-            <h2 class="division-card__title">Mining Division</h2>
             <button class="division-card__button" type="button">Enter</button>
           </div>
         </div>

@@ -14,8 +14,6 @@ background: center/cover no-repeat url("../content/back_photo/1originalSize/base
   display: flex;
   flex-direction: column;
   align-items: center;
-
-
   overflow: hidden;
 
 }
@@ -142,24 +140,21 @@ background: center/cover no-repeat url("../content/back_photo/1originalSize/base
 
 .division-card {
   position: relative;
-  min-height: 520px;
   display: flex;
-  align-items: flex-start;
   justify-content: center;
-  padding-top: 34px;
+  align-items: flex-start;
+  padding-top: 18px;
 }
+
 
 
 .division-card__frame {
   position: relative;
   width: 100%;
-  max-width: 220px;
-  min-height: 455px;
+  max-width: 320px;
+  min-height: 555px;
   padding: 18px 14px 20px;
   clip-path: polygon(50% 0, 89% 10%, 89% 88%, 50% 100%, 11% 88%, 11% 10%);
-  background:
-    linear-gradient(180deg, rgba(240, 244, 255, 0.16), rgba(129, 140, 160, 0.05)),
-    linear-gradient(180deg, rgba(17, 21, 30, 0.96), rgba(10, 12, 18, 0.98));
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.05),
@@ -188,6 +183,23 @@ background: center/cover no-repeat url("../content/back_photo/1originalSize/base
   }
 }
 
+.logistic-bckg-card{
+  background: center/cover no-repeat url("../content/back_photo/1originalSize/basepage-main_logistic-fin.png");
+}
+
+.scorb-bckg-card{
+  background: center/cover no-repeat url("../content/back_photo/1originalSize/basepage-main_logistic-fin.png");
+}
+
+.divisions-bckg-card{
+  background: center/cover no-repeat url("../content/back_photo/1originalSize/basepage-main_logistic-fin.png");
+}
+
+.mining-bckg-card{
+  background: center/cover no-repeat url("../content/back_photo/1originalSize/basepage-main_logistic-fin.png");
+}
+
+
 .division-card__image {
   position: relative;
   width: 100%;
@@ -195,9 +207,7 @@ background: center/cover no-repeat url("../content/back_photo/1originalSize/base
   margin-bottom: 22px;
   overflow: hidden;
   clip-path: polygon(50% 0, 88% 14%, 88% 86%, 50% 100%, 12% 86%, 12% 14%);
-  background:
-    radial-gradient(circle at center, rgba(255, 255, 255, 0.01), transparent 60%),
-    linear-gradient(180deg, rgba(114, 0, 23, 0.09), rgba(7, 10, 18, 0.98));
+  
   border: 1px solid rgba(255, 255, 255, 0.16);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.04),
@@ -228,6 +238,7 @@ background: center/cover no-repeat url("../content/back_photo/1originalSize/base
   align-items: center;
   gap: 18px;
   text-align: center;
+  margin-top: 10px
 }
 
 .division-card__title {
