@@ -1,5 +1,123 @@
 import researchImg from '../content/back_photo/ResearchBckg.png'
 
+
+export function renderBasePageMain(){
+  return `
+  <div class="basepage-bckg">
+
+   
+  <section class="basepage-main">
+    <div class="wish-hero__space"></div>
+
+    <div class="basepage-main-auth">
+      <button class="basepage-main-auth__btn wish-auth__btn--register" type="button">
+        Registration
+      </button>
+      <button class="basepage-main-auth__btn wish-auth__btn--login" type="button">
+        Login
+      </button>
+
+
+    <dialog id="auth-dialog" aria-labelledby="authTitle">
+      <div class="auth-modal">
+        <div class="auth-modal__header">
+          <h2 id="authTitle">Authentication</h2>
+          <button type="button" data-auth-close aria-label="Close">×</button>
+        </div>
+
+        <div class="auth-modal__tabs">
+          <button type="button" data-auth-tab="login" class="active">Login</button>
+          <button type="button" data-auth-tab="register">Register</button>
+        </div>
+
+        <form data-auth-form="login">
+            <label>
+           Email
+            <input type="email" name="email" required />
+            </label>
+
+         <label>
+            Password
+            <input type="password" name="password" required />
+          </label>
+
+          <button type="submit">Sign in</button>
+        </form>
+
+        <form data-auth-form="register" hidden>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+
+          <label>
+            Password
+            <input type="password" name="password" required />
+          </label>
+
+          <button type="submit">Create account</button>
+        </form>
+      </div>
+    </dialog>
+
+    </div>
+
+    <div class="wish-language">
+      <button class="basepage-main-language__btn" type="button">
+        Language
+      </button>
+    </div>
+  </section>
+
+  <section class="basepage-main-divisions">
+    <div class="basepage-main-divisions__grid">
+
+      <div class="division-card division-card--logistics">
+        
+        <div class="division-card__frame logistic-bckg-card">
+          <div class="division-card__content">
+            <button class="division-card__button" type="button">Enter</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="division-card division-card--scorb">
+       
+        <div class="division-card__frame scorb-bckg-card">
+          <div class="division-card__content">
+            <button class="division-card__button" type="button">Enter</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="division-card division-card--medical">
+        
+        <div class="division-card__frame divisions-bckg-card">
+          <div class="division-card__content">
+            <button class="division-card__button" type="button">Enter</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="division-card division-card--mining">
+     
+        <div class="division-card__frame mining-bckg-card">
+          <div class="division-card__content">
+            <button class="division-card__button" type="button">Enter</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div> 
+
+
+  `
+
+}
+
+
 export function renderBasePageTopics() {
     return `
     <section class="body-block">
