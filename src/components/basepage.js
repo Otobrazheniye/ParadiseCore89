@@ -1,11 +1,14 @@
-import researchImg from '../content/back_photo/ResearchBckg.png'
+import researchImg from '../content/back_photo/ResearchBckg.png';
+import topicLogistic from '../content/back_photo/basepage-topics-logistic.png'
+import topicAutomation from '../content/back_photo/basepage-topics-automation.png'
+import topicLeadership from '../content/back_photo/basepage-topics-leadership.png'
+import topicMedical from '../content/back_photo/basepage-topics-medical.png'
+import topicSecurity from '../content/back_photo/basepage-topics-security.png'
 
 
 export function renderBasePageMain(){
   return `
   <div class="basepage-bckg">
-
-   
   <section class="basepage-main">
     <div class="wish-hero__space"></div>
 
@@ -216,6 +219,178 @@ export function renderBasePageTopics() {
         </div>
       </div>
 
+
+      
+    </section>
+    <section class="archive-magazine">
+
+      <div class="archive-content">
+
+
+        <div class="archive-feature archive-card">
+          <div class="archive-card__content">
+            <span class="archive-card__label">Strategic Archive</span>
+            <h1 class="archive-card__title">
+              Paradise Core 89 expands from a closed operational system into a scalable strategic platform
+            </h1>
+            <p class="archive-card__desc">
+              Recent internal developments indicate growing strength in security, automation,
+              logistics refinement, and applied research — forming a structure with long-term
+              infrastructure and innovation value.
+            </p>
+            <div class="archive-card__meta">
+              <span>Core Review</span>
+              <span>2026</span>
+              <span>8 min</span>
+            </div>
+          </div>
+
+          <div class="archive-card__media">
+            <img src="${topicAutomation}" alt="Paradise Core strategic archive preview">
+          </div>
+        </div>
+
+
+        <div class="archive-small archive-card">
+          <div class="archive-card__media">
+            <img src="${topicSecurity}" alt="Security expansion preview">
+          </div>
+          <div class="archive-card__content">
+            <span class="archive-card__label">Security</span>
+            <h2 class="archive-card__title">
+              Security operations now support expansion readiness
+            </h2>
+            <p class="archive-card__desc">
+              Controlled field stabilization improves territorial access,
+              lowers operational risk, and supports future deployment.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="archive-small archive-card">
+          <div class="archive-card__media">
+            <img src="${topicLogistic}" alt="Logistics systems preview">
+          </div>
+          <div class="archive-card__content">
+            <span class="archive-card__label">Logistics</span>
+            <h2 class="archive-card__title">
+              Refined logistics architecture increases speed and precision
+            </h2>
+            <p class="archive-card__desc">
+              Process optimization and route control strengthen the flow of
+              resources across divisions and reduce structural inefficiency.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="archive-wide archive-card">
+          
+          <div class="archive-wide archive-card archive-card--system">
+            <div class="archive-system">
+              <div class="archive-system__header">
+                <span class="archive-system__eyebrow">Live operational panel</span>
+                <h2 class="archive-system__title">System Status</h2>
+              </div>
+          
+              <div class="archive-system__metrics">
+                <div class="archive-system__row">
+                  <div class="archive-system__topline">
+                    <span class="archive-system__name">Security</span>
+                    <span class="archive-system__value" data-metric="security">78%</span>
+                  </div>
+                  <div class="archive-system__bar">
+                    <div class="archive-system__fill" data-fill="security" style="width: 78%;"></div>
+                  </div>
+                </div>
+          
+                <div class="archive-system__row">
+                  <div class="archive-system__topline">
+                    <span class="archive-system__name">Logistics</span>
+                    <span class="archive-system__value" data-metric="logistics">92%</span>
+                  </div>
+                  <div class="archive-system__bar">
+                    <div class="archive-system__fill" data-fill="logistics" style="width: 92%;"></div>
+                  </div>
+                </div>
+          
+                <div class="archive-system__row">
+                  <div class="archive-system__topline">
+                    <span class="archive-system__name">Automation</span>
+                    <span class="archive-system__value" data-metric="automation">65%</span>
+                  </div>
+                  <div class="archive-system__bar">
+                    <div class="archive-system__fill" data-fill="automation" style="width: 65%;"></div>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="archive-system__stats">
+                <div class="archive-system__stat">
+                  <span class="archive-system__stat-label">Active zones</span>
+                  <span class="archive-system__stat-value" data-stat="zones">12</span>
+                </div>
+          
+                <div class="archive-system__stat">
+                  <span class="archive-system__stat-label">Risk level</span>
+                  <span class="archive-system__stat-value archive-system__stat-value--low" data-stat="risk">LOW</span>
+                </div>
+          
+                <div class="archive-system__stat">
+                  <span class="archive-system__stat-label">Sync</span>
+                  <span class="archive-system__stat-value archive-system__stat-value--stable" data-stat="sync">STABLE</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="archive-card__content">
+            <span class="archive-card__label">Automation</span>
+            <h2 class="archive-card__title">
+              Autonomous systems are shifting the organization toward scalable execution
+            </h2>
+            <p class="archive-card__desc">
+              Intelligent transport and system-led coordination reduce routine human load
+              while increasing long-term efficiency, adaptability, and strategic control.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="archive-small archive-card">
+          <div class="archive-card__media">
+            <img src="${topicLeadership}" alt="Leadership preview">
+          </div>
+          <div class="archive-card__content">
+            <span class="archive-card__label">Leadership</span>
+            <h2 class="archive-card__title">
+              Leadership quality remains a visible growth multiplier
+            </h2>
+            <p class="archive-card__desc">
+              Strong management signals institutional stability,
+              internal trust, and better execution across complex initiatives.
+            </p>
+          </div>
+        </div>
+
+        <div class="archive-small archive-card">
+          <div class="archive-card__media">
+            <img src="${topicMedical}" alt="Medical innovation preview">
+          </div>
+          <div class="archive-card__content">
+            <span class="archive-card__label">Medical Research</span>
+            <h2 class="archive-card__title">
+              Applied research opens a path beyond industrial operations
+            </h2>
+            <p class="archive-card__desc">
+              Material-based therapeutic development suggests future intellectual property,
+              diversification, and access to higher-value innovation sectors.
+            </p>
+          </div>
+        </div>
+
+      </div>
     </section>
     `
 }
