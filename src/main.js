@@ -1,6 +1,9 @@
 import './main.scss'
+
 //Import Frame
 import { renderHeader } from './components/header.js'
+import { renderFooter, renderFooterDirectory, renderFooterNexus, renderFooterVault} from './components/footer.js'
+import { initFooterSwitcher } from './components/footer-dev.js'
 import { renderBasePageMain, renderBasePageTopics} from './components/basepage.js'
 //Import Dev
 import { authModal } from './components/basepage-dev.js'
@@ -10,7 +13,10 @@ import { tabsLoginRegister } from './components/basepage-dev.js'
 document.querySelector('#app').innerHTML = `
   ${renderHeader()}
 `
-
+document.querySelector('#footer-switcher').innerHTML =`
+${renderFooter()}
+`
+initFooterSwitcher();
 
 document.querySelector('#basepage-topics').innerHTML = `
   ${renderBasePageTopics()}

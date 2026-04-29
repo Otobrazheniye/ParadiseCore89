@@ -1,5 +1,5 @@
 import researchImg from '../content/back_photo/ResearchBckg.png';
-import topicLogistic from '../content/back_photo/basepage-topics-logistic.png'
+import topicLogistic from '../content/back_photo/1originalSize/basepage-topics-automationn.png'
 import topicAutomation from '../content/back_photo/basepage-topics-automation.png'
 import topicLeadership from '../content/back_photo/basepage-topics-leadership.png'
 import topicMedical from '../content/back_photo/basepage-topics-medical.png'
@@ -217,15 +217,13 @@ export function renderBasePageTopics() {
             </p>
           </div>
         </div>
-      </div>
-
-
-      
+      </div>  
     </section>
+
+
     <section class="archive-magazine">
 
       <div class="archive-content">
-
 
         <div class="archive-feature archive-card">
           <div class="archive-card__content">
@@ -242,11 +240,8 @@ export function renderBasePageTopics() {
               <span>Core Review</span>
               <span>2026</span>
               <span>8 min</span>
+  
             </div>
-          </div>
-
-          <div class="archive-card__media">
-            <img src="${topicAutomation}" alt="Paradise Core strategic archive preview">
           </div>
         </div>
 
