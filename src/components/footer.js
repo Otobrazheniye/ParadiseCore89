@@ -1,3 +1,6 @@
+import directoryBtn from '../content/back_photo/1originalSize/footer-directory-btn.png'
+import nexusBtn from '../content/back_photo/1originalSize/footer-nexus-btn.png'
+import vaultBtn from '../content/back_photo/1originalSize/footer-vault-btn.png'
 
 
 export function renderFooter(){
@@ -5,18 +8,18 @@ export function renderFooter(){
 <section class="footer-gateway">
   <div class="footer-gateway__inner">
     <button class="footer-gateway__sphere" type="button" data-footer="directory">
-      <img src="../content/icons/directory-sphere.png" alt="Directory" />
+      <img src="${directoryBtn}" alt="Directory" />
       <span>Directory</span>
     </button>
 
-    <button class="footer-gateway__sphere" type="button" data-footer="vault">
-      <img src="../content/icons/vault-sphere.png" alt="Vault" />
-      <span>Vault</span>
+    <button class="footer-gateway__sphere" type="button" data-footer="nexus">
+      <img src="${nexusBtn}" alt="Nexus" />
+      <span>Nexus</span>
     </button>
 
-    <button class="footer-gateway__sphere" type="button" data-footer="nexus">
-      <img src="../content/icons/nexus-sphere.png" alt="Nexus" />
-      <span>Nexus</span>
+    <button class="footer-gateway__sphere" type="button" data-footer="vault">
+      <img src="${vaultBtn}" alt="Vault" />
+      <span>Vault</span>
     </button>
   </div>
 </section>
