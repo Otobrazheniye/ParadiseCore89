@@ -80,7 +80,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@include respond(tablet) {
   .footer-gateway {
     min-height: 680px;
   }
@@ -262,7 +262,7 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 1024px) {
+@include respond(laptop) {
   .site-footer {
     min-height: 640px;
     padding-top: 210px;
@@ -289,7 +289,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@include respond(tablet) {
   .site-footer {
     min-height: 760px;
     padding: 190px 18px 28px;
@@ -309,7 +309,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@include respond(phone) {
   .site-footer {
     padding-top: 170px;
   }
@@ -539,7 +539,7 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 1024px) {
+@include respond(laptop) {
   .nexus-footer {
     min-height: 860px;
     background-position: 62% center;
@@ -554,7 +554,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@include respond(tablet) {
   .nexus-footer {
     min-height: 960px;
     padding: 0 18px 28px;
@@ -579,7 +579,7 @@
 //   }
  }
 
-@media (max-width: 480px) {
+@include respond(phone) {
   .nexus-footer {
     min-height: 1040px;
     background-position: 70% center;
@@ -811,7 +811,7 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 1024px) {
+@include respond(laptop) {
   .vault-footer {
     min-height: 860px;
     background-position: 62% center;
@@ -826,7 +826,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@include respond(tablet) {
   .vault-footer {
     min-height: 960px;
     padding: 0 18px 28px;
@@ -851,7 +851,7 @@
 //   }
 }
 
-@media (max-width: 480px) {
+@include respond(phone) {
   .vault-footer {
     min-height: 1040px;
     background-position: 70% center;
