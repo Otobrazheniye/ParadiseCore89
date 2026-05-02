@@ -80,7 +80,7 @@ export function renderBasePageMain(){
         
         <div class="division-card__frame logistic-bckg-card">
           <div class="division-card__content">
-            <button class="division-card__button" type="button">Enter</button>
+            <button class="division-card__button phone1-division-card__button" type="button">Enter</button>
           </div>
         </div>
       </div>
@@ -107,7 +107,7 @@ export function renderBasePageMain(){
      
         <div class="division-card__frame mining-bckg-card">
           <div class="division-card__content">
-            <button class="division-card__button" type="button">Enter</button>
+            <button class="division-card__button phone1-division-card__button" type="button">Enter</button>
           </div>
         </div>
       </div>

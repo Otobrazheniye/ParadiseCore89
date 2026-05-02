@@ -570,13 +570,13 @@
 
   }
 
-//   .nexus-footer__grid {
-//     grid-template-columns: 1fr;
-//   }
+  .nexus-footer__grid {
+    grid-template-columns: 1fr;
+  }
 
-//   .nexus-footer__bottom {
-//     flex-direction: column;
-//   }
+  .nexus-footer__bottom {
+    flex-direction: column;
+  }
  }
 
 @include respond(phone) {
@@ -842,13 +842,13 @@
 
   }
 
-//   .vault-footer__grid {
-//     grid-template-columns: 1fr;
-//   }
+  .vault-footer__grid {
+    grid-template-columns: 1fr;
+  }
 
-//   .vault-footer__bottom {
-//     flex-direction: column;
-//   }
+  .vault-footer__bottom {
+    flex-direction: column;
+  }
 }
 
 @include respond(phone) {
