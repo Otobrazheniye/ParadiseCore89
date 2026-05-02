@@ -1,4 +1,5 @@
-import researchImg from '../content/back_photo/ResearchBckg.png';
+import researchImg from '../content/back_photo/ResearchBckg.png'
+import divisionover from '../content/back_photo/DivisionBckg.png'
 import topicLogistic from '../content/back_photo/1originalSize/basepage-topics-automationn.png'
 import topicAutomation from '../content/back_photo/basepage-topics-automation.png'
 import topicLeadership from '../content/back_photo/basepage-topics-leadership.png'
@@ -185,7 +186,7 @@ export function renderBasePageTopics() {
       <div class="divisions-content">
         <div class="divisions-hero">
           <div class="divisions-img">
-            <img src="/src/content/back_photo/DivisionBckg.png" loading="lazy" alt="Divisions topic">
+            <img src="${divisionover}" loading="lazy" alt="Divisions topic">
           </div>
 
           <div class="divisions-intro">
