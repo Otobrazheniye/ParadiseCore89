@@ -24,7 +24,7 @@ export function renderBasePageMain(){
       <dialog id="auth-dialog" aria-labelledby="authTitle">
         <div class="auth-modal">
           <div class="auth-modal__header">
-            <h2 id="authTitle">Authentication</h2>
+            <h2 id="authTitle" data-i18n="auth.authentication">Authentication</h2>
             <button type="button" data-auth-close aria-label="Close">×</button>
           </div>
 
@@ -71,9 +71,17 @@ export function renderBasePageMain(){
     </div>
 
     <div class="wish-language">
-      <button class="basepage-main-language__btn" type="button"  data-lang="EN">EN</button>
-      <button class="basepage-main-language__btn" type="button"  data-lang="CZ">CZ</button>
-      <button class="basepage-main-language__btn" type="button"  data-lang="RU">RU</button>
+      <button class="basepage-main-language__btn" type="button" data-lang="EN">EN</button>
+      <button class="basepage-main-language__btn" type="button" data-lang="CZ">CZ</button>
+      <button class="basepage-main-language__btn" type="button" data-lang="RU">RU</button>
+      <button class="basepage-main-language__btn" type="button" data-lang="UA">UA</button>
+      <button class="basepage-main-language__btn" type="button" data-lang="DE">DE</button>
+      <button class="basepage-main-language__btn" type="button" data-lang="FR">FR</button>
+
+      <button class="basepage-main-language__btn" type="button" data-lang="中文">中文</button>
+      <button class="basepage-main-language__btn" type="button" data-lang="日本語">日本語</button>
+      <button class="basepage-main-language__btn" type="button" data-lang="العربية">العربية</button>
+      <button class="basepage-main-language__btn" type="button" data-lang="עברית">עברית</button>
     </div>
   </section>
 
