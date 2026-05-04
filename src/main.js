@@ -6,6 +6,7 @@ import { renderFooter, renderFooterDirectory, renderFooterNexus, renderFooterVau
 import { initFooterSwitcher } from './components/footer-dev.js'
 import { renderBasePageMain, renderBasePageTopics} from './components/basepage.js'
 //Import Dev
+import { LanguageSwitchButton } from './components/basepage-dev-lang.js'
 import { authModal } from './components/basepage-dev.js'
 import { tabsLoginRegister } from './components/basepage-dev.js'
 
@@ -28,6 +29,7 @@ document.querySelector('#basepage-main').innerHTML = `
 
 
 // Dev
+LanguageSwitchButton();
 authModal();
 tabsLoginRegister();
 

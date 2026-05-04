@@ -10,66 +10,70 @@ import topicSecurity from '../content/back_photo/basepage-topics-security.png'
 export function renderBasePageMain(){
   return `
   <div class="basepage-bckg">
-  <section class="basepage-main">
-    <div class="wish-hero__space"></div>
+    <section class="basepage-main">
+      <div class="wish-hero__space"></div>
 
-    <div class="basepage-main-auth">
-      <button class="basepage-main-auth__btn wish-auth__btn--register" type="button">
-        Registration
-      </button>
-      <button class="basepage-main-auth__btn wish-auth__btn--login" type="button">
-        Login
-      </button>
+      <div class="basepage-main-auth">
+        <button class="basepage-main-auth__btn wish-auth__btn--register" type="button" data-i18n="registration">
+          Registration
+        </button>
+        <button class="basepage-main-auth__btn wish-auth__btn--login" type="button" data-i18n="login">
+          Login
+        </button>
 
+      <dialog id="auth-dialog" aria-labelledby="authTitle">
+        <div class="auth-modal">
+          <div class="auth-modal__header">
+            <h2 id="authTitle">Authentication</h2>
+            <button type="button" data-auth-close aria-label="Close">×</button>
+          </div>
 
-    <dialog id="auth-dialog" aria-labelledby="authTitle">
-      <div class="auth-modal">
-        <div class="auth-modal__header">
-          <h2 id="authTitle">Authentication</h2>
-          <button type="button" data-auth-close aria-label="Close">×</button>
-        </div>
+          <div class="auth-modal__tabs">
+            <button type="button"  class="active" data-i18n="login">Login</button>
+            <button type="button" data-i18n="registration">Registration</button>
+          </div>
 
-        <div class="auth-modal__tabs">
-          <button type="button" data-auth-tab="login" class="active">Login</button>
-          <button type="button" data-auth-tab="register">Register</button>
-        </div>
-
-        <form data-auth-form="login">
+          <form data-auth-form="login">
             <label>
-           Email
-            <input type="email" name="email" required />
+              Email
+              <input type="email" name="email" required />
             </label>
 
-         <label>
-            Password
-            <input type="password" name="password" required />
-          </label>
+            <label>
+              Password
+              <input type="password" name="password" required />
+            </label>
 
-          <button type="submit">Sign in</button>
-        </form>
+            <button type="submit">Sign in</button>
+          </form>
 
-        <form data-auth-form="register" hidden>
-          <label>
-            Email
-            <input type="email" name="email" required />
-          </label>
+          <form data-auth-form="register" hidden>
+            <label>
+              Email
+              <input type="email" name="email" required />
+            </label>
 
-          <label>
-            Password
-            <input type="password" name="password" required />
-          </label>
+            <label>
+              Password
+              <input type="password" name="password" required />
+            </label>
 
-          <button type="submit">Create account</button>
-        </form>
-      </div>
-    </dialog>
-
+            <button type="submit">Create account</button>
+          </form>
+        </div>
+      </dialog>
     </div>
 
     <div class="wish-language">
       <button class="basepage-main-language__btn" type="button">
         Language
       </button>
+    </div>
+
+    <div class="wish-language">
+      <button class="basepage-main-language__btn" type="button"  data-lang="EN">EN</button>
+      <button class="basepage-main-language__btn" type="button"  data-lang="CZ">CZ</button>
+      <button class="basepage-main-language__btn" type="button"  data-lang="RU">RU</button>
     </div>
   </section>
 
