@@ -13,39 +13,62 @@ export function LanguageSwitchButton(){
 
 function languageSwitch(activeLanguage){
     const buttonLanguageAuth = document.querySelectorAll('[data-i18n]')
+   
     const language = activeLanguage
 
+
     buttonLanguageAuth.forEach((i)=> {
-        const key = i.dataset.i18n
-    
-        i.textContent = translations[language][key]
+        let key = i.dataset.i18n.split(".")
+        const value = key.reduce((obj,part)=> {
+            return obj?.[part]
+        },translations[language])
+        if(value){
+          i.textContent = value  
+        }
+        
     })
 }
 
+export const translations = {
+    EN: {
+        auth:{
+            login: 'Login',
+            registration: 'Registration',
+            password: 'Pasword', 
+            passwordPlaceholder: 'Enter pasword'  
+        },
+  
+    // close: 'Close',
+ 
+  },
 
+    CZ: {
+    auth: {
+        login: 'Přihlášení',
+        registration: 'Registrace',
+        password: 'Heslo',
+        passwordPlaceholder: 'Zadejte heslo'
+    }
+  },
+
+    RU: {
+    auth: {
+        login: 'Вход',
+        registration: 'Регистрация',
+        password: 'Пароль',
+        passwordPlaceholder: 'Введите пароль'
+    }
+  },
+  
+};
+
+// Heplpers
+// data-i18n - между тегами - Email
+// placeholder - внутри input - Enter email
+// value - текст кнопки input - Login
+// title - всплывающая подсказка - Secure access
 
 // 中文 вместо ZH
 // 日本語 вместо JA
 // العربية вместо AR
 // עברית вместо HE
-export const translations = {
-    EN: {
-    login: 'Login',
-    registration: 'Registration',
-    // close: 'Close',
- 
-  },
-
-  CZ: {
-    login: 'Přihlášení',
-    registration: 'Registrace',
-
-  },
-
-  RU: {
-    login: 'Вход',
-    registration: 'Регистрация',
-
-  },
-  
-};

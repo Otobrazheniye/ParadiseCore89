@@ -14,10 +14,10 @@ export function renderBasePageMain(){
       <div class="wish-hero__space"></div>
 
       <div class="basepage-main-auth">
-        <button class="basepage-main-auth__btn wish-auth__btn--register" type="button" data-i18n="registration">
+        <button class="basepage-main-auth__btn wish-auth__btn--register" type="button" data-i18n="auth.registration">
           Registration
         </button>
-        <button class="basepage-main-auth__btn wish-auth__btn--login" type="button" data-i18n="login">
+        <button class="basepage-main-auth__btn wish-auth__btn--login" type="button" data-i18n="auth.login">
           Login
         </button>
 
@@ -29,8 +29,8 @@ export function renderBasePageMain(){
           </div>
 
           <div class="auth-modal__tabs">
-            <button type="button"  class="active" data-i18n="login">Login</button>
-            <button type="button" data-i18n="registration">Registration</button>
+            <button type="button"  class="active" data-i18n="auth.login">Login</button>
+            <button type="button" data-i18n="auth.registration">Registration</button>
           </div>
 
           <form data-auth-form="login">
@@ -40,8 +40,8 @@ export function renderBasePageMain(){
             </label>
 
             <label>
-              Password
-              <input type="password" name="password" required />
+              <span data-i18n="auth.password">Password</span>
+              <input type="password" name="password" data-i18n-placeholder="auth.passwordPlaceholder" placeholder = "Enter password" required />
             </label>
 
             <button type="submit">Sign in</button>
