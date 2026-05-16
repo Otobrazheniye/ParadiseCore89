@@ -298,14 +298,14 @@ export function renderBasePageTopics() {
           <div class="archive-wide archive-card archive-card--system">
             <div class="archive-system">
               <div class="archive-system__header">
-                <span class="archive-system__eyebrow">Live operational panel</span>
-                <h2 class="archive-system__title">System Status</h2>
+                <span class="archive-system__eyebrow" data-i18n="basepageArchivesystem.eyebrow">Live operational panel</span>
+                <h2 class="archive-system__title" data-i18n="basepageArchivesystem.title">System Status</h2>
               </div>
           
               <div class="archive-system__metrics">
                 <div class="archive-system__row">
                   <div class="archive-system__topline">
-                    <span class="archive-system__name">Security</span>
+                    <span class="archive-system__name" data-i18n="basepageArchivesystem.security">Security</span>
                     <span class="archive-system__value" data-metric="security">78%</span>
                   </div>
                   <div class="archive-system__bar">
@@ -315,7 +315,7 @@ export function renderBasePageTopics() {
           
                 <div class="archive-system__row">
                   <div class="archive-system__topline">
-                    <span class="archive-system__name">Logistics</span>
+                    <span class="archive-system__name" data-i18n="basepageArchivesystem.logistics">Logistics</span>
                     <span class="archive-system__value" data-metric="logistics">92%</span>
                   </div>
                   <div class="archive-system__bar">
@@ -325,7 +325,7 @@ export function renderBasePageTopics() {
           
                 <div class="archive-system__row">
                   <div class="archive-system__topline">
-                    <span class="archive-system__name">Automation</span>
+                    <span class="archive-system__name" data-i18n="basepageArchivesystem.automation">Automation</span>
                     <span class="archive-system__value" data-metric="automation">65%</span>
                   </div>
                   <div class="archive-system__bar">
@@ -336,29 +336,29 @@ export function renderBasePageTopics() {
           
               <div class="archive-system__stats">
                 <div class="archive-system__stat">
-                  <span class="archive-system__stat-label">Active zones</span>
+                  <span class="archive-system__stat-label" data-i18n="basepageArchivesystem.activeZones">Active zones</span>
                   <span class="archive-system__stat-value" data-stat="zones">12</span>
                 </div>
           
                 <div class="archive-system__stat">
-                  <span class="archive-system__stat-label">Risk level</span>
-                  <span class="archive-system__stat-value archive-system__stat-value--low" data-stat="risk">LOW</span>
+                  <span class="archive-system__stat-label" data-i18n="basepageArchivesystem.riskLevel">Risk level</span>
+                  <span class="archive-system__stat-value archive-system__stat-value--low" data-stat="risk" data-i18n="basepageArchivesystem.riskValue">LOW</span>
                 </div>
           
                 <div class="archive-system__stat">
-                  <span class="archive-system__stat-label">Sync</span>
-                  <span class="archive-system__stat-value archive-system__stat-value--stable" data-stat="sync">STABLE</span>
+                  <span class="archive-system__stat-label" data-i18n="basepageArchivesystem.sync">Sync</span>
+                  <span class="archive-system__stat-value archive-system__stat-value--stable" data-stat="sync" data-i18n="basepageArchivesystem.syncValue">STABLE</span>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="archive-card__content">
-            <span class="archive-card__label">Automation</span>
-            <h2 class="archive-card__title">
+            <span class="archive-card__label" data-i18n="basepageAutomation.label">Automation</span>
+            <h2 class="archive-card__title" data-i18n="basepageAutomation.title">
               Autonomous systems are shifting the organization toward scalable execution
             </h2>
-            <p class="archive-card__desc">
+            <p class="archive-card__desc" data-i18n="basepageAutomation.desc">
               Intelligent transport and system-led coordination reduce routine human load
               while increasing long-term efficiency, adaptability, and strategic control.
             </p>
@@ -371,11 +371,11 @@ export function renderBasePageTopics() {
             <img src="${topicLeadership}" alt="Leadership preview">
           </div>
           <div class="archive-card__content">
-            <span class="archive-card__label">Leadership</span>
-            <h2 class="archive-card__title">
+            <span class="archive-card__label" data-i18n="basepageLeadership.label">Leadership</span>
+            <h2 class="archive-card__title" data-i18n="basepageLeadership.title">
               Leadership quality remains a visible growth multiplier
             </h2>
-            <p class="archive-card__desc">
+            <p class="archive-card__desc" data-i18n="basepageLeadership.desc">
               Strong management signals institutional stability,
               internal trust, and better execution across complex initiatives.
             </p>
@@ -387,11 +387,11 @@ export function renderBasePageTopics() {
             <img src="${topicMedical}" alt="Medical innovation preview">
           </div>
           <div class="archive-card__content">
-            <span class="archive-card__label">Medical Research</span>
-            <h2 class="archive-card__title">
+            <span class="archive-card__label" data-i18n="basepageMedical.label">Medical Research</span>
+            <h2 class="archive-card__title" data-i18n="basepageMedical.title">
               Applied research opens a path beyond industrial operations
             </h2>
-            <p class="archive-card__desc">
+            <p class="archive-card__desc" data-i18n="basepageMedical.desc">
               Material-based therapeutic development suggests future intellectual property,
               diversification, and access to higher-value innovation sectors.
             </p>

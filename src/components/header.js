@@ -10,10 +10,10 @@ export function renderHeader() {
     <div class="header-list header-list-display">
       <ul>
         <li class="header-item header-item-first">
-          <a class="header-link link-research" href="#">Research</a>
+          <a class="header-link link-research" href="#" data-i18n="header.research" >Research</a>
         </li>
         <li class="header-item header-item-second">
-          <a class="header-link link-divisions" href="#">Divisions</a>
+          <a class="header-link link-divisions" href="#" data-i18n="header.division" >Divisions</a>
         </li>
       </ul>
     </div>
@@ -29,10 +29,10 @@ export function renderHeader() {
     <div class="header-list header-list-display">
       <ul>
         <li class="header-item header-item-third">
-          <a class="header-link link-archives" href="#">Archives</a>
+          <a class="header-link link-archives" href="#" data-i18n="header.archives" >Archives</a>
         </li>
         <li class="header-item header-item-fourth">
-          <a class="header-link link-access" href="#">Access</a>
+          <a class="header-link link-access" href="#" data-i18n="header.access" >Access</a>
         </li>
       </ul>
     </div>
@@ -46,16 +46,16 @@ export function renderHeader() {
     <div class="header-mobile-menu">
       <ul class="header-mobile-list">
         <li class="header-item header-item-first">
-          <a class="header-link link-research" href="#">Research</a>
+          <a class="header-link link-research" href="#" data-i18n="header.research" >Research</a>
         </li>
         <li class="header-item header-item-second">
-          <a class="header-link link-divisions" href="#">Divisions</a>
+          <a class="header-link link-divisions" href="#" data-i18n="header.division" >Divisions</a>
         </li>
         <li class="header-item header-item-third">
-          <a class="header-link link-archives" href="#">Archives</a>
+          <a class="header-link link-archives" href="#" data-i18n="header.archives >Archives</a>
         </li>
         <li class="header-item header-item-fourth">
-          <a class="header-link link-access" href="#">Access</a>
+          <a class="header-link link-access" href="#" data-i18n="header.access" >Access</a>
         </li>
       </ul>
     </div>
