@@ -188,29 +188,29 @@ export function renderFooterVault(){
           <span>Personnel</span>
           <strong>2.4k</strong>
         </div>
-
+// /////////////////////////////////
         <div class="vault-footer__stat">
-          <span>Growth</span>
+          <span data-i18n="footerVault.growth">Growth</span>
           <strong>+18%</strong>
         </div>
 
         <div class="vault-footer__stat">
-          <span>Security Level</span>
-          <strong>High</strong>
+          <span data-i18n="footerVault.securityLevel">Security Level</span>
+          <strong data-i18n="footerVault.securityLevelValue">High</strong>
         </div>
       </div>
     </section>
   </div>
 
    <div class="site-footer__controls">
-    <button class="footer-back-btn" type="button">
+    <button class="footer-back-btn" type="button" data-i18n="footerVault.back">
       ← Back
     </button>
    </div>
 
   <div class="vault-footer__bottom">
-    <span>© 2026 Paradise Core 89</span>
-    <span>Vault access: Restricted</span>
+    <span data-i18n="footerVault.copyright">© 2026 Paradise Core 89</span>
+    <span data-i18n="footerVault.status">Vault access: Restricted</span>
   </div>
 </footer>
     `

@@ -13,7 +13,7 @@ header {
   // background: linear-gradient(180deg, #80061b 0%, #0f131a 100%);
   background: linear-gradient(180deg, #001a33 0%, #0f131a 100%);
   background: linear-gradient(180deg, #0a0f2a 0%, #1a1400 100%);
-  
+  z-index: 10;
   
   @include listFlex;
 }
@@ -27,6 +27,7 @@ header {
   object-fit: contain;
   object-position: top center;
   z-index: 0;
+  pointer-events: none;
 }
 
 .navbar {
@@ -38,7 +39,7 @@ header {
   gap: 2rem;
   padding: 0 1rem;
   position: relative;
-  z-index: 3;
+  z-index: 20;
 }
 
 .header-list {
@@ -118,6 +119,7 @@ header {
 .header-burger,
 .header-mobile-menu {
   display: none;
+  z-index: 40;
 }
 
 
@@ -157,8 +159,10 @@ background: linear-gradient(
   .pc89-header__bg {
     height: clamp(50px, 80px, 80px);
     object-fit:cover;
-    z-index: 1;
+    pointer-events: none;
+    z-index: 0;
   }
+
 
   .navbar {
     width: 100%;
@@ -167,6 +171,8 @@ background: linear-gradient(
     align-items: center;
     padding: 0 1rem;
     gap: 0;
+    position: relative;
+    z-index: 10;
   }
 
   // desktop navigation hidden
@@ -200,7 +206,7 @@ background: linear-gradient(
     background: rgba(8, 10, 20, 0.78);
     backdrop-filter: blur(8px);
     cursor: pointer;
-    z-index: 12;
+    z-index: 40;
   }
 
   .header-burger span {
@@ -239,18 +245,19 @@ background: linear-gradient(
   }
 
   // mobile menu
+
   .header-mobile-menu {
     display: block;
     position: absolute;
     top: calc(100% + 0.4rem);
     left: 1rem;
     right: 1rem;
-    z-index: 11;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px);
     pointer-events: none;
     transition: 0.25s ease;
+    z-index: 35;
   }
 
   .header-mobile-menu.is-open {
@@ -260,6 +267,34 @@ background: linear-gradient(
     pointer-events: auto;
   }
 
+  // Need upgrade
+  .header-link__text {
+    padding: 0.35rem 1rem;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(7, 10, 18, 0.92) 0%,
+        rgba(22, 18, 6, 0.82) 48%,
+        rgba(7, 10, 18, 0.9) 100%
+      );
+
+    border: 1px solid rgba(255, 215, 0, 0.32);
+    border-radius: 999px;
+
+    box-shadow:
+      0 0 18px rgba(0, 0, 0, 0.65),
+      0 0 14px rgba(255, 200, 60, 0.12),
+      inset 0 0 12px rgba(255, 215, 0, 0.08);
+
+    backdrop-filter: blur(7px);
+
+    text-shadow:
+      0 0 8px rgba(255, 215, 0, 0.55),
+      0 2px 4px rgba(0, 0, 0, 0.95);
+  }
+
+  
   .header-mobile-list {
     list-style: none;
     margin: 0;
@@ -325,6 +360,7 @@ background: linear-gradient(
   }
 }
 
+
 //#region <<- MEDIA P->>
 @include respond(phone){
 header{
@@ -356,3 +392,5 @@ header{
   }
 }
 //#endregion
+
+

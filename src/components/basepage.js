@@ -139,9 +139,9 @@ export function renderBasePageTopics() {
     <section class="body-block">
 
       <div class="section-key-block1">
-        <span class="section-key-block1_label">RESEARCH DIVISION</span>
-        <h2 class="section-key-block1_title">Cognitive Systems & Intelligence</h2>
-        <p class="section-key-block1_subtitle">
+        <span class="section-key-block1_label" data-i18n="basepageResearchDivision.label">RESEARCH DIVISION</span>
+        <h2 class="section-key-block1_title" data-i18n="basepageResearchDivision.title">Cognitive Systems & Intelligence</h2>
+        <p class="section-key-block1_subtitle" data-i18n="basepageResearchDivision.subtitle">
           Exploring the convergence of artificial intelligence, bioanalysis, and neural architectures to redefine how knowledge is created, processed, and evolved.
         </p>
       </div>
@@ -207,8 +207,8 @@ export function renderBasePageTopics() {
             </p>
           </div>
 
-          <div class="divisions-fact" data-i18n="basepageDivisionOverview.fact">
-            <p>
+          <div class="divisions-fact" >
+            <p data-i18n="basepageDivisionOverview.fact">
               Core stability remains at 99.7% across 42 active global networks, while all operational divisions continue to synchronize through a single protected analytical stream.
             </p>
           </div>

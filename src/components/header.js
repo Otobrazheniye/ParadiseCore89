@@ -46,16 +46,27 @@ export function renderHeader() {
     <div class="header-mobile-menu">
       <ul class="header-mobile-list">
         <li class="header-item header-item-first">
-          <a class="header-link link-research" href="#" data-i18n="header.research" >Research</a>
+          <a class="header-link link-research" href="#">
+            <span class="header-link__text" data-i18n="header.research">Research</span>
+          </a>
         </li>
+    
         <li class="header-item header-item-second">
-          <a class="header-link link-divisions" href="#" data-i18n="header.division" >Divisions</a>
+          <a class="header-link link-divisions" href="#">
+            <span class="header-link__text" data-i18n="header.division">Divisions</span>
+          </a>
         </li>
+    
         <li class="header-item header-item-third">
-          <a class="header-link link-archives" href="#" data-i18n="header.archives >Archives</a>
+          <a class="header-link link-archives" href="#">
+            <span class="header-link__text" data-i18n="header.archives">Archives</span>
+          </a>
         </li>
+    
         <li class="header-item header-item-fourth">
-          <a class="header-link link-access" href="#" data-i18n="header.access" >Access</a>
+          <a class="header-link link-access" href="#">
+            <span class="header-link__text" data-i18n="header.access">Access</span>
+          </a>
         </li>
       </ul>
     </div>

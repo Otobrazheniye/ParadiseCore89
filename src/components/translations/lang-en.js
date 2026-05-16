@@ -14,8 +14,6 @@ export const EN = {
     access: 'Access',
   },
 
-
-
    basepageResearchDivision: {
     label: 'RESEARCH DIVISION',
     title: 'Cognitive Systems & Intelligence',
@@ -55,9 +53,6 @@ export const EN = {
 
     quote: 'To enter the Divisions structure is to see how Paradise Core 89 truly functions: not as a company of separate departments, but as a living architecture of order, optimization, and industrial intelligence.',
   },
-
-
-
 
   basepageArchiveFeature: {
     label: 'Strategic Archive',
@@ -117,4 +112,107 @@ export const EN = {
     desc: 'Material-based therapeutic development suggests future intellectual property, diversification, and access to higher-value innovation sectors.',
     imgAlt: 'Medical innovation preview',
   },
+
+
+
+
+
+  
+    footerGateway: {
+    directory: 'Directory',
+    nexus: 'Nexus',
+    vault: 'Vault',
+
+    directoryAlt: 'Directory',
+    nexusAlt: 'Nexus',
+    vaultAlt: 'Vault',
+  },
+
+  footerDirectory: {
+    eyebrow: 'Corporate System',
+    title: 'Paradise Core 89',
+    desc: 'Integrated industrial, research and strategic infrastructure platform.',
+
+    navTitle: 'Navigation',
+    research: 'Research',
+    divisions: 'Divisions',
+    archives: 'Archives',
+    access: 'Access',
+
+    divisionsTitle: 'Divisions',
+    logistics: 'Logistics',
+    medicalResearch: 'Medical Research',
+    security: 'Security',
+    scorbProject: 'SCORB Project',
+
+    networkTitle: 'Network',
+    github: 'GitHub',
+    instagram: 'Instagram',
+    telegram: 'Telegram',
+    linkedin: 'LinkedIn',
+
+    back: '← Back',
+
+    copyright: '© 2026 Paradise Core 89',
+    status: 'System status: Stable',
+  },
+
+  footerNexus: {
+    eyebrow: 'External Gateway',
+    title: 'NEXUS',
+    desc: 'Communication layer for external channels, encrypted contact routes and partnership transmission lines.',
+
+    liveChannelsTitle: 'Live Channels',
+    github: 'GitHub',
+    linkedin: 'LinkedIn',
+    instagram: 'Instagram',
+    telegram: 'Telegram',
+
+    transmissionTitle: 'Transmission',
+    email: 'contact@paradisecore89.com',
+    encryptedLine: 'Encrypted Line',
+    partnershipRequests: 'Partnership Requests',
+
+    currentSignalTitle: 'Current Signal',
+    globalReach: 'Global Reach',
+    globalReachValue: 'Active',
+    externalNodes: 'External Nodes',
+    responseTime: 'Response Time',
+
+    back: '← Back',
+
+    copyright: '© 2026 Paradise Core 89',
+    status: 'Nexus signal: Online',
+  },
+
+  footerVault: {
+    eyebrow: 'Restricted Archive',
+    title: 'VAULT',
+    desc: 'Internal storage layer for classified assets, active project records and protected operational metrics.',
+
+    classifiedAssetsTitle: 'Classified Assets',
+    reports: 'Reports',
+    internalLogs: 'Internal Logs',
+    caseStudies: 'Case Studies',
+    researchFiles: 'Research Files',
+
+    activeProjectsTitle: 'Active Projects',
+    scorb: 'SCORB',
+    medicalProgram: 'Medical Program',
+    logisticsGrid: 'Logistics Grid',
+    securityExpansion: 'Security Expansion',
+
+    internalMetricsTitle: 'Internal Metrics',
+    activeFacilities: 'Active Facilities',
+    personnel: 'Personnel',
+    growth: 'Growth',
+    securityLevel: 'Security Level',
+    securityLevelValue: 'High',
+
+    back: '← Back',
+
+    copyright: '© 2026 Paradise Core 89',
+    status: 'Vault access: Restricted',
+  },
+
 }
