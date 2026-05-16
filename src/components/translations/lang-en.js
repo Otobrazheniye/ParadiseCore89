@@ -117,7 +117,7 @@ export const EN = {
 
 
 
-  
+
     footerGateway: {
     directory: 'Directory',
     nexus: 'Nexus',
@@ -195,9 +195,8 @@ export const EN = {
     internalLogs: 'Internal Logs',
     caseStudies: 'Case Studies',
     researchFiles: 'Research Files',
-
+//temp stop
     activeProjectsTitle: 'Active Projects',
-    scorb: 'SCORB',
     medicalProgram: 'Medical Program',
     logisticsGrid: 'Logistics Grid',
     securityExpansion: 'Security Expansion',

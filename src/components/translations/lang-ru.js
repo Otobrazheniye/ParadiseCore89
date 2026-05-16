@@ -120,4 +120,102 @@ export const RU = {
     desc: 'Разработка терапевтических решений на основе материалов указывает на будущую интеллектуальную собственность, диверсификацию и доступ к более ценным инновационным секторам.',
     imgAlt: 'Превью медицинских инноваций',
   },
+
+   footerGateway: {
+    directory: 'Директория',
+    nexus: 'Нексус',
+    vault: 'Хранилище',
+
+    directoryAlt: 'Директория',
+    nexusAlt: 'Нексус',
+    vaultAlt: 'Хранилище',
+  },
+
+  footerDirectory: {
+    eyebrow: 'Корпоративная система',
+    title: 'Paradise Core 89',
+    desc: 'Интегрированная промышленная, исследовательская и стратегическая инфраструктурная платформа.',
+
+    navTitle: 'Навигация',
+    research: 'Исследования',
+    divisions: 'Подразделения',
+    archives: 'Архивы',
+    access: 'Доступ',
+
+    divisionsTitle: 'Подразделения',
+    logistics: 'Логистика',
+    medicalResearch: 'Медицинские исследования',
+    security: 'Безопасность',
+    scorbProject: 'Проект SCORB',
+
+    networkTitle: 'Сеть',
+    github: 'GitHub',
+    instagram: 'Instagram',
+    telegram: 'Telegram',
+    linkedin: 'LinkedIn',
+
+    back: '← Назад',
+
+    copyright: '© 2026 Paradise Core 89',
+    status: 'Статус системы: стабильно',
+  },
+
+  footerNexus: {
+    eyebrow: 'Внешний шлюз',
+    title: 'NEXUS',
+    desc: 'Коммуникационный слой для внешних каналов, зашифрованных маршрутов связи и партнерских линий передачи.',
+
+    liveChannelsTitle: 'Активные каналы',
+    github: 'GitHub',
+    linkedin: 'LinkedIn',
+    instagram: 'Instagram',
+    telegram: 'Telegram',
+
+    transmissionTitle: 'Передача',
+    email: 'contact@paradisecore89.com',
+    encryptedLine: 'Зашифрованная линия',
+    partnershipRequests: 'Партнерские запросы',
+
+    currentSignalTitle: 'Текущий сигнал',
+    globalReach: 'Глобальный охват',
+    globalReachValue: 'Активен',
+    externalNodes: 'Внешние узлы',
+    responseTime: 'Время ответа',
+
+    back: '← Назад',
+
+    copyright: '© 2026 Paradise Core 89',
+    status: 'Сигнал Nexus: онлайн',
+  },
+
+  footerVault: {
+    eyebrow: 'Ограниченный архив',
+    title: 'VAULT',
+    desc: 'Внутренний слой хранения для засекреченных активов, записей активных проектов и защищенных операционных метрик.',
+
+    classifiedAssetsTitle: 'Засекреченные активы',
+    reports: 'Отчеты',
+    internalLogs: 'Внутренние журналы',
+    caseStudies: 'Кейсы',
+    researchFiles: 'Исследовательские файлы',
+
+    activeProjectsTitle: 'Активные проекты',
+    scorb: 'SCORB',
+    medicalProgram: 'Медицинская программа',
+    logisticsGrid: 'Логистическая сеть',
+    securityExpansion: 'Расширение безопасности',
+
+    internalMetricsTitle: 'Внутренние метрики',
+    activeFacilities: 'Активные объекты',
+    personnel: 'Персонал',
+    growth: 'Рост',
+    securityLevel: 'Уровень безопасности',
+    securityLevelValue: 'Высокий',
+
+    back: '← Назад',
+
+    copyright: '© 2026 Paradise Core 89',
+    status: 'Доступ к Vault: ограничен',
+  },
+
 }
