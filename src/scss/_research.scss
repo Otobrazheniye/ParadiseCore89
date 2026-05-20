@@ -64,6 +64,21 @@
      @include LightGoldSubtitle
 }
 
+.pull{
+     @include pullQuote;
+}
+.key{
+     @include keyLine
+}
+
+.region-list{
+ @include structureChipset;
+}
+
+.region-list li{
+  @include designChipset;
+}
+
 @include respond(laptop){
 
 .pc89-header{

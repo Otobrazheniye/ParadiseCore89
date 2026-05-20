@@ -288,6 +288,48 @@ $breakpoints: (
   }
 }
 //#endregion
+
+
+//#region Chipset Style
+@mixin structureChipset{
+  margin: 1em 0 1.4em;
+  padding: 0;
+  list-style: none;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(8px, 1.4vw, 14px);
+
+}
+
+
+@mixin designChipset{
+  margin: 1em 0 1.4em;
+  padding: 0;
+  list-style: none;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(8px, 1.4vw, 14px);
+
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing:.08em;
+  font: 700 clamp(11px, 1vw, 13px)/1 "Cinzel", serif;
+  color: hsl(195 100% 90%);
+
+  background: linear-gradient(180deg, rgba(16,24,38,.55), rgba(12,18,30,.35));
+  border: 1px solid rgba(90,160,255,.35);
+  box-shadow:
+    0 0 0 1px rgba(120,180,255,.25) inset,
+    0 10px 24px rgba(0,0,0,.25),
+    0 0 18px rgba(80,160,255,.18);
+
+  // длинные строки не ломают сетку 
+  overflow-wrap: anywhere;
+}
+//#endregion
 //#endregion
 
 
@@ -772,44 +814,7 @@ $breakpoints: (
 
 
 
-// //Chipset структура
-// @mixin structureChipset{
-//   margin: 1em 0 1.4em;
-//   padding: 0;
-//   list-style: none;
 
-//   display: grid;
-//   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-//   gap: clamp(8px, 1.4vw, 14px);
-
-// }
-// //Chipset дизайн
-// @mixin designChipset{
-//   margin: 1em 0 1.4em;
-//   padding: 0;
-//   list-style: none;
-
-//   display: grid;
-//   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-//   gap: clamp(8px, 1.4vw, 14px);
-
-//   padding: 10px 14px;
-//   border-radius: 12px;
-//   text-transform: uppercase;
-//   letter-spacing:.08em;
-//   font: 700 clamp(11px, 1vw, 13px)/1 "Cinzel", serif;
-//   color: hsl(195 100% 90%);
-
-//   background: linear-gradient(180deg, rgba(16,24,38,.55), rgba(12,18,30,.35));
-//   border: 1px solid rgba(90,160,255,.35);
-//   box-shadow:
-//     0 0 0 1px rgba(120,180,255,.25) inset,
-//     0 10px 24px rgba(0,0,0,.25),
-//     0 0 18px rgba(80,160,255,.18);
-
-//   // длинные строки не ломают сетку 
-//   overflow-wrap: anywhere;
-// }
 
 
 // //Текст-бокс1

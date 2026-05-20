@@ -3,7 +3,7 @@
 export function renderResearch() {
 return `
     <section class="body-reseach">
-  
+
     <section class="reseach-section1">
         <div class="infrastructure">
             <h1 class="title">Infrastructure of consciousness</h1>
