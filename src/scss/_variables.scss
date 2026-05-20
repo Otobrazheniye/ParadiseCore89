@@ -132,7 +132,7 @@ $breakpoints: (
 //#endregion
 
 
-// <<-- Boxes -->>
+//#region <<-- Boxes -->>
 //#region Neon Boxes
 @mixin NeonIntroBox(
   $radius: 18px,
@@ -208,6 +208,7 @@ $breakpoints: (
   }
 }
 // #endregion
+
 //#region Gold Boxes
 @mixin glassGoldPanel($width: 620px, $bottom: 135px) {
   position: absolute;
@@ -287,9 +288,10 @@ $breakpoints: (
   }
 }
 //#endregion
+//#endregion
 
 
-// <<-- TEXT -->
+//#region <<-- TEXT -->
 //#region Neon Text
 @mixin NeonText(
   $color: #ddd6ff,
@@ -314,6 +316,7 @@ $breakpoints: (
   }
 }
 //#endregion
+
 //#region Gold Text
 @mixin glassGoldText(
   $color: #f0e2be,
@@ -331,8 +334,10 @@ $breakpoints: (
      0 0 18px rgba(255, 170, 60, 0.04);
 }
 //#endregion
+//#endregion
 
-// <<-- QUOTE -->>
+
+//#region <<-- QUOTE -->>
 //#region Neon Quote 
 @mixin NeonFactCard(
   $radius: 18px,
@@ -387,6 +392,7 @@ $breakpoints: (
   }
 }
 //#endregion
+
 //#region Gold Quote
 @mixin glassGoldQuote($width: 340px, $right: 40px, $bottom: 0, $label: "CORE STATUS") {
   position: absolute;
@@ -468,7 +474,26 @@ $breakpoints: (
 }
 //#endregion
 
-// <<-- KeyBlock -->>
+//#region Pull Quote
+@mixin pullQuote{
+  width: 90%;
+  margin: 1.6em 1em;
+  padding: 14px 18px;
+  background: linear-gradient(180deg, rgba(16,24,38,.5), rgba(12,18,30,.35));
+  border: 1px solid rgba(199,149,0,.25);
+  border-left: 4px solid $gold-2;
+  border-radius: 12px;
+  color:#f3f6ff;
+  font-style: italic;
+  box-shadow: 0 14px 24px rgba(0,0,0,.25);
+}
+//#endregion
+//#endregion
+
+
+
+
+//#region <<-- KeyBlock -->>
 //#region Key Block 1
 @mixin SectionKeyBlock($maxWidth: 1100px, $gap: 10px, $mb: 32px) {
   width: min(#{$maxWidth}, 100%);
@@ -530,50 +555,74 @@ $breakpoints: (
       // </div>
 //#endregion
 //#endregion
-// <<-- KeyLine -->>
 
+//#region Keyboard typing Block
+@mixin kbdKey {
+  display: inline-block;
+  width: 95%;
+  padding: 0.4em 0 0 0.4em;
+  border-radius: 6px;
+  background: #0e1420;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 1px 0 rgba(255,255,255,.12) inset;
+  font: 600 12px/1 "Cinzel", serif;
+  letter-spacing: .04em;
+  color: #eaeff9;
+}
+//#endregion
+//#endregion
 
+//#region <<-- KeyLine -->>
+//#region Gold Key Line standart
+@mixin keyLine{
+  margin: 2.2em 0 0.8em;
+  font: 700 clamp(16px, 2.2vw, 22px) "Cinzel", serif;
+  letter-spacing:.12em;
+  text-transform: uppercase;
+  color: $goldText;
+  position: relative;
 
-// /* заголовки */
-// @mixin title{
-//   margin: 0 0 .25em;
-//   padding-left: 0.4em;
-//   font: 800 clamp(28px, 5vw, 52px)/1.1 "Cinzel", serif;
-//   letter-spacing: .06em;
-//   color: $goldText;
-// }
+  &::after{
+    content:"";
+    display:block;
+    height: 2px;
+    width: 50vw;
+    margin-top: 0.6em;
+    background: linear-gradient(90deg, #c79500, #ffd700, #e6b400);
+    opacity:0.7;
+  }
+}
+//#endregion
 
+//#endregion
 
-// @mixin subtitle3{
-//   margin: 0 0 .8em;
-//   padding-left: 1.5em;
-//   font: 600 clamp(16px, 2.4vw, 22px)/1.2 "Cinzel", serif;
-//   letter-spacing: .1em;
-//   text-transform: uppercase;
-//   color: hsl(45 80% 70%);
-//   opacity:.9;
-// }
+//#region Title */
+//#region Gold Title
+@mixin GoldTitle{
+  margin: 0 0 .25em;
+  padding-left: 0.4em;
+  font: 800 clamp(28px, 5vw, 52px)/1.1 "Cinzel", serif;
+  letter-spacing: .06em;
+  color: $goldText;
+}
+//#endregion
+//#endregion
+
+//#region Light Gold Subtitle
+@mixin LightGoldSubtitle{
+  margin: 0 0 .8em;
+  padding-left: 1.5em;
+  font: 600 clamp(16px, 2.4vw, 22px)/1.2 "Cinzel", serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: hsl(45 80% 70%);
+  opacity:.9;
+}
+//#endregion
 
 
 // //разделитель заголовка раздела
-// @mixin keyLine{
-//   margin: 2.2em 0 0.8em;
-//   font: 700 clamp(16px, 2.2vw, 22px) "Cinzel", serif;
-//   letter-spacing:.12em;
-//   text-transform: uppercase;
-//   color: $goldText;
-//   position: relative;
 
-//   &::after{
-//     content:"";
-//     display:block;
-//     height: 2px;
-//     width: 50vw;
-//     margin-top: 0.6em;
-//     background: linear-gradient(90deg, #c79500, #ffd700, #e6b400);
-//     opacity:0.7;
-//   }
-// }
 
 // //разделитель тонкий
 // @mixin keyLine2{
@@ -606,18 +655,7 @@ $breakpoints: (
 
 
 // // выносная цитата 
-// @mixin pullQuote{
-//   width: 90%;
-//   margin: 1.6em 1em;
-//   padding: 14px 18px;
-//   background: linear-gradient(180deg, rgba(16,24,38,.5), rgba(12,18,30,.35));
-//   border: 1px solid rgba(199,149,0,.25);
-//   border-left: 4px solid $gold-2;
-//   border-radius: 12px;
-//   color:#f3f6ff;
-//   font-style: italic;
-//   box-shadow: 0 14px 24px rgba(0,0,0,.25);
-// }
+
 
 // //Золотая цитата, золотой текст
 // @mixin quote2{
@@ -802,19 +840,6 @@ $breakpoints: (
 // }
 
 
-// /* 7) Вставка клавиш (например, <kbd>) */
-// @mixin kbdKey {
-//   display: inline-block;
-//   width: 95%;
-//   padding: 0.4em 0 0 0.4em;
-//   border-radius: 6px;
-//   background: #0e1420;
-//   border: 1px solid rgba(255,255,255,.12);
-//   box-shadow: 0 1px 0 rgba(255,255,255,.12) inset;
-//   font: 600 12px/1 "Cinzel", serif;
-//   letter-spacing: .04em;
-//   color: #eaeff9;
-// }
 
 
 

@@ -5,7 +5,6 @@
      background-color: black;
 }
 
-
 //#region Section1
 // dddddd
 .reseach-section1{
@@ -55,6 +54,15 @@
      width: 95%;
 }
 
+.kdbKey{
+     @include kbdKey;
+}
+.title{
+     @include GoldTitle
+}
+.subtitle{
+     @include LightGoldSubtitle
+}
 
 @include respond(laptop){
 
