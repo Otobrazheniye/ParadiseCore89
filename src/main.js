@@ -11,6 +11,9 @@ import { LanguageSwitchButton } from './components/translations/dev-lang.js'
 import { authModal } from './components/basepage-dev.js'
 import { tabsLoginRegister } from './components/basepage-dev.js'
 
+
+import { renderResearch } from './components/research.js'
+
 //Frame
 const app = document.querySelector('#app')
 
@@ -25,9 +28,37 @@ app.innerHTML = `
   </div>
 `
 const pageRoot = document.querySelector('#page-root')
-pageRoot.innerHTML = renderBasePageJS()
+
+function bodySwitchButton(){
+  const pageButton = document.querySelectorAll('.pageButton')
+  pageButton.forEach((btn)=> {
+    btn.addEventListener('click',(event)=>{
+    event.preventDefault()
+    const activePage = btn.dataset.page
+    
+    bodySwitch(activePage)
+    })
+  })
+}
 
 
+function bodySwitch(activePage){
+  switch(activePage){
+    case 'home':
+      pageRoot.innerHTML = renderBasePageJS()
+      break
+    case 'research':
+      pageRoot.innerHTML = renderResearch()
+      break
+    default:
+      pageRoot.innerHTML = `<h1>Page not found<h1>`
+  }
+}
+
+
+bodySwitch('home')
+
+bodySwitchButton()
 
 initFooterSwitcher()
 

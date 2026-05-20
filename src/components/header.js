@@ -10,7 +10,7 @@ export function renderHeader() {
     <div class="header-list header-list-display">
       <ul>
         <li class="header-item header-item-first">
-          <a class="header-link link-research" href="#" data-i18n="header.research" >Research</a>
+          <a class="header-link link-research pageButton" href="#" data-i18n="header.research" data-page="research">Research</a>
         </li>
         <li class="header-item header-item-second">
           <a class="header-link link-divisions" href="#" data-i18n="header.division" >Divisions</a>
