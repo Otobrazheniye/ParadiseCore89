@@ -11,27 +11,32 @@ import { authModal } from './components/basepage-dev.js'
 import { tabsLoginRegister } from './components/basepage-dev.js'
 
 //Frame
-document.querySelector('#app').innerHTML = `
+const app = document.querySelector('#app')
+
+app.innerHTML = `
   ${renderHeader()}
-`
-document.querySelector('#footer-switcher').innerHTML =`
-${renderFooter()}
-`
-initFooterSwitcher();
 
-document.querySelector('#basepage-topics').innerHTML = `
-  ${renderBasePageTopics()}
+  <main class="basepage">
+    <div id="basepage-main">
+      ${renderBasePageMain()}
+    </div>
+
+    <div id="basepage-topics">
+      ${renderBasePageTopics()}
+    </div>
+  </main>
+
+  <div id="footer-switcher">
+    ${renderFooter()}
+  </div>
 `
 
-document.querySelector('#basepage-main').innerHTML = `
-  ${renderBasePageMain()}
-`
+initFooterSwitcher()
 
+LanguageSwitchButton()
+authModal()
+tabsLoginRegister()
 
-// Dev
-LanguageSwitchButton();
-authModal();
-tabsLoginRegister();
 
 
 const burgerBtn = document.querySelector('.header-burger');
