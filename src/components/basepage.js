@@ -6,8 +6,14 @@ import topicLeadership from '../content/back_photo/basepage-topics-leadership.pn
 import topicMedical from '../content/back_photo/basepage-topics-medical.png'
 import topicSecurity from '../content/back_photo/basepage-topics-security.png'
 
+export function renderBasePageJS() {
+  return `
+  ${renderBasePageMain()}
+  ${renderBasePageTopics()}
+  `
+}
 
-export function renderBasePageMain(){
+function renderBasePageMain(){
   return `
   <div class="basepage-bckg">
     <section class="basepage-main">
@@ -134,7 +140,7 @@ export function renderBasePageMain(){
 }
 
 
-export function renderBasePageTopics() {
+function renderBasePageTopics() {
     return `
     <section class="body-block">
 

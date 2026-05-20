@@ -4,7 +4,8 @@ import './main.scss'
 import { renderHeader } from './components/header.js'
 import { renderFooter, renderFooterDirectory, renderFooterNexus, renderFooterVault} from './components/footer.js'
 import { initFooterSwitcher } from './components/footer-dev.js'
-import { renderBasePageMain, renderBasePageTopics} from './components/basepage.js'
+import { renderBasePageJS } from './components/basepage.js'
+// import { renderBasePageMain, renderBasePageTopics} from './components/basepage.js'
 //Import Dev
 import { LanguageSwitchButton } from './components/translations/dev-lang.js'
 import { authModal } from './components/basepage-dev.js'
@@ -13,23 +14,20 @@ import { tabsLoginRegister } from './components/basepage-dev.js'
 //Frame
 const app = document.querySelector('#app')
 
+
 app.innerHTML = `
   ${renderHeader()}
 
-  <main class="basepage">
-    <div id="basepage-main">
-      ${renderBasePageMain()}
-    </div>
-
-    <div id="basepage-topics">
-      ${renderBasePageTopics()}
-    </div>
-  </main>
+  <main id="page-root"></main>
 
   <div id="footer-switcher">
     ${renderFooter()}
   </div>
 `
+const pageRoot = document.querySelector('#page-root')
+pageRoot.innerHTML = renderBasePageJS()
+
+
 
 initFooterSwitcher()
 
