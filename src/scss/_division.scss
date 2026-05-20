@@ -1,0 +1,646 @@
+@use "sass:map";
+@use "./variables" as *;
+
+//#region Basic
+body{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+  color: rgb(140, 140, 234);
+}
+//#endregion
+
+.body-division{
+     background-color: black;
+}
+
+//#region main
+.main-bar{
+  background-color: rgb(0, 0, 0);
+}
+.main-bar h2{
+  color:$gold-3;
+}
+
+.main-bar-corestatus {
+    ////
+  background: center/cover   url("../files/img/Server.png");
+  background-size: 88%;
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.main-bar-corestatus h3 {
+  margin-top: 80px;
+  font-weight: 800;
+  font-size: clamp(40px, 5vw, 64px);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  color: #ffb300;
+  -webkit-text-stroke: 1.6px #4a0d00;
+  text-shadow:
+    0 0 6px rgba(255, 180, 50, 0.9),
+    0 0 16px rgba(255, 120, 0, 0.8),
+    0 0 34px rgba(255, 60, 0, 0.6),
+    0 0 60px rgba(255, 230, 100, 0.4);
+
+  animation: fireFlicker 2.3s ease-in-out infinite;
+}
+
+@keyframes fireFlicker {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(255, 160, 50, 0.9),
+      0 0 14px rgba(255, 110, 0, 0.8),
+      0 0 30px rgba(255, 60, 0, 0.6),
+      0 0 55px rgba(255, 210, 90, 0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 8px rgba(255, 200, 80, 1),
+      0 0 22px rgba(255, 140, 0, 0.95),
+      0 0 45px rgba(255, 70, 0, 0.75),
+      0 0 80px rgba(255, 230, 130, 0.5);
+  }
+}
+
+
+.main-bar_corelist {
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-bar_corelist li {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    width: 20vw;
+    padding: 0.1em; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;    
+    background: linear-gradient(90deg, #b88300, #ffd24a, #ffcc33);
+    color: #1a1a1a;
+
+    font-size: $fontL;
+    padding-left: 1em;  
+    letter-spacing: 0.03em;
+    border: 1px solid rgba(120, 90, 0, 0.4);
+    box-shadow:
+      0 6px 14px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.main-bar-missionstatement{
+  background-color: $gold-1;
+}
+
+//#region Global Node
+.main-bar-globalnode{
+    display: flex;
+    justify-content: space-around;
+    color: $gold-3;
+    h1{
+      color: $goldText;
+    }
+}
+
+.main-bar-globalnode_img{
+  border: solid 1px;
+  width: 40vw;
+  height: auto;
+}
+
+.main-bar-globalnode>ul>li{
+  margin-top: 6.5em;
+}
+
+.main-bar-globalnode_livedata
+{
+  margin: 3em;
+}
+//#endregion
+//#endregion
+
+
+//#region Division Overview
+.main-bar-divisionoverview{
+  background: black;
+  color: white;
+}
+.main-bar-divisionoverview>h1{
+  color: $goldText;
+}
+
+.main-bar-divisionoverview p{
+  margin: 0 0 18px;
+  opacity:.85;
+}
+
+.main-bar-divisionoverview_list{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.main-bar-divisionoverview_list li{
+    --glow: 195;                        
+    padding: 10px 16px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font: 700 clamp(12px, 1.1vw, 15px)/1 "Cinzel", serif;
+    
+    // стекло + тонкий контур
+    background: linear-gradient(180deg, rgba(16,24,38,.55), rgba(12,18,30,.35));
+    border: 1px solid hsl(var(--glow) 70% 60% / .35);
+    box-shadow:
+    0 0 0 1px hsl(var(--glow) 85% 70% / .25) inset,
+    0 10px 26px rgba(0,0,0,.35),
+    0 0 22px hsl(var(--glow) 90% 60% / .20);
+    
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: hsl(var(--glow) 100% 90%);
+}
+
+/* ховер — живой неон */
+.main-bar-divisionoverview_list li:hover{
+  border-color: hsl(var(--glow) 95% 70% / .65);
+  box-shadow:
+  0 0 0 1px hsl(var(--glow) 95% 70% / .55) inset,
+  0 0 18px hsl(var(--glow) 90% 60% / .45),
+  0 16px 40px rgba(0,0,0,.45);
+  transform: translateY(-2px);
+  transition: .25s ease;
+}
+
+
+.main-bar-divisionoverview_list img{
+  width: 60vw;
+  height: 500px;
+  border-radius: 114px;
+}
+//#endregion
+
+
+
+//#region Global Ing
+// .main-bar-globalinf h2{
+// color: $gold-4;
+// }
+// .main-bar-globalinf h3{
+//   color: $gold-3;
+// } 
+// .main-bar-globalinf h2, h3{
+//   padding-left: 1em;
+// }
+// .main-bar-globalinf p{
+//   @include paragraphClassic;
+// }
+// //#region Paradise
+// .main-bar-par{
+//   color: $bloodyWhiteBack;
+ 
+// }
+// .main-bar-par_overview{
+//  @include transformInBox;
+// }
+// //#endregion
+
+
+// //#region Mining Industry
+// .main-bar-mining{
+//   color: $bloodyWhiteBack;
+// }
+// .main-bar_mining-overview{
+//   @include transformInBox;
+// }
+// //#endregion
+
+
+// .main-bar-par{
+//   background:#000;
+//   color:#e9edf4;
+//   padding: clamp(18px, 3vw, 40px) 0;
+// }
+
+// //#region Text Editor
+
+
+// /* заголовки */
+// .title{
+//   @include title;
+// }
+
+// .subtitle{
+//   @include subtitle3;
+// }
+
+// .key{
+//   @include keyLine;
+// }
+// // лид-абзац + drop-cap 
+// .lead{
+//  @include leadLetter;
+// }
+
+// .pull{
+// @include pullQuote;
+// }
+
+
+// .callout{
+//   @include baseThink;
+// }
+
+
+// .region-list{
+//  @include structureChipset;
+// }
+
+// .region-list li{
+//   @include designChipset;
+// }
+
+// //#endregion
+
+
+// @keyframes fireFlicker {
+//   0%, 100% {
+//     text-shadow:
+//       0 0 5px rgba(255, 160, 50, 0.9),
+//       0 0 14px rgba(255, 110, 0, 0.8),
+//       0 0 30px rgba(255, 60, 0, 0.6),
+//       0 0 55px rgba(255, 210, 90, 0.4);
+//   }
+//   50% {
+//     text-shadow:
+//       0 0 8px rgba(255, 200, 80, 1),
+//       0 0 22px rgba(255, 140, 0, 0.95),
+//       0 0 45px rgba(255, 70, 0, 0.75),
+//       0 0 80px rgba(255, 230, 130, 0.5);
+//   }
+// }
+
+
+
+
+
+// @include respond(tablet){
+// //#region Cover List P
+// .main-bar_corelist{
+//   background-size: 300px;
+//   border-radius: 16px;
+// }
+// .main-bar-corestatus h3 {
+//   margin-top: 30px;
+//   font-size: 25px;
+//   animation: none;
+// }
+// .main-bar_corelist {
+//   gap: 10px;
+//   padding: 0;
+//   flex-direction: column;
+// }
+// .main-bar_corelist li {
+//   flex-direction: column;
+//   width: 88%;
+//   height: 15px;
+//   margin: 0 auto;
+//   font-size: $fontLS;
+// }
+// //#endregion
+
+// //#region Mission State P
+// .main-bar-missionstatement{
+//   font-size: $fontLS;
+// }
+// //#endregion
+
+// //#region Global Node P
+// .main-bar-globalnode_img{
+// margin-left: 0.2em;
+// }
+
+// .main-bar-globalnode>ul{
+//   font-size: $fontLS;
+//   margin: 0.5em;
+//   padding: 0.5em;
+// }
+// .main-bar-globalnode>ul>li{
+//   margin-top: 2em;
+//   font-size: $fontLS;
+// }
+// .main-bar-globalnode h1{
+//   font-size: 18px;
+// }
+
+// .main-bar-globalnode_livedata{
+//   margin: 0;
+// }
+// .main-bar-globalnode_livedata h3{
+//   font-size: 10px;
+// }
+// .main-bar-globalnode_livedata>ul{
+//   font-size: $fontLS;
+//   margin: 0.5em;
+//   padding: 0.5em;
+// }
+// //#endregion
+
+// //#region Division Overview
+
+//   .main-bar-divisionoverview > h1{
+//     font-size: 18px;
+//     letter-spacing: .04em;
+//     text-align: center;
+//   }
+
+//   .main-bar-divisionoverview p{
+//     font-size: $fontLS;
+//     margin: 6px 0 12px;
+//     text-align: center;
+//   }
+
+//   // Ряд с элементами — в колонку, без переполнения
+//   .main-bar-divisionoverview_list{
+//     flex-direction: column;
+//     align-items: center;
+//     gap: 10px;
+//     width: 100%;
+//     margin: 0.5em;
+//     padding: 0;
+//   }
+
+//   // Чипы/плашки — компактнее и читаемо
+//   .main-bar-divisionoverview_list li{
+//     width: 80%;
+//     max-width: 320px;
+//     padding: 8px 10px;
+//     border-radius: 10px;
+//     font-weight: 700;
+//     font-size: clamp(11px, 3.6vw, 13px);
+//     letter-spacing: .05em;
+//     text-align: center;
+
+//     // чтобы длинные слова/заголовки не ломали вёрстку 
+//     white-space: normal;
+//     overflow-wrap: anywhere;
+//     word-break: break-word;
+
+//     // упрощаем эффекты ради скорости на мобилках */
+//     backdrop-filter: none;
+//     -webkit-backdrop-filter: none;
+//     box-shadow:
+//       0 6px 16px rgba(0,0,0,.18),
+//       0 0 0 1px hsl(var(--glow) 85% 70% / .25) inset;
+//   }
+
+//   /* Картинка по центру, без фиксированной высоты */
+//   .main-bar-divisionoverview_list img{
+//     width: 95%;
+//     height: auto;
+//   }
+  
+  
+//   //#endregion
+
+//   .main-bar-globalinf p{
+//   font-size: $fontLS;
+// }
+
+// //#region Text Design
+
+
+// h1{
+//   font-size: 20px;
+// }
+
+// .title{
+//   font: 600 clamp(18px, 2.5vw, 28px)/1.1 "Cinzel", serif;
+// }
+
+// .main-bar-par_overview{
+//  width: 80vw;
+// }
+// .main-bar_mining-overview{
+//  width: 80vw;
+// }
+
+// .lead{
+//   font-size: $fontLS;
+// }
+
+// .callout{
+//   font-size: $fontLS;
+//   margin: 0;
+//   padding: 0.4em;
+//   width: 90%;
+//   border-radius: 5px;
+// }
+
+// .region-list>li{
+//   width: 70vw;
+//   font-size: $fontLS;
+// }
+
+// .pull{
+//   font-size: $fontLS;
+//   width: 70vw;
+// }
+
+// .key{
+//   &::after{
+//   width: 90%;
+//   }
+// }
+// //#endregion
+
+// .main-bar-par_overview ul{
+//   display: flex;
+//   flex-direction: column;
+// }
+// }
+
+
+
+
+
+// @include respond(phone){
+// //#region Cover List P
+// .main-bar_corelist{
+//   background-size: 300px;
+//   border-radius: 16px;
+// }
+// .main-bar-corestatus h3 {
+//   margin-top: 30px;
+//   font-size: 25px;
+//   animation: none;
+// }
+// .main-bar_corelist {
+//   gap: 10px;
+//   padding: 0;
+//   flex-direction: column;
+// }
+// .main-bar_corelist li {
+//   flex-direction: column;
+//   width: 88%;
+//   height: 15px;
+//   margin: 0 auto;
+//   font-size: $fontP;
+// }
+// //#endregion
+
+// //#region Mission State P
+// .main-bar-missionstatement{
+//   font-size: $fontP;
+// }
+// //#endregion
+
+// //#region Global Node P
+// .main-bar-globalnode_img{
+// margin-left: 0.2em;
+// }
+
+// .main-bar-globalnode>ul{
+//   font-size: $fontP;
+//   margin: 0.5em;
+//   padding: 0.5em;
+// }
+// .main-bar-globalnode>ul>li{
+//   margin-top: 2em;
+//   font-size: $fontP;
+// }
+// .main-bar-globalnode h1{
+//   font-size: 18px;
+// }
+
+// .main-bar-globalnode_livedata{
+//   margin: 0;
+// }
+// .main-bar-globalnode_livedata h3{
+//   font-size: 10px;
+// }
+// .main-bar-globalnode_livedata>ul{
+//   font-size: $fontP;
+//   margin: 0.5em;
+//   padding: 0.5em;
+// }
+// //#endregion
+
+// //#region Division Overview
+
+//   .main-bar-divisionoverview > h1{
+//     font-size: 18px;
+//     letter-spacing: .04em;
+//     text-align: center;
+//   }
+
+//   .main-bar-divisionoverview p{
+//     font-size: $fontP;
+//     margin: 6px 0 12px;
+//     text-align: center;
+//   }
+
+//   // Ряд с элементами — в колонку, без переполнения
+//   .main-bar-divisionoverview_list{
+//     flex-direction: column;
+//     align-items: center;
+//     gap: 10px;
+//     width: 100%;
+//     margin: 0.5em;
+//     padding: 0;
+//   }
+
+//   // Чипы/плашки — компактнее и читаемо
+//   .main-bar-divisionoverview_list li{
+//     width: 80%;
+//     max-width: 320px;
+//     padding: 8px 10px;
+//     border-radius: 10px;
+//     font-weight: 700;
+//     font-size: clamp(11px, 3.6vw, 13px);
+//     letter-spacing: .05em;
+//     text-align: center;
+
+//     // чтобы длинные слова/заголовки не ломали вёрстку 
+//     white-space: normal;
+//     overflow-wrap: anywhere;
+//     word-break: break-word;
+
+//     // упрощаем эффекты ради скорости на мобилках */
+//     backdrop-filter: none;
+//     -webkit-backdrop-filter: none;
+//     box-shadow:
+//       0 6px 16px rgba(0,0,0,.18),
+//       0 0 0 1px hsl(var(--glow) 85% 70% / .25) inset;
+//   }
+
+//   /* Картинка по центру, без фиксированной высоты */
+//   .main-bar-divisionoverview_list img{
+//     width: 95%;
+//     height: auto;
+//   }
+  
+  
+//   //#endregion
+
+//   .main-bar-globalinf p{
+//   font-size: $fontP;
+// }
+
+// //#region Text Design
+
+
+// h1{
+//   font-size: 20px;
+// }
+
+// .title{
+//   font: 600 clamp(18px, 2.5vw, 28px)/1.1 "Cinzel", serif;
+// }
+
+// .main-bar-par_overview{
+//  width: 80vw;
+// }
+// .main-bar_mining-overview{
+//  width: 80vw;
+// }
+
+// .lead{
+//   font-size: $fontP;
+// }
+
+// .callout{
+//   font-size: $fontP;
+//   margin: 0;
+//   padding: 0.4em;
+//   width: 220px;
+//   border-radius: 5px;
+// }
+
+// .region-list>li{
+//   width: 70vw;
+//   font-size: $fontP;
+// }
+
+// .pull{
+//   font-size: $fontP;
+//   width: 70vw;
+// }
+
+// .key{
+//   &::after{
+//   width: 90%;
+//   }
+// }
+// //#endregion
+// }
+
+
