@@ -12,7 +12,8 @@ import { authModal } from './components/basepage-dev.js'
 import { tabsLoginRegister } from './components/basepage-dev.js'
 
 
-import { renderResearch } from './components/research.js'
+import { renderResearch } from './components/page-research.js'
+import { renderDivision } from './components/page-division.js'
 
 //Frame
 const app = document.querySelector('#app')
@@ -49,6 +50,9 @@ function bodySwitch(activePage){
       break
     case 'research':
       pageRoot.innerHTML = renderResearch()
+      break
+    case 'division':
+      pageRoot.innerHTML = renderDivision()
       break
     default:
       pageRoot.innerHTML = `<h1>Page not found<h1>`

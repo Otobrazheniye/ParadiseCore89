@@ -13,7 +13,7 @@ export function renderHeader() {
           <a class="header-link link-research pageButton" href="#" data-i18n="header.research" data-page="research">Research</a>
         </li>
         <li class="header-item header-item-second">
-          <a class="header-link link-divisions" href="#" data-i18n="header.division" >Divisions</a>
+          <a class="header-link link-divisions pageButton" href="#" data-i18n="header.division" data-page="division">Divisions</a>
         </li>
       </ul>
     </div>

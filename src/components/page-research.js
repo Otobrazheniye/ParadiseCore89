@@ -1,4 +1,4 @@
-//../files/img/BrainBack.png 
+import researchBrainImg from '../content/back_photo/ResearchBrain.png'
 
 export function renderResearch() {
 return `
@@ -14,7 +14,7 @@ return `
                     <li>Collective Intelligence: Platforms that unite groups of people and AI into a shared knowledge network, where creativity is amplified through collaborative intelligence.</li>
                     <li>Psychometric Indices: Dynamic metrics that assess states of consciousness in real time to personalize learning and support cognitive health.</li>
                 </ul>
- 44               <img src="$" alt="no Photo">
+                <img src="${researchBrainImg}" alt="no Photo">
             </div>
             <p class="pull">In doing so, we erase the boundary between mind and machine, revealing a world where knowledge flows freely and human creative potential reaches new heights.</p>
         </div>
