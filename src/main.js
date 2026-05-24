@@ -1,7 +1,7 @@
 import './main.scss'
 
 //Import Frame
-import { renderHeader } from './components/header.js'
+import { renderHeader, renderHeaderAIBusiness } from './components/header.js'
 import { renderFooter, renderFooterDirectory, renderFooterNexus, renderFooterVault} from './components/footer.js'
 import { initFooterSwitcher } from './components/footer-dev.js'
 import { renderBasePageJS } from './components/basepage.js'
@@ -20,7 +20,8 @@ const app = document.querySelector('#app')
 
 
 app.innerHTML = `
-  ${renderHeader()}
+  <header id="header-root"></header>
+  
 
   <main id="page-root"></main>
 
@@ -28,7 +29,40 @@ app.innerHTML = `
     ${renderFooter()}
   </div>
 `
+const headerRoot = document.querySelector('#header-root')
 const pageRoot = document.querySelector('#page-root')
+
+function headerSwitchButton(){
+  const headerButton = document.querySelectorAll('.headerButton')
+  headerButton.forEach((btn)=> {
+    btn.addEventListener('click',(event)=>{
+      event.preventDefault()
+      const activePage = btn.dataset.page
+
+      headerSwitch(activePage)
+    })
+  })
+}
+
+function headerSwitch(activePage){
+  switch(activePage){
+    case 'home':
+      headerRoot.innerHTML = renderHeader()
+      break
+
+    case 'aibusiness':
+      headerRoot.innerHTML = renderHeaderAIBusiness()
+      break
+
+    default:
+      headerRoot.innerHTML = `<h1>Page not found</h1>`
+  }
+
+  headerSwitchButton()
+  bodySwitchButton()
+  LanguageSwitchButton()
+}
+
 
 function bodySwitchButton(){
   const pageButton = document.querySelectorAll('.pageButton')
@@ -54,14 +88,18 @@ function bodySwitch(activePage){
     case 'division':
       pageRoot.innerHTML = renderDivision()
       break
+    case 'aibusiness':
+      pageRoot.innerHTML = renderResearch()
+      break
     default:
       pageRoot.innerHTML = `<h1>Page not found<h1>`
   }
 }
 
-
+headerSwitch('home')
 bodySwitch('home')
 
+headerSwitchButton()
 bodySwitchButton()
 
 initFooterSwitcher()
