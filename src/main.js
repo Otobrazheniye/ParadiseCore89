@@ -31,6 +31,8 @@ app.innerHTML = `
 `
 const headerRoot = document.querySelector('#header-root')
 const pageRoot = document.querySelector('#page-root')
+const pageaiRoot = document.querySelectorAll('#pageai-root')
+
 
 function headerSwitchButton(){
   const headerButton = document.querySelectorAll('.headerButton')
@@ -93,6 +95,49 @@ function bodySwitch(activePage){
       break
     default:
       pageRoot.innerHTML = `<h1>Page not found<h1>`
+  }
+}
+
+function bodySwitchAiBusinessButton(){
+  const headeraiButton = document.querySelectorAll('.headeraiButton')
+  headeraiButton.forEach((btn), ()=>{
+    btn.addEventListener('click',(event)=>{
+      event.preventDefault()
+      const activePage = btn.dataset.page
+
+      bodySwitchAiBusiness(activePage)
+    })
+  })
+}
+
+function bodySwitchAiBusiness(activePage) {
+  switch (activePage) {
+    case 'home':
+      pageRoot.innerHTML = renderHome()
+      break
+
+    case 'about':
+      pageRoot.innerHTML = renderAbout()
+      break
+
+    case 'services':
+      pageRoot.innerHTML = renderServices()
+      break
+
+    case 'reviews':
+      pageRoot.innerHTML = renderReviews()
+      break
+
+    case 'training':
+      pageRoot.innerHTML = renderTraining()
+      break
+
+    case 'contact':
+      pageRoot.innerHTML = renderContact()
+      break
+
+    default:
+      pageRoot.innerHTML = `<h1>Page not found</h1>`
   }
 }
 
