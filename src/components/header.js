@@ -21,7 +21,7 @@ export function renderHeader() {
     <div class="header-list">
       <ul>
         <li class="header-item header-item-img">
-          <img class="navbar-logo_img" src="${logoParadise}" alt="Logo">
+          <img class="navbar-logo_img pageButton" data-page='home' src="${logoParadise}" alt="Logo">
         </li>
       </ul>
     </div>
@@ -47,13 +47,13 @@ export function renderHeader() {
       <ul class="header-mobile-list">
         <li class="header-item header-item-first">
           <a class="header-link link-research" href="#">
-            <span class="header-link__text" data-i18n="header.research">Research</span>
+            <span class="header-link__text pageButton" data-i18n="header.research" data-page="research">Research</span>
           </a>
         </li>
     
         <li class="header-item header-item-second">
           <a class="header-link link-divisions" href="#">
-            <span class="header-link__text" data-i18n="header.division">Divisions</span>
+            <span class="header-link__text pageButton" data-i18n="header.division" data-page="division">Divisions</span>
           </a>
         </li>
     

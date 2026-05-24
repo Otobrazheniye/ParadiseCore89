@@ -1,3 +1,6 @@
+import divisionWorldMapImg from '../content/back_photo/worldmap1.png'
+import divisionChooseImg from '../content/back_photo/choose.png'
+
 export function renderDivision(){
     return`
     <section class="body-division">
@@ -21,7 +24,7 @@ We perfect, observe, and reconstruct consciousness through precision.”
             <div class="main-bar-globalnode">
                 <div class="main-bar-globalnode_imgarea"> 
                     <h1>GLOBAL NODE MAP</h1>
-44                    <img class="main-bar-globalnode_img" src="" alt="error">
+                    <img class="main-bar-globalnode_img" src="${divisionWorldMapImg}" alt="error">
                 </div>
                 <ul>
                     <li>EUROPE: ACTIVE</li>  
@@ -50,7 +53,7 @@ We perfect, observe, and reconstruct consciousness through precision.”
                 </ul>
                 <ul class="main-bar-divisionoverview_list">
                     <li class="main-bar-divisionoverview_list-item">ARCHIVAL DEPARTMENT</li>
-44                    <li><img class="main-bar-divisionoverview_list-img" src="" alt="Error 4010"></li>
+                    <li><img class="main-bar-divisionoverview_list-img" src="${divisionChooseImg}" alt="Error 4010"></li>
                     <li>SECURITY DIVISION</li>                        
                 </ul>
                 <ul class="main-bar-divisionoverview_list">

@@ -332,6 +332,12 @@ $breakpoints: (
 //#endregion
 //#endregion
 
+//#region Classic paragraph
+@mixin paragraphClassic{
+  margin: 1em 0;
+  color:#cfd5e2;
+}
+//#endregion
 
 //#region <<-- TEXT -->
 //#region Neon Text
@@ -516,6 +522,20 @@ $breakpoints: (
 }
 //#endregion
 
+//#region Gold Quote2
+@mixin goldQuote2{
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(199,149,0,.35);
+  background:
+    linear-gradient(180deg,#fffceb,#fff6d6),
+    repeating-linear-gradient(135deg, rgba(0,0,0,.02) 0 10px, rgba(0,0,0,0) 10px 20px);
+  color:#4a3a00;
+  font-style: italic;
+}
+//#endregion
+
 //#region Pull Quote
 @mixin pullQuote{
   width: 90%;
@@ -530,9 +550,20 @@ $breakpoints: (
   box-shadow: 0 14px 24px rgba(0,0,0,.25);
 }
 //#endregion
+
+//#region Notes Quote
+@mixin notes{
+  margin: 0; 
+  padding: 0; 
+  list-style: none;
+  display: grid; 
+  gap: 6px;
+  color:#4b5566; 
+  font-size: 13px; 
+  line-height: 1.6;
+}
 //#endregion
-
-
+//#endregion
 
 
 //#region <<-- KeyBlock -->>
@@ -612,7 +643,19 @@ $breakpoints: (
   color: #eaeff9;
 }
 //#endregion
+
+//#region Gold BaseThink
+@mixin GoldbaseThink{
+  margin: 1.4em 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(199,149,0,.15), rgba(199,149,0,.05));
+  border: 1px solid rgba(199,149,0,.35);
+  color:#ffe7a8;
+}
 //#endregion
+//#endregion
+
 
 //#region <<-- KeyLine -->>
 //#region Gold Key Line standart
@@ -636,7 +679,17 @@ $breakpoints: (
 }
 //#endregion
 
+//#region Gold Key line 2
+@mixin keyLine2{
+  height: 2px;
+  width: 100%;
+  margin: 0.5em 0 0.5em 0;
+  background: linear-gradient(90deg,$gold-1,$gold-2,$gold-3);
+  border-radius: 2px;
+}
 //#endregion
+//#endregion
+
 
 //#region Title */
 //#region Gold Title
@@ -649,6 +702,7 @@ $breakpoints: (
 }
 //#endregion
 //#endregion
+
 
 //#region Light Gold Subtitle
 @mixin LightGoldSubtitle{
@@ -663,68 +717,30 @@ $breakpoints: (
 //#endregion
 
 
-// //разделитель заголовка раздела
+//#region First Letter
+//#region Gold First Letter
+@mixin leadLetter{
+  font-size: clamp(17px, 1.25vw, 20px);
+  color:#f6f7fb;
+  opacity:.95;
+  margin: 1em 0;
 
+  &::first-letter{
+    float: left;
+    font: 800 clamp(40px, 6vw, 68px)/.8 "Cinzel", serif;
+    color: $goldText;
+    margin-right: .18em;
+    text-shadow: 0 0 10px rgba(255,215,0,.25);
+  }
+}
+//#endregion
 
-// //разделитель тонкий
-// @mixin keyLine2{
-//   height: 2px;
-//   width: 100%;
-//   margin: 0.5em 0 0.5em 0;
-//   background: linear-gradient(90deg,$gold-1,$gold-2,$gold-3);
-//   border-radius: 2px;
-// }
-
-
-
-
-// // лид-абзац-буква + drop-cap 
-// @mixin leadLetter{
-//   font-size: clamp(17px, 1.25vw, 20px);
-//   color:#f6f7fb;
-//   opacity:.95;
-//   margin: 1em 0;
-
-//   &::first-letter{
-//     float: left;
-//     font: 800 clamp(40px, 6vw, 68px)/.8 "Cinzel", serif;
-//     color: $goldText;
-//     margin-right: .18em;
-//     text-shadow: 0 0 10px rgba(255,215,0,.25);
-//   }
-// }
+//#endregion
 
 
 
-// // выносная цитата 
 
 
-// //Золотая цитата, золотой текст
-// @mixin quote2{
-//   margin: 0;
-//   padding: 12px 14px;
-//   border-radius: 12px;
-//   border: 1px solid rgba(199,149,0,.35);
-//   background:
-//     linear-gradient(180deg,#fffceb,#fff6d6),
-//     repeating-linear-gradient(135deg, rgba(0,0,0,.02) 0 10px, rgba(0,0,0,0) 10px 20px);
-//   color:#4a3a00;
-//   font-style: italic;
-// }
-
-// //Цитата-информации нижняя панель + сноски 
-// @mixin notes{
-//   margin: 0; 
-//   padding: 0; 
-//   list-style: none;
-//   display: grid; 
-//   gap: 6px;
-//   color:#4b5566; 
-//   font-size: 13px; 
-//   line-height: 1.6;
-// }
-
-// /* Цитата-KPI/метрика — компактная «пилюля» */
 // @mixin statPill($tone: gold) {
 //   display: inline-flex;
 //   align-items: center;
@@ -752,26 +768,11 @@ $breakpoints: (
 
 
 
-// // инфоблок (ключевая мысль)
-// @mixin baseThink{
-//   margin: 1.4em 0;
-//   padding: 14px 16px;
-//   border-radius: 12px;
-//   background: linear-gradient(180deg, rgba(199,149,0,.15), rgba(199,149,0,.05));
-//   border: 1px solid rgba(199,149,0,.35);
-//   color:#ffe7a8;
-// }
-
-// //Классический параграф
-// @mixin paragraphClassic{
-//   margin: 1em 0;
-//   color:#cfd5e2;
-// }
 
 
 
 
-// /* Текст1 золотой делитель + текст вниз  */
+
 // @mixin goldDivider($w: clamp(120px, 24vw, 360px), $align: left) {
 //   height: 2px;
 //   width: $w;
@@ -782,7 +783,7 @@ $breakpoints: (
 //   @else { margin: .9em 0; }
 // }
 
-// /* Teкст2*/
+
 // @mixin overTitle($color: hsl(45 80% 78%)) {
 //   display: block;
 //   margin-bottom: .35em;
@@ -793,24 +794,24 @@ $breakpoints: (
 //   opacity: .95;
 // }
 
-// /*Текст3 Неоновая inline-подсветка для <span> важных слов */
-// @mixin inlineGlow($h: 195) {
-//   color: hsl($h 100% 92%);
-//   text-shadow:
-//     0 0 8px hsl($h 90% 60% / .55),
-//     0 0 18px hsl($h 90% 60% / .35);
-//   font-weight: 700;
-// }
+
+@mixin inlineGlow($h: 195) {
+  color: hsl($h 100% 92%);
+  text-shadow:
+    0 0 8px hsl($h 90% 60% / .55),
+    0 0 18px hsl($h 90% 60% / .35);
+  font-weight: 700;
+}
 
 // // Текст4 Сноска/примечание под текстом */
-// @mixin footnoteCall {
-//   display: block;
-//   margin: .6em 0 0;
-//   font-size: 12px;
-//   line-height: 1.6;
-//   color: #aeb6c5;
-//   opacity: .9;
-// }
+@mixin footnoteCall {
+  display: block;
+  margin: .6em 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #aeb6c5;
+  opacity: .9;
+}
 
 
 
@@ -818,16 +819,16 @@ $breakpoints: (
 
 
 // //Текст-бокс1
-// @mixin transformInBox{
-//   width: min(980px, 92vw);
-//   margin: 0 auto;
-//   line-height: 1.75;
-//   font-size: clamp(15px, 1.05vw, 18px);
+@mixin transformInBox{
+  width: min(980px, 92vw);
+  margin: 0 auto;
+  line-height: 1.75;
+  font-size: clamp(15px, 1.05vw, 18px);
 
-//   // золотая направляющая слева
-//   border-left: 3px solid rgba(199,149,0,.25);
-//   padding-left: clamp(16px, 2vw, 28px);
-// }
+  // золотая направляющая слева
+  border-left: 3px solid rgba(199,149,0,.25);
+  padding-left: clamp(16px, 2vw, 28px);
+}
 
 // /*Текст-бокс2 код-блок/консоль */
 // @mixin codeMatrix {
