@@ -3,71 +3,103 @@ import divisionChooseImg from '../content/back_photo/choose.png'
 
 export function renderDivision(){
     return`
-    <section class="body-division">
-        <div class="main-bar">
-            <h2>ANALYTICS DIVISION</h2>
-            <div class="main-bar-corestatus">
-                <h3> CORE STATUS</h3>
-            </div>    
-            <ul class="main-bar_corelist">
-                <li><strong> STABILITY: 99.7% </strong></li>
-                <li> <strong>ACTIVE NETWORKS: 42 GLOBAL </strong></li>
-                <li> <strong>OPERATIONAL DIVISIONS: 8</strong></li>
-                <li> <strong>DATA STREAM INTEGRITY: STABLE</strong></li>
-            </ul>
-            <div class="main-bar-missionstatement">
-                <h3>MISSION STATEMENT</h3>
-                <p>“Paradise Core 89 establishes equilibrium between human cognition and machine order.
-We perfect, observe, and reconstruct consciousness through precision.” 
-“Our data speaks not in numbers but in evolution. Every signal, every breath, every reflection — logged, refined, understood.”</p>
-            </div>
-            <div class="main-bar-globalnode">
-                <div class="main-bar-globalnode_imgarea"> 
-                    <h1>GLOBAL NODE MAP</h1>
-                    <img class="main-bar-globalnode_img" src="${divisionWorldMapImg}" alt="error">
-                </div>
-                <ul>
-                    <li>EUROPE: ACTIVE</li>  
-                    <li>NORTH AMERICA: ACTIVE</li>  
-                    <li>ASIA: MONITORING</li>  
-                    <li>OCEANIA: STANDBY</li>  
-                    <li>AFRICA: UNDER REVIEW</li>  
-                </ul>
-                <div class="main-bar-globalnode_livedata">
-                    <h3>LIVE DATA FEED</h3>
-                    <ul>
-                        <li> Node_42: Synchronizing with European Hub...</li>
-                        <li> Mind-Link Stability: 98.3%</li>  
-                        <li> Transmission: Secure</li>  
-                        <li> Internal Directive: Maintain cognitive silence.</li>
-                    </ul>
-                </div>
-            </div>
+<section class="body-division">
+  <div class="division-hero">
 
-            <div class="main-bar-divisionoverview">
-                <h1>DIVISION OVERVIEW</h1>
-                <p>Each operational division maintains an independent analytical cell while remaining synchronized with the central core.</p>
-                <ul class="main-bar-divisionoverview_list">
-                    <li><a href="#id-mining-industry">MINING INDUSTRY</a></li>
-                    <li>WISH FOR PARADISE</li>
-                </ul>
-                <ul class="main-bar-divisionoverview_list">
-                    <li class="main-bar-divisionoverview_list-item">ARCHIVAL DEPARTMENT</li>
-                    <li><img class="main-bar-divisionoverview_list-img" src="${divisionChooseImg}" alt="Error 4010"></li>
-                    <li>SECURITY DIVISION</li>                        
-                </ul>
-                <ul class="main-bar-divisionoverview_list">
-                    <li>LOGISTICS</li>
-                </ul>
-            </div> 
+    <div class="division-hero__eyebrow">
+      ANALYTICS DIVISION
+    </div>
 
-            
-            <section class="main-bar-globalinf">
-                <section class="main-bar-par">
-                    <div class="main-bar-par_overview">
-                        <h1 class="title">Paradise Core 89</h1>
-                        <h2 class="subtitle">Overview</h2>
-                        <p class="lead">
+    <div class="division-core">
+      <span class="division-core__label">CORE STATUS</span>
+
+      <ul class="division-stats">
+        <li class="division-stat">
+          <span class="division-stat__name">Stability</span>
+          <strong class="division-stat__value">99.7%</strong>
+        </li>
+
+        <li class="division-stat">
+          <span class="division-stat__name">Active Networks</span>
+          <strong class="division-stat__value">42 Global</strong>
+        </li>
+
+        <li class="division-stat">
+          <span class="division-stat__name">Operational Divisions</span>
+          <strong class="division-stat__value">8</strong>
+        </li>
+
+        <li class="division-stat">
+          <span class="division-stat__name">Data Stream</span>
+          <strong class="division-stat__value">Stable</strong>
+        </li>
+      </ul>
+    </div>
+
+    <div class="division-mission">
+      <span class="division-mission__label">Mission Statement</span>
+
+      <p>
+        “Paradise Core 89 establishes equilibrium between human cognition and machine order.
+        We perfect, observe, and reconstruct consciousness through precision.”
+      </p>
+
+      <p>
+        “Our data speaks not in numbers but in evolution. Every signal, every breath,
+        every reflection — logged, refined, understood.”
+      </p>
+    </div>
+
+  </div>
+
+  <div class="main-bar-globalnode">
+    <div class="main-bar-globalnode_imgarea"> 
+      <h1>GLOBAL NODE MAP</h1>
+      <img class="main-bar-globalnode_img" src="${divisionWorldMapImg}" alt="Global node map">
+    </div>
+
+    <ul>
+        <li class="globalnode-active">EUROPE: ACTIVE</li>  
+        <li class="globalnode-active">NORTH AMERICA: ACTIVE</li>  
+        <li class="globalnode-active">ASIA: MONITORING</li>  
+        <li class="globalnode-active">OCEANIA: STANDBY</li>  
+        <li class="globalnode-active">AFRICA: UNDER REVIEW</li>  
+    </ul>
+
+    <div class="main-bar-globalnode_livedata">
+      <h3 class="title globalnode-title">LIVE DATA FEED</h3>
+      <ul>
+        <li class="globalnode-text">Node_42: Synchronizing with European Hub...</li>
+        <li class="globalnode-text">Mind-Link Stability: 98.3%</li>
+        <li class="globalnode-text">Transmission: Secure</li>
+        <li class="globalnode-text">Internal Directive: Maintain cognitive silence.</li>
+      </ul>
+    </div>
+    </div>
+
+    <div class="main-bar-divisionoverview">
+        <h1>DIVISION OVERVIEW</h1>
+        <p>Each operational division maintains an independent analytical cell while remaining synchronized with the central core.</p>
+        <ul class="main-bar-divisionoverview_list">
+            <li><a href="#id-mining-industry">MINING INDUSTRY</a></li>
+            <li>WISH FOR PARADISE</li>
+        </ul>
+        <ul class="main-bar-divisionoverview_list">
+            <li class="main-bar-divisionoverview_list-item">ARCHIVAL DEPARTMENT</li>
+            <li><img class="main-bar-divisionoverview_list-img" src="${divisionChooseImg}" alt="Error 4010"></li>
+            <li>SECURITY DIVISION</li>                        
+        </ul>
+        <ul class="main-bar-divisionoverview_list">
+            <li>LOGISTICS</li>
+        </ul>
+    </div>
+    
+    <section class="main-bar-globalinf">
+        <section class="main-bar-par">
+            <div class="main-bar-par_overview">
+                <h1 class="title">Paradise Core 89</h1>
+                <h2 class="subtitle">Overview</h2>
+                <p class="lead">
                         We are Paradise Core 89 — a technocratic megacorporation that unites five strategic divisions under one analytical system: Mining Industry, Logistics, Wish for Paradise (Workforce Development), Archival Department, and Security Division.
 We operate as the central brain of a vast industrial ecosystem, coordinating every layer — from deep resource extraction to product delivery, employee optimization, data preservation, and global security management.
 Our integrated structure allows us to maintain end-to-end control with data-driven precision, powered by real-time information streaming from countless sensors and intelligent systems.
