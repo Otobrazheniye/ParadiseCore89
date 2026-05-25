@@ -1,0 +1,136 @@
+@use "sass:map";
+@use "./variables" as *;
+
+.ai-protocols {
+  @include ai-section-shell;
+  @include ai-red-section-bg;
+  @include ai-grid-overlay;
+  @include ai-bottom-red-glow;
+}
+
+.ai-protocols__inner {
+  @include ai-inner-grid;
+}
+
+.ai-protocols__map {
+  position: sticky;
+// top: $top;
+  align-self: start;
+  @include ai-glass-panel;
+}
+
+.ai-protocols__map-label {
+  @include ai-map-label;
+}
+
+.ai-protocols__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ai-protocols__nav-main {
+  @include ai-nav-main;
+}
+
+.ai-protocols__nav-link {
+  @include ai-nav-link;
+}
+
+.ai-protocols__nav-group {
+  @include ai-nav-group;
+}
+
+.ai-protocols__nav-sub {
+  @include ai-nav-sub;
+}
+
+.ai-protocols__content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3vw, 38px);
+}
+
+.ai-protocols__hero {
+  @include ai-hero-panel;
+}
+
+.ai-protocols__eyebrow,
+.ai-protocols__title,
+.ai-protocols__subtitle,
+.ai-protocols__text,
+.ai-protocols__actions {
+  position: relative;
+  z-index: 2;
+}
+
+.ai-protocols__eyebrow {
+  @include ai-pill-label;
+}
+
+.ai-protocols__title {
+  @include ai-mega-title;
+}
+
+.ai-protocols__subtitle {
+  @include ai-section-subtitle;
+}
+
+.ai-protocols__text {
+  @include ai-rich-text;
+}
+
+.ai-protocols__actions {
+  @include ai-actions-row;
+}
+
+.ai-protocols__btn--primary {
+  @include ai-button-primary;
+}
+
+.ai-protocols__btn--secondary {
+  @include ai-button-secondary;
+}
+
+.ai-protocols__btn--ghost {
+  @include ai-button-ghost;
+}
+
+.ai-protocols__value {
+  @include ai-secondary-panel;
+}
+
+.ai-protocols__value-label {
+  display: inline-flex;
+  margin-bottom: 18px;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ff8fa2;
+}
+
+.ai-protocols__value-grid {
+  @include ai-value-grid(3);
+}
+
+.ai-protocols__value-card {
+  @include ai-value-card;
+}
+
+.ai-protocols__value-title {
+  @include ai-value-title;
+}
+
+.ai-protocols__value-text {
+  @include ai-value-text;
+}
+//#endregion
+
+
+
+
+
+
