@@ -15,6 +15,8 @@ import { tabsLoginRegister } from './components/basepage-dev.js'
 import { renderResearch } from './components/page-research.js'
 import { renderDivision } from './components/page-division.js'
 
+import { renderAIBusinessServices } from './components/aibusiness-services.js'
+
 //Frame
 const app = document.querySelector('#app')
 
@@ -54,6 +56,7 @@ function headerSwitch(activePage){
 
     case 'aibusiness':
       headerRoot.innerHTML = renderHeaderAIBusiness()
+      
       break
 
     default:
@@ -62,6 +65,9 @@ function headerSwitch(activePage){
 
   headerSwitchButton()
   bodySwitchButton()
+  bodySwitchAiBusinessButton()
+  initFooterSwitcher()
+
   LanguageSwitchButton()
 }
 
@@ -91,8 +97,11 @@ function bodySwitch(activePage){
       pageRoot.innerHTML = renderDivision()
       break
     case 'aibusiness':
-      pageRoot.innerHTML = renderResearch()
+      headerRoot.innerHTML = renderHeaderAIBusiness()
+      
+      bodySwitchAiBusinessButton()
       break
+
     default:
       pageRoot.innerHTML = `<h1>Page not found<h1>`
   }
@@ -100,7 +109,7 @@ function bodySwitch(activePage){
 
 function bodySwitchAiBusinessButton(){
   const headeraiButton = document.querySelectorAll('.headeraiButton')
-  headeraiButton.forEach((btn), ()=>{
+  headeraiButton.forEach((btn) =>{
     btn.addEventListener('click',(event)=>{
       event.preventDefault()
       const activePage = btn.dataset.page
@@ -121,7 +130,7 @@ function bodySwitchAiBusiness(activePage) {
       break
 
     case 'services':
-      pageRoot.innerHTML = renderServices()
+      pageRoot.innerHTML = renderAIBusinessServices()
       break
 
     case 'reviews':
@@ -146,7 +155,7 @@ bodySwitch('home')
 
 headerSwitchButton()
 bodySwitchButton()
-
+bodySwitchAiBusinessButton()
 initFooterSwitcher()
 
 LanguageSwitchButton()

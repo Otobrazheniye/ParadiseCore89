@@ -76,7 +76,6 @@ export function renderHeader() {
 }   
 
 
-
 export function renderHeaderAIBusiness() {
   return `
 <header class="pc89-header">
@@ -87,23 +86,13 @@ export function renderHeaderAIBusiness() {
     <div class="header-list header-list-display">
       <ul>
         <li class="header-item header-item-first">
-          <a 
-            class="header-link pageButton" 
-            href="#" 
-            data-i18n="header.about" 
-            data-page="about"
-          >
+          <a class="header-link headeraiButton"  href="#" data-i18n="header.about"  data-page="about">
             About
           </a>
         </li>
 
         <li class="header-item header-item-second">
-          <a 
-            class="header-link pageButton" 
-            href="#" 
-            data-i18n="header.services" 
-            data-page="services"
-          >
+          <a class="header-link headeraiButton" href="#" data-i18n="header.services" data-page="services">
             Services
           </a>
         </li>
@@ -121,23 +110,13 @@ export function renderHeaderAIBusiness() {
     <div class="header-list header-list-display">
       <ul>
         <li class="header-item header-item-third">
-          <a 
-            class="header-link pageButton" 
-            href="#" 
-            data-i18n="header.reviews" 
-            data-page="reviews"
-          >
+          <a  class="header-link pageButton"  href="#"  data-i18n="header.reviews"  data-page="reviews">
             Reviews
           </a>
         </li>
 
         <li class="header-item header-item-fourth">
-          <a 
-            class="header-link pageButton" 
-            href="#" 
-            data-i18n="header.training" 
-            data-page="training"
-          >
+          <a class="header-link pageButton"  href="#"  data-i18n="header.training"  data-page="training">
             Training
           </a>
         </li>
