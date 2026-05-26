@@ -16,7 +16,7 @@ import { renderResearch } from './components/page-research.js'
 import { renderDivision } from './components/page-division.js'
 
 import { renderAIBusinessServices } from './components/aibusiness-services.js'
-
+import { serviceDragScroll } from './components/aibusiness-services.js'
 //Frame
 const app = document.querySelector('#app')
 
@@ -131,6 +131,7 @@ function bodySwitchAiBusiness(activePage) {
 
     case 'services':
       pageRoot.innerHTML = renderAIBusinessServices()
+      serviceDragScroll()
       break
 
     case 'reviews':
@@ -156,9 +157,13 @@ bodySwitch('home')
 headerSwitchButton()
 bodySwitchButton()
 bodySwitchAiBusinessButton()
+
+
 initFooterSwitcher()
 
+
 LanguageSwitchButton()
+serviceDragScroll()
 authModal()
 tabsLoginRegister()
 

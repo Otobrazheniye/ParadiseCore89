@@ -1,7 +1,7 @@
 
 export function renderAIBusinessServices(){
     return `
-    <section class="ai-protocols">
+    <section class="ai-protocols" id="ai-protocols">
       <div class="ai-protocols__inner">
 
         <aside class="ai-protocols__map" aria-label="AI Protocols page map">
@@ -56,7 +56,7 @@ export function renderAIBusinessServices(){
           </nav>
         </aside>
 
-        <div class="ai-protocols__content" id="ai-protocols">
+        <div class="ai-protocols__content">
           <div class="ai-protocols__hero">
             <span class="ai-protocols__eyebrow">
               Project Paradise Core 89 / Applied Intelligence Division
@@ -66,7 +66,7 @@ export function renderAIBusinessServices(){
               AI~ ~Protocols
             </h1>
 
-            <h2 class="ai-protocols__subtitle" id="ai-payoff">
+            <h2 class="ai-protocols__subtitle" >
               We implement AI where it actually pays off
             </h2>
 
@@ -145,5 +145,237 @@ export function renderAIBusinessServices(){
 
       </div>
     </section>
+
+  <section class="ai-services-flow" id="ai-payoff">
+    <div id="growth-protocols" class="ai-anchor"></div>
+    <div class="ai-services-flow__inner">
+
+      <article class="ai-services-flow__intro">
+        <span class="ai-services-flow__eyebrow">
+          Business-First AI Implementation
+        </span>
+
+        <h2 class="ai-services-flow__title">
+          We implement AI where it actually pays off
+        </h2>
+
+        <div class="ai-services-flow__text">
+          <p>
+            For small and medium-sized businesses, the critical factor is not the depth of the technology stack, but the speed of moving from an idea to a working business scenario. That is why the Services page speaks the language of directors, operations leaders, marketers, sales teams, and business owners: less manual input, fewer lead losses, faster processing, better KPI visibility, and a shorter cycle between request and action.
+          </p>
+
+          <p>
+            The most mature AI teams today focus on business functions where the effect can be seen quickly: marketing and sales, service operations, knowledge work, document workflows, and analytics. Project Paradise Core 89 follows the same practical direction: AI is valuable when it is connected to a specific process, a measurable outcome, and a clear operating model.
+          </p>
+
+          <p>
+            For Project Paradise Core 89, this creates a simple rule: every protocol is described through four questions. What exactly changes in the process? Why does it work? What does the business receive within 30–90 days? And what control system remains visible after implementation?
+          </p>
+
+          <p>
+            This structure makes the page feel premium in presentation while staying clear and business-focused. The logic remains practical, commercial, and easy to understand.
+          </p>
+        </div>
+      </article>
+
+      <div class="ai-services-flow__benefits" aria-label="AI implementation advantages">
+        <article class="ai-services-flow__benefit ai-services-flow__benefit--up">
+          <span class="ai-services-flow__benefit-number">01</span>
+          <p class="ai-services-flow__benefit-text">
+            Business language instead of overloaded technical terminology.
+          </p>
+        </article>
+
+        <article class="ai-services-flow__benefit ai-services-flow__benefit--down">
+          <span class="ai-services-flow__benefit-number">02</span>
+          <p class="ai-services-flow__benefit-text">
+            Focus on scenarios with a fast first measurable effect.
+          </p>
+        </article>
+
+        <article class="ai-services-flow__benefit ai-services-flow__benefit--up">
+          <span class="ai-services-flow__benefit-number">03</span>
+          <p class="ai-services-flow__benefit-text">
+            Result measurement before, during, and after implementation.
+          </p>
+        </article>
+
+        <article class="ai-services-flow__benefit ai-services-flow__benefit--down">
+          <span class="ai-services-flow__benefit-number">04</span>
+          <p class="ai-services-flow__benefit-text">
+            Clear transition from business problem to concrete AI protocol.
+          </p>
+        </article>
+      </div>
+
+      <div class="ai-services-flow__grid">
+          <article class="ai-services-flow__panel ai-services-flow__panel--protocols">
+          <span class="ai-services-flow__panel-label">
+            Protocol Overview Block
+          </span>
+
+          <h2 class="ai-services-flow__panel-title">
+            Five protocols of growth and efficiency
+          </h2>
+
+          <div class="ai-services-flow__panel-text">
+            <p>
+              Instead of presenting a long list of disconnected services, Project Paradise Core 89 presents its solutions as five protocols. Visually, this feels stronger. Strategically, it positions the website as a consulting AI platform rather than a typical automation agency.
+            </p>
+
+            <p>
+              Each protocol is responsible for a specific business layer: documents and accounting, acquisition and creative production, sales and client data, internal operations, reporting and control.
+            </p>
+
+            <p>
+              This protocol-based structure is especially effective for a B2B website because buyers recognize themselves through business problems, not through technology. A user does not usually arrive with the request “we need an LLM and automation”. They arrive with problems like “our accounting is too slow”, “managers are losing leads”, “marketing does too much manual work”, “we have no visibility into performance”, or “we need to train the team without breaking the implementation”.
+            </p>
+
+            <p>
+              Below, each protocol should work as a mini-landing page inside the larger Services page: description, how it works, who it fits, timeline, ROI direction, risks, and the method used to reduce those risks.
+            </p>
+
+            <p>
+              This format helps move the page from informational content to a commercial decision-making system.
+            </p>
+          </div>
+        </article>
+
+        <article class="ai-services-flow__panel ai-services-flow__panel--implementation" id="implementation-process">
+          <span class="ai-services-flow__panel-label">
+            Implementation Block
+          </span>
+
+          <h2 class="ai-services-flow__panel-title">
+            How implementation works
+          </h2>
+
+          <div class="ai-services-flow__panel-text">
+            <p>
+              Implementation should be described as a controlled trajectory, not as “we connect AI and everything will take off”. Successful projects begin with process definition, quality control, governance, training, and change management. Without this foundation, even a strong AI solution can become just another interface for old manual work.
+            </p>
+
+            <p>
+              Project Paradise Core 89 can describe its approach as a sequence: first, a loss audit and use case selection; then a fast pilot contour with human-in-the-loop control; then integrations and exception automation; after that, role-based training and KPI monitoring; and only then, scaling into new departments or additional protocols.
+            </p>
+
+            <p>
+              A separate focus should be placed on the fact that implementation includes not only the technical layer, but also the decision-making model: who owns the process, which data source is treated as the source of truth, where manual control is required, which AI outputs need user confirmation, how errors are recorded, and how the operating logic is updated after the first month of real use.
+            </p>
+
+            <p>
+              This is especially important as expectations around AI governance, transparency, responsibility, and risk management continue to grow.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <article class="ai-services-flow__closing" id="next-step">
+        <span class="ai-services-flow__closing-label">
+          Closing Block
+        </span>
+
+        <h2 class="ai-services-flow__closing-title">
+          Next step
+        </h2>
+
+        <div class="ai-services-flow__closing-text">
+          <p>
+            A strong service page does not end with a promise. It ends with a concrete action. The user should understand that after submitting a request, they will not be sent into uncertainty. They will enter a short and clear process: preliminary brief, discovery call, opportunity map, proposal for one or several protocols, pilot contour, and launch.
+          </p>
+
+          <p>
+            The CTA should sound business-focused, but not heavy. For this type of website, the strongest call-to-action texts promise a clear next artifact: an audit, implementation map, short plan, current process review, or ROI estimate.
+          </p>
+        </div>
+
+        <div class="ai-services-flow__closing-actions" aria-label="Next step actions">
+          <a class="ai-services-flow__btn ai-services-flow__btn--primary" href="#contact">
+            Get Implementation Map
+          </a>
+
+          <a class="ai-services-flow__btn ai-services-flow__btn--secondary" href="#contact">
+            Request AI Audit
+          </a>
+
+          <a class="ai-services-flow__btn ai-services-flow__btn--ghost" href="#growth-protocols">
+            Discuss Team Protocol
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="ai-protocol-list" id="growth-protocols">
+    <div class="ai-protocol-list__inner">
+      <h2 class="ai-protocol-list__title">
+        Five protocols of growth and efficiency
+      </h2>
+
+      <ul class="ai-protocol-list__grid">
+        <li class="ai-protocol-list__item ai-protocol-list__item--accounting" id="ai-accounting">
+          <h3>AI Accounting</h3>
+        </li>
+
+        <li class="ai-protocol-list__item ai-protocol-list__item--marketing" id="ai-marketing">
+          <h3>AI Marketing &amp; Design</h3>
+        </li>
+
+        <li class="ai-protocol-list__item ai-protocol-list__item--crm" id="crm-intelligence">
+          <h3>CRM Intelligence</h3>
+        </li>
+
+        <li class="ai-protocol-list__item ai-protocol-list__item--operations" id="operations-automation">
+          <h3>Operations Automation</h3>
+        </li>
+
+        <li class="ai-protocol-list__item ai-protocol-list__item--analytics" id="business-analytics">
+          <h3>Business Analytics &amp; AI Auditor</h3>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
     `
+}
+
+export function serviceDragScroll() {
+  const slider = document.querySelector('.ai-protocol-list__grid');
+
+  if (!slider) return;
+
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+
+  slider.addEventListener('mousedown', (event) => {
+    isDown = true;
+    slider.classList.add('is-dragging');
+
+    startX = event.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+   slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('is-dragging');
+  });
+
+  slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.classList.remove('is-dragging');
+  });
+
+  slider.addEventListener('mousemove', (event) => {
+    if (!isDown) return;
+
+    event.preventDefault();
+
+    const x = event.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.4;
+
+    slider.scrollLeft = scrollLeft - walk;
+  });
 }
