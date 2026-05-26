@@ -337,9 +337,16 @@ export function renderAIBusinessServices(){
 
     </div>
   </section>
-  <section class="protocol-switcher"></section> 
+  <section id="page-protocol-switcher"></section> 
 
     `
+}
+
+
+export function renderaiaccounting(){
+  return `
+  rrrrrrrrrrrrrr
+  `
 }
 
 export function serviceDragScroll() {

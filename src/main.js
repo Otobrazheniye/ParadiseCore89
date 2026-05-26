@@ -15,8 +15,8 @@ import { tabsLoginRegister } from './components/basepage-dev.js'
 import { renderResearch } from './components/page-research.js'
 import { renderDivision } from './components/page-division.js'
 
-import { renderAIBusinessServices } from './components/aibusiness-services.js'
-import { serviceDragScroll } from './components/aibusiness-services.js'
+import { renderAIBusinessServices, serviceDragScroll, renderaiaccounting } from './components/aibusiness-services.js'
+
 //Frame
 const app = document.querySelector('#app')
 
@@ -34,7 +34,7 @@ app.innerHTML = `
 const headerRoot = document.querySelector('#header-root')
 const pageRoot = document.querySelector('#page-root')
 const pageaiRoot = document.querySelectorAll('#pageai-root')
-
+const pageProtocolSwitcher = document.querySelector('#page-protocol-switcher')
 //#region Switch functions
 //#region Header Switch
 function headerSwitchButton(){
@@ -135,6 +135,7 @@ function bodySwitchAiBusiness(activePage) {
     case 'services':
       pageRoot.innerHTML = renderAIBusinessServices()
       serviceDragScroll()
+      bodySwitchAiBusinessProtocolButton();
       break
 
     case 'reviews':
@@ -155,9 +156,53 @@ function bodySwitchAiBusiness(activePage) {
 }
 
 function bodySwitchAiBusinessProtocolButton(){
-  const protocolButton = document.querySelectorAll("protocolButton")
+  const protocolButton = document.querySelectorAll(".protocolButton")
 
-  
+  protocolButton.forEach((btn)=>{
+    btn.addEventListener('click',(event)=>{
+      event.preventDefault()
+      const activePage = btn.dataset.page
+
+      bodySwitchAiBusinessProtocol(activePage)
+    })
+  })
+}
+
+
+function bodySwitchAiBusinessProtocol(activePage) {
+  const pageProtocolSwitcher = document.querySelector("#page-protocol-switcher");
+
+  if (!pageProtocolSwitcher) return;
+
+  switch (activePage) {
+    case "aiaccounting":
+      pageProtocolSwitcher.innerHTML = renderaiaccounting();
+      break;
+
+    case "aimarketingdesign":
+      pageProtocolSwitcher.innerHTML = renderNone();
+      break;
+
+    case "crmintelligence":
+      pageProtocolSwitcher.innerHTML = renderNone();
+      break;
+
+    case "operationsautomation":
+      pageProtocolSwitcher.innerHTML = renderNone();
+      break;
+
+    case "businessanalyticsaiauditor":
+      pageProtocolSwitcher.innerHTML = renderNone();
+      break;
+
+    default:
+      pageProtocolSwitcher.innerHTML = `<h1>Page not found</h1>`;
+  }
+
+  pageProtocolSwitcher.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
 }
 //#endregion
 //#endregion
@@ -170,7 +215,7 @@ bodySwitch('home')
 headerSwitchButton()
 bodySwitchButton()
 bodySwitchAiBusinessButton()
-
+bodySwitchAiBusinessProtocolButton()
 
 initFooterSwitcher()
 
