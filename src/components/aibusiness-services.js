@@ -315,28 +315,29 @@ export function renderAIBusinessServices(){
 
       <ul class="ai-protocol-list__grid">
         <li class="ai-protocol-list__item ai-protocol-list__item--accounting" id="ai-accounting">
-          <h3>AI Accounting</h3>
+          <h3 class="protocolButton" data-page="aiaccounting">AI Accounting</h3>
         </li>
 
         <li class="ai-protocol-list__item ai-protocol-list__item--marketing" id="ai-marketing">
-          <h3>AI Marketing &amp; Design</h3>
+          <h3 class="protocolButton" data-page="aimarketingdesign">AI Marketing &amp; Design</h3>
         </li>
 
         <li class="ai-protocol-list__item ai-protocol-list__item--crm" id="crm-intelligence">
-          <h3>CRM Intelligence</h3>
+          <h3 class="protocolButton" data-page="crmintelligence">CRM Intelligence</h3>
         </li>
 
         <li class="ai-protocol-list__item ai-protocol-list__item--operations" id="operations-automation">
-          <h3>Operations Automation</h3>
+          <h3 class="protocolButton" data-page="operationsautomation">Operations Automation</h3>
         </li>
 
         <li class="ai-protocol-list__item ai-protocol-list__item--analytics" id="business-analytics">
-          <h3>Business Analytics &amp; AI Auditor</h3>
+          <h3 class="protocolButton" data-page="businessanalyticsaiauditor">Business Analytics &amp; AI Auditor</h3>
         </li>
       </ul>
 
     </div>
   </section>
+  <section class="protocol-switcher"></section> 
 
     `
 }

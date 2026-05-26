@@ -35,7 +35,8 @@ const headerRoot = document.querySelector('#header-root')
 const pageRoot = document.querySelector('#page-root')
 const pageaiRoot = document.querySelectorAll('#pageai-root')
 
-
+//#region Switch functions
+//#region Header Switch
 function headerSwitchButton(){
   const headerButton = document.querySelectorAll('.headerButton')
   headerButton.forEach((btn)=> {
@@ -70,8 +71,10 @@ function headerSwitch(activePage){
 
   LanguageSwitchButton()
 }
+//#endregion
 
 
+//#region Body Switch
 function bodySwitchButton(){
   const pageButton = document.querySelectorAll('.pageButton')
   pageButton.forEach((btn)=> {
@@ -151,6 +154,16 @@ function bodySwitchAiBusiness(activePage) {
   }
 }
 
+function bodySwitchAiBusinessProtocolButton(){
+  const protocolButton = document.querySelectorAll("protocolButton")
+
+  
+}
+//#endregion
+//#endregion
+
+
+//#region Default function
 headerSwitch('home')
 bodySwitch('home')
 
@@ -166,7 +179,7 @@ LanguageSwitchButton()
 serviceDragScroll()
 authModal()
 tabsLoginRegister()
-
+//#endregion
 
 
 const burgerBtn = document.querySelector('.header-burger');
