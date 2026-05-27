@@ -338,7 +338,308 @@ export function renderAIBusinessServices(){
     </div>
   </section>
   <section id="page-protocol-switcher"></section> 
+  
 
+
+  <section class="ai-packages" id="implementation-packages">
+    <div class="ai-packages__inner">
+
+      <div class="ai-packages__head">
+        <span class="ai-packages__eyebrow">
+          Implementation Packages
+        </span>
+
+        <h2 class="ai-packages__title">
+          Packages and service cards
+        </h2>
+
+        <p class="ai-packages__lead">
+          Choose the level of AI implementation that matches your current business stage: pilot, functional growth, or company-wide operating system.
+        </p>
+      </div>
+
+      <div class="ai-packages__grid">
+
+        <article class="ai-packages__card ai-packages__card--basic">
+          <div class="ai-packages__top">
+            <span class="ai-packages__name">
+              Basic
+            </span>
+
+            <h3 class="ai-packages__card-title">
+              Launch Protocol
+            </h3>
+
+            <p class="ai-packages__summary">
+              A fast launch of one AI scenario to test business value without taking a large risk.
+            </p>
+          </div>
+
+          <div class="ai-packages__body">
+            <p>
+              This package is designed for a company that wants to start small: choose one process, test an AI solution, and understand whether there is real value. We analyze the current workflow, find one automation point, launch a pilot, and show the first measurable results.
+            </p>
+
+            <p>
+              As a result, the company receives not just an “AI test”, but a clear proof of value: what works, which metric improved, and how it can be scaled further.
+            </p>
+          </div>
+
+          <div class="ai-packages__includes">
+            <h4>
+              What is included
+            </h4>
+
+            <ul>
+              <li>1 AI protocol for a specific task</li>
+              <li>Audit of one business process</li>
+              <li>Pilot implementation contour</li>
+              <li>1–2 basic integrations</li>
+              <li>Human-in-the-loop control</li>
+              <li>Basic dashboard with one key metric</li>
+              <li>Initial team training</li>
+            </ul>
+          </div>
+
+          <div class="ai-packages__best-for">
+            <h4>
+              Best suited for
+            </h4>
+
+            <p>
+              Quickly testing ROI on one use case and understanding whether it is worth scaling AI further.
+            </p>
+          </div>
+
+          <a class="ai-packages__btn ai-packages__btn--basic" href="#contact">
+            Launch Pilot
+          </a>
+        </article>
+
+
+        <article class="ai-packages__card ai-packages__card--pro ai-packages__card--popular">
+          <span class="ai-packages__badge">
+            Popular
+          </span>
+
+          <div class="ai-packages__top">
+            <span class="ai-packages__name">
+              Pro
+            </span>
+
+            <h3 class="ai-packages__card-title">
+              Growth Protocol
+            </h3>
+
+            <p class="ai-packages__summary">
+              A working AI contour for a business function that needs stable results, not just an experiment.
+            </p>
+          </div>
+
+          <div class="ai-packages__body">
+            <p>
+              This package fits a business that already understands the problem and wants to implement AI into real workflows: sales, marketing, operations, CRM, documents, or analytics. The focus is not only on launch, but on making the solution part of the team’s daily work.
+            </p>
+
+            <p>
+              As a result, the company receives a functional AI contour with integrations, roles, metrics, responsible people, and support after launch.
+            </p>
+          </div>
+
+          <div class="ai-packages__includes">
+            <h4>
+              What is included
+            </h4>
+
+            <ul>
+              <li>1–3 AI protocols</li>
+              <li>Integrations with CRM / ERP / marketing systems</li>
+              <li>Extended process automation</li>
+              <li>KPI dashboard for result tracking</li>
+              <li>SLA and operating rules</li>
+              <li>Role-based training for different employees</li>
+              <li>30–60 days of post-launch support</li>
+            </ul>
+          </div>
+
+          <div class="ai-packages__best-for">
+            <h4>
+              Best suited for
+            </h4>
+
+            <p>
+              Moving one function or department into a stable AI-powered operating mode.
+            </p>
+          </div>
+
+          <a class="ai-packages__btn ai-packages__btn--pro" href="#contact">
+            Get Implementation Plan
+          </a>
+        </article>
+
+
+        <article class="ai-packages__card ai-packages__card--enterprise">
+          <div class="ai-packages__top">
+            <span class="ai-packages__name">
+              Enterprise
+            </span>
+
+            <h3 class="ai-packages__card-title">
+              Operating System Protocol
+            </h3>
+
+            <p class="ai-packages__summary">
+              A scalable AI architecture for a company that wants to transform several areas of work.
+            </p>
+          </div>
+
+          <div class="ai-packages__body">
+            <p>
+              This package fits companies where AI should not be a separate tool, but part of the operating model. Implementation affects several teams, functions, or departments, including access rules, risk management, policies, analytics, and training systems.
+            </p>
+
+            <p>
+              As a result, the company receives not one use case, but the foundation for an AI Operating System: structure, governance, roadmap, center of excellence, and a clear scaling model.
+            </p>
+          </div>
+
+          <div class="ai-packages__includes">
+            <h4>
+              What is included
+            </h4>
+
+            <ul>
+              <li>Multi-protocol architecture</li>
+              <li>AI implementation across several functions or departments</li>
+              <li>Data governance and data usage rules</li>
+              <li>AI policy and risk register</li>
+              <li>Audit trail and access control</li>
+              <li>Advanced analytics and management views</li>
+              <li>Center of excellence</li>
+              <li>AI Academy program with internal champions</li>
+              <li>Step-by-step expansion roadmap</li>
+            </ul>
+          </div>
+
+          <div class="ai-packages__best-for">
+            <h4>
+              Best suited for
+            </h4>
+
+            <p>
+              Scaling AI at company level and building a controlled AI operating model.
+            </p>
+          </div>
+
+          <a class="ai-packages__btn ai-packages__btn--enterprise" href="#contact">
+            Discuss Architecture
+          </a>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+  <section class="ai-package-comparison" id="package-comparison">
+  <div class="ai-package-comparison__inner">
+
+    <div class="ai-package-comparison__head">
+      <span class="ai-package-comparison__eyebrow">
+        Package Comparison
+      </span>
+
+      <h2 class="ai-package-comparison__title">
+        Compare implementation levels
+      </h2>
+
+      <p class="ai-package-comparison__lead">
+        A clear view of how Basic, Pro, and Enterprise packages differ by scope, integrations, analytics, governance, timeline, and best business scenario.
+      </p>
+    </div>
+
+    <div class="ai-package-comparison__table-wrap">
+      <button class="ai-package-comparison__copy" type="button" aria-label="Copy comparison table">
+        ⧉
+      </button>
+
+      <table class="ai-package-comparison__table">
+        <thead>
+          <tr>
+            <th scope="col">Parameter</th>
+            <th scope="col">Basic</th>
+            <th scope="col">Pro</th>
+            <th scope="col">Enterprise</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th scope="row">Goal</th>
+            <td>Fast pilot and first proof of value</td>
+            <td>Working functional AI contour</td>
+            <td>Scalable AI operating model</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Number of protocols</th>
+            <td>1</td>
+            <td>1–3</td>
+            <td>3+</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Scale</th>
+            <td>1 team / 1 process</td>
+            <td>1 function / several processes</td>
+            <td>Several functions / several departments</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Integrations</th>
+            <td>Basic</td>
+            <td>Extended</td>
+            <td>Complex</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Analytics</th>
+            <td>Basic KPI view</td>
+            <td>Dashboard + regular review</td>
+            <td>BI + AI Auditor + management views</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Training</th>
+            <td>Initial workshop</td>
+            <td>Role-based training</td>
+            <td>AI Academy program + internal champions</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Governance</th>
+            <td>Basic operating rules</td>
+            <td>Access control and process owner</td>
+            <td>Policy, audit trail, risk register</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Timeline</th>
+            <td>2–6 weeks</td>
+            <td>6–12 weeks</td>
+            <td>3–6+ months, step by step</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Best scenario</th>
+            <td>Test ROI on one use case</td>
+            <td>Move one function into a working AI contour</td>
+            <td>Rebuild several business contours at company level</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
     `
 }
 
