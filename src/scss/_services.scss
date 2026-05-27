@@ -1739,7 +1739,9 @@ html {
 .ai-packages {
   height: auto;
   min-height: 100vh;
-  overflow: visible;
+  overflow-x: clip;
+  // overflow-x: hidden;
+  overflow-y: visible;
 }
 
 #ai-payoff,

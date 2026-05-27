@@ -16,6 +16,7 @@ import { renderResearch } from './components/page-research.js'
 import { renderDivision } from './components/page-division.js'
 
 import { renderAIBusinessServices, serviceDragScroll, renderaiaccounting } from './components/aibusiness-services.js'
+import { renderAIBusinessAbout } from './components/aibusiness-about.js'
 
 //Frame
 const app = document.querySelector('#app')
@@ -129,7 +130,7 @@ function bodySwitchAiBusiness(activePage) {
       break
 
     case 'about':
-      pageRoot.innerHTML = renderAbout()
+      pageRoot.innerHTML = renderAIBusinessAbout()
       break
 
     case 'services':

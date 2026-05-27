@@ -120,17 +120,6 @@ export function renderHeaderAIBusiness() {
             Training
           </a>
         </li>
-
-        <li class="header-item header-item-fifth">
-          <a 
-            class="header-link pageButton" 
-            href="#" 
-            data-i18n="header.contact" 
-            data-page="contact"
-          >
-            Contact
-          </a>
-        </li>
       </ul>
     </div>
 
@@ -184,17 +173,6 @@ export function renderHeaderAIBusiness() {
             data-page="training"
           >
             Training
-          </a>
-        </li>
-
-        <li class="header-item">
-          <a 
-            class="header-link pageButton" 
-            href="#" 
-            data-i18n="header.contact" 
-            data-page="contact"
-          >
-            Contact
           </a>
         </li>
 
