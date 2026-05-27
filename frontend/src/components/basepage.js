@@ -97,11 +97,7 @@ function renderBasePageMain(){
         
         <div class="division-card__frame logistic-bckg-card">
           <div class="division-card__content">
-<<<<<<< HEAD
-            <button class="division-card__button phone1-division-card__button" type="button">Enter</button>
-=======
             <button class="division-card__button" type="button">Enter</button>
->>>>>>> frame-base-page
           </div>
         </div>
       </div>
@@ -128,11 +124,7 @@ function renderBasePageMain(){
      
         <div class="division-card__frame mining-bckg-card">
           <div class="division-card__content">
-<<<<<<< HEAD
-            <button class="division-card__button phone1-division-card__button" type="button">Enter</button>
-=======
             <button class="division-card__button" type="button">Enter</button>
->>>>>>> frame-base-page
           </div>
         </div>
       </div>
