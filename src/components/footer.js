@@ -169,48 +169,48 @@ export function renderFooterVault(){
       </div>
 
       <div class="vault-footer__panel">
-        <h3>Active Projects</h3>
+        <h3 data-i18n="footerVault.activeProjectsTitle">Active Projects</h3>
         <a href="#">SCORB</a>
-        <a href="#">Medical Program</a>
-        <a href="#">Logistics Grid</a>
-        <a href="#">Security Expansion</a>
+        <a href="#" data-i18n="footerVault.medicalProgram">Medical Program</a>
+        <a href="#" data-i18n="footerVault.logisticsGrid">Logistics Grid</a>
+        <a href="#" data-i18n="footerVault.securityExpansion">Security Expansion</a>
       </div>
 
       <div class="vault-footer__panel vault-footer__panel--metrics">
-        <h3>Internal Metrics</h3>
+        <h3 data-i18n="footerVault.internalMetricsTitle">Internal Metrics</h3>
 
         <div class="vault-footer__stat">
-          <span>Active Facilities</span>
+          <span data-i18n="footerVault.activeFacilities">Active Facilities</span>
           <strong>12</strong>
         </div>
 
         <div class="vault-footer__stat">
-          <span>Personnel</span>
+          <span data-i18n="footerVault.personnel">Personnel</span>
           <strong>2.4k</strong>
         </div>
 
         <div class="vault-footer__stat">
-          <span>Growth</span>
+          <span data-i18n="footerVault.growth">Growth</span>
           <strong>+18%</strong>
         </div>
 
         <div class="vault-footer__stat">
-          <span>Security Level</span>
-          <strong>High</strong>
+          <span data-i18n="footerVault.securityLevel">Security Level</span>
+          <strong data-i18n="footerVault.securityLevelValue">High</strong>
         </div>
       </div>
     </section>
   </div>
 
    <div class="site-footer__controls">
-    <button class="footer-back-btn" type="button">
+    <button class="footer-back-btn" type="button" data-i18n="footerVault.back">
       ← Back
     </button>
    </div>
 
   <div class="vault-footer__bottom">
-    <span>© 2026 Paradise Core 89</span>
-    <span>Vault access: Restricted</span>
+    <span data-i18n="footerVault.copyright">© 2026 Paradise Core 89</span>
+    <span data-i18n="footerVault.status">Vault access: Restricted</span>
   </div>
 </footer>
     `

@@ -1,6 +1,10 @@
 @use "scss/header";
 @use "scss/footer";
 @use "scss/basepage";
+@use "scss/research";
+@use "scss/division";
+@use "scss/services";
+@use "scss/aboutaibusiness";
 
 // body{
 //   background-color: rgb(94, 35, 35);
@@ -15,6 +19,11 @@ html, body {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+#app {
+  height: 100vh;
+  overflow-y: auto;
 }
 
 
