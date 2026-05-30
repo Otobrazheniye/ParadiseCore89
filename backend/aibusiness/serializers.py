@@ -5,11 +5,18 @@ class ServiceListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
         fields = (
-            'id',
-            'title',
-            'slug',
-            'short_description',
-            'icon_name',
-            'order',
+            'id', 'title',
+            'slug', 'short_description',
+            'icon_name', 'order',
         )
 
+class ServiceDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Service
+        fields = (
+            'id', 'title',
+            'slug', 'short_description',
+            'full_description', 'icon_name', 
+            'order', 'created_at',
+            'updated_at'
+        )
