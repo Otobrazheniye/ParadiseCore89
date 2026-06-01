@@ -251,3 +251,18 @@ if (burgerBtn && mobileMenu) {
     }
   });
 }
+
+
+// TEST API
+import { getServices } from './api/servicesApi.js';
+
+async function testServicesApi() {
+  try {
+    const services = await getServices();
+    console.log('SERVICES FROM API:', services);
+  } catch (error) {
+    console.error('API ERROR:', error);
+  }
+}
+
+testServicesApi();
