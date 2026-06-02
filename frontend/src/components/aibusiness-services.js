@@ -1,6 +1,41 @@
+import { getServices } from "../api/servicesApi";
+
+
+export async function renderServices(){
+  const serviceGrid = document.querySelector("#services-grid") 
+  if(!serviceGrid) return
+
+
+  try{
+    const serviceList = await getServices()
+    serviceGrid.innerHTML = ''
+
+    serviceList.forEach((service) => {
+      const listItem = document.createElement("li")
+      listItem.classList.add("ai-protocol-list__item")
+      listItem.classList.add(`ai-protocol-list__item--${service.icon_name}`)
+      listItem.id= service.slug
+      const subTitleItem = document.createElement("h3")
+      subTitleItem.classList.add("protocolButton")
+      subTitleItem.dataset.page = service.slug
+      subTitleItem.textContent = service.title
+
+
+      listItem.append(subTitleItem)
+
+
+      serviceGrid.append(listItem)
+  })
+  }
+
+  catch (error){
+    console.log('Failed to load services:', error)
+  }
+}
+
 
 export function renderAIBusinessServices(){
-    return `
+    return `  
     <section class="ai-protocols" id="ai-protocols">
       <div class="ai-protocols__inner">
 
@@ -312,28 +347,9 @@ export function renderAIBusinessServices(){
       <h2 class="ai-protocol-list__title">
         Five protocols of growth and efficiency
       </h2>
+      <ul class="ai-protocol-list__grid" id="services-grid"></ul>
+      
 
-      <ul class="ai-protocol-list__grid">
-        <li class="ai-protocol-list__item ai-protocol-list__item--accounting" id="ai-accounting">
-          <h3 class="protocolButton" data-page="aiaccounting">AI Accounting</h3>
-        </li>
-
-        <li class="ai-protocol-list__item ai-protocol-list__item--marketing" id="ai-marketing">
-          <h3 class="protocolButton" data-page="aimarketingdesign">AI Marketing &amp; Design</h3>
-        </li>
-
-        <li class="ai-protocol-list__item ai-protocol-list__item--crm" id="crm-intelligence">
-          <h3 class="protocolButton" data-page="crmintelligence">CRM Intelligence</h3>
-        </li>
-
-        <li class="ai-protocol-list__item ai-protocol-list__item--operations" id="operations-automation">
-          <h3 class="protocolButton" data-page="operationsautomation">Operations Automation</h3>
-        </li>
-
-        <li class="ai-protocol-list__item ai-protocol-list__item--analytics" id="business-analytics">
-          <h3 class="protocolButton" data-page="businessanalyticsaiauditor">Business Analytics &amp; AI Auditor</h3>
-        </li>
-      </ul>
 
     </div>
   </section>
@@ -688,3 +704,6 @@ export function serviceDragScroll() {
     slider.scrollLeft = scrollLeft - walk;
   });
 }
+
+
+

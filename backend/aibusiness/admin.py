@@ -9,6 +9,3 @@ class ServiceAdmin(admin.ModelAdmin):
     search_fields = ("title", "short_description", "full_description")
     prepopulated_fields = {"slug": ("title",)}
     ordering = ("order", "title")
-
-
-

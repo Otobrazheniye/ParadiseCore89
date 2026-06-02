@@ -12,4 +12,3 @@ router.register("services", ServiceViewSet, basename="service")
 urlpatterns = [
     path("", include(router.urls))
 ]
-

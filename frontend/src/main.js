@@ -18,6 +18,9 @@ import { renderDivision } from './components/page-division.js'
 import { renderAIBusinessServices, serviceDragScroll, renderaiaccounting } from './components/aibusiness-services.js'
 import { renderAIBusinessAbout } from './components/aibusiness-about.js'
 
+//Backend
+import { renderServices } from './components/aibusiness-services.js'
+
 //Frame
 const app = document.querySelector('#app')
 
@@ -123,7 +126,7 @@ function bodySwitchAiBusinessButton(){
   })
 }
 
-function bodySwitchAiBusiness(activePage) {
+async function bodySwitchAiBusiness(activePage) {
   switch (activePage) {
     case 'home':
       pageRoot.innerHTML = renderHome()
@@ -135,6 +138,9 @@ function bodySwitchAiBusiness(activePage) {
 
     case 'services':
       pageRoot.innerHTML = renderAIBusinessServices()
+
+      await renderServices()
+      
       serviceDragScroll()
       bodySwitchAiBusinessProtocolButton();
       break
@@ -204,6 +210,7 @@ function bodySwitchAiBusinessProtocol(activePage) {
     behavior: "smooth",
     block: "start",
   });
+  
 }
 //#endregion
 //#endregion
