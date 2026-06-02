@@ -35,7 +35,7 @@ export async function renderServices(){
 
 
 export function renderAIBusinessServices(){
-    return `
+    return `  
     <section class="ai-protocols" id="ai-protocols">
       <div class="ai-protocols__inner">
 
