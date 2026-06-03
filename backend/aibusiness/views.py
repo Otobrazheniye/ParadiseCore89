@@ -13,4 +13,3 @@ class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
             return ServiceDetailSerializer
 
         return ServiceListSerializer
-    

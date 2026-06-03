@@ -31,3 +31,38 @@ class Service(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ContactRequest(models.Model):
+    STATUS_NEW = 'new'
+    STATUS_IN_PROGRESS = 'in_progress'
+    STATUS_DONE = 'done'
+    STATUS_SPAM = 'spam'
+
+
+    STATUS_CHOICES = [
+        (STATUS_NEW, 'New'), (STATUS_IN_PROGRESS, 'In progress'),
+        (STATUS_DONE, 'Done'), (STATUS_SPAM, 'Spam'),
+    ]
+    
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=255)
+    company = models.CharField(max_length=255, blank=True)
+    service_interest = models.CharField(max_length=100, blank=True)
+    message = models.TextField()
+
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default=STATUS_NEW)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    admin_note = models.TextField(blank=True)
+
+
+    class Meta:
+        ordering = ['-created_at']
+
+
+    def __str__(self):  
+        return f'{self.name} - {self.email}'
