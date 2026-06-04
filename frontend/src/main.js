@@ -20,6 +20,7 @@ import { renderAIBusinessAbout } from './components/aibusiness-about.js'
 
 //Backend
 import { renderServices } from './components/aibusiness-services.js'
+import { setupContactForm } from './components/aibusiness-contact.js'
 
 //Frame
 const app = document.querySelector('#app')
@@ -140,6 +141,7 @@ async function bodySwitchAiBusiness(activePage) {
       pageRoot.innerHTML = renderAIBusinessServices()
 
       await renderServices()
+      await setupContactForm()
       
       serviceDragScroll()
       bodySwitchAiBusinessProtocolButton();
