@@ -1,6 +1,9 @@
-from rest_framework import viewsets
-from .models import Service
-from .serializers import ServiceListSerializer, ServiceDetailSerializer
+from rest_framework import mixins, viewsets
+
+from .models import Service, ContactRequest
+from .serializers import (
+    ServiceListSerializer, ServiceDetailSerializer, 
+    ContactRequestCreateSerializer)
 
 
 class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
@@ -13,3 +16,11 @@ class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
             return ServiceDetailSerializer
 
         return ServiceListSerializer
+
+
+class ContactrequestViewSet(mixins.CreateModelMixin,viewsets.GenericViewSet):
+    queryset = ContactRequest.objects.all()
+
+
+    def get_serializer_class(self):
+        return ContactRequestCreateSerializer
