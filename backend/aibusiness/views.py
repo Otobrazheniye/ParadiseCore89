@@ -18,7 +18,7 @@ class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
         return ServiceListSerializer
 
 
-class ContactrequestViewSet(mixins.CreateModelMixin,viewsets.GenericViewSet):
+class ContactRequestViewSet(mixins.CreateModelMixin,viewsets.GenericViewSet):
     queryset = ContactRequest.objects.all()
 
 

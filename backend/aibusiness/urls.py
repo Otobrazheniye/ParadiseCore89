@@ -1,12 +1,13 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-from .views import ServiceViewSet
+from .views import ServiceViewSet, ContactRequestViewSet
 
 
 router = DefaultRouter()
 
 
-router.register("services", ServiceViewSet, basename="service")
+router.register('services', ServiceViewSet, basename='service')
+router.register('contact-request', ContactRequestViewSet, basename='contact-request')
 
 
 urlpatterns = [
