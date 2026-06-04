@@ -656,6 +656,15 @@ export function renderAIBusinessServices(){
     </div>
   </div>
 </section>
+
+  <form class="contact-form" id="contact-form">
+    <input name="name" type="text" placeholder="Your name" required>
+    <input name="email" type="email" placeholder="Your email" required>
+    <input name="company" type="text" placeholder="Company">
+    <input name="service_interest" type="text" placeholder="Service interest">
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button type="submit">Send request</button>
+  </form>
     `
 }
 
