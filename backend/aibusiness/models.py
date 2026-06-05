@@ -66,3 +66,25 @@ class ContactRequest(models.Model):
 
     def __str__(self):  
         return f'{self.name} - {self.email}'
+
+
+class Review(models.Model):
+    client_name = models.CharField(max_length=100)
+    company = models.CharField(max_length=255, blank=True)
+    position = models.CharField(max_length=255, blank=True)
+    text = models.TextField()
+    rating = models.PositiveSmallIntegerField(default=5)
+
+    is_published = models.BooleanField(default=False)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    admin_note = models.TextField(blank=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'{self.client_name} - {self.rating}/5'
+
