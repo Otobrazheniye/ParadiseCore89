@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, ContactRequest
+from .models import Service, ContactRequest, Review
 
 # Register your models here.
 @admin.register(Service)
@@ -30,9 +30,29 @@ class ContactRequestAdmin(admin.ModelAdmin):
         "message",
     )
     readonly_fields = (
-        'name', 'email',
-        'company', 'message', 
-        'created_at', 'updated_at',
+        "name", "email",
+        "company", "message", 
+        "created_at", "updated_at",
         # 'service_interest',
     )
     ordering = ("-created_at",)
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = (
+        "client_name", "company",
+        "position", "rating", 
+        "is_published", "created_at", 
+    )
+    list_filter = ("is_published", "rating", "created_at")
+    search_fields = (
+        "client_name", "company",
+        "text", "position",
+    )
+    readonly_fields = (
+        # "client_name", "company",
+        # "position", "rating",
+        "created_at", "updated_at",
+    )
+    ordering = ("-created_at",)
+

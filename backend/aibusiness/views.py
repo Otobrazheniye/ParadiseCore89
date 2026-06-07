@@ -1,9 +1,10 @@
 from rest_framework import mixins, viewsets
 
-from .models import Service, ContactRequest
+from .models import Service, ContactRequest, Review
 from .serializers import (
     ServiceListSerializer, ServiceDetailSerializer, 
-    ContactRequestCreateSerializer)
+    ContactRequestCreateSerializer,
+    ReviewListSerializer, ReviewCreateSerializer,)
 
 
 class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
@@ -24,3 +25,15 @@ class ContactRequestViewSet(mixins.CreateModelMixin,viewsets.GenericViewSet):
 
     def get_serializer_class(self):
         return ContactRequestCreateSerializer
+    
+
+class ReviewViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
+    queryset = Review.objects.filter(is_published=True)
+
+    def get_serializer_class(self):
+        if self.action == "create":
+            return ReviewCreateSerializer
+        return ReviewListSerializer
+        
+
+
