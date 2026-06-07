@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Service, ContactRequest
+from .models import Service, ContactRequest, Review
 
 
 class ServiceListSerializer(serializers.ModelSerializer):
@@ -27,7 +27,7 @@ class ContactRequestCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactRequest
         fields = (
-        'id',
+        "id",
         'name', 'email',
         'company', 'service_interest',
         'message', 'created_at',    
@@ -47,3 +47,46 @@ class ContactRequestCreateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("message must be at least 11 symbol")
         return value
         
+
+class ReviewListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = (
+            "id", "client_name",
+            "company", "position"  
+            "text", "rating", 
+            "created_at",
+        )
+        read_only_fields = (
+            "id", "created_at",
+        )
+
+class ReviewCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = (
+            "id", "client_name", 
+            "company", "position", 
+            "text", "rating", 
+            "created_at",
+        )
+        read_only_fields = (
+            "id", "created_at",
+        )
+
+    def validate_client_name(self, value):
+            if len(value.strip()) < 2:
+                raise serializers.ValidationError("Name must be at least 2 symbols") 
+            return value
+        
+    def validate_text(self, value):
+            if len(value.strip()) < 10:
+                raise serializers.ValidationError("Message must be at least 10 symbol")
+            return value
+        
+    def validate_rating(self, value):
+        if value < 1 or value > 5:
+            raise serializers.ValidationError("Rating must be between 1 and 5.")
+        return value
+
+            
