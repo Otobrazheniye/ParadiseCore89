@@ -15,7 +15,10 @@ import { tabsLoginRegister } from './components/basepage-dev.js'
 import { renderResearch } from './components/page-research.js'
 import { renderDivision } from './components/page-division.js'
 
+// Import AIBusiness
 import { renderAIBusinessServices, serviceDragScroll, renderaiaccounting } from './components/aibusiness-services.js'
+import { renderAIBusinessReview } from './components/aibusiness-review.js'
+
 import { renderAIBusinessAbout } from './components/aibusiness-about.js'
 
 //Backend
@@ -148,7 +151,7 @@ async function bodySwitchAiBusiness(activePage) {
       break
 
     case 'reviews':
-      pageRoot.innerHTML = renderReviews()
+      pageRoot.innerHTML = renderAIBusinessReview();
       break
 
     case 'training':

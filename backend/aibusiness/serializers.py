@@ -53,7 +53,7 @@ class ReviewListSerializer(serializers.ModelSerializer):
         model = Review
         fields = (
             "id", "client_name",
-            "company", "position"  
+            "company", "position",  
             "text", "rating", 
             "created_at",
         )
@@ -89,4 +89,3 @@ class ReviewCreateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Rating must be between 1 and 5.")
         return value
 
-            

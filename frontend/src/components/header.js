@@ -110,7 +110,7 @@ export function renderHeaderAIBusiness() {
     <div class="header-list header-list-display">
       <ul>
         <li class="header-item header-item-third">
-          <a  class="header-link pageButton"  href="#"  data-i18n="header.reviews"  data-page="reviews">
+          <a class="header-link headeraiButton" href="#" data-i18n="header.reviews" data-page="reviews">
             Reviews
           </a>
         </li>
