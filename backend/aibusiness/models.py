@@ -88,3 +88,42 @@ class Review(models.Model):
     def __str__(self):
         return f'{self.client_name} - {self.rating}/5'
 
+class TrainingProgram(models.Model):
+    LEVEL_INITIAL = "initial"
+    LEVEL_ROLE_BASED = "role_based"
+    LEVEL_ACADEMY = "academy"
+    LEVEL_CHAMPIONS = "champions"
+
+    LEVEL_CHOICES = [
+        (LEVEL_INITIAL, "Initial team training"), (LEVEL_ROLE_BASED, "Role-based training"), 
+        (LEVEL_ACADEMY, "AI Academy"), (LEVEL_CHAMPIONS, "Internal champions"),
+    ]
+
+
+    title = models.CharField(max_length=120)
+    slug = models.SlugField(max_length=130, unique=True, blank=True)
+    short_description = models.CharField(max_length=255)
+    full_description = models.TextField()
+
+    level = models.CharField(max_length=30, choices=LEVEL_CHOICES, default=LEVEL_INITIAL)
+
+    duration = models.CharField(max_length=120, blank=True)
+    target_audience = models.CharField(max_length=120, blank=True)
+    order = models.PositiveIntegerField(default=0)
+
+    is_active = models.BooleanField(default=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True) 
+
+    class Meta:
+        ordering = ["order","title"]
+
+    def save (self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args,**kwargs)
+
+    def __str__(self):
+        return self.title
+    
