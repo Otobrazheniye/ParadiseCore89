@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, ContactRequest, Review
+from .models import Service, ContactRequest, Review, TrainingProgram
 
 # Register your models here.
 @admin.register(Service)
@@ -56,3 +56,21 @@ class ReviewAdmin(admin.ModelAdmin):
     )
     ordering = ("-created_at",)
 
+@admin.register(TrainingProgram)
+class TrainingProgramAdmin(admin.ModelAdmin):
+    list_display = (
+        "title", "slug",
+        "level", "duration",
+        "order", "is_active",
+        "created_at",
+    )
+    list_filter = (
+        "level", "is_active",
+        "created_at"
+        )
+    search_fields = (
+        "title", "short_description",
+        "full_description", "target_audience",
+    )
+    prepopulated_fields = {"slug":("title",),}
+    ordering = ("order", "title")
