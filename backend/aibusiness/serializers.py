@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Service, ContactRequest, Review
+from .models import Service, ContactRequest, Review, TrainingProgram
 
 
 class ServiceListSerializer(serializers.ModelSerializer):
@@ -89,3 +89,24 @@ class ReviewCreateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Rating must be between 1 and 5.")
         return value
 
+class TrainingProgramListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TrainingProgram
+        fields = (
+            "id", "title",
+            "slug", "short_description",
+            "level", "duration",
+            "target_audience", "order",
+        )
+
+class TrainingProgramDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TrainingProgram
+        fields = (
+            "id", "title",
+            "slug", "short_description",
+            "full_description", "level", 
+            "level", "duration",
+            "target_audience", "order",
+            "created_at", "updated_at",
+        )
