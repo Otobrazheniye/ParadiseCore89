@@ -24,6 +24,7 @@ import { renderAIBusinessAbout } from './components/aibusiness-about.js'
 //Backend
 import { renderServices } from './components/aibusiness-services.js'
 import { setupContactForm } from './components/aibusiness-contact.js'
+import { renderReviews, setupReviewForm } from './components/aibusiness-review.js'
 
 //Frame
 const app = document.querySelector('#app')
@@ -152,6 +153,9 @@ async function bodySwitchAiBusiness(activePage) {
 
     case 'reviews':
       pageRoot.innerHTML = renderAIBusinessReview();
+
+      await renderReviews()
+      await setupReviewForm()
       break
 
     case 'training':
