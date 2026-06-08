@@ -20,11 +20,13 @@ import { renderAIBusinessServices, serviceDragScroll, renderaiaccounting } from 
 import { renderAIBusinessReview } from './components/aibusiness-review.js'
 
 import { renderAIBusinessAbout } from './components/aibusiness-about.js'
+import { renderAIBusinessTrainingProgram } from './components/aibusiness-training.js'
 
 //Backend
 import { renderServices } from './components/aibusiness-services.js'
 import { setupContactForm } from './components/aibusiness-contact.js'
 import { renderReviews, setupReviewForm } from './components/aibusiness-review.js'
+import { renderTrainingPrograms } from './components/aibusiness-training.js'
 
 //Frame
 const app = document.querySelector('#app')
@@ -148,18 +150,20 @@ async function bodySwitchAiBusiness(activePage) {
       await setupContactForm()
       
       serviceDragScroll()
-      bodySwitchAiBusinessProtocolButton();
+      bodySwitchAiBusinessProtocolButton()
       break
 
     case 'reviews':
-      pageRoot.innerHTML = renderAIBusinessReview();
+      pageRoot.innerHTML = renderAIBusinessReview()
 
       await renderReviews()
       await setupReviewForm()
       break
 
     case 'training':
-      pageRoot.innerHTML = renderTraining()
+      pageRoot.innerHTML = renderAIBusinessTrainingProgram()
+
+      await renderTrainingPrograms()
       break
 
     case 'contact':

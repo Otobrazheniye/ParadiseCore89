@@ -116,7 +116,7 @@ export function renderHeaderAIBusiness() {
         </li>
 
         <li class="header-item header-item-fourth">
-          <a class="header-link pageButton"  href="#"  data-i18n="header.training"  data-page="training">
+          <a class="header-link headeraiButton"  href="#"  data-i18n="header.training"  data-page="training">
             Training
           </a>
         </li>
