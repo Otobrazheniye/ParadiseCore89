@@ -127,3 +127,22 @@ class TrainingProgram(models.Model):
     def __str__(self):
         return self.title
     
+class AboutAiBusiness(models.Model):
+
+    key = models.SlugField(max_length=100, unique=True)
+    eyebrow = models.CharField(max_length=120, blank=True)
+    title = models.CharField(max_length=180)
+    body = models.TextField()
+    order = models.PositiveIntegerField(default=0)
+    
+    is_active = models.BooleanField(default=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ("order", "key")
+
+    def __str__(self):
+        return f"{self.key} - {self.title}"
+    
