@@ -27,6 +27,7 @@ import { renderServices } from './components/aibusiness-services.js'
 import { setupContactForm } from './components/aibusiness-contact.js'
 import { renderReviews, setupReviewForm } from './components/aibusiness-review.js'
 import { renderTrainingPrograms } from './components/aibusiness-training.js'
+import { hydrateAboutAi } from './components/aibusiness-about.js'
 
 //Frame
 const app = document.querySelector('#app')
@@ -141,6 +142,8 @@ async function bodySwitchAiBusiness(activePage) {
 
     case 'about':
       pageRoot.innerHTML = renderAIBusinessAbout()
+
+      await hydrateAboutAi()
       break
 
     case 'services':

@@ -1,17 +1,59 @@
+import { getAboutAiBusiness } from "../api/aboutaibusiness.js"
+
+function setText(selector, value){
+  const element = document.querySelector(selector)
+
+  if (!element || value === undefined || value === null) return
+
+  element.textContent = value
+}
+
+function setParagraphs(selector, paragraphs){
+  const container = document.querySelector(selector)
+  if(!container || !Array.isArray(paragraphs)) return
+
+  container.innerHTML = ""
+
+  paragraphs.forEach((paragraphText)=> {
+    const paragraph = document.createElement("p")
+    paragraph.textContent = paragraphText
+    container.append(paragraph)
+  })
+
+}
+
+export async function hydrateAboutAi(){
+  try{
+    const blocks = await getAboutAiBusiness()
+    console.log("ABOUT BLOCKS FROM API:", blocks)
+
+    blocks.forEach((block) => {
+      setText( `[data-aboutai-field="${block.key}.eyebrow"]`, block.eyebrow)
+
+      setText( `[data-aboutai-field="${block.key}.title"]`, block.title)
+
+      setParagraphs( `[data-aboutai-paragraphs="${block.key}"]`, block.paragraphs)
+    })
+  }
+  catch(error){
+      console.error("Failed to load About AI Business", error)
+  } 
+}
+
 export function renderAIBusinessAbout(){
     return `
     <section class="about-core" id="about">
       <div class="about-core__inner">
-        <section class="about-core__hero">
-          <span class="about-core__eyebrow">
+        <section class="about-core__hero" id="ai-corporate-core">
+          <span class="about-core__eyebrow" data-aboutai-field="corporate-core.eyebrow">
             About
           </span>
 
-          <h1 class="about-core__title">
+          <h1 class="about-core__title" data-aboutai-field="corporate-core.title">
             Corporate Core
           </h1>
 
-          <div class="about-core__hero-text">
+          <div class="about-core__hero-text" data-aboutai-paragraphs="corporate-core">
             <p>
               Project Paradise Core 89 is a corporate AI direction created for companies that need clear operational results, not technological noise.
             </p>
