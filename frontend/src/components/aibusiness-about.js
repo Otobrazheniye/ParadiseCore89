@@ -44,7 +44,7 @@ export function renderAIBusinessAbout(){
     return `
     <section class="about-core" id="about">
       <div class="about-core__inner">
-        <section class="about-core__hero" id="ai-corporate-core">
+        <section class="about-core__hero">
           <span class="about-core__eyebrow" data-aboutai-field="corporate-core.eyebrow">
             About
           </span>
@@ -66,15 +66,15 @@ export function renderAIBusinessAbout(){
 
         <section class="about-core__split about-core__split--text-image">
           <div class="about-core__content">
-            <span class="about-core__section-label">
+            <span class="about-core__section-label" data-aboutai-field="operational-diagnosis.eyebrow">
               Operational Diagnosis
             </span>
 
-            <h2 class="about-core__section-title">
+            <h2 class="about-core__section-title" data-aboutai-field="operational-diagnosis.title">
               We start with the place where the business loses time, money, and control
             </h2>
 
-            <p>
+            <p data-aboutai-paragraphs="operational-diagnosis">
               We begin with the main question: where does the business lose time, money, and control? After that, we identify bottlenecks, design an automation scenario, and create a solution that the team can use in everyday work.
             </p>
           </div>
@@ -90,15 +90,15 @@ export function renderAIBusinessAbout(){
           </div>
 
           <div class="about-core__content">
-            <span class="about-core__section-label">
+            <span class="about-core__section-label" data-aboutai-field="corporate-ai-system.eyebrow">
               Corporate AI System
             </span>
 
-            <h2 class="about-core__section-title">
+            <h2 class="about-core__section-title" data-aboutai-field="corporate-ai-system.title">
               We turn overloaded processes into scalable AI scenarios
             </h2>
 
-            <p>
+            <p data-aboutai-paragraphs="corporate-ai-system">
               Paradise Core 89 does not replace business logic with a beautiful interface. We transform chaotic, repetitive, and overloaded processes into clear AI scenarios that can be maintained, developed, and scaled.
             </p>
 
@@ -123,15 +123,15 @@ export function renderAIBusinessAbout(){
       <div class="about-work__inner">
 
         <article class="about-work__block">
-          <span class="about-work__eyebrow">
+          <span class="about-work__eyebrow" data-aboutai-field="what-we-do.eyebrow">
             What We Do
           </span>
 
-          <h2 class="about-work__title">
+          <h2 class="about-work__title" data-aboutai-field="what-we-do.title">
             What we do
           </h2>
 
-          <div class="about-work__text">
+          <div class="about-work__text" data-aboutai-paragraphs="what-we-do">
             <p>
               We create applied AI solutions for companies that need to accelerate work without losing control over their processes. At the center of our approach is not the technology itself, but a specific business task.
             </p>
@@ -155,15 +155,15 @@ export function renderAIBusinessAbout(){
         </article>
 
         <article class="about-work__block" id="fast-ai-effect">
-          <span class="about-work__eyebrow">
+          <span class="about-work__eyebrow" data-aboutai-field="fast-effect-zones.eyebrow">
             Fast Effect Zones
           </span>
 
-          <h2 class="about-work__title">
+          <h2 class="about-work__title" data-aboutai-field="fast-effect-zones.title">
             Where AI creates a fast effect
           </h2>
 
-          <div class="about-work__text">
+          <div class="about-work__text" data-aboutai-paragraphs="fast-effect-zones">
             <p>
               Artificial intelligence is especially useful in areas where a company has many repetitive actions. If employees manually transfer data every day, answer similar questions, collect reports, prepare similar documents, or check the same indicators, then this process already has automation potential.
             </p>
@@ -218,19 +218,19 @@ export function renderAIBusinessAbout(){
     </section>
 
 
-    <section class="about-workflow" id="how-we-work">
+    <section class="about-workflow" id="how-we-work" >
       <div class="about-workflow__inner">
 
         <section class="about-workflow__intro">
-          <span class="about-workflow__eyebrow">
+          <span class="about-workflow__eyebrow" data-aboutai-field="how-we-work.eyebrow">
             How We Work
           </span>
 
-          <h2 class="about-workflow__title">
+          <h2 class="about-workflow__title" data-aboutai-field="how-we-work.title">
             How we work
           </h2>
 
-          <div class="about-workflow__text">
+          <div class="about-workflow__text" data-aboutai-paragraphs="how-we-work">
             <p>
               Every Paradise Core 89 implementation follows a clear sequence. We do not start with a chaotic set of tools, and we do not implement AI just for the sake of implementation. First, we study the process that needs to be improved.
             </p>
@@ -303,21 +303,22 @@ export function renderAIBusinessAbout(){
 
         <section class="about-workflow__split about-workflow__split--text-image">
           <div class="about-workflow__content">
-            <span class="about-workflow__section-label">
+            <span class="about-workflow__section-label" data-aboutai-field="why-convenient.eyebrow">
               Why It Is Convenient
             </span>
 
-            <h2 class="about-workflow__section-title">
+            <h2 class="about-workflow__section-title" data-aboutai-field="why-convenient.title">
               Why it is convenient to work with us
             </h2>
+            <div data-aboutai-paragraphs="why-convenient">
+              <p>
+                We speak with business in the language of processes, tasks, and results. For the client, this means that the project is not built around abstract “AI magic”, but around a concrete scope of work, a clear next step, and an expected business effect.
+              </p>
 
-            <p>
-              We speak with business in the language of processes, tasks, and results. For the client, this means that the project is not built around abstract “AI magic”, but around a concrete scope of work, a clear next step, and an expected business effect.
-            </p>
-
-            <p>
-              We believe that reliable implementation begins with transparency. That is why we define the project boundaries in advance, explain the logic of the solution, describe the deliverables, and show what role AI will perform inside the process.
-            </p>
+              <p>
+                We believe that reliable implementation begins with transparency. That is why we define the project boundaries in advance, explain the logic of the solution, describe the deliverables, and show what role AI will perform inside the process.
+              </p>
+            </div>
           </div>
 
           <div class="about-workflow__media about-workflow__media--convenient">
@@ -337,15 +338,15 @@ export function renderAIBusinessAbout(){
           </div>
 
           <div class="about-workflow__content">
-            <span class="about-workflow__section-label">
+            <span class="about-workflow__section-label" data-aboutai-field="practical-ai-automation.eyebrow">
               Practical AI Automation
             </span>
 
-            <h2 class="about-workflow__section-title">
+            <h2 class="about-workflow__section-title" data-aboutai-field="practical-ai-automation.title">
               A calm and structured path to AI automation
             </h2>
 
-            <p>
+            <p data-aboutai-paragraphs="practical-ai-automation">
               Paradise Core 89 is suitable for companies that need a calm, structured, and practical path to AI automation. Without unnecessary technical overload, without chaotic experiments, and without solutions that only look impressive in a presentation.
             </p>
           </div>
@@ -357,15 +358,15 @@ export function renderAIBusinessAbout(){
     <section class="about-cta" id="about-next-step">
       <div class="about-cta__inner">
 
-        <span class="about-cta__eyebrow">
+        <span class="about-cta__eyebrow" data-aboutai-field="about-next-step.eyebrow">
           Next Step
         </span>
 
-        <h2 class="about-cta__title">
+        <h2 class="about-cta__title" data-aboutai-field="about-next-step.title">
           Ready to see what can be automated?
         </h2>
 
-        <div class="about-cta__text">
+        <div class="about-cta__text" data-aboutai-paragraphs="about-next-step">
           <p>
             If your company needs a clear entry point into AI automation, start with an overview of our services. The Services page brings together the areas that most often create a fast and visible effect: documents, accounting, marketing, CRM, operational routine, and analytics.
           </p>

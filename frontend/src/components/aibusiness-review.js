@@ -12,7 +12,7 @@ export async function renderReviews() {
     reviewsGrid.innerHTML = ''
 
     reviews.forEach((review) => {
-      const card = document.createElement("article'")
+      const card = document.createElement("article")
       card.classList.add("review-card")
 
       const clientName = document.createElement("h3")
@@ -34,6 +34,7 @@ export async function renderReviews() {
       meta.textContent = companyParts.join(" • ")
 
       const text = document.createElement("p")
+      text.classList.add("review-card__text")
       text.textContent = review.text
 
       const rating = document.createElement("span")
@@ -85,28 +86,47 @@ export function setupReviewForm() {
 
 
 
-export function renderAIBusinessReview(){
-    return `
-        <section class="reviews-section">
-            <div class="reviews-grid" id="reviews-grid"></div>
-        </section>
+export function renderAIBusinessReview() {
+  return `
+    <section class="reviews-section">
+      <div class="reviews-canvas">
+        <div class="reviews-hero">
+          <span class="reviews-hero__eyebrow">Client Feedback</span>
+          <h2 class="reviews-hero__title">Reviews</h2>
+          <p class="reviews-hero__text">
+            Real impressions from clients who explored automation, AI workflows,
+            and business process optimization with Paradise Core 89.
+          </p>
+        </div>
+
+        <div class="reviews-grid" id="reviews-grid"></div>
 
         <form class="review-form" id="review-form">
-            <input name="client_name" type="text" placeholder="Your name" required>
-            <input name="company" type="text" placeholder="Company">
-            <input name="position" type="text" placeholder="Position">
+          <h3 class="review-form__title">Leave your review</h3>
 
+          <div class="review-form__row">
+            <input type="text" name="client_name" placeholder="Your name" required />
+            <input type="text" name="company" placeholder="Company" />
+            <input type="text" name="position" placeholder="Position" />
+          </div>
+
+          <div class="review-form__row review-form__row--stack">
             <textarea name="text" placeholder="Your review" required></textarea>
 
-            <select name="rating" required>
+            <div class="review-form__actions">
+              <select name="rating">
                 <option value="5">5</option>
                 <option value="4">4</option>
                 <option value="3">3</option>
                 <option value="2">2</option>
                 <option value="1">1</option>
-            </select>
-    
-            <button type="submit">Send review</button>
+              </select>
+
+              <button type="submit">Send review</button>
+            </div>
+          </div>
         </form>
-    `
+      </div>
+    </section>
+  `
 }
