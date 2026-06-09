@@ -122,10 +122,6 @@ class AboutAiBusinessSerializer(serializers.ModelSerializer):
             "order",
         )
 
-    def validate_eyebrow(self,value):
-        if len(value.strip()) > 120:
-            raise serializers.ValidationError("eyebrow must be maximum 120 symbols")
-        return value
     
     def validate_title(self,value):
         if len(value.strip()) < 2:
