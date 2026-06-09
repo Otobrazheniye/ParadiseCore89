@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Service, ContactRequest, Review, TrainingProgram
+from .models import Service, ContactRequest, Review, TrainingProgram, AboutAiBusiness
 
 
 class ServiceListSerializer(serializers.ModelSerializer):
@@ -110,3 +110,51 @@ class TrainingProgramDetailSerializer(serializers.ModelSerializer):
             "target_audience", "order",
             "created_at", "updated_at",
         )
+    
+class AboutAiBusinessSerializer(serializers.ModelSerializer):
+    paragraphs = serializers.SerializerMethodField()
+    class Meta:
+        model = AboutAiBusiness
+        fields = (
+            "id", "key", 
+            "eyebrow", "title", 
+            "body", "paragraphs", 
+            "order",
+        )
+
+    def validate_eyebrow(self,value):
+        if len(value.strip()) > 120:
+            raise serializers.ValidationError("eyebrow must be maximum 120 symbols")
+        return value
+    
+    def validate_title(self,value):
+        if len(value.strip()) < 2:
+            raise serializers.ValidationError("Title must be at least 2 symbols")
+        return value
+    
+    
+    def validate_body(self,value):
+        if len(value.strip()) < 4:
+            raise serializers.ValidationError("Body must be at least 4 symbols")
+        return value
+
+    def get_paragraphs(self, obj):
+        return [
+            paragraph.strip()
+            for paragraph in obj.body.split("\n\n")
+            if paragraph.strip()
+        ]
+    
+    # def get_paragraphs(self, obj):
+    #     paragraphs = []
+
+    #     body_parts = obj.body.split("\n\n")
+
+    #     for paragraph in body_parts:
+    #         clean_paragraph = paragraph.strip()
+
+    #         if clean_paragraph:
+    #             paragraphs.append(clean_paragraph)
+
+    #     return paragraphs
+    
