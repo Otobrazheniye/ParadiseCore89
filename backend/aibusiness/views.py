@@ -1,11 +1,12 @@
 from rest_framework import mixins, viewsets
 
-from .models import Service, ContactRequest, Review, TrainingProgram
+from .models import Service, ContactRequest, Review, TrainingProgram, AboutAiBusiness
 from .serializers import (
     ServiceListSerializer, ServiceDetailSerializer, 
     ContactRequestCreateSerializer,
     ReviewListSerializer, ReviewCreateSerializer,
     TrainingProgramListSerializer, TrainingProgramDetailSerializer,
+    AboutAiBusinessSerializer,
     )
 
 
@@ -48,5 +49,11 @@ class TrainingProgramViewSet(viewsets.ReadOnlyModelViewSet):
             return TrainingProgramDetailSerializer
         return TrainingProgramListSerializer
                 
+class AboutAiBusinessViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = AboutAiBusiness.objects.filter(is_active=True)
+    lookup_field = "key"
 
+    def get_serializer_class(self):
+        return AboutAiBusinessSerializer
 
+    http_method_names = ["get", "head", "options"]

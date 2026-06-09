@@ -29,7 +29,7 @@ export async function renderServices(){
   }
 
   catch (error){
-    console.log('Failed to load services:', error)
+    console.log("Failed to load services:", error)
   }
 }
 
