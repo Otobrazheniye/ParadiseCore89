@@ -49,7 +49,7 @@ class TrainingProgramViewSet(viewsets.ReadOnlyModelViewSet):
             return TrainingProgramDetailSerializer
         return TrainingProgramListSerializer
                 
-class AboutAibusinessViewSet(viewsets.ReadOnlyModelViewSet):
+class AboutAiBusinessViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = AboutAiBusiness.objects.filter(is_active=True)
     lookup_field = "key"
 
