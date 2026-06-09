@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, ContactRequest, Review, TrainingProgram
+from .models import Service, ContactRequest, Review, TrainingProgram, AboutAiBusiness
 
 # Register your models here.
 @admin.register(Service)
@@ -74,3 +74,21 @@ class TrainingProgramAdmin(admin.ModelAdmin):
     )
     prepopulated_fields = {"slug":("title",),}
     ordering = ("order", "title")
+
+
+@admin.register(AboutAiBusiness)
+class AboutAiBusinessAdmin(admin.ModelAdmin):
+    list_display = (
+        "key", "eyebrow",
+        "title", "order",
+        "is_active", "created_at",
+    )
+    list_filter = (
+        "is_active", "created_at"
+    )
+    search_fields = (
+        "key", "eyebrow", 
+        "title", "body",
+    )
+    readonly_fields = ("created_at", "updated_at",)
+    ordering = ("order", "key")
