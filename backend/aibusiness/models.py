@@ -146,3 +146,57 @@ class AboutAiBusiness(models.Model):
     def __str__(self):
         return f"{self.key} - {self.title}"
     
+
+# Logical chain 
+
+
+
+class PackagePlan(models.Model):
+    TRAINING_INITIAL = "initial"
+    TRAINING_ROLE_BASED = "role_based"
+    TRAINING_ACADEMY = "academy"
+    TRAINING_CHAMPIONS = "champions"
+
+    TRAINING_CHOICES = [
+        (TRAINING_INITIAL, "Initial team training"),
+        (TRAINING_ROLE_BASED, "Role-based training"),
+        (TRAINING_ACADEMY, "AI Academy"),
+        (TRAINING_CHAMPIONS, "Internal champions"),
+    ]
+
+
+    SERVICES_LEVEL_ONE = 1
+    SERVICES_LEVEL_TWO = 3
+    SERVICES_LEVEL_THREE = 5
+
+    MAX_SERVICES = [
+        (SERVICES_LEVEL_ONE, "Choose 1 services"),
+        (SERVICES_LEVEL_TWO, "Choose 1-3 services"),
+        (SERVICES_LEVEL_THREE, "All services open for you")
+    ]
+
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=110, unique=True, blank=True)
+    title = models.CharField(max_length=100)
+    summary = models.CharField(max_length=255)
+    description = models.TextField()
+    max_services = models.PositiveSmallIntegerField(choices=MAX_SERVICES, default=SERVICES_LEVEL_ONE)
+    included_training_level = models.CharField(max_length=150, choices=TRAINING_CHOICES, default=TRAINING_INITIAL)
+    
+    is_active = models.BooleanField(default=True)
+
+    order = models.PositiveIntegerField(default=0)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["order", "name"]
+
+    def __str__(self):
+        return self.title
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
