@@ -148,47 +148,6 @@ class AboutAiBusiness(models.Model):
     
 
 # Logical chain 
-
-class TrainingProgram(models.Model):
-    TRAINING_INITIAL = "initial"
-    TRAINING_ROLE_BASED = "role_based"
-    TRAINING_ACADEMY = "academy"
-    TRAINING_CHAMPIONS = "champions"
-
-    TRAINING_CHOICES = [
-        (TRAINING_INITIAL, "Initial team training"),
-        (TRAINING_ROLE_BASED, "Role-based training"),
-        (TRAINING_ACADEMY, "AI Academy"),
-        (TRAINING_CHAMPIONS, "Internal champions"),
-    ]
-
-    title = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=120, unique=True, blank=True)
-    short_description = models.CharField(max_length=255)
-    full_description = models.TextField()
-
-    level = models.CharField(max_length=50, choices=TRAINING_CHOICES, default=TRAINING_INITIAL)
-    duration = models.CharField(max_length=50, blank=True)
-    target_audience = models.CharField(max_length=200, blank=True)
-    order = models.PositiveIntegerField(default=0)
-
-    is_active = models.BooleanField(default=True)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        ordering = ["order", "title"]
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        super().save(*args,**kwargs)
-
-    def __str__(self):
-        return self.title
-
-
 class PackagePlan(models.Model):
 
 
@@ -208,7 +167,7 @@ class PackagePlan(models.Model):
     summary = models.CharField(max_length=255)
     description = models.TextField()
     max_services = models.PositiveSmallIntegerField(choices=MAX_SERVICES, default=SERVICES_LEVEL_ONE)
-    included_trainings = models.ManyToManyField("TrainingProgram",blank=True, related_name="package_plans",)
+    included_trainings = models.ManyToManyField("TrainingProgram", blank=True, related_name="package_plans",)
     
     is_active = models.BooleanField(default=True)
 

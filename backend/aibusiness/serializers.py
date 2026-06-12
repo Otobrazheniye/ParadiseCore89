@@ -1,5 +1,9 @@
 from rest_framework import serializers
-from .models import Service, ContactRequest, Review, TrainingProgram, AboutAiBusiness
+from .models import(
+    Service, ContactRequest, 
+    Review, TrainingProgram, 
+    AboutAiBusiness, PackagePlan,
+) 
 
 
 class ServiceListSerializer(serializers.ModelSerializer):
@@ -154,3 +158,14 @@ class AboutAiBusinessSerializer(serializers.ModelSerializer):
 
     #     return paragraphs
     
+class PackagePlanSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PackagePlan
+        fields = (
+            "id", "name",
+            "slug", "title",
+            "summary", "description",
+            "max_services", 
+            
+            "order", "created_at"
+        )
