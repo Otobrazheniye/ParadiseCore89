@@ -158,14 +158,28 @@ class AboutAiBusinessSerializer(serializers.ModelSerializer):
 
     #     return paragraphs
     
+
+class PackageTrainingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TrainingProgram
+        fields = (
+            "id", "title",
+            "slug", "short_description",
+            "full_description", "level", 
+            "duration", "target_audience", 
+            "order", "created_at", 
+            "updated_at",
+        )
+
 class PackagePlanSerializer(serializers.ModelSerializer):
+    included_trainings = PackageTrainingSerializer(many=True, read_only=True)
     class Meta:
         model = PackagePlan
         fields = (
             "id", "name",
             "slug", "title",
             "summary", "description",
-            "max_services", 
-            
-            "order", "created_at"
+            "max_services", "included_trainings",
+            "order", "created_at",
         )
+
