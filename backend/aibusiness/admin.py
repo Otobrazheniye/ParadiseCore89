@@ -1,5 +1,9 @@
 from django.contrib import admin
-from .models import Service, ContactRequest, Review, TrainingProgram, AboutAiBusiness
+from .models import( 
+    Service, ContactRequest, 
+    Review, TrainingProgram, 
+    AboutAiBusiness, PackagePlan
+    )
 
 # Register your models here.
 @admin.register(Service)
@@ -83,9 +87,7 @@ class AboutAiBusinessAdmin(admin.ModelAdmin):
         "title", "order",
         "is_active", "created_at",
     )
-    list_filter = (
-        "is_active", "created_at"
-    )
+    list_filter = ("is_active", "created_at")
     search_fields = (
         "key", "eyebrow", 
         "title", "body",
@@ -93,3 +95,21 @@ class AboutAiBusinessAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at",)
     ordering = ("order", "key")
     
+@admin.register(PackagePlan)
+class PackagePlanAdmin(admin.ModelAdmin):
+    list_display = (
+        "name", "title", 
+        "max_services", "is_active",
+        "order", "created_at"
+    )
+    list_filter=("is_active", "created_at",)
+    search_fields= (
+        "name", "title",
+        "summary", "description",
+        "included_trainings__title", 
+        "included_trainings__level",
+    )
+    filter_horizontal = (
+    "included_trainings",
+    )
+    ordering = ("order", "max_services")
