@@ -10,3 +10,13 @@ export async function getServiceBySlug(slug) {
   const response = await apiClient.get(`/services/${slug}/`)
   return response.data
 }
+
+export async function getPackagePlan(){
+  const response = await apiClient.get("/package-plans/")
+  return response.data
+}
+
+export async function getPackagePlan(slug){
+  const response = await apiClient.get(`/package-plans/${slug}`)
+  return response.data
+}

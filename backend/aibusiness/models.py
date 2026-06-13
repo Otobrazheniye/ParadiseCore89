@@ -166,6 +166,14 @@ class PackagePlan(models.Model):
     title = models.CharField(max_length=100)
     summary = models.CharField(max_length=255)
     description = models.TextField()
+    
+    badge = models.CharField(max_length=50, blank= True)
+    includes_title = models.CharField(max_length=100)
+    includes_text = models.TextField()
+    best_for_title = models.CharField(max_length=100)
+    best_for_text = models.TextField()
+    button_label = models.CharField(max_length=50)
+
     max_services = models.PositiveSmallIntegerField(choices=MAX_SERVICES, default=SERVICES_LEVEL_ONE)
     included_trainings = models.ManyToManyField("TrainingProgram", blank=True, related_name="package_plans",)
     
