@@ -1,12 +1,12 @@
 from rest_framework import mixins, viewsets
 
-from .models import Service, ContactRequest, Review, TrainingProgram, AboutAiBusiness
+from .models import Service, ContactRequest, Review, TrainingProgram, AboutAiBusiness, PackagePlan
 from .serializers import (
     ServiceListSerializer, ServiceDetailSerializer, 
     ContactRequestCreateSerializer,
     ReviewListSerializer, ReviewCreateSerializer,
     TrainingProgramListSerializer, TrainingProgramDetailSerializer,
-    AboutAiBusinessSerializer,
+    AboutAiBusinessSerializer, PackagePlanSerializer
     )
 
 
@@ -56,4 +56,13 @@ class AboutAiBusinessViewSet(viewsets.ReadOnlyModelViewSet):
     def get_serializer_class(self):
         return AboutAiBusinessSerializer
 
+    http_method_names = ["get", "head", "options"]
+
+class PackagePlanViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = PackagePlan.objects.all()
+    lookup_field = "slug"
+
+    def get_serializer_class(self, ):
+        return PackagePlanSerializer
+        
     http_method_names = ["get", "head", "options"]

@@ -1,4 +1,5 @@
-import { getServices } from "../api/servicesApi";
+import { getServices, getPackagePlan } from "../api/servicesApi";
+
 
 
 export async function renderServices(){
