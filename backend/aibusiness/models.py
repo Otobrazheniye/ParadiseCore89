@@ -156,7 +156,7 @@ class PackagePlan(models.Model):
     SERVICES_LEVEL_THREE = 5
 
     MAX_SERVICES = [
-        (SERVICES_LEVEL_ONE, "Choose 1 services"),
+        (SERVICES_LEVEL_ONE, "Choose 1 service"),
         (SERVICES_LEVEL_TWO, "Choose 1-3 services"),
         (SERVICES_LEVEL_THREE, "All services open for you")
     ]
@@ -167,12 +167,12 @@ class PackagePlan(models.Model):
     summary = models.CharField(max_length=255)
     description = models.TextField()
     
-    badge = models.CharField(max_length=50, blank= True)
-    includes_title = models.CharField(max_length=100)
-    includes_text = models.TextField()
-    best_for_title = models.CharField(max_length=100)
-    best_for_text = models.TextField()
-    button_label = models.CharField(max_length=50)
+    badge = models.CharField(max_length=50, blank= True, default="")
+    includes_title = models.CharField(max_length=100, default="What is included")
+    includes_text = models.TextField(blank=True, default="")
+    best_for_title = models.CharField(max_length=100, default="Best suited for")
+    best_for_text = models.TextField(blank=True, default="")
+    button_label = models.CharField(max_length=50, blank=True,  default="")
 
     max_services = models.PositiveSmallIntegerField(choices=MAX_SERVICES, default=SERVICES_LEVEL_ONE)
     included_trainings = models.ManyToManyField("TrainingProgram", blank=True, related_name="package_plans",)

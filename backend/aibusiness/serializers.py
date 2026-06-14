@@ -171,6 +171,7 @@ class PackageTrainingSerializer(serializers.ModelSerializer):
             "updated_at",
         )
 
+
 class PackagePlanSerializer(serializers.ModelSerializer):
     included_trainings = PackageTrainingSerializer(many=True, read_only=True)
     class Meta:
@@ -179,7 +180,9 @@ class PackagePlanSerializer(serializers.ModelSerializer):
             "id", "name",
             "slug", "title",
             "summary", "description",
+            "badge", "includes_title",
+            "includes_text", "best_for_title",
+            "best_for_text", "button_label",
             "max_services", "included_trainings",
             "order", "created_at",
         )
-
