@@ -131,33 +131,21 @@ function bodySwitchAiBusinessPackagePrepareButton(){
   packagePrepareButton.forEach((btn)=>{
     btn.addEventListener("click", async (event)=>{
       event.preventDefault()
-      const activePage = btn.dataset.page
+      const packageSlug = btn.dataset.packageSlug
 
-      bodySwitchAiBusinessPackagePrepare(activePage)
+      await bodySwitchAiBusinessPackagePrepare(packageSlug)
     })
   })
 }
 
-async function bodySwitchAiBusinessPackagePrepare(activePage){
-  switch (activePage) {
-    case "pack-basic":
-      pageRoot.innerHTML = renderPackagePlansPrepare()
-      break
 
+async function bodySwitchAiBusinessPackagePrepare(packageSlug){
+  pageRoot.innerHTML = renderPackagePlansPrepare(packageSlug)
+  await hydratePackagePlans()
 
-    case "pack-pro":
-      pageRoot.innerHTML = renderPackagePlansPrepare()
-      break
-    
-    case "pack-enterprise":
-      
-
-      break
-
-     default:
-      pageRoot.innerHTML = `<h1>Page not found</h1>`
-    }
+  console.log("Selected package:", packageSlug)
 }
+
 
 function bodySwitchAiBusinessButton(){
   const headeraiButton = document.querySelectorAll('.headeraiButton')
@@ -189,10 +177,12 @@ async function bodySwitchAiBusiness(activePage) {
       await renderServices()
       await setupContactForm()
       await hydratePackagePlans()
-
+      
+      bodySwitchAiBusinessPackagePrepareButton()
+      
       serviceDragScroll()
       bodySwitchAiBusinessProtocolButton()
-      bodySwitchAiBusinessPackagePrepareButton()
+      
       break
 
     case 'reviews':

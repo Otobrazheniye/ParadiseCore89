@@ -468,7 +468,7 @@ export function renderAIBusinessServices(){
 
           <div class="ai-packages__includes">
             <h4 data-package-plan-field="basic.includes_title">
-              SWhat is included
+              What is included
             </h4>
             <ul data-package-plan-includes="basic">
               <li>1 AI protocol for a specific task</li>
@@ -491,7 +491,7 @@ export function renderAIBusinessServices(){
             </p>
           </div>
 
-          <a class="ai-packages__btn ai-packages__btn--basic body-aibutton-packageprepare" href="#"  data-page="pack-basic" data-package-plan-field="basic.button_label">
+          <a class="ai-packages__btn ai-packages__btn--basic body-aibutton-packageprepare" href="#"  data-package-slug="basic" data-package-plan-field="basic.button_label">
             Launch Pilot
           </a>
         </article>
@@ -552,7 +552,7 @@ export function renderAIBusinessServices(){
             </p>
           </div>
 
-          <a class="ai-packages__btn ai-packages__btn--pro body-aibutton-packageprepare" href="#" data-page="pack-pro" data-package-plan-field="pro.button_label">
+          <a class="ai-packages__btn ai-packages__btn--pro body-aibutton-packageprepare" href="#" data-package-slug="pro" data-package-plan-field="pro.button_label">
             Get Implementation Plan
           </a>
         </article>
@@ -610,8 +610,7 @@ export function renderAIBusinessServices(){
               Scaling AI at company level and building a controlled AI operating model.
             </p>
           </div>
-
-          <a class="ai-packages__btn ai-packages__btn--enterprise body-aibutton-packageprepare" href="#" data-page="pack-enterprise" data-package-plan-field="enterprise.button_label">
+          <a class="ai-packages__btn ai-packages__btn--enterprise body-aibutton-packageprepare" href="#" data-package-slug="enterprise" data-package-plan-field="enterprise.button_label">
             Discuss Architecture
           </a>
         </article>
