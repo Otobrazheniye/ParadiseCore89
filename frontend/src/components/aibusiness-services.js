@@ -8,27 +8,13 @@ function setText(selector, value){
   element.textContent = value
 }
 
-// function setList(selector, items){
-//   const list = document.querySelector(selector)
-//   if(!list || !Array.isArray(items)) return
-
-//   list.innerHTML = ""
-
-//   items.forEach((itemText)=>{
-//     const item = document.createElement("li")
-//     item.textContent = itemText
-//     list.append(item)
-//   })
-// }
-
 function setList(selector, items){
   const list = document.querySelector(selector)
-
-  console.log("SET LIST SELECTOR:", selector)
-  console.log("SET LIST ELEMENT:", list)
-  console.log("SET LIST ITEMS:", items)
-
   if(!list || !Array.isArray(items)) return
+
+  // console.log("SET LIST SELECTOR:", selector)
+  // console.log("SET LIST ELEMENT:", list)
+  // console.log("SET LIST ITEMS:", items)
 
   list.innerHTML = ""
 
@@ -37,8 +23,7 @@ function setList(selector, items){
     item.textContent = itemText
     list.append(item)
   })
-
-  console.log("SET LIST RESULT:", list.innerHTML)
+  // console.log("SET LIST RESULT:", list.innerHTML)
 }
 
 function setParagraphs(selector, paragraphs){
@@ -506,7 +491,7 @@ export function renderAIBusinessServices(){
             </p>
           </div>
 
-          <a class="ai-packages__btn ai-packages__btn--basic" href="#contact" data-package-plan-field="basic.button_label">
+          <a class="ai-packages__btn ai-packages__btn--basic body-aibutton-packageprepare" href="#"  data-page="pack-basic" data-package-plan-field="basic.button_label">
             Launch Pilot
           </a>
         </article>
@@ -567,7 +552,7 @@ export function renderAIBusinessServices(){
             </p>
           </div>
 
-          <a class="ai-packages__btn ai-packages__btn--pro" href="#contact" data-package-plan-field="pro.button_label">
+          <a class="ai-packages__btn ai-packages__btn--pro body-aibutton-packageprepare" href="#" data-page="pack-pro" data-package-plan-field="pro.button_label">
             Get Implementation Plan
           </a>
         </article>
@@ -626,7 +611,7 @@ export function renderAIBusinessServices(){
             </p>
           </div>
 
-          <a class="ai-packages__btn ai-packages__btn--enterprise" href="#contact" data-package-plan-field="enterprise.button_label">
+          <a class="ai-packages__btn ai-packages__btn--enterprise body-aibutton-packageprepare" href="#" data-page="pack-enterprise" data-package-plan-field="enterprise.button_label">
             Discuss Architecture
           </a>
         </article>
