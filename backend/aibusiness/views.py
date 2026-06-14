@@ -59,9 +59,10 @@ class AboutAiBusinessViewSet(viewsets.ReadOnlyModelViewSet):
     http_method_names = ["get", "head", "options"]
 
 class PackagePlanViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = PackagePlan.objects.all()
+    queryset = PackagePlan.objects.filter(is_active=True)
     lookup_field = "slug"
 
+    # serializer_class = PackagePlanSerializer
     def get_serializer_class(self, ):
         return PackagePlanSerializer
         
