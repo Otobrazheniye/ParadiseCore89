@@ -17,6 +17,8 @@ import { renderDivision } from './components/page-division.js'
 
 // Import AIBusiness
 import { renderAIBusinessServices, serviceDragScroll, renderaiaccounting } from './components/aibusiness-services.js'
+import { renderPackagePlansPrepare } from './components/aibusiness-package-prepare.js'
+
 import { renderAIBusinessReview } from './components/aibusiness-review.js'
 
 import { renderAIBusinessAbout } from './components/aibusiness-about.js'
@@ -123,6 +125,28 @@ function bodySwitch(activePage){
   }
 }
 
+function bodySwitchAiBusinessPackagePrepareButton(){
+  const packagePrepareButton = document.querySelectorAll(".body-aibutton-packageprepare")
+
+  packagePrepareButton.forEach((btn)=>{
+    btn.addEventListener("click", async (event)=>{
+      event.preventDefault()
+      const packageSlug = btn.dataset.packageSlug
+
+      await bodySwitchAiBusinessPackagePrepare(packageSlug)
+    })
+  })
+}
+
+
+async function bodySwitchAiBusinessPackagePrepare(packageSlug){
+  pageRoot.innerHTML = renderPackagePlansPrepare(packageSlug)
+  await hydratePackagePlans()
+
+  console.log("Selected package:", packageSlug)
+}
+
+
 function bodySwitchAiBusinessButton(){
   const headeraiButton = document.querySelectorAll('.headeraiButton')
   headeraiButton.forEach((btn) =>{
@@ -153,9 +177,12 @@ async function bodySwitchAiBusiness(activePage) {
       await renderServices()
       await setupContactForm()
       await hydratePackagePlans()
-
+      
+      bodySwitchAiBusinessPackagePrepareButton()
+      
       serviceDragScroll()
       bodySwitchAiBusinessProtocolButton()
+      
       break
 
     case 'reviews':
@@ -242,6 +269,7 @@ headerSwitchButton()
 bodySwitchButton()
 bodySwitchAiBusinessButton()
 bodySwitchAiBusinessProtocolButton()
+// bodySwitchAiBusinessPackagePrepareButton()
 
 initFooterSwitcher()
 

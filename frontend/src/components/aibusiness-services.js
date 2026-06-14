@@ -8,27 +8,13 @@ function setText(selector, value){
   element.textContent = value
 }
 
-// function setList(selector, items){
-//   const list = document.querySelector(selector)
-//   if(!list || !Array.isArray(items)) return
-
-//   list.innerHTML = ""
-
-//   items.forEach((itemText)=>{
-//     const item = document.createElement("li")
-//     item.textContent = itemText
-//     list.append(item)
-//   })
-// }
-
 function setList(selector, items){
   const list = document.querySelector(selector)
-
-  console.log("SET LIST SELECTOR:", selector)
-  console.log("SET LIST ELEMENT:", list)
-  console.log("SET LIST ITEMS:", items)
-
   if(!list || !Array.isArray(items)) return
+
+  // console.log("SET LIST SELECTOR:", selector)
+  // console.log("SET LIST ELEMENT:", list)
+  // console.log("SET LIST ITEMS:", items)
 
   list.innerHTML = ""
 
@@ -37,8 +23,7 @@ function setList(selector, items){
     item.textContent = itemText
     list.append(item)
   })
-
-  console.log("SET LIST RESULT:", list.innerHTML)
+  // console.log("SET LIST RESULT:", list.innerHTML)
 }
 
 function setParagraphs(selector, paragraphs){
@@ -483,7 +468,7 @@ export function renderAIBusinessServices(){
 
           <div class="ai-packages__includes">
             <h4 data-package-plan-field="basic.includes_title">
-              SWhat is included
+              What is included
             </h4>
             <ul data-package-plan-includes="basic">
               <li>1 AI protocol for a specific task</li>
@@ -497,41 +482,41 @@ export function renderAIBusinessServices(){
           </div>
 
           <div class="ai-packages__best-for">
-            <h4>
+            <h4 data-package-plan-field="basic.best_for_title">
               Best suited for
             </h4>
 
-            <p>
+            <p data-package-plan-best="basic">
               Quickly testing ROI on one use case and understanding whether it is worth scaling AI further.
             </p>
           </div>
 
-          <a class="ai-packages__btn ai-packages__btn--basic" href="#contact">
+          <a class="ai-packages__btn ai-packages__btn--basic body-aibutton-packageprepare" href="#"  data-package-slug="basic" data-package-plan-field="basic.button_label">
             Launch Pilot
           </a>
         </article>
 
 
         <article class="ai-packages__card ai-packages__card--pro ai-packages__card--popular">
-          <span class="ai-packages__badge">
+          <span class="ai-packages__badge" data-package-plan-field="pro.badge">
             Popular
           </span>
 
           <div class="ai-packages__top">
-            <span class="ai-packages__name">
+            <span class="ai-packages__name" data-package-plan-field="pro.name">
               Pro
             </span>
 
-            <h3 class="ai-packages__card-title">
+            <h3 class="ai-packages__card-title" data-package-plan-field="pro.title">
               Growth Protocol
             </h3>
 
-            <p class="ai-packages__summary">
+            <p class="ai-packages__summary" data-package-plan-field="pro.summary">
               A working AI contour for a business function that needs stable results, not just an experiment.
             </p>
           </div>
 
-          <div class="ai-packages__body">
+          <div class="ai-packages__body" data-package-plan-paragraphs="pro">
             <p>
               This package fits a business that already understands the problem and wants to implement AI into real workflows: sales, marketing, operations, CRM, documents, or analytics. The focus is not only on launch, but on making the solution part of the team’s daily work.
             </p>
@@ -542,7 +527,7 @@ export function renderAIBusinessServices(){
           </div>
 
           <div class="ai-packages__includes">
-            <h4>
+            <h4 data-package-plan-field="pro.includes_title">
               What is included
             </h4>
 
@@ -558,16 +543,16 @@ export function renderAIBusinessServices(){
           </div>
 
           <div class="ai-packages__best-for">
-            <h4>
+            <h4 data-package-plan-field="pro.best_for_title">
               Best suited for
             </h4>
-
-            <p>
+          
+            <p data-package-plan-best="pro">
               Moving one function or department into a stable AI-powered operating mode.
             </p>
           </div>
 
-          <a class="ai-packages__btn ai-packages__btn--pro" href="#contact">
+          <a class="ai-packages__btn ai-packages__btn--pro body-aibutton-packageprepare" href="#" data-package-slug="pro" data-package-plan-field="pro.button_label">
             Get Implementation Plan
           </a>
         </article>
@@ -575,20 +560,20 @@ export function renderAIBusinessServices(){
 
         <article class="ai-packages__card ai-packages__card--enterprise">
           <div class="ai-packages__top">
-            <span class="ai-packages__name">
+            <span class="ai-packages__name" data-package-plan-field="enterprise.name">
               Enterprise
             </span>
 
-            <h3 class="ai-packages__card-title">
-              Operating System Protocol
+            <h3 class="ai-packages__card-title" data-package-plan-field="enterprise.title">
+              aOperating System Protocol
             </h3>
 
-            <p class="ai-packages__summary">
+            <p class="ai-packages__summary" data-package-plan-field="enterprise.summary">
               A scalable AI architecture for a company that wants to transform several areas of work.
             </p>
           </div>
 
-          <div class="ai-packages__body">
+          <div class="ai-packages__body" data-package-plan-paragraphs="enterprise">
             <p>
               This package fits companies where AI should not be a separate tool, but part of the operating model. Implementation affects several teams, functions, or departments, including access rules, risk management, policies, analytics, and training systems.
             </p>
@@ -599,7 +584,7 @@ export function renderAIBusinessServices(){
           </div>
 
           <div class="ai-packages__includes">
-            <h4>
+            <h4 data-package-plan-field="enterprise.includes_title">
               What is included
             </h4>
 
@@ -617,16 +602,15 @@ export function renderAIBusinessServices(){
           </div>
 
           <div class="ai-packages__best-for">
-            <h4>
+            <h4 data-package-plan-field="enterprise."best_for_title>
               Best suited for
             </h4>
 
-            <p>
+            <p data-package-plan-best="enterprise">
               Scaling AI at company level and building a controlled AI operating model.
             </p>
           </div>
-
-          <a class="ai-packages__btn ai-packages__btn--enterprise" href="#contact">
+          <a class="ai-packages__btn ai-packages__btn--enterprise body-aibutton-packageprepare" href="#" data-package-slug="enterprise" data-package-plan-field="enterprise.button_label">
             Discuss Architecture
           </a>
         </article>
