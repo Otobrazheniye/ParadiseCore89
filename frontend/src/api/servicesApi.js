@@ -11,7 +11,8 @@ export async function getServiceBySlug(slug) {
   return response.data
 }
 
-export async function getPackagePlan(){
+
+export async function getPackagePlans(){
   const response = await apiClient.get("/package-plans/")
   return response.data
 }

@@ -28,6 +28,7 @@ import { setupContactForm } from './components/aibusiness-contact.js'
 import { renderReviews, setupReviewForm } from './components/aibusiness-review.js'
 import { renderTrainingPrograms } from './components/aibusiness-training.js'
 import { hydrateAboutAi } from './components/aibusiness-about.js'
+import { hydratePackagePlans } from './components/aibusiness-services.js'
 
 //Frame
 const app = document.querySelector('#app')
@@ -151,7 +152,8 @@ async function bodySwitchAiBusiness(activePage) {
 
       await renderServices()
       await setupContactForm()
-      
+      await hydratePackagePlans()
+
       serviceDragScroll()
       bodySwitchAiBusinessProtocolButton()
       break

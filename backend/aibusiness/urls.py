@@ -15,7 +15,7 @@ router.register("contact-request", ContactRequestViewSet, basename="contact-requ
 router.register("reviews", ReviewViewSet, basename="review")
 router.register("training", TrainingProgramViewSet, basename="training")
 router.register("about-aibusiness", AboutAiBusinessViewSet, basename="about-aibusiness")
-router.register("package-plans  ", PackagePlanViewSet, basename="package-plan")
+router.register("package-plans", PackagePlanViewSet, basename="package-plan")
 
 urlpatterns = [
     path("", include(router.urls))

@@ -1,6 +1,85 @@
-import { getServices, getPackagePlan } from "../api/servicesApi";
+import { getServices, getPackagePlans } from "../api/servicesApi";
 
 
+function setText(selector, value){
+  const element = document.querySelector(selector)
+  if(!element || value === undefined || value === null) return
+
+  element.textContent = value
+}
+
+// function setList(selector, items){
+//   const list = document.querySelector(selector)
+//   if(!list || !Array.isArray(items)) return
+
+//   list.innerHTML = ""
+
+//   items.forEach((itemText)=>{
+//     const item = document.createElement("li")
+//     item.textContent = itemText
+//     list.append(item)
+//   })
+// }
+
+function setList(selector, items){
+  const list = document.querySelector(selector)
+
+  console.log("SET LIST SELECTOR:", selector)
+  console.log("SET LIST ELEMENT:", list)
+  console.log("SET LIST ITEMS:", items)
+
+  if(!list || !Array.isArray(items)) return
+
+  list.innerHTML = ""
+
+  items.forEach((itemText)=>{
+    const item = document.createElement("li")
+    item.textContent = itemText
+    list.append(item)
+  })
+
+  console.log("SET LIST RESULT:", list.innerHTML)
+}
+
+function setParagraphs(selector, paragraphs){
+  const container = document.querySelector(selector)
+  if(!container || !Array.isArray(paragraphs)) return
+
+  container.innerHTML = ""
+
+  paragraphs.forEach((paragraphText)=>{
+    const paragraph = document.createElement("p")
+    paragraph.textContent = paragraphText
+    container.append(paragraph)
+  })
+}
+
+
+export async function hydratePackagePlans(){
+  try{
+    const PackageGrid = await getPackagePlans()
+    console.log("ABOUT PACKAGE PLANS FROM API:", PackageGrid)
+
+    PackageGrid.forEach((pack)=>{
+      setText(`[data-package-plan-field="${pack.slug}.name"]`, pack.name)
+      setText(`[data-package-plan-field="${pack.slug}.title"]`, pack.title)
+      setText(`[data-package-plan-field="${pack.slug}.summary"]`, pack.summary)
+      setText(`[data-package-plan-field="${pack.slug}.badge"]`, pack.badge)
+      setText(`[data-package-plan-field="${pack.slug}.includes_title"]`, pack.includes_title)
+      setText(`[data-package-plan-field="${pack.slug}.best_for_title"]`, pack.best_for_title)
+      setText(`[data-package-plan-field="${pack.slug}.button_label"]`, pack.button_label)
+      
+      setList(`[data-package-plan-includes="${pack.slug}"]`, pack.includes_list)
+
+      setParagraphs(`[data-package-plan-paragraphs="${pack.slug}"]`, pack.description_paragraphs)
+      setParagraphs(`[data-package-plan-best="${pack.slug}"]`, pack.best_for_list)
+  })
+    
+  }
+  catch(error){
+    console.error("Failed to load About AI Business", error)
+  }
+}
 
 export async function renderServices(){
   const serviceGrid = document.querySelector("#services-grid") 
@@ -9,7 +88,7 @@ export async function renderServices(){
 
   try{
     const serviceList = await getServices()
-    serviceGrid.innerHTML = ''
+    serviceGrid.innerHTML = ""
 
     serviceList.forEach((service) => {
       const listItem = document.createElement("li")
@@ -379,20 +458,20 @@ export function renderAIBusinessServices(){
 
         <article class="ai-packages__card ai-packages__card--basic">
           <div class="ai-packages__top">
-            <span class="ai-packages__name">
-              Basic
+            <span class="ai-packages__name" data-package-plan-field="basic.name">
+              Basiс
             </span>
 
-            <h3 class="ai-packages__card-title">
+            <h3 class="ai-packages__card-title" data-package-plan-field="basic.title">
               Launch Protocol
             </h3>
 
-            <p class="ai-packages__summary">
+            <p class="ai-packages__summary" data-package-plan-field="basic.summary">
               A fast launch of one AI scenario to test business value without taking a large risk.
             </p>
           </div>
 
-          <div class="ai-packages__body">
+          <div class="ai-packages__body" data-package-plan-paragraphs="basic">
             <p>
               This package is designed for a company that wants to start small: choose one process, test an AI solution, and understand whether there is real value. We analyze the current workflow, find one automation point, launch a pilot, and show the first measurable results.
             </p>
@@ -403,11 +482,10 @@ export function renderAIBusinessServices(){
           </div>
 
           <div class="ai-packages__includes">
-            <h4>
-              What is included
+            <h4 data-package-plan-field="basic.includes_title">
+              SWhat is included
             </h4>
-
-            <ul>
+            <ul data-package-plan-includes="basic">
               <li>1 AI protocol for a specific task</li>
               <li>Audit of one business process</li>
               <li>Pilot implementation contour</li>
@@ -468,7 +546,7 @@ export function renderAIBusinessServices(){
               What is included
             </h4>
 
-            <ul>
+            <ul data-package-plan-includes="pro">
               <li>1–3 AI protocols</li>
               <li>Integrations with CRM / ERP / marketing systems</li>
               <li>Extended process automation</li>
@@ -525,7 +603,7 @@ export function renderAIBusinessServices(){
               What is included
             </h4>
 
-            <ul>
+            <ul data-package-plan-includes="enterprise">
               <li>Multi-protocol architecture</li>
               <li>AI implementation across several functions or departments</li>
               <li>Data governance and data usage rules</li>

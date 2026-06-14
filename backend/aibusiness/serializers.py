@@ -174,15 +174,43 @@ class PackageTrainingSerializer(serializers.ModelSerializer):
 
 class PackagePlanSerializer(serializers.ModelSerializer):
     included_trainings = PackageTrainingSerializer(many=True, read_only=True)
+    
+    description_paragraphs = serializers.SerializerMethodField()
+    includes_list = serializers.SerializerMethodField()
+    best_for_list = serializers.SerializerMethodField()
+    
     class Meta:
         model = PackagePlan
         fields = (
             "id", "name",
             "slug", "title",
             "summary", "description",
+            "description_paragraphs",
             "badge", "includes_title",
-            "includes_text", "best_for_title",
-            "best_for_text", "button_label",
+            "includes_text", "includes_list",
+            "best_for_title", "best_for_text", 
+            "best_for_list", "button_label",
             "max_services", "included_trainings",
             "order", "created_at",
         )
+
+    def get_description_paragraphs(self, obj):
+        return [
+            paragraph.strip()
+            for paragraph in obj.description.split("\n\n")
+            if paragraph.strip()
+        ]
+
+    def get_includes_list(self, obj):
+        return [
+            item.strip()
+            for item in obj.includes_text.splitlines()
+            if item.strip()
+        ]
+    
+    def get_best_for_list(self, obj):
+        return [
+            paragraph.strip()
+            for paragraph in obj.best_for_text.split("\n\n")
+            if paragraph.strip()
+        ]
