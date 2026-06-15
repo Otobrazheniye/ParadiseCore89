@@ -64,8 +64,8 @@ export function renderHeader() {
         </li>
     
         <li class="header-item header-item-fourth">
-          <a class="header-link link-access pageButton" href="#">
-            <span class="header-link__text" data-i18n="header.aibusiness" data-page="aibusiness">AI Business</span>
+          <a class="header-link link-access pageButton" data-page="aibusiness" href="#">
+            <span class="header-link__text" data-i18n="header.aibusiness">AI Business</span>
           </a>
         </li>
       </ul>
@@ -134,7 +134,7 @@ export function renderHeaderAIBusiness() {
 
         <li class="header-item">
           <a 
-            class="header-link pageButton" 
+            class="header-link headeraiButton" 
             href="#" 
             data-i18n="header.about" 
             data-page="about"
@@ -145,7 +145,7 @@ export function renderHeaderAIBusiness() {
 
         <li class="header-item">
           <a 
-            class="header-link pageButton" 
+            class="header-link headeraiButton" 
             href="#" 
             data-i18n="header.services" 
             data-page="services"
@@ -156,7 +156,7 @@ export function renderHeaderAIBusiness() {
 
         <li class="header-item">
           <a 
-            class="header-link pageButton" 
+            class="header-link headeraiButton" 
             href="#" 
             data-i18n="header.reviews" 
             data-page="reviews"
@@ -167,7 +167,7 @@ export function renderHeaderAIBusiness() {
 
         <li class="header-item">
           <a 
-            class="header-link pageButton" 
+            class="header-link headeraiButton" 
             href="#" 
             data-i18n="header.training" 
             data-page="training"
