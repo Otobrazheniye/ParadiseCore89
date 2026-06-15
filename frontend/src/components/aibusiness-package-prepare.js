@@ -1,4 +1,6 @@
+import { getPackagePlans, getServices } from "../api/servicesApi";
 
+ 
 
 export function renderPackagePlansPrepare(packageSlug){
   const allowedSlugs = ["basic", "pro", "enterprise"]
@@ -53,7 +55,7 @@ export function renderPackagePlansPrepare(packageSlug){
 
               <strong 
                 class="package-checkout__limit-value"
-                data-package-plan-field="${packageSlug}.max_services"
+                data-checkout-field="${packageSlug}.max_services"
               >
                 —
               </strong>
@@ -146,7 +148,7 @@ export function renderPackagePlansPrepare(packageSlug){
                     /
                   </span>
 
-                  <strong data-checkout-max-services>
+                  <strong data-checkout-field="${packageSlug}.max_services">
                     —
                   </strong>
                 </div>
@@ -199,7 +201,6 @@ export function renderPackagePlansPrepare(packageSlug){
                   <input name="name" type="text" placeholder="Your name" required>
                   <input name="email" type="email" placeholder="Your email" required>
                   <input name="company" type="text" placeholder="Company">
-                  <input name="service_interest" type="text" placeholder="Service interest">
                   <textarea name="message" placeholder="Message" required></textarea>
                   <button type="submit">Send request</button>
                 </form>

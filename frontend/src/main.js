@@ -30,7 +30,7 @@ import { setupContactForm } from './components/aibusiness-contact.js'
 import { renderReviews, setupReviewForm } from './components/aibusiness-review.js'
 import { renderTrainingPrograms } from './components/aibusiness-training.js'
 import { hydrateAboutAi } from './components/aibusiness-about.js'
-import { hydratePackagePlans } from './components/aibusiness-hydrate.js'
+import { hydratePackagePlans, hydratePackagePlansPrepare } from './components/aibusiness-hydrate.js'
 
 //Frame
 const app = document.querySelector('#app')
@@ -141,7 +141,9 @@ function bodySwitchAiBusinessPackagePrepareButton(){
 
 async function bodySwitchAiBusinessPackagePrepare(packageSlug){
   pageRoot.innerHTML = renderPackagePlansPrepare(packageSlug)
+
   await hydratePackagePlans()
+  await hydratePackagePlansPrepare(packageSlug)
   setupContactForm()
 
   console.log("Selected package:", packageSlug)
