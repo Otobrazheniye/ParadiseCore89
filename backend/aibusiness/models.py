@@ -194,3 +194,37 @@ class PackagePlan(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
+
+
+class PackageOrder(models.Model):
+    STATUS_NEW = "new"
+    STATUS_IN_REVIEW = "in_review"
+    STATUS_APPROVED = "approved"
+    STATUS_REJECTED = "rejected"
+
+    STATUS_CHOICES = [
+        (STATUS_NEW, "NEW"),
+        (STATUS_IN_REVIEW, "IN REVIEW"),
+        (STATUS_APPROVED, "APPROVED"),
+        (STATUS_REJECTED, "REJECTED"),
+    ]
+
+    customer_name = models.CharField(max_length=100)
+    customer_email = models.EmailField(max_length=255)
+    company = models.CharField(max_length=255, blank=True)
+    message = models.TextField(blank=True)
+
+    package_plan = models.ForeignKey("PackagePlan", on_delete=models.PROTECT, related_name="orders")
+    selected_services = models.ManyToManyField("Service", blank=True, related_name="package_orders")
+
+    status = models.CharField(max_length=50, choices=STATUS_CHOICES, default=STATUS_NEW)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.customer_name} - {self.package_plan.title}"
+
