@@ -15,6 +15,11 @@ import { tabsLoginRegister } from './components/basepage-dev.js'
 import { renderResearch } from './components/page-research.js'
 import { renderDivision } from './components/page-division.js'
 
+
+// Import Burger menu
+import { initBurgerMenu } from './components/burgermenu.js'
+
+
 // Import AIBusiness
 import { renderAIBusinessServices, serviceDragScroll, renderaiaccounting } from './components/aibusiness-services.js'
 import { renderPackagePlansPrepare } from './components/aibusiness-package-prepare.js'
@@ -72,7 +77,8 @@ function headerSwitch(activePage){
 
     case 'aibusiness':
       headerRoot.innerHTML = renderHeaderAIBusiness()
-      
+      initBurgerMenu()
+      bodySwitchAiBusinessButton()
       break
 
     default:
@@ -117,6 +123,7 @@ function bodySwitch(activePage){
     case 'aibusiness':
       headerRoot.innerHTML = renderHeaderAIBusiness()
       
+      initBurgerMenu()
       bodySwitchAiBusinessButton()
       break
 
@@ -288,6 +295,7 @@ bodySwitchAiBusinessButton()
 bodySwitchAiBusinessProtocolButton()
 // bodySwitchAiBusinessPackagePrepareButton()
 
+initBurgerMenu()
 initFooterSwitcher()
 
 
@@ -298,29 +306,6 @@ tabsLoginRegister()
 //#endregion
 
 
-const burgerBtn = document.querySelector('.header-burger');
-const mobileMenu = document.querySelector('.header-mobile-menu');
-
-if (burgerBtn && mobileMenu) {
-  burgerBtn.addEventListener('click', () => {
-    burgerBtn.classList.toggle('is-active');
-    mobileMenu.classList.toggle('is-open');
-
-    const expanded = burgerBtn.classList.contains('is-active');
-    burgerBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-  });
-
-  document.addEventListener('click', (event) => {
-    const clickInsideBurger = burgerBtn.contains(event.target);
-    const clickInsideMenu = mobileMenu.contains(event.target);
-
-    if (!clickInsideBurger && !clickInsideMenu) {
-      burgerBtn.classList.remove('is-active');
-      mobileMenu.classList.remove('is-open');
-      burgerBtn.setAttribute('aria-expanded', 'false');
-    }
-  });
-}
 
 
 // TEST API
