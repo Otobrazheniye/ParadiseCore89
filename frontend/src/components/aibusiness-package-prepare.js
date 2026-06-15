@@ -16,6 +16,10 @@ export function renderPackagePlansPrepare(packageSlug){
         <aside class="package-checkout__summary">
           <div class="package-checkout__summary-card">
 
+            <a href="/services" class="package-checkout__back pageBackButton" data-page="services">
+             ← Back to packages
+            </a>
+
             <span class="package-checkout__eyebrow">
               Selected implementation package
             </span>

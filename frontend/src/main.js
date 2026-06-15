@@ -145,7 +145,21 @@ async function bodySwitchAiBusinessPackagePrepare(packageSlug){
   await hydratePackagePlans()
   await hydratePackagePlansPrepare(packageSlug)
   setupContactForm()
+  bodySwitchAiBusinessPackagePrepareBackButton()
 
+  function bodySwitchAiBusinessPackagePrepareBackButton(){
+    const packagePrepareBackButton = document.querySelector(".pageBackButton")
+
+    if (!packagePrepareBackButton) return
+
+    packagePrepareBackButton.addEventListener("click", async (event) => {
+      event.preventDefault()
+      const activePage = packagePrepareBackButton.dataset.page
+
+      await bodySwitchAiBusiness(activePage)
+      // await bodySwitchAiBusinessPackagePrepareBack(activePage)
+    })
+  }
   console.log("Selected package:", packageSlug)
 }
 
