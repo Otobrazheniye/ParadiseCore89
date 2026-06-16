@@ -1,11 +1,17 @@
 import './main.scss'
 
-//Import Frame
+//#region FRONTEND
+
+//#region Frame Imports
+//Import Frame Base page
 import { renderHeader, renderHeaderAIBusiness } from './components/header.js'
 import { renderFooter, renderFooterDirectory, renderFooterNexus, renderFooterVault} from './components/footer.js'
 import { initFooterSwitcher } from './components/footer-dev.js'
 import { renderBasePageJS } from './components/basepage.js'
 // import { renderBasePageMain, renderBasePageTopics} from './components/basepage.js'
+//#endregion
+
+
 //Import Dev
 import { LanguageSwitchButton } from './components/translations/dev-lang.js'
 import { authModal } from './components/basepage-dev.js'
@@ -28,18 +34,23 @@ import { renderAIBusinessReview } from './components/aibusiness-review.js'
 
 import { renderAIBusinessAbout } from './components/aibusiness-about.js'
 import { renderAIBusinessTrainingProgram } from './components/aibusiness-training.js'
+//#endregion 
 
-//Backend
+//#region BACKEND
 import { renderServices } from './components/aibusiness-services.js'
 import { setupContactForm } from './components/aibusiness-contact.js'
 import { renderReviews, setupReviewForm } from './components/aibusiness-review.js'
 import { renderTrainingPrograms } from './components/aibusiness-training.js'
 import { setupPackageOrderForm } from './components/aibusiness-package-prepare.js'
+//#endregion
 
+//#region Hydrate
 import { hydrateAboutAi } from './components/aibusiness-about.js'
 import { hydratePackagePlans, hydratePackagePlansPrepare } from './components/aibusiness-hydrate.js'
+//#endregion
 
-//Frame
+
+
 const app = document.querySelector('#app')
 
 
@@ -57,6 +68,7 @@ const headerRoot = document.querySelector('#header-root')
 const pageRoot = document.querySelector('#page-root')
 const pageaiRoot = document.querySelectorAll('#pageai-root')
 const pageProtocolSwitcher = document.querySelector('#page-protocol-switcher')
+
 //#region Switch functions
 //#region Header Switch
 function headerSwitchButton(){
@@ -98,6 +110,7 @@ function headerSwitch(activePage){
 
 
 //#region Body Switch
+//Base Page
 function bodySwitchButton(){
   const pageButton = document.querySelectorAll('.pageButton')
   pageButton.forEach((btn)=> {
@@ -109,7 +122,6 @@ function bodySwitchButton(){
     })
   })
 }
-
 
 function bodySwitch(activePage){
   switch(activePage){
@@ -134,46 +146,8 @@ function bodySwitch(activePage){
   }
 }
 
-function bodySwitchAiBusinessPackagePrepareButton(){
-  const packagePrepareButton = document.querySelectorAll(".body-aibutton-packageprepare")
 
-  packagePrepareButton.forEach((btn)=>{
-    btn.addEventListener("click", async (event)=>{
-      event.preventDefault()
-      const packageSlug = btn.dataset.packageSlug
-
-      await bodySwitchAiBusinessPackagePrepare(packageSlug)
-    })
-  })
-}
-
-
-async function bodySwitchAiBusinessPackagePrepare(packageSlug){
-  pageRoot.innerHTML = renderPackagePlansPrepare(packageSlug)
-
-  await hydratePackagePlans()
-  await hydratePackagePlansPrepare(packageSlug)
-  setupPackageOrderForm(packageSlug)
-  setupContactForm()
-  bodySwitchAiBusinessPackagePrepareBackButton()
-
-  function bodySwitchAiBusinessPackagePrepareBackButton(){
-    const packagePrepareBackButton = document.querySelector(".pageBackButton")
-
-    if (!packagePrepareBackButton) return
-
-    packagePrepareBackButton.addEventListener("click", async (event) => {
-      event.preventDefault()
-      const activePage = packagePrepareBackButton.dataset.page
-
-      await bodySwitchAiBusiness(activePage)
-      // await bodySwitchAiBusinessPackagePrepareBack(activePage)
-    })
-  }
-  console.log("Selected package:", packageSlug)
-}
-
-
+//AI Business 
 function bodySwitchAiBusinessButton(){
   const headeraiButton = document.querySelectorAll('.headeraiButton')
   headeraiButton.forEach((btn) =>{
@@ -196,6 +170,7 @@ async function bodySwitchAiBusiness(activePage) {
       pageRoot.innerHTML = renderAIBusinessAbout()
 
       await hydrateAboutAi()
+      bodySwitchAiBusinessAboutButton()
       break
 
     case 'services':
@@ -234,6 +209,89 @@ async function bodySwitchAiBusiness(activePage) {
   }
 }
 
+
+function bodySwitchAiBusinessPackagePrepareButton(){
+  const packagePrepareButton = document.querySelectorAll(".body-aibutton-packageprepare")
+
+  packagePrepareButton.forEach((btn)=>{
+    btn.addEventListener("click", async (event)=>{
+      event.preventDefault()
+      const packageSlug = btn.dataset.packageSlug
+
+      await bodySwitchAiBusinessPackagePrepare(packageSlug)
+    })
+  })
+}
+
+async function bodySwitchAiBusinessPackagePrepare(packageSlug){
+  pageRoot.innerHTML = renderPackagePlansPrepare(packageSlug)
+
+  await hydratePackagePlans()
+  await hydratePackagePlansPrepare(packageSlug)
+  setupPackageOrderForm(packageSlug)
+  setupContactForm()
+  bodySwitchAiBusinessPackagePrepareBackButton()
+
+  function bodySwitchAiBusinessPackagePrepareBackButton(){
+    const packagePrepareBackButton = document.querySelector(".pageBackButton")
+
+    if (!packagePrepareBackButton) return
+
+    packagePrepareBackButton.addEventListener("click", async (event) => {
+      event.preventDefault()
+      const activePage = packagePrepareBackButton.dataset.page
+
+      await bodySwitchAiBusiness(activePage)
+      // await bodySwitchAiBusinessPackagePrepareBack(activePage)
+    })
+  }
+  console.log("Selected package:", packageSlug)
+}
+
+
+//AI Busines Service
+function bodySwitchAiBusinessAboutButton(){
+  const aboutButton = document.querySelectorAll(".aboutButton")
+
+  aboutButton.forEach((btn) => {
+    btn.addEventListener('click', (event)=>{
+      event.preventDefault()
+      const activePage = btn.dataset.aboutpage
+
+      bodySwitchAiBusinessAbout(activePage)
+    })
+  })
+}
+
+async function bodySwitchAiBusinessAbout(activePage){
+  switch (activePage) {
+    case "viewservices":
+      pageRoot.innerHTML = renderAIBusinessServices()
+
+      await renderServices()
+      setupContactForm()
+      await hydratePackagePlans()
+      
+      bodySwitchAiBusinessPackagePrepareButton()
+      
+      serviceDragScroll()
+      bodySwitchAiBusinessProtocolButton()
+      
+      break
+
+    case "discussimplementation":
+      pageProtocolSwitcher.innerHTML = renderNone();
+      break
+
+    case "opencontact":
+      pageProtocolSwitcher.innerHTML = renderNone();
+      break
+
+    default:
+      pageProtocolSwitcher.innerHTML = `<h1>Page not found</h1>`;
+  }
+}
+
 function bodySwitchAiBusinessProtocolButton(){
   const protocolButton = document.querySelectorAll(".protocolButton")
 
@@ -256,23 +314,23 @@ function bodySwitchAiBusinessProtocol(activePage) {
   switch (activePage) {
     case "aiaccounting":
       pageProtocolSwitcher.innerHTML = renderaiaccounting();
-      break;
+      break
 
     case "aimarketingdesign":
       pageProtocolSwitcher.innerHTML = renderNone();
-      break;
+      break
 
     case "crmintelligence":
       pageProtocolSwitcher.innerHTML = renderNone();
-      break;
+      break
 
     case "operationsautomation":
       pageProtocolSwitcher.innerHTML = renderNone();
-      break;
+      break
 
     case "businessanalyticsaiauditor":
       pageProtocolSwitcher.innerHTML = renderNone();
-      break;
+      break
 
     default:
       pageProtocolSwitcher.innerHTML = `<h1>Page not found</h1>`;
@@ -307,8 +365,6 @@ serviceDragScroll()
 authModal()
 tabsLoginRegister()
 //#endregion
-
-
 
 
 // TEST API

@@ -108,7 +108,7 @@ export function renderAIBusinessAbout(){
             </p>
 
             <div class="about-core__actions" aria-label="About page actions">
-              <a class="about-core__btn about-core__btn--primary" href="#services" data-page="services">
+              <a class="about-core__btn about-core__btn--primary aboutButton" href="#services" data-aboutpage="viewservices">
                 View Services
               </a>
 
