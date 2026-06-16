@@ -2,7 +2,8 @@ from django.contrib import admin
 from .models import( 
     Service, ContactRequest, 
     Review, TrainingProgram, 
-    AboutAiBusiness, PackagePlan
+    AboutAiBusiness, PackagePlan,
+    PackageOrder
     )
 
 # Register your models here.
@@ -41,6 +42,7 @@ class ContactRequestAdmin(admin.ModelAdmin):
     )
     ordering = ("-created_at",)
 
+
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
     list_display = (
@@ -59,6 +61,7 @@ class ReviewAdmin(admin.ModelAdmin):
         "created_at", "updated_at",
     )
     ordering = ("-created_at",)
+
 
 @admin.register(TrainingProgram)
 class TrainingProgramAdmin(admin.ModelAdmin):
@@ -95,6 +98,7 @@ class AboutAiBusinessAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at",)
     ordering = ("order", "key")
     
+
 @admin.register(PackagePlan)
 class PackagePlanAdmin(admin.ModelAdmin):
     list_display = (
@@ -113,3 +117,23 @@ class PackagePlanAdmin(admin.ModelAdmin):
     "included_trainings",
     )
     ordering = ("order", "max_services")
+
+
+@admin.register(PackageOrder)
+class PackageOrderAdmin(admin.ModelAdmin):
+    list_display = (
+        "customer_name", "customer_email",
+        "company", "package_plan", 
+        "status", "created_at",
+    )
+    list_filter = ("status", "package_plan")
+    search_fields = ( 
+        "customer_name", "customer_email",
+        "company", "message",
+        "package_plan__name", "package_plan__title",
+        "package_plan__slug", "selected_services__title",
+        "selected_services__slug", 
+    )
+    filter_horizontal = ("selected_services",)
+    readonly_fields = ("created_at", "updated_at",)
+    ordering = ("-created_at",)
