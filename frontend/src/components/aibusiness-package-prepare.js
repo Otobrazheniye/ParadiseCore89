@@ -1,10 +1,10 @@
-import { getPackagePlans, getServices } from "../api/servicesApi";
+import { getPackagePlans, getServices, createPackageOrder } from "../api/servicesApi";
 
  
 
 export function renderPackagePlansPrepare(packageSlug){
   const allowedSlugs = ["basic", "pro", "enterprise"]
-
+  
   if (!allowedSlugs.includes(packageSlug)) {
     return `<h1>Page not found</h1>`
   }
@@ -201,7 +201,7 @@ export function renderPackagePlansPrepare(packageSlug){
                 <h2 class="package-checkout__step-title">
                   Your information
                 </h2>
-                <form class="contact-form" id="contact-form">
+                <form class="contact-form" id="package-order-form">
                   <input name="name" type="text" placeholder="Your name" required>
                   <input name="email" type="email" placeholder="Your email" required>
                   <input name="company" type="text" placeholder="Company">
@@ -218,3 +218,76 @@ export function renderPackagePlansPrepare(packageSlug){
     </section>
   `
 }
+
+// Backend:
+// Model -> Serializer -> ViewSet -> URLs -> API endpoint
+
+// Frontend:
+// HTML -> JS собирает данные-> API function -> POST -> Backend
+
+export function setupPackageOrderForm(packageSlug){
+  const form = document.querySelector("#package-order-form")
+
+  if (!form) return
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault()
+
+    const formData = new FormData(form)
+
+
+
+    const selectedServiceList = document.querySelectorAll(
+      "input[name='selected_services']:checked"
+    )
+
+    const selectedServices = Array.from(selectedServiceList).map((input) => {
+      return Number(input.value)
+    })
+
+    const packages = await getPackagePlans()
+
+    const selectedPackage = packages.find((pack) => {
+      return pack.slug === packageSlug
+    })
+
+    if (!selectedPackage) {
+      console.error("Package not found:", packageSlug)
+      return
+    }
+
+    const orderData = {
+      customer_name: formData.get("name"),
+      customer_email: formData.get("email"),
+      company: formData.get("company"),
+      message: formData.get("message"),
+      package_plan: selectedPackage.id,
+      selected_services: selectedServices,
+    }
+
+
+    try {
+      const createdOrder = await createPackageOrder(orderData)
+
+      console.log("Package order created:", createdOrder)
+
+      form.reset()
+
+      alert("Package request sent successfully.")
+    } catch (error) {
+      console.error("Failed to create package order:", error)
+
+      alert("Failed to send package request.")
+    }
+    // console.log("customer_name:", customer_name)
+    // console.log("customer_email:", customer_email)
+    // console.log("company:", company)
+    // console.log("message:", message)
+    // console.log("package_plan id:", selectedPackage.id)
+    // console.log("package_plan slug:", selectedPackage.slug)
+    // console.log("selected_services ids:", selectedServices)
+  })
+  
+}
+
+

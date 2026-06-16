@@ -4,6 +4,7 @@ from .views import (
     ServiceViewSet, ContactRequestViewSet, 
     ReviewViewSet, TrainingProgramViewSet,
     AboutAiBusinessViewSet, PackagePlanViewSet,
+    PackageOrderViewSet,
     )
 
 
@@ -16,6 +17,7 @@ router.register("reviews", ReviewViewSet, basename="review")
 router.register("training", TrainingProgramViewSet, basename="training")
 router.register("about-aibusiness", AboutAiBusinessViewSet, basename="about-aibusiness")
 router.register("package-plans", PackagePlanViewSet, basename="package-plan")
+router.register("package-orders", PackageOrderViewSet, basename="package-order")
 
 urlpatterns = [
     path("", include(router.urls))

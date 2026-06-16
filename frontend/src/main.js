@@ -34,6 +34,8 @@ import { renderServices } from './components/aibusiness-services.js'
 import { setupContactForm } from './components/aibusiness-contact.js'
 import { renderReviews, setupReviewForm } from './components/aibusiness-review.js'
 import { renderTrainingPrograms } from './components/aibusiness-training.js'
+import { setupPackageOrderForm } from './components/aibusiness-package-prepare.js'
+
 import { hydrateAboutAi } from './components/aibusiness-about.js'
 import { hydratePackagePlans, hydratePackagePlansPrepare } from './components/aibusiness-hydrate.js'
 
@@ -151,6 +153,7 @@ async function bodySwitchAiBusinessPackagePrepare(packageSlug){
 
   await hydratePackagePlans()
   await hydratePackagePlansPrepare(packageSlug)
+  setupPackageOrderForm(packageSlug)
   setupContactForm()
   bodySwitchAiBusinessPackagePrepareBackButton()
 

@@ -17,3 +17,7 @@ export async function getPackagePlans(){
   return response.data
 }
 
+export async function createPackageOrder(orderData){
+  const response = await apiClient.post("/package-orders/", orderData)
+  return response.data
+}

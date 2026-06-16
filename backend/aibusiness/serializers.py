@@ -3,6 +3,7 @@ from .models import(
     Service, ContactRequest, 
     Review, TrainingProgram, 
     AboutAiBusiness, PackagePlan,
+    PackageOrder,
 ) 
 
 
@@ -26,6 +27,7 @@ class ServiceDetailSerializer(serializers.ModelSerializer):
             'order', 'created_at',
             'updated_at'
         )
+
 
 class ContactRequestCreateSerializer(serializers.ModelSerializer):
     class Meta:
@@ -110,9 +112,9 @@ class TrainingProgramDetailSerializer(serializers.ModelSerializer):
             "id", "title",
             "slug", "short_description",
             "full_description", "level", 
-            "level", "duration",
-            "target_audience", "order",
-            "created_at", "updated_at",
+            "duration", "target_audience", 
+            "order", "created_at", 
+            "updated_at",
         )
     
 class AboutAiBusinessSerializer(serializers.ModelSerializer):
@@ -159,21 +161,21 @@ class AboutAiBusinessSerializer(serializers.ModelSerializer):
     #     return paragraphs
     
 
-class PackageTrainingSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TrainingProgram
-        fields = (
-            "id", "title",
-            "slug", "short_description",
-            "full_description", "level", 
-            "duration", "target_audience", 
-            "order", "created_at", 
-            "updated_at",
-        )
+# class PackageTrainingSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = TrainingProgram
+#         fields = (
+#             "id", "title",
+#             "slug", "short_description",
+#             "full_description", "level", 
+#             "duration", "target_audience", 
+#             "order", "created_at", 
+#             "updated_at",
+#         )
 
 
 class PackagePlanSerializer(serializers.ModelSerializer):
-    included_trainings = PackageTrainingSerializer(many=True, read_only=True)
+    included_trainings = TrainingProgramDetailSerializer(many=True, read_only=True)
     
     description_paragraphs = serializers.SerializerMethodField()
     includes_list = serializers.SerializerMethodField()
@@ -214,3 +216,34 @@ class PackagePlanSerializer(serializers.ModelSerializer):
             for paragraph in obj.best_for_text.split("\n\n")
             if paragraph.strip()
         ]
+    
+
+class PackageOrderCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PackageOrder
+        fields = (
+        "id", "customer_name",
+        "customer_email", "company", 
+        "message", "package_plan",
+        "selected_services", "status",
+        "created_at", 
+        )
+        read_only_fields = (
+            "id", "status",
+            "created_at",
+        )
+        
+    def validate(self, attrs):
+        package_plan = attrs.get("package_plan")
+        selected_services = attrs.get("selected_services",[])
+        if not selected_services:
+            raise serializers.ValidationError({
+            "selected_services": "Choose at least one service."
+        })
+        
+        if package_plan and len(selected_services) > package_plan.max_services:
+            raise serializers.ValidationError({
+            "selected_services": f"This package allows maximum {package_plan.max_services} services."
+        })
+
+        return attrs
