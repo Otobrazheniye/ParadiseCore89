@@ -347,9 +347,14 @@ export function renderAIBusinessServices(){
       <h2 class="ai-protocol-list__title">
         Five protocols of growth and efficiency
       </h2>
-      <ul class="ai-protocol-list__grid" id="services-grid"></ul>
+      <ul class="ai-protocol-list__grid" id="services-grid">
       
-
+      <li>AI Accounting</li>
+      <li>AI Marketing & Design</li>
+      <li>CRM Intelligence</li>
+      <li>Operations Automation</li>
+      <li>Business Analytics & AI Auditorr</li>
+      </ul>
 
     </div>
   </section>
@@ -660,7 +665,7 @@ export function renderAIBusinessServices(){
 
 export function renderaiaccounting(){
   return `
-  rrrrrrrrrrrrrr
+  test
   `
 }
 
