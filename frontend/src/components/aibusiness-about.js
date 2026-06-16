@@ -1,4 +1,9 @@
 import { getAboutAiBusiness } from "../api/aboutaibusiness.js"
+import operationlDiagnosis from "../content/back_photo/OperationalDiagnosis.png"
+import corporateAISystem from "../content/back_photo/CorporateAISystem.png"
+import whyItIsConvenient from "../content/back_photo/WhyItIsConvenient.png"
+import practicalAIAutomation from "../content/back_photo/PracticalAIAutomation.png"
+
 
 function setText(selector, value){
   const element = document.querySelector(selector)
@@ -80,13 +85,13 @@ export function renderAIBusinessAbout(){
           </div>
 
           <div class="about-core__media about-core__media--diagnosis">
-            <img src="../content/ai-business/about-diagnosis.jpg" alt="AI business process diagnosis">
+            <img src="${operationlDiagnosis}" alt="AI business process diagnosis">
           </div>
         </section>
 
         <section class="about-core__split about-core__split--image-text">
           <div class="about-core__media about-core__media--system">
-            <img src="../content/ai-business/about-system.jpg" alt="Corporate AI operating system">
+            <img src="${corporateAISystem}" alt="Corporate AI operating system">
           </div>
 
           <div class="about-core__content">
@@ -322,7 +327,7 @@ export function renderAIBusinessAbout(){
           </div>
 
           <div class="about-workflow__media about-workflow__media--convenient">
-            <img src="../content/ai-business/workflow-convenient.jpg" alt="Structured AI implementation discussion">
+            <img src="${whyItIsConvenient}" alt="Structured AI implementation discussion">
           </div>
         </section>
 
@@ -334,7 +339,7 @@ export function renderAIBusinessAbout(){
 
         <section class="about-workflow__split about-workflow__split--image-text">
           <div class="about-workflow__media about-workflow__media--practical">
-            <img src="../content/ai-business/workflow-practical.jpg" alt="Practical AI automation system">
+            <img src="${practicalAIAutomation}" alt="Practical AI automation system">
           </div>
 
           <div class="about-workflow__content">
