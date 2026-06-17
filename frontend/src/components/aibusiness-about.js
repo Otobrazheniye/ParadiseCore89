@@ -108,11 +108,11 @@ export function renderAIBusinessAbout(){
             </p>
 
             <div class="about-core__actions" aria-label="About page actions">
-              <a class="about-core__btn about-core__btn--primary aboutButton" href="#services" data-aboutpage="viewservices">
+              <a class="about-core__btn about-core__btn--primary aboutButton" href="#" data-aboutpage="viewservices">
                 View Services
               </a>
 
-              <a class="about-core__btn about-core__btn--secondary" href="#contact" data-page="contact">
+              <a class="about-core__btn about-core__btn--secondary aboutButton" href="#" data-aboutpage="opencontact">
                 Discuss Implementation
               </a>
             </div>
@@ -123,7 +123,6 @@ export function renderAIBusinessAbout(){
     </section>
 
     
-
     <section class="about-work" id="what-we-do">
       <div class="about-work__inner">
 
@@ -386,15 +385,15 @@ export function renderAIBusinessAbout(){
         </div>
 
         <div class="about-cta__actions" aria-label="About call to action">
-          <a class="about-cta__btn about-cta__btn--primary" href="#" data-page="services">
+          <a class="about-cta__btn about-cta__btn--primary aboutButton" href="#" data-aboutpage="viewservices">
             View Services
           </a>
 
-          <a class="about-cta__btn about-cta__btn--secondary" href="#contact" data-page="contact">
+          <a class="about-cta__btn about-cta__btn--secondary aboutButton" href="#" data-aboutpage="opencontact">
             Discuss Implementation
           </a>
 
-          <a class="about-cta__btn about-cta__btn--ghost" href="#contact" data-page="contact">
+          <a class="about-cta__btn about-cta__btn--ghost aboutButton" href="#" data-aboutpage="opencontact">
             Open Contact
           </a>
         </div>

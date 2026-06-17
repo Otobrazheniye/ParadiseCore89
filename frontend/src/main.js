@@ -108,6 +108,41 @@ function headerSwitch(activePage){
 }
 //#endregion
 
+//#region Prepare
+function prepareAIBusiness(){
+  headerRoot.innerHTML = renderHeaderAIBusiness()
+  
+  initBurgerMenu()
+  bodySwitchAiBusinessButton()
+}
+
+async function prepareServices(){
+  pageRoot.innerHTML = renderAIBusinessServices()
+  await renderServices()
+  setupContactForm()
+  await hydratePackagePlans()
+  
+  bodySwitchAiBusinessPackagePrepareButton()
+  
+  serviceDragScroll()
+  bodySwitchAiBusinessProtocolButton()
+}
+
+
+async function prepareAbout(){
+  pageRoot.innerHTML = renderAIBusinessAbout()
+  await hydrateAboutAi()
+  bodySwitchAiBusinessAboutButton()
+}
+
+async function prepareReview(){
+  pageRoot.innerHTML = renderAIBusinessReview()
+
+  await renderReviews()
+  await setupReviewForm()
+}
+
+//#endregion
 
 //#region Body Switch
 //Base Page
@@ -135,10 +170,7 @@ function bodySwitch(activePage){
       pageRoot.innerHTML = renderDivision()
       break
     case 'aibusiness':
-      headerRoot.innerHTML = renderHeaderAIBusiness()
-      
-      initBurgerMenu()
-      bodySwitchAiBusinessButton()
+      prepareAIBusiness()
       break
 
     default:
@@ -146,6 +178,11 @@ function bodySwitch(activePage){
   }
 }
 
+async function prepareTraining(){
+  pageRoot.innerHTML = renderAIBusinessTrainingProgram()
+
+  await renderTrainingPrograms()
+}
 
 //AI Business 
 function bodySwitchAiBusinessButton(){
@@ -167,37 +204,19 @@ async function bodySwitchAiBusiness(activePage) {
       break
 
     case 'about':
-      pageRoot.innerHTML = renderAIBusinessAbout()
-
-      await hydrateAboutAi()
-      bodySwitchAiBusinessAboutButton()
+      prepareAbout()
       break
 
     case 'services':
-      pageRoot.innerHTML = renderAIBusinessServices()
-
-      await renderServices()
-      setupContactForm()
-      await hydratePackagePlans()
-      
-      bodySwitchAiBusinessPackagePrepareButton()
-      
-      serviceDragScroll()
-      bodySwitchAiBusinessProtocolButton()
-      
+      prepareServices()
       break
 
     case 'reviews':
-      pageRoot.innerHTML = renderAIBusinessReview()
-
-      await renderReviews()
-      await setupReviewForm()
+      prepareReview()
       break
 
     case 'training':
-      pageRoot.innerHTML = renderAIBusinessTrainingProgram()
-
-      await renderTrainingPrograms()
+      prepareTraining()
       break
 
     case 'contact':
@@ -266,21 +285,7 @@ function bodySwitchAiBusinessAboutButton(){
 async function bodySwitchAiBusinessAbout(activePage){
   switch (activePage) {
     case "viewservices":
-      pageRoot.innerHTML = renderAIBusinessServices()
-
-      await renderServices()
-      setupContactForm()
-      await hydratePackagePlans()
-      
-      bodySwitchAiBusinessPackagePrepareButton()
-      
-      serviceDragScroll()
-      bodySwitchAiBusinessProtocolButton()
-      
-      break
-
-    case "discussimplementation":
-      pageProtocolSwitcher.innerHTML = renderNone();
+      prepareServices()
       break
 
     case "opencontact":
@@ -291,6 +296,35 @@ async function bodySwitchAiBusinessAbout(activePage){
       pageProtocolSwitcher.innerHTML = `<h1>Page not found</h1>`;
   }
 }
+
+
+function bodySwitchAiBusinessServiceButton(){
+  const aboutButton = document.querySelectorAll(".serviceButton")
+
+  aboutButton.forEach((btn) => {
+    btn.addEventListener('click', (event)=>{
+      event.preventDefault()
+      const activePage = btn.dataset.servicepage
+
+      bodySwitchAiBusinessService(activePage)
+    })
+  })
+}
+
+async function bodySwitchAiBusinessService(activePage){
+  switch (activePage) {
+    case "opencontact":
+      pageProtocolSwitcher.innerHTML = renderNone();
+      break
+
+    default:
+      pageProtocolSwitcher.innerHTML = `<h1>Page not found</h1>`;
+  }
+}
+
+
+
+
 
 function bodySwitchAiBusinessProtocolButton(){
   const protocolButton = document.querySelectorAll(".protocolButton")
@@ -304,7 +338,6 @@ function bodySwitchAiBusinessProtocolButton(){
     })
   })
 }
-
 
 function bodySwitchAiBusinessProtocol(activePage) {
   const pageProtocolSwitcher = document.querySelector("#page-protocol-switcher");
@@ -344,6 +377,8 @@ function bodySwitchAiBusinessProtocol(activePage) {
 }
 //#endregion
 //#endregion
+
+
 
 
 //#region Default function
