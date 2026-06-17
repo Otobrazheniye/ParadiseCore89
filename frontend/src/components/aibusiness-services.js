@@ -5,7 +5,6 @@ export async function renderServices(){
   const serviceGrid = document.querySelector("#services-grid") 
   if(!serviceGrid) return
 
-
   try{
     const serviceList = await getServices()
     serviceGrid.innerHTML = ""
@@ -15,15 +14,13 @@ export async function renderServices(){
       listItem.classList.add("ai-protocol-list__item")
       listItem.classList.add(`ai-protocol-list__item--${service.icon_name}`)
       listItem.id= service.slug
+
       const subTitleItem = document.createElement("h3")
       subTitleItem.classList.add("protocolButton")
       subTitleItem.dataset.page = service.slug
       subTitleItem.textContent = service.title
 
-
       listItem.append(subTitleItem)
-
-
       serviceGrid.append(listItem)
   })
   }
@@ -182,7 +179,7 @@ export function renderAIBusinessServices(){
     </section>
 
   <section class="ai-services-flow" id="ai-payoff">
-    <div id="growth-protocols" class="ai-anchor"></div>
+    <div class="ai-anchor"></div>
     <div class="ai-services-flow__inner">
 
       <article class="ai-services-flow__intro">
@@ -249,7 +246,7 @@ export function renderAIBusinessServices(){
             Protocol Overview Block
           </span>
 
-          <h2 class="ai-services-flow__panel-title">
+          <h2 class="ai-services-flow__panel-title" id="growth-protocols">
             Five protocols of growth and efficiency
           </h2>
 
@@ -576,7 +573,7 @@ export function renderAIBusinessServices(){
       </p>
     </div>
 
-    <div class="ai-package-comparison__table-wrap">
+    <div class="ai-package-comparison__table-wrap" id="cases-results">
       <button class="ai-package-comparison__copy" type="button" aria-label="Copy comparison table">
         ⧉
       </button>

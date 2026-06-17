@@ -297,6 +297,35 @@ async function bodySwitchAiBusinessAbout(activePage){
   }
 }
 
+
+function bodySwitchAiBusinessServiceButton(){
+  const aboutButton = document.querySelectorAll(".serviceButton")
+
+  aboutButton.forEach((btn) => {
+    btn.addEventListener('click', (event)=>{
+      event.preventDefault()
+      const activePage = btn.dataset.servicepage
+
+      bodySwitchAiBusinessService(activePage)
+    })
+  })
+}
+
+async function bodySwitchAiBusinessService(activePage){
+  switch (activePage) {
+    case "opencontact":
+      pageProtocolSwitcher.innerHTML = renderNone();
+      break
+
+    default:
+      pageProtocolSwitcher.innerHTML = `<h1>Page not found</h1>`;
+  }
+}
+
+
+
+
+
 function bodySwitchAiBusinessProtocolButton(){
   const protocolButton = document.querySelectorAll(".protocolButton")
 
