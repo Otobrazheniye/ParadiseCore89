@@ -1,5 +1,21 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 from django.utils.text import slugify
+
+
+class User(AbstractUser):
+    username = None
+
+    email = models.EmailField(unique=True)
+    full_name = models.CharField(max_length=150, blank=True)
+    company = models.CharField(max_length=150, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
+
+
 
 
 class Service(models.Model):

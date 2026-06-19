@@ -3,10 +3,24 @@ from .models import(
     Service, ContactRequest, 
     Review, TrainingProgram, 
     AboutAiBusiness, PackagePlan,
-    PackageOrder
+    PackageOrder, User,
     )
 
-# Register your models here.
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    list_display = (
+        "email", "full_name",
+        "company", "created_at",
+    ) 
+    list_filter = ("company", "created_at",)
+    search_fields = (
+        "email", "full_name",
+        "company",
+    )
+    ordering = ("full_name", "-created_at")
+
+
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
     list_display = (
@@ -137,3 +151,4 @@ class PackageOrderAdmin(admin.ModelAdmin):
     filter_horizontal = ("selected_services",)
     readonly_fields = ("created_at", "updated_at",)
     ordering = ("-created_at",)
+

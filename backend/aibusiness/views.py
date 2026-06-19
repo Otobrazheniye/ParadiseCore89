@@ -13,7 +13,10 @@ from .serializers import (
     TrainingProgramListSerializer, TrainingProgramDetailSerializer,
     AboutAiBusinessSerializer, PackagePlanSerializer,
     PackageOrderCreateSerializer,
+    RegistrationUser,
     )
+
+
 
 
 class ServiceViewSet(viewsets.ReadOnlyModelViewSet):

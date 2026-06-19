@@ -1,12 +1,68 @@
 from rest_framework import serializers
+from django.contrib.auth import authenticate
 from .models import(
     Service, ContactRequest, 
     Review, TrainingProgram, 
     AboutAiBusiness, PackagePlan,
-    PackageOrder,
+    PackageOrder, User,
 ) 
 
+#User
+class RegistrationUserSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True, min_length=6)
+    
+    class Meta: 
+        model = User
+        fields = (
+            "id", "email", 
+            "password", "full_name",
+            "company", "created_at",  
+        )
 
+        read_only_fields = ("id", "created_at")
+
+    def create(self, validated_data):
+        password = validated_data.pop("password")
+        
+        user = User(**validated_data)
+        user.set_password(password)
+        user.save()
+
+        return user
+    
+
+class LoginUserSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField()
+    password =  serializers.CharField(write_only=True, min_length=6)
+
+    def validate(self, attrs):
+        email = attrs.get("email")
+        password = attrs.get("password")
+
+        # user = authenticate(
+        #     username=email,
+        #     password=password
+        # )
+
+        # if not user:
+        #     raise serializers.ValidationError("Invalid email or password")
+
+        # attrs["user"] = user
+        # return attrs
+
+
+class MeUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = (
+            "id", "email", 
+            "full_name", "company", 
+            "created_at",  
+        )
+        
+        read_only_fields = ("id", "email", "created_at")
+
+
+#Other Serializers
 class ServiceListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
@@ -161,19 +217,6 @@ class AboutAiBusinessSerializer(serializers.ModelSerializer):
     #     return paragraphs
     
 
-# class PackageTrainingSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = TrainingProgram
-#         fields = (
-#             "id", "title",
-#             "slug", "short_description",
-#             "full_description", "level", 
-#             "duration", "target_audience", 
-#             "order", "created_at", 
-#             "updated_at",
-#         )
-
-
 class PackagePlanSerializer(serializers.ModelSerializer):
     included_trainings = TrainingProgramDetailSerializer(many=True, read_only=True)
     
@@ -247,3 +290,4 @@ class PackageOrderCreateSerializer(serializers.ModelSerializer):
         })
 
         return attrs
+    
