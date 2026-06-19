@@ -1,12 +1,20 @@
-from rest_framework import mixins, viewsets
+from django.contrib.auth import authenticate
+from rest_framework import viewsets, serializers, status, mixins
+from rest_framework.decorators import action
+from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
+from rest_framework.response import Response
+
 
 from .models import (
+    User,
     Service, ContactRequest, 
     Review, TrainingProgram, 
     AboutAiBusiness, PackagePlan,
     PackageOrder,
 )
-from .serializers import (
+from .serializers import (    
+    RegistrationUserSerializer, LoginUserSerializer,
+    MeUserSerializer,
     ServiceListSerializer, ServiceDetailSerializer, 
     ContactRequestCreateSerializer,
     ReviewListSerializer, ReviewCreateSerializer,
@@ -14,6 +22,26 @@ from .serializers import (
     AboutAiBusinessSerializer, PackagePlanSerializer,
     PackageOrderCreateSerializer,
     )
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+
+    def get_serializer_class(self):
+        if self.action == "create":
+            return RegistrationUserSerializer
+        elif self.action == "login":
+            return LoginUserSerializer
+        elif self.action == "retrieve":
+            return MeUserSerializer
+        return MeUserSerializer
+    
+    def get_permissions(self):
+        if self.action in ("create", "login"):
+            return [AllowAny]
+        if self.action == "me":
+            return [IsAuthenticated]
+        return [IsAdminUser()]
+        
 
 
 class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
