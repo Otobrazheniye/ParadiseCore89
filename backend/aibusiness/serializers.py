@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth import authenticate
+from django.contrib.auth import get_user_model
+
 from .models import(
     Service, ContactRequest, 
     Review, TrainingProgram, 
@@ -8,8 +10,11 @@ from .models import(
 ) 
 
 #User
+User = get_user_model()
+
+
 class RegistrationUserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True, min_length=6)
+    password = serializers.CharField(write_only=True, min_length=6, style={"input_type": "password"},)
     
     class Meta: 
         model = User
@@ -20,6 +25,9 @@ class RegistrationUserSerializer(serializers.ModelSerializer):
         )
 
         read_only_fields = ("id", "created_at")
+
+    def validate(self, value):
+        return value.lower().strip()
 
     def create(self, validated_data):
         password = validated_data.pop("password")
@@ -61,6 +69,8 @@ class MeUserSerializer(serializers.ModelSerializer):
         
         read_only_fields = ("id", "email", "created_at")
 
+class LogoutSerializer(serializers.ModelSerializer):
+    refresh = serializers.CharField()
 
 #Other Serializers
 class ServiceListSerializer(serializers.ModelSerializer):
