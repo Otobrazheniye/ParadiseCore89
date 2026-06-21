@@ -1,0 +1,485 @@
+[
+{
+  "model": "aibusiness.service",
+  "pk": 1,
+  "fields": {
+    "title": "AI Accounting",
+    "slug": "ai-accounting",
+    "short_description": "Automation for invoices, reports, accounting documents and financial workflows.",
+    "full_description": "AI Accounting helps companies reduce manual document processing, structure invoices, prepare reports, and control financial operations with clear automation scenarios.",
+    "icon_name": "accounting",
+    "order": 1,
+    "is_active": true,
+    "created_at": "2026-05-30T14:18:35.943Z",
+    "updated_at": "2026-06-02T13:50:47.775Z"
+  }
+},
+{
+  "model": "aibusiness.service",
+  "pk": 2,
+  "fields": {
+    "title": "AI Marketing & Design",
+    "slug": "ai-marketing-design",
+    "short_description": "AI-powered generation of marketing materials, visuals, texts and campaign assets.",
+    "full_description": "This service helps teams create marketing content faster while keeping visual and textual consistency across brand materials.",
+    "icon_name": "marketing",
+    "order": 2,
+    "is_active": true,
+    "created_at": "2026-05-30T14:19:18.987Z",
+    "updated_at": "2026-05-30T14:19:18.987Z"
+  }
+},
+{
+  "model": "aibusiness.service",
+  "pk": 3,
+  "fields": {
+    "title": "CRM Intelligence",
+    "slug": "crm-intelligence",
+    "short_description": "Customer request structuring, sales pipeline logic and CRM scenario automation.",
+    "full_description": "CRM Intelligence helps companies organize customer communication, lead status, sales scenarios and internal follow-up logic.",
+    "icon_name": "crm",
+    "order": 3,
+    "is_active": true,
+    "created_at": "2026-05-30T14:20:04.495Z",
+    "updated_at": "2026-05-30T14:20:04.495Z"
+  }
+},
+{
+  "model": "aibusiness.service",
+  "pk": 4,
+  "fields": {
+    "title": "Operations Automation",
+    "slug": "operations-automation",
+    "short_description": "Automation of internal business processes, routine tasks, approvals and operational workflows.",
+    "full_description": "Operations Automation helps companies reduce repetitive manual work, organize internal processes, automate task flows, approvals, notifications and standard operational scenarios.",
+    "icon_name": "operations",
+    "order": 4,
+    "is_active": true,
+    "created_at": "2026-06-16T13:35:01.411Z",
+    "updated_at": "2026-06-16T13:36:19.018Z"
+  }
+},
+{
+  "model": "aibusiness.service",
+  "pk": 5,
+  "fields": {
+    "title": "Business Analytics & AI Auditor",
+    "slug": "business-analytics-ai-auditor",
+    "short_description": "AI-based analysis of business data, reports, performance indicators and process efficiency.",
+    "full_description": "Business Analytics & AI Auditor helps companies analyze business data, detect weak points, review performance indicators, prepare reports and evaluate how efficiently internal processes work.",
+    "icon_name": "analyticsauditor",
+    "order": 5,
+    "is_active": true,
+    "created_at": "2026-06-16T13:37:05.704Z",
+    "updated_at": "2026-06-16T13:37:05.704Z"
+  }
+},
+{
+  "model": "aibusiness.contactrequest",
+  "pk": 1,
+  "fields": {
+    "name": "Andrii",
+    "email": "otobrazheniye@gmail.com",
+    "company": "CoffeeAiWorkshop",
+    "service_interest": "AI Accounting",
+    "message": "I want to automate accounting documents for my business.",
+    "status": "new",
+    "created_at": "2026-06-04T11:56:29.077Z",
+    "updated_at": "2026-06-04T11:56:29.078Z",
+    "admin_note": ""
+  }
+},
+{
+  "model": "aibusiness.contactrequest",
+  "pk": 2,
+  "fields": {
+    "name": "David Jeshov",
+    "email": "Mileniumcorp@example.com",
+    "company": "Milenium",
+    "service_interest": "CRM Intelligence",
+    "message": "I want to understand how CRM automation can help my company.",
+    "status": "new",
+    "created_at": "2026-06-04T14:09:13.891Z",
+    "updated_at": "2026-06-04T14:09:13.891Z",
+    "admin_note": ""
+  }
+},
+{
+  "model": "aibusiness.contactrequest",
+  "pk": 3,
+  "fields": {
+    "name": "Lukas",
+    "email": "Miliarseioo@gmail.com",
+    "company": "AmaroDesti",
+    "service_interest": "CRM Intelligence",
+    "message": "CRM Intelligence can help my company. Please write me",
+    "status": "new",
+    "created_at": "2026-06-04T15:10:56.287Z",
+    "updated_at": "2026-06-04T15:10:56.288Z",
+    "admin_note": ""
+  }
+},
+{
+  "model": "aibusiness.review",
+  "pk": 1,
+  "fields": {
+    "client_name": "Anna Novak",
+    "company": "Nova Systems",
+    "position": "Operations Manager",
+    "text": "Paradise Core 89 helped us understand where AI automation could reduce manual work and improve internal process control.",
+    "rating": 5,
+    "is_published": true,
+    "created_at": "2026-06-07T13:28:20.830Z",
+    "updated_at": "2026-06-07T13:28:20.830Z",
+    "admin_note": ""
+  }
+},
+{
+  "model": "aibusiness.review",
+  "pk": 2,
+  "fields": {
+    "client_name": "Michael Brown",
+    "company": "Brown Logistics",
+    "position": "Founder",
+    "text": "The consultation gave us a clear structure for CRM automation and better client request handling.",
+    "rating": 4,
+    "is_published": true,
+    "created_at": "2026-06-07T13:30:21.865Z",
+    "updated_at": "2026-06-07T13:30:21.865Z",
+    "admin_note": ""
+  }
+},
+{
+  "model": "aibusiness.review",
+  "pk": 3,
+  "fields": {
+    "client_name": "Test User",
+    "company": "Test Company",
+    "position": "Manager",
+    "text": "This review should not be visible yet.",
+    "rating": 5,
+    "is_published": false,
+    "created_at": "2026-06-07T13:31:59.517Z",
+    "updated_at": "2026-06-07T13:31:59.517Z",
+    "admin_note": ""
+  }
+},
+{
+  "model": "aibusiness.review",
+  "pk": 4,
+  "fields": {
+    "client_name": "May Novak",
+    "company": "AmaroDesti",
+    "position": "Founder",
+    "text": "This is a test review created through the API and waiting for moderation.",
+    "rating": 5,
+    "is_published": false,
+    "created_at": "2026-06-07T15:16:15.343Z",
+    "updated_at": "2026-06-07T15:20:36.123Z",
+    "admin_note": ""
+  }
+},
+{
+  "model": "aibusiness.review",
+  "pk": 6,
+  "fields": {
+    "client_name": "Test Client",
+    "company": "Test Company",
+    "position": "Manager",
+    "text": "This review was created through curl and should wait for moderation.",
+    "rating": 5,
+    "is_published": false,
+    "created_at": "2026-06-07T15:23:07.881Z",
+    "updated_at": "2026-06-07T15:23:07.881Z",
+    "admin_note": ""
+  }
+},
+{
+  "model": "aibusiness.trainingprogram",
+  "pk": 1,
+  "fields": {
+    "title": "Initial AI Training for Business Teams",
+    "slug": "initial-ai-training-for-business-teams",
+    "short_description": "Introductory AI training for teams that need to understand the basics before using AI in business workflows.",
+    "full_description": "This initial training helps business teams understand what AI can and cannot do in real processes. The program explains basic automation scenarios, human control, common risks, and the first practical steps for using AI safely inside a company.",
+    "level": "initial",
+    "duration": "2 hours",
+    "target_audience": "Business owners, managers, small teams, employees new to AI",
+    "order": 1,
+    "is_active": true,
+    "created_at": "2026-06-08T15:31:36.553Z",
+    "updated_at": "2026-06-08T15:31:36.553Z"
+  }
+},
+{
+  "model": "aibusiness.trainingprogram",
+  "pk": 2,
+  "fields": {
+    "title": "Role-Based CRM Automation Training",
+    "slug": "role-based-crm-automation-training",
+    "short_description": "CRM automation training for sales, support and management teams that need clear role-based workflows.",
+    "full_description": "This role-based training teaches different team members how to use CRM automation in their daily work. Sales teams learn how to structure leads and follow-ups, managers learn how to monitor pipeline stages, and support teams learn how to organize customer requests and communication scenarios.",
+    "level": "role_based",
+    "duration": "1 day",
+    "target_audience": "Sales teams, CRM managers, support teams, founders.",
+    "order": 2,
+    "is_active": true,
+    "created_at": "2026-06-08T15:34:23.857Z",
+    "updated_at": "2026-06-08T15:34:23.857Z"
+  }
+},
+{
+  "model": "aibusiness.trainingprogram",
+  "pk": 3,
+  "fields": {
+    "title": "Corporate AI Academy",
+    "slug": "corporate-ai-academy",
+    "short_description": "Structured AI academy for companies that want to build repeatable AI workflows, internal rules and team-wide adoption.",
+    "full_description": "This academy program helps companies build a structured AI adoption system across teams. The training covers AI basics, workflow design, internal rules, safe usage, prompt templates, quality control, human review and practical implementation scenarios for different departments.",
+    "level": "academy",
+    "duration": "3–5 days",
+    "target_audience": "Managers, department leads, business owners, operational teams",
+    "order": 3,
+    "is_active": true,
+    "created_at": "2026-06-08T15:39:37.709Z",
+    "updated_at": "2026-06-08T15:39:37.709Z"
+  }
+},
+{
+  "model": "aibusiness.trainingprogram",
+  "pk": 4,
+  "fields": {
+    "title": "Internal AI Champions Program",
+    "slug": "internal-ai-champions-program",
+    "short_description": "Advanced training for selected team members who will support AI adoption inside the company.",
+    "full_description": "This program prepares internal AI champions who can support teams after implementation. Participants learn how to explain AI workflows, monitor adoption, collect feedback, maintain internal rules, help colleagues use AI correctly, and support continuous improvement across departments.",
+    "level": "champions",
+    "duration": "2–3 days",
+    "target_audience": "Team leads, department representatives, operations managers, selected internal AI owners",
+    "order": 4,
+    "is_active": true,
+    "created_at": "2026-06-08T15:45:33.999Z",
+    "updated_at": "2026-06-08T15:45:33.999Z"
+  }
+},
+{
+  "model": "aibusiness.aboutaibusiness",
+  "pk": 1,
+  "fields": {
+    "key": "corporate-core",
+    "eyebrow": "About",
+    "title": "Corporate Core",
+    "body": "Project Paradise Core 89 is a corporate AI direction created for companies that need clear operational results, not technological noise.\r\n\r\n\r\nWe help businesses implement artificial intelligence into real working processes: documents, accounting, marketing, CRM, communications, internal routine, and analytics. Our goal is not simply to add an “AI feature” to a company, but to build a system that reduces manual workload, accelerates decision-making, and makes business processes more manageable.",
+    "order": 1,
+    "is_active": true,
+    "created_at": "2026-06-09T11:51:01.716Z",
+    "updated_at": "2026-06-09T13:31:59.017Z"
+  }
+},
+{
+  "model": "aibusiness.aboutaibusiness",
+  "pk": 2,
+  "fields": {
+    "key": "operational-diagnosis",
+    "eyebrow": "Operational Diagnosis",
+    "title": "We start with the place where the business loses time, money, and control",
+    "body": "We begin with the main question: where does the business lose time, money, and control? After that, we identify bottlenecks, design an automation scenario, and create a solution that the team can use in everyday work.",
+    "order": 2,
+    "is_active": true,
+    "created_at": "2026-06-09T13:35:36.429Z",
+    "updated_at": "2026-06-09T13:53:28.207Z"
+  }
+},
+{
+  "model": "aibusiness.aboutaibusiness",
+  "pk": 3,
+  "fields": {
+    "key": "corporate-ai-system",
+    "eyebrow": "Corporate AI System",
+    "title": "We turn overloaded processes into scalable AI scenarios",
+    "body": "Paradise Core 89 does not replace business logic with a beautiful interface. We transform chaotic, repetitive, and overloaded processes into clear AI scenarios that can be maintained, developed, and scaled.",
+    "order": 3,
+    "is_active": true,
+    "created_at": "2026-06-09T14:02:27.579Z",
+    "updated_at": "2026-06-09T14:11:32.656Z"
+  }
+},
+{
+  "model": "aibusiness.aboutaibusiness",
+  "pk": 4,
+  "fields": {
+    "key": "what-we-do",
+    "eyebrow": "What We Do",
+    "title": "What We Do",
+    "body": "We create applied AI solutions for companies that need to accelerate work without losing control over their processes. At the center of our approach is not the technology itself, but a specific business task.\r\n\r\n\r\nThis may include document workflow automation, invoice and contract processing, marketing material generation, CRM scenario setup, internal AI assistants, customer request structuring, or analytical dashboards for performance control.\r\n\r\n\r\nWe do not start a project with the question: “Which neural network should we use?” We start with the question: “Which process prevents the company from working faster and more accurately?”\r\n\r\n\r\nAfter that, we analyze the task, define the automation zone, select the right tools, and create a working architecture. This approach allows AI to be implemented not as a fashionable add-on, but as a practical layer of business management.\r\n\r\n\r\nParadise Core 89 works at the intersection of strategy, processes, and technology. That is why every solution must be not only modern, but also clear for the team, the manager, and the end user.",
+    "order": 4,
+    "is_active": true,
+    "created_at": "2026-06-09T14:13:07.769Z",
+    "updated_at": "2026-06-09T14:15:20.143Z"
+  }
+},
+{
+  "model": "aibusiness.aboutaibusiness",
+  "pk": 5,
+  "fields": {
+    "key": "fast-effect-zones",
+    "eyebrow": "Fast Effect Zones",
+    "title": "Where AI creates a fast effect",
+    "body": "Artificial intelligence is especially useful in areas where a company has many repetitive actions. If employees manually transfer data every day, answer similar questions, collect reports, prepare similar documents, or check the same indicators, then this process already has automation potential.\r\n\r\n\r\nAI can accelerate these areas without completely changing the company structure. It can prepare drafts, classify information, detect errors, generate options, process requests at the first stage, and collect data for analysis.\r\n\r\n\r\nWe do not offer one universal package “for everyone”. Instead, we build the solution around a specific business pain: an overloaded team, slow response time, fragmented data, weak visibility, or a process that depends too much on one person.\r\n\r\n\r\nIn this way, AI becomes not a decorative element, but a working tool that helps the company move faster, see the situation more clearly, and manage operations more precisely.",
+    "order": 5,
+    "is_active": true,
+    "created_at": "2026-06-09T14:23:37.064Z",
+    "updated_at": "2026-06-09T14:25:22.188Z"
+  }
+},
+{
+  "model": "aibusiness.aboutaibusiness",
+  "pk": 6,
+  "fields": {
+    "key": "how-we-work",
+    "eyebrow": "How We Work",
+    "title": "How we work",
+    "body": "Every Paradise Core 89 implementation follows a clear sequence. We do not start with a chaotic set of tools, and we do not implement AI just for the sake of implementation. First, we study the process that needs to be improved.\r\n\r\n\r\nAt the first stage, we conduct an audit: we identify where the team loses time, where the same actions are repeated, where information is transferred manually, where errors appear, and where management lacks transparency.\r\n\r\n\r\nAfter that, we design the solution architecture. At this stage, it is important to understand how the AI scenario will be embedded into the real working rhythm of the company: who will use the system, what data is needed, which actions can be automated, and which decisions should remain under human control.\r\n\r\n\r\nThen the pilot is launched. We check the quality of the result, test scenarios, refine the logic, configure roles, and prepare the system for regular use.\r\n\r\n\r\nThe final stage is the handover of the solution into operation. For us, implementation is not considered complete when the system is launched for the first time, but when the team understands how to use it without constant external support.",
+    "order": 6,
+    "is_active": true,
+    "created_at": "2026-06-09T14:31:01.522Z",
+    "updated_at": "2026-06-09T14:31:39.823Z"
+  }
+},
+{
+  "model": "aibusiness.aboutaibusiness",
+  "pk": 7,
+  "fields": {
+    "key": "about-next-step",
+    "eyebrow": "Next Step",
+    "title": "Ready to see what can be automated?",
+    "body": "If your company needs a clear entry point into AI automation, start with an overview of our services. The Services page brings together the areas that most often create a fast and visible effect: documents, accounting, marketing, CRM, operational routine, and analytics.\r\n\r\n\r\nIf you already understand where the main problem is, you can move directly to a request. We will help define the starting scenario, estimate the automation potential, and choose an implementation format that fits your team.\r\n\r\n\r\nProject AI DLC helps you start with one concrete process, receive the first working result, and gradually expand AI infrastructure inside the company.",
+    "order": 9,
+    "is_active": true,
+    "created_at": "2026-06-09T14:34:41.323Z",
+    "updated_at": "2026-06-09T14:50:55.639Z"
+  }
+},
+{
+  "model": "aibusiness.aboutaibusiness",
+  "pk": 8,
+  "fields": {
+    "key": "why-convenient",
+    "eyebrow": "Why It Is Convenient",
+    "title": "Why it is convenient to work with us",
+    "body": "We speak with business in the language of processes, tasks, and results. For the client, this means that the project is not built around abstract “AI magic”, but around a concrete scope of work, a clear next step, and an expected business effect.\r\n\r\n\r\nWe believe that reliable implementation begins with transparency. That is why we define the project boundaries in advance, explain the logic of the solution, describe the deliverables, and show what role AI will perform inside the process.",
+    "order": 7,
+    "is_active": true,
+    "created_at": "2026-06-09T14:44:01.292Z",
+    "updated_at": "2026-06-09T14:49:26.457Z"
+  }
+},
+{
+  "model": "aibusiness.aboutaibusiness",
+  "pk": 9,
+  "fields": {
+    "key": "practical-ai-automation",
+    "eyebrow": "Practical AI Automation",
+    "title": "A calm and structured path to AI automation",
+    "body": "Paradise Core 89 is suitable for companies that need a calm, structured, and practical path to AI automation. Without unnecessary technical overload, without chaotic experiments, and without solutions that only look impressive in a presentation.",
+    "order": 8,
+    "is_active": true,
+    "created_at": "2026-06-09T14:52:07.576Z",
+    "updated_at": "2026-06-09T14:54:14.939Z"
+  }
+},
+{
+  "model": "aibusiness.packageplan",
+  "pk": 1,
+  "fields": {
+    "name": "Basic",
+    "slug": "basic",
+    "title": "Launch Protocol",
+    "summary": "A fast launch of one AI scenario to test business value without taking a large risk.",
+    "description": "This package is designed for a company that wants to start small: choose one process, test an AI solution, and understand whether there is real value. We analyze the current workflow, find one automation point, launch a pilot, and show the first measurable results.\r\n\r\n\r\nAs a result, the company receives not just an “AI test”, but a clear proof of value: what works, which metric improved, and how it can be scaled further.",
+    "badge": "",
+    "includes_title": "What is included",
+    "includes_text": "1 AI protocol for a specific task\r\n\r\n\r\nAudit of one business process\r\n\r\n\r\nPilot implementation contour\r\n\r\n\r\n1–2 basic integrations\r\n\r\n\r\nHuman-in-the-loop control\r\n\r\n\r\nBasic dashboard with one key metric",
+    "best_for_title": "Best suited for",
+    "best_for_text": "Quickly testing ROI on one use case and understanding whether it is worth scaling AI further.",
+    "button_label": "Launch Pilot",
+    "max_services": 1,
+    "is_active": true,
+    "order": 1,
+    "created_at": "2026-06-14T10:56:41.073Z",
+    "updated_at": "2026-06-14T10:56:41.073Z",
+    "included_trainings": [
+      1
+    ]
+  }
+},
+{
+  "model": "aibusiness.packageplan",
+  "pk": 2,
+  "fields": {
+    "name": "Pro",
+    "slug": "pro",
+    "title": "Growth Protocol",
+    "summary": "A working AI contour for a business function that needs stable results, not just an experiment.",
+    "description": "This package fits a business that already understands the problem and wants to implement AI into real workflows: sales, marketing, operations, CRM, documents, or analytics. The focus is not only on launch, but on making the solution part of the team’s daily work.\r\n\r\n\r\nAs a result, the company receives a functional AI contour with integrations, roles, metrics, responsible people, and support after launch.",
+    "badge": "Popular",
+    "includes_title": "What is included",
+    "includes_text": "1–3 AI protocols\r\n\r\n\r\nIntegrations with CRM / ERP / marketing systems\r\n\r\n\r\nExtended process automation\r\n\r\n\r\nKPI dashboard for result tracking\r\n\r\n\r\nSLA and operating rules\r\n\r\n\r\nRole-based training for different employees\r\n\r\n\r\n30–60 days of post-launch support",
+    "best_for_title": "Best suited for",
+    "best_for_text": "Moving one function or department into a stable AI-powered operating mode.",
+    "button_label": "Get Implementation Plan",
+    "max_services": 3,
+    "is_active": true,
+    "order": 2,
+    "created_at": "2026-06-14T10:59:42.588Z",
+    "updated_at": "2026-06-14T14:06:44.364Z",
+    "included_trainings": [
+      2
+    ]
+  }
+},
+{
+  "model": "aibusiness.packageplan",
+  "pk": 3,
+  "fields": {
+    "name": "Enterprise",
+    "slug": "enterprise",
+    "title": "Operating System Protocol",
+    "summary": "A scalable AI architecture for a company that wants to transform several areas of work.",
+    "description": "This package fits companies where AI should not be a separate tool, but part of the operating model. Implementation affects several teams, functions, or departments, including access rules, risk management, policies, analytics, and training systems.\r\n\r\n\r\nAs a result, the company receives not one use case, but the foundation for an AI Operating System: structure, governance, roadmap, center of excellence, and a clear scaling model.",
+    "badge": "",
+    "includes_title": "What is included",
+    "includes_text": "Multi-protocol architecture\r\n\r\n\r\nAI implementation across several functions or departments\r\n\r\n\r\nData governance and data usage rules\r\n\r\n\r\nAI policy and risk register\r\n\r\n\r\nAudit trail and access control\r\n\r\n\r\nAdvanced analytics and management views\r\n\r\n\r\nCenter of excellence\r\n\r\n\r\nAI Academy program with internal champions\r\n\r\n\r\nStep-by-step expansion roadmap",
+    "best_for_title": "Best suited for",
+    "best_for_text": "Scaling AI at company level and building a controlled AI operating model.",
+    "button_label": "Discuss Architecture",
+    "max_services": 5,
+    "is_active": true,
+    "order": 3,
+    "created_at": "2026-06-14T11:02:10.451Z",
+    "updated_at": "2026-06-14T11:02:10.451Z",
+    "included_trainings": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "aibusiness.packageorder",
+  "pk": 2,
+  "fields": {
+    "customer_name": "Andrii Gulevatenko",
+    "customer_email": "gulevatenkoandrii55@gmail.com",
+    "company": "AmaroDesti",
+    "message": "bgjchckghclk",
+    "package_plan": 2,
+    "status": "new",
+    "created_at": "2026-06-16T12:29:06.824Z",
+    "updated_at": "2026-06-16T12:29:06.824Z",
+    "selected_services": [
+      2,
+      3
+    ]
+  }
+}
+]
