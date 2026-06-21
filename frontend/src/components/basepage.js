@@ -5,12 +5,72 @@ import topicLeadership from '../content/back_photo/basepage-topics-leadership.pn
 import topicMedical from '../content/back_photo/basepage-topics-medical.png'
 import topicSecurity from '../content/back_photo/basepage-topics-security.png'
 
+//Backend
+import { loginUser } from '../api/AuthApi.js';
+import { getCurrentUser } from '../api/AuthApi.js';
+
 export function renderBasePageJS() {
   return `
   ${renderBasePageMain()}
   ${renderBasePageTopics()}
   `
 }
+
+export function setupLoginForm() {
+  const loginForm = document.querySelector('[data-auth-form="login"]')
+
+  if (!loginForm) return
+
+  loginForm.addEventListener('submit', async (event)=>{
+    event.preventDefault()
+
+    const formData = new FormData(loginForm)
+
+    const loginData = {
+      email: formData.get("email"),
+      password: formData.get("password"),
+    }
+
+    try{
+      const result = await loginUser(loginData)
+      console.log('Login successful:', result.user)
+      
+      loginForm.reset()
+      alert('Login successful')
+    }
+    catch(error){
+      console.error('Login error:', error)
+      console.error('Login error full:', error)
+      console.error('Status:', error.response?.status)
+      console.error('Data:', error.response?.data)
+
+      alert('Invalid email or password')
+    }
+
+  })
+}
+
+export async function initAuth(){
+  const accessToken = localStorage.getItem("accessToken")
+
+  if(!accessToken){
+    console.log("Guest user")
+    return
+  }
+
+  try{
+    const user = await getCurrentUser()
+    console.log("Logged user:", user)
+  }
+  catch(error){
+    console.error("Auth check failed:", error)
+    localStorage.removeItem("accessToken")
+    localStorage.removeItem("refreshToken")
+
+    alert('Wrong acces Token')
+  }
+}
+
 
 function renderBasePageMain(){
   return `
