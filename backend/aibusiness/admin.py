@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from .models import( 
     Service, ContactRequest, 
     Review, TrainingProgram, 
@@ -8,7 +9,7 @@ from .models import(
 
 
 @admin.register(User)
-class UserAdmin(admin.ModelAdmin):
+class UserAdmin(DjangoUserAdmin):
     list_display = (
         "email", "full_name",
         "company", "created_at",
@@ -19,6 +20,37 @@ class UserAdmin(admin.ModelAdmin):
         "company",
     )
     ordering = ("full_name", "-created_at")
+
+    fieldsets = (
+        (None, { 
+            "fields": ("email", "password")}),
+        ("Personal info", {
+            "fields": ("full_name", "company")
+        }),
+        ("Permission", {
+            "fields": ( 
+                "is_active", "is_staff",
+                "is_superuser", "groups",
+                "user_permissions",)
+        }),
+        ("Important dates", {
+            "fields": ("last_login", "created_at")
+        })
+    )
+    readonly_fields = ("created_at", "date_joined", "last_login")
+
+    add_fieldsets = (
+        (None, {
+            "classes": ("wide",),
+            "fields": (
+                "email", "full_name",
+                "company",
+                "password1", "password2",
+                "is_staff", "is_active",
+            ),
+        }),
+    )
+
 
 
 @admin.register(Service)

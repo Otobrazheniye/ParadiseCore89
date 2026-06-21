@@ -31,16 +31,42 @@ class UserViewSet(viewsets.ModelViewSet):
             return RegistrationUserSerializer
         elif self.action == "login":
             return LoginUserSerializer
-        elif self.action == "retrieve":
+        elif self.action == "me":
             return MeUserSerializer
         return MeUserSerializer
     
     def get_permissions(self):
         if self.action in ("create", "login"):
-            return [AllowAny]
+            return [AllowAny()]
         if self.action == "me":
-            return [IsAuthenticated]
+            return [IsAuthenticated()]
         return [IsAdminUser()]
+    
+    @action(detail=False, methods=["post"])
+    def login(self, request):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        email = serializer.validated_data.get("email")
+        password = serializer.validated_data.get("password")
+
+        user = authenticate(
+            username = email,
+            password = password
+        )
+
+        if not user:
+            raise serializers.ValidationError("Invalid email or password")
+        
+        return Response({
+            "message": "Login successful",
+            "user": MeUserSerializer(user).data,
+        })
+
+    @action(detail=False, methods=["get"])
+    def me(self, request):
+        serializer = self.get_serializer(request.user)
+        return Response(serializer.data)
         
 
 
