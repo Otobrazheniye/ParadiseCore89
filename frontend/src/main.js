@@ -49,6 +49,7 @@ import { hydrateAboutAi } from './components/aibusiness-about.js'
 import { hydratePackagePlans, hydratePackagePlansPrepare } from './components/aibusiness-hydrate.js'
 //#endregion
 
+import { setupLoginForm, initAuth } from './components/basepage.js'
 
 
 const app = document.querySelector('#app')
@@ -401,6 +402,8 @@ authModal()
 tabsLoginRegister()
 //#endregion
 
+setupLoginForm()
+initAuth()
 
 // TEST API
 import { getServices } from './api/servicesApi.js';

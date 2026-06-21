@@ -42,3 +42,10 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Database backups / local dumps
+backup*.json
+backup*.json~
+backup_*.json
+*_backup*.json
+*.json~

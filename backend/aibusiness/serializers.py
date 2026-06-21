@@ -39,7 +39,7 @@ class RegistrationUserSerializer(serializers.ModelSerializer):
         return user
     
 
-class LoginUserSerializer(serializers.ModelSerializer):
+class LoginUserSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password =  serializers.CharField(write_only=True, min_length=6)
 
@@ -47,6 +47,7 @@ class LoginUserSerializer(serializers.ModelSerializer):
         email = attrs.get("email")
         password = attrs.get("password")
 
+        return attrs
         # user = authenticate(
         #     username=email,
         #     password=password
@@ -61,6 +62,7 @@ class LoginUserSerializer(serializers.ModelSerializer):
 
 class MeUserSerializer(serializers.ModelSerializer):
     class Meta:
+        model = User
         fields = (
             "id", "email", 
             "full_name", "company", 
@@ -69,7 +71,7 @@ class MeUserSerializer(serializers.ModelSerializer):
         
         read_only_fields = ("id", "email", "created_at")
 
-class LogoutSerializer(serializers.ModelSerializer):
+class LogoutSerializer(serializers.Serializer):
     refresh = serializers.CharField()
 
 #Other Serializers
