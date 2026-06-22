@@ -49,7 +49,7 @@ import { hydrateAboutAi } from './components/aibusiness-about.js'
 import { hydratePackagePlans, hydratePackagePlansPrepare } from './components/aibusiness-hydrate.js'
 //#endregion
 
-import { setupLoginForm, initAuth } from './components/basepage.js'
+import {setupRegistrationForm,  setupLoginForm, initAuth } from './components/basepage.js'
 
 
 const app = document.querySelector('#app')
@@ -163,6 +163,8 @@ function bodySwitch(activePage){
   switch(activePage){
     case 'home':
       pageRoot.innerHTML = renderBasePageJS()
+      initHomePage()
+
       break
     case 'research':
       pageRoot.innerHTML = renderResearch()
@@ -380,7 +382,13 @@ function bodySwitchAiBusinessProtocol(activePage) {
 //#endregion
 
 
-
+function initHomePage() {
+  authModal()
+  tabsLoginRegister()
+  setupRegistrationForm()
+  setupLoginForm()
+  initAuth()
+}
 
 //#region Default function
 headerSwitch('home')
@@ -398,12 +406,12 @@ initFooterSwitcher()
 
 LanguageSwitchButton()
 serviceDragScroll()
-authModal()
-tabsLoginRegister()
+
+// authModal()
+// tabsLoginRegister()
 //#endregion
 
-setupLoginForm()
-initAuth()
+
 
 // TEST API
 import { getServices } from './api/servicesApi.js';

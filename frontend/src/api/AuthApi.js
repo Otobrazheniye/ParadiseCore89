@@ -13,7 +13,7 @@ export async function loginUser(loginData) {
 
   return response.data
 }
-
+  
 export async function getCurrentUser() {
   const response = await apiClient.get("/users/me/")
   return response.data
