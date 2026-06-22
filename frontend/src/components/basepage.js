@@ -79,10 +79,11 @@ function renderBasePageMain(){
       <div class="wish-hero__space"></div>
 
       <div class="basepage-main-auth">
-        <button class="basepage-main-auth__btn wish-auth__btn--register" type="button" data-i18n="auth.registration">
+        <button class="basepage-main-auth__btn wish-auth__btn--register" type="button" data-auth-open="register" data-i18n="auth.registration">
           Registration
         </button>
-        <button class="basepage-main-auth__btn wish-auth__btn--login" type="button" data-i18n="auth.login">
+
+        <button class="basepage-main-auth__btn wish-auth__btn--login" type="button" data-auth-open="login" data-i18n="auth.login">
           Login
         </button>
 
@@ -94,8 +95,14 @@ function renderBasePageMain(){
           </div>
 
           <div class="auth-modal__tabs">
-            <button type="button"  class="active" data-i18n="auth.login">Login</button>
-            <button type="button" data-i18n="auth.registration">Registration</button>
+           <div class="auth-modal__tabs">
+            <button type="button" class="active" data-auth-tab="login" data-i18n="auth.login"> Login
+            </button>
+
+            <button type="button" data-auth-tab="register"  data-i18n="auth.registration">
+              Registration
+            </button>
+          </div>
           </div>
 
           <form data-auth-form="login">
@@ -192,10 +199,7 @@ function renderBasePageMain(){
     </div>
   </section>
 </div> 
-
-
   `
-
 }
 
 
