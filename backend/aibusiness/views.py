@@ -29,6 +29,8 @@ from .serializers import (
     PackageOrderCreateSerializer,
     )
 
+
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
 
@@ -135,6 +137,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
+    permission_classes = [AllowAny]
     queryset = Service.objects.filter(is_active=True)
     lookup_field = "slug"
 
@@ -147,6 +150,7 @@ class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class ContactRequestViewSet(mixins.CreateModelMixin,viewsets.GenericViewSet):
+    permission_classes = [AllowAny]
     queryset = ContactRequest.objects.all()
 
 
@@ -155,6 +159,7 @@ class ContactRequestViewSet(mixins.CreateModelMixin,viewsets.GenericViewSet):
     
 
 class ReviewViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
+    permission_classes = [AllowAny]
     queryset = Review.objects.filter(is_published=True)
 
     def get_serializer_class(self):
@@ -164,6 +169,7 @@ class ReviewViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.Gen
         
 
 class TrainingProgramViewSet(viewsets.ReadOnlyModelViewSet):
+    permission_classes = [AllowAny]
     queryset = TrainingProgram.objects.filter(is_active=True)
     lookup_field = "slug"
 
@@ -174,6 +180,7 @@ class TrainingProgramViewSet(viewsets.ReadOnlyModelViewSet):
         return TrainingProgramListSerializer
                 
 class AboutAiBusinessViewSet(viewsets.ReadOnlyModelViewSet):
+    permission_classes = [AllowAny]
     queryset = AboutAiBusiness.objects.filter(is_active=True)
     lookup_field = "key"
 
@@ -183,6 +190,7 @@ class AboutAiBusinessViewSet(viewsets.ReadOnlyModelViewSet):
     http_method_names = ["get", "head", "options"]
 
 class PackagePlanViewSet(viewsets.ReadOnlyModelViewSet):
+    permission_classes = [AllowAny]
     queryset = PackagePlan.objects.filter(is_active=True)
     lookup_field = "slug"
 
@@ -193,6 +201,7 @@ class PackagePlanViewSet(viewsets.ReadOnlyModelViewSet):
     http_method_names = ["get", "head", "options"]
 
 class PackageOrderViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
+    permission_classes = [AllowAny]
     queryset = PackageOrder.objects.all()
     lookup_field = "id"
 

@@ -8,12 +8,46 @@ import topicSecurity from '../content/back_photo/basepage-topics-security.png'
 //Backend
 import { loginUser } from '../api/AuthApi.js';
 import { getCurrentUser } from '../api/AuthApi.js';
+import { registerUser } from '../api/AuthApi.js';
+
 
 export function renderBasePageJS() {
   return `
   ${renderBasePageMain()}
   ${renderBasePageTopics()}
   `
+}
+
+export function setupRegistrationForm() {
+  const registrationForm = document.querySelector('[data-auth-form="register"]')
+  if (!registrationForm) return
+
+ registrationForm.addEventListener('submit', async (event)=>{
+  event.preventDefault()
+  const formData = new FormData(registrationForm)
+
+  const registerData = {
+    email: formData.get("email"),
+    password: formData.get("password"),
+    full_name: formData.get("full_name"),
+    company: formData.get("company")
+  }
+
+  try {
+    const result = await registerUser(registerData)
+    console.log("Register successful:", result.user)
+    alert('Register successful')
+  }
+  catch(error){
+    console.error('Register error:', error)
+    console.error('Register error full:', error)
+    console.error('Status:', error.response?.status)
+    console.error('Data:', error.response?.data)
+    alert('Wrong parametrs')
+  }
+
+ })
+
 }
 
 export function setupLoginForm() {
@@ -79,10 +113,11 @@ function renderBasePageMain(){
       <div class="wish-hero__space"></div>
 
       <div class="basepage-main-auth">
-        <button class="basepage-main-auth__btn wish-auth__btn--register" type="button" data-i18n="auth.registration">
+        <button class="basepage-main-auth__btn wish-auth__btn--register" type="button" data-auth-open="register" data-i18n="auth.registration">
           Registration
         </button>
-        <button class="basepage-main-auth__btn wish-auth__btn--login" type="button" data-i18n="auth.login">
+
+        <button class="basepage-main-auth__btn wish-auth__btn--login" type="button" data-auth-open="login" data-i18n="auth.login">
           Login
         </button>
 
@@ -94,8 +129,12 @@ function renderBasePageMain(){
           </div>
 
           <div class="auth-modal__tabs">
-            <button type="button"  class="active" data-i18n="auth.login">Login</button>
-            <button type="button" data-i18n="auth.registration">Registration</button>
+            <button type="button" class="active" data-auth-tab="login" data-i18n="auth.login"> Login
+            </button>
+
+            <button type="button" data-auth-tab="register"  data-i18n="auth.registration">
+              Registration
+            </button>
           </div>
 
           <form data-auth-form="login">
@@ -108,6 +147,7 @@ function renderBasePageMain(){
               <span data-i18n="auth.password">Password</span>
               <input type="password" name="password" data-i18n-placeholder="auth.passwordPlaceholder" placeholder = "Enter password" required />
             </label>
+
 
             <button type="submit">Sign in</button>
           </form>
@@ -122,6 +162,17 @@ function renderBasePageMain(){
               Password
               <input type="password" name="password" required />
             </label>
+
+            <label> 
+              <span data-i18n="auth.full_name">Full Name</span> 
+              <input type="text" name="full_name" data-i18n-placeholder="auth.fullname" placeholder = "Enter your full name" required /> 
+            </label> 
+
+            <label> 
+              <span data-i18n="auth.company">Company</span> 
+              <input type="text" name="company" data-i18n-placeholder="auth.company" placeholder = "Enter Your Company"> 
+            </label>
+
 
             <button type="submit">Create account</button>
           </form>
@@ -192,10 +243,7 @@ function renderBasePageMain(){
     </div>
   </section>
 </div> 
-
-
   `
-
 }
 
 

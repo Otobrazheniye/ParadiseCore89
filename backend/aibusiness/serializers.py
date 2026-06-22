@@ -26,7 +26,7 @@ class RegistrationUserSerializer(serializers.ModelSerializer):
 
         read_only_fields = ("id", "created_at")
 
-    def validate(self, value):
+    def validate_email(self, value):
         return value.lower().strip()
 
     def create(self, validated_data):
