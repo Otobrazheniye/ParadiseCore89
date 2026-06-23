@@ -9,6 +9,7 @@ import topicSecurity from '../content/back_photo/basepage-topics-security.png'
 import { loginUser } from '../api/AuthApi.js';
 import { getCurrentUser } from '../api/AuthApi.js';
 import { registerUser } from '../api/AuthApi.js';
+import { logoutUser } from '../api/AuthApi.js';
 
 
 export function renderBasePageJS() {
@@ -39,11 +40,11 @@ export function setupRegistrationForm() {
     alert('Register successful')
   }
   catch(error){
-    console.error('Register error:', error)
-    console.error('Register error full:', error)
-    console.error('Status:', error.response?.status)
-    console.error('Data:', error.response?.data)
-    alert('Wrong parametrs')
+    console.error("Register error:", error)
+    console.error("Register error full:", error)
+    console.error("Status:", error.response?.status)
+    console.error("Data:", error.response?.data)
+    alert("Wrong parametrs")
   }
 
  })
@@ -73,10 +74,10 @@ export function setupLoginForm() {
       alert('Login successful')
     }
     catch(error){
-      console.error('Login error:', error)
-      console.error('Login error full:', error)
-      console.error('Status:', error.response?.status)
-      console.error('Data:', error.response?.data)
+      console.error("Login error:", error)
+      console.error("Login error full:", error)
+      console.error("Status:", error.response?.status)
+      console.error("Data:", error.response?.data)
 
       alert('Invalid email or password')
     }
@@ -101,8 +102,34 @@ export async function initAuth(){
     localStorage.removeItem("accessToken")
     localStorage.removeItem("refreshToken")
 
-    alert('Wrong acces Token')
+    alert("Wrong acces Token")
   }
+}
+
+export function setupLogoutButton(){
+  const logoutButton = document.querySelector("[data-auth-logout]")
+
+  if(!logoutButton) return
+
+  logoutButton.addEventListener("click", async (event) =>{
+    event.preventDefault()
+
+    try{
+      const result = await logoutUser()
+      
+      console.log('Logout successful:', result.user)
+      alert('Logout successful')
+    }
+    catch(error){
+      console.error("Logout error:", error)
+      console.error("Logout error full:", error)
+      console.error("Status:", error.response?.status)
+      console.error("Data:", error.response?.data)
+
+      alert("Logout error")
+    }
+  })
+
 }
 
 
@@ -120,6 +147,7 @@ function renderBasePageMain(){
         <button class="basepage-main-auth__btn wish-auth__btn--login" type="button" data-auth-open="login" data-i18n="auth.login">
           Login
         </button>
+
 
       <dialog id="auth-dialog" aria-labelledby="authTitle">
         <div class="auth-modal">
@@ -148,8 +176,9 @@ function renderBasePageMain(){
               <input type="password" name="password" data-i18n-placeholder="auth.passwordPlaceholder" placeholder = "Enter password" required />
             </label>
 
-
+            
             <button type="submit">Sign in</button>
+            <button type="button" data-auth-logout> Logout </button>
           </form>
 
           <form data-auth-form="register" hidden>

@@ -49,7 +49,7 @@ import { hydrateAboutAi } from './components/aibusiness-about.js'
 import { hydratePackagePlans, hydratePackagePlansPrepare } from './components/aibusiness-hydrate.js'
 //#endregion
 
-import {setupRegistrationForm,  setupLoginForm, initAuth } from './components/basepage.js'
+import {setupRegistrationForm,  setupLoginForm, initAuth, setupLogoutButton } from './components/basepage.js'
 
 
 const app = document.querySelector('#app')
@@ -388,6 +388,7 @@ function initHomePage() {
   setupRegistrationForm()
   setupLoginForm()
   initAuth()
+  setupLogoutButton()
 }
 
 //#region Default function

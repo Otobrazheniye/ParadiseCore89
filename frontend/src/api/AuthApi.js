@@ -19,18 +19,37 @@ export async function getCurrentUser() {
   return response.data
 }
 
-export async function logoutUser(refreshToken) {
-  const response = await apiClient.post("/users/logout/", {
-    refresh: refreshToken,
-  })
+export async function logoutUser() {
+  const refreshToken = localStorage.getItem("refreshToken")
+  try {
+    if(!refreshToken){
+      console.warn("No refresh token found")
+      return
+    }
 
-  return response.data
+    const response = await apiClient.post("/users/logout/", {
+    refresh: refreshToken,  
+    })  
+    return response.data
+  }
+  finally {
+    localStorage.removeItem("accessToken")
+    localStorage.removeItem("refreshToken")
+  }
 }
 
-export async function refreshToken(refreshToken) {
+export async function refreshToken() {
+  const refreshToken = localStorage.getItem("refreshToken")
+
   const response = await apiClient.post("/users/token/refresh/", {
     refresh: refreshToken,
   })
+
+  localStorage.setItem("accessToken", response.data.access)
+
+  if (response.data.refresh) {
+    localStorage.setItem("refreshToken", response.data.refresh)
+  }
 
   return response.data
 }
