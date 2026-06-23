@@ -287,7 +287,7 @@ class UserPackageAccess(models.Model):
     user = models.ForeignKey("User", on_delete=models.CASCADE, related_name="package_accesses")
     package_plan = models.ForeignKey("PackagePlan", on_delete=models.PROTECT, related_name="user_accesses")
     source_order = models.OneToOneField("PackageOrder", on_delete=models.CASCADE, related_name="package_access")
-    
+        
     is_active = models.BooleanField(default=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
