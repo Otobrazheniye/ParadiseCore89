@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.text import slugify
+from django.db.models import Q
 
-from django.contrib.auth.models import AbstractUser, BaseUserManager
 
-
+# User
 class UserManager(BaseUserManager):
     use_in_migrations = True
 
@@ -51,8 +51,7 @@ class User(AbstractUser):
         return self.email
 
 
-
-
+# AI Business Models classic
 class Service(models.Model):
     title = models.CharField(max_length=120)
     slug = models.SlugField(max_length=140, unique=True, blank=True)
@@ -139,6 +138,7 @@ class Review(models.Model):
     def __str__(self):
         return f'{self.client_name} - {self.rating}/5'
 
+
 class TrainingProgram(models.Model):
     LEVEL_INITIAL = "initial"
     LEVEL_ROLE_BASED = "role_based"
@@ -178,6 +178,7 @@ class TrainingProgram(models.Model):
     def __str__(self):
         return self.title
     
+
 class AboutAiBusiness(models.Model):
 
     key = models.SlugField(max_length=100, unique=True)
@@ -198,7 +199,6 @@ class AboutAiBusiness(models.Model):
         return f"{self.key} - {self.title}"
     
 
-# Logical chain 
 class PackagePlan(models.Model):
 
 
@@ -247,6 +247,7 @@ class PackagePlan(models.Model):
         super().save(*args, **kwargs)
 
 
+# AI Business Models Logical chain 
 class PackageOrder(models.Model):
     STATUS_NEW = "new"
     STATUS_IN_REVIEW = "in_review"
@@ -260,6 +261,7 @@ class PackageOrder(models.Model):
         (STATUS_REJECTED, "REJECTED"),
     ]
 
+    user = models.ForeignKey("User", on_delete=models.CASCADE, null=True, related_name="package_orders")
     customer_name = models.CharField(max_length=100)
     customer_email = models.EmailField(max_length=255)
     company = models.CharField(max_length=255, blank=True)
@@ -269,9 +271,12 @@ class PackageOrder(models.Model):
     selected_services = models.ManyToManyField("Service", blank=True, related_name="package_orders")
 
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default=STATUS_NEW)
+    approved_by = models.ForeignKey("User", on_delete=models.SET_NULL, null=True, blank=True, related_name="approved_package_orders")
+    approved_at = models.DateTimeField(null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
 
     class Meta:
         ordering = ["-created_at"]
@@ -279,3 +284,88 @@ class PackageOrder(models.Model):
     def __str__(self):
         return f"{self.customer_name} - {self.package_plan.title}"
 
+
+class UserPackageAccess(models.Model):
+    user = models.ForeignKey("User", on_delete=models.CASCADE, related_name="package_accesses")
+    package_plan = models.ForeignKey("PackagePlan", on_delete=models.PROTECT, related_name="user_accesses")
+    source_order = models.OneToOneField("PackageOrder", on_delete=models.CASCADE, related_name="package_access")
+    
+    is_active = models.BooleanField(default=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    expires_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        constraints = [
+            models.UniqueConstraint(
+                fields = ["user", "package_plan"],
+                condition = Q(is_active=True),
+                name = "unique_user_package_access",
+            )
+        ]
+
+    def __str__(self):
+        return f"{self.user} - {self.package_plan}"
+    
+
+class UserTrainingAccess(models.Model):
+    ACCESS_TYPE_PACKAGE = "package"
+    ACCESS_TYPE_DIRECT = "direct"
+    ACCESS_TYPE_ADMIN = "admin"
+
+    ACCESS_TYPE_CHOICES = [
+        (ACCESS_TYPE_PACKAGE, "From package"),
+        (ACCESS_TYPE_DIRECT, "Direct purchase"),
+        (ACCESS_TYPE_ADMIN, "Admin grant"),
+    ]
+
+    user = models.ForeignKey("User", on_delete=models.CASCADE, related_name="training_accesses")
+    training_program = models.ForeignKey("TrainingProgram", on_delete=models.PROTECT, related_name="granted_accesses")
+    source_order = models.ForeignKey("PackageOrder", on_delete=models.SET_NULL, null=True, blank=True, related_name="training_accesses_from_order")
+    access_type = models.CharField(max_length=50, choices=ACCESS_TYPE_CHOICES, default=ACCESS_TYPE_DIRECT)
+    source_package_access = models.ForeignKey("UserPackageAccess", on_delete=models.SET_NULL, null=True, blank=True, related_name="training_accesses_from_package")
+
+    is_active = models.BooleanField(default=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    expires_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        constraints = [
+            models.UniqueConstraint(
+                fields = ["user", "training_program"],
+                condition = Q(is_active=True),
+                name = "unique_user_training",
+            )
+        ]
+    
+    def __str__(self):
+        return f"{self.user} - {self.training_program}"
+    
+    
+class UserServiceAccess(models.Model):
+    user = models.ForeignKey("User", on_delete=models.CASCADE, related_name="service_accesses")
+    service = models.ForeignKey("Service", models.PROTECT, related_name="user_accesses")
+    source_order = models.ForeignKey("PackageOrder", on_delete=models.CASCADE, related_name="service_accesses")
+    source_package_access = models.ForeignKey("UserPackageAccess", on_delete=models.CASCADE, related_name="service_accesses_from_package")
+
+    is_active = models.BooleanField(default=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    expires_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        constraints = [
+            models.UniqueConstraint(
+                fields = ["user", "service"],
+                condition = Q(is_active=True),
+                name = "unique_active_user_service_access",
+            )
+        ]
+
+    def __str__(self):
+        return f"{self.user} - {self.service}"
+    
