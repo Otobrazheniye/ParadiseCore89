@@ -1,13 +1,15 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from .models import( 
+    User,
     Service, ContactRequest, 
     Review, TrainingProgram, 
     AboutAiBusiness, PackagePlan,
-    PackageOrder, User,
+    PackageOrder, UserPackageAccess,
+    UserTrainingAccess, UserServiceAccess,
     )
 
-
+# User
 @admin.register(User)
 class UserAdmin(DjangoUserAdmin):
     list_display = (
@@ -52,7 +54,7 @@ class UserAdmin(DjangoUserAdmin):
     )
 
 
-
+# AI Business Classic
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
     list_display = (
@@ -165,15 +167,18 @@ class PackagePlanAdmin(admin.ModelAdmin):
     ordering = ("order", "max_services")
 
 
+# AI Business Logical Chain
 @admin.register(PackageOrder)
 class PackageOrderAdmin(admin.ModelAdmin):
     list_display = (
+        "user",
         "customer_name", "customer_email",
         "company", "package_plan", 
         "status", "created_at",
     )
     list_filter = ("status", "package_plan")
     search_fields = ( 
+        "user__email", "user__full_name",
         "customer_name", "customer_email",
         "company", "message",
         "package_plan__name", "package_plan__title",
@@ -184,3 +189,86 @@ class PackageOrderAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at",)
     ordering = ("-created_at",)
 
+
+@admin.register(UserPackageAccess)
+class UserPackageAccessAdmin(admin.ModelAdmin):
+    list_display = (
+        "user", "package_plan", 
+        "source_order", "is_active", 
+        "created_at", "expires_at",
+    )
+    list_filter = ("package_plan", "is_active", "created_at",)
+    search_fields = (
+        "user__email", "user__full_name", 
+        "package_plan__name", "package_plan__title",
+        "package_plan__slug", 
+        "source_order__customer_name",
+        "source_order__customer_email",
+        "source_order__company",
+        "source_order__status",
+        "source_order__approved_by__email",
+        "source_order__approved_by__full_name", 
+    )
+    readonly_fields = ("user", "created_at",)
+    ordering = ("-created_at",)
+
+
+@admin.register(UserTrainingAccess)
+class UserTrainingAccessAdmin(admin.ModelAdmin):
+    list_display = (
+        "user", "training_program", 
+        "source_order", "access_type", 
+        "source_package_access", "is_active", 
+        "created_at", "expires_at", 
+    )
+    list_filter = ("training_program", "access_type", "is_active", "created_at")
+    search_fields = (
+        "user__email", "user__full_name", 
+        "training_program__title", "training_program__slug",
+        "training_program__level", 
+        "source_order__customer_name",
+        "source_order__customer_email",
+        "source_order__company",
+        "source_order__status",
+
+        "source_order__approved_by__email",
+        "source_order__approved_by__full_name",
+
+        "source_package_access__package_plan__name",
+        "source_package_access__package_plan__title",
+        "source_package_access__package_plan__slug",
+
+        "source_package_access__source_order__customer_name",
+        "source_package_access__source_order__customer_email",
+    )
+    readonly_fields = ("user", "created_at",)
+    ordering = ("-created_at",)
+
+
+@admin.register(UserServiceAccess)
+class UserServiceAccessAdmin(admin.ModelAdmin):
+    list_display = (
+        "user", "service", 
+        "source_order", "source_package_access", 
+        "is_active", "created_at", 
+        "expires_at",
+    )
+    list_filter = ( "service", "is_active", "created_at",)
+    search_fields = (
+        "user__email", "user__full_name",
+        "service__title", "service__slug",
+        "source_order__customer_name",
+        "source_order__customer_email",
+        "source_order__company",
+        "source_order__status",
+        "source_order__approved_by__email",
+        "source_order__approved_by__full_name",
+        "source_package_access__package_plan__name",
+        "source_package_access__package_plan__title",
+        "source_package_access__package_plan__slug",
+        "source_package_access__source_order__customer_name",
+        "source_package_access__source_order__customer_email",
+    )
+    readonly_fields = ("user", "created_at",)
+    ordering = ("-created_at",)
+    

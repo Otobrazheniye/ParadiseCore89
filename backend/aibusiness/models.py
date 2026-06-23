@@ -200,8 +200,6 @@ class AboutAiBusiness(models.Model):
     
 
 class PackagePlan(models.Model):
-
-
     SERVICES_LEVEL_ONE = 1
     SERVICES_LEVEL_TWO = 3
     SERVICES_LEVEL_THREE = 5

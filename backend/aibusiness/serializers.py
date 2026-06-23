@@ -77,7 +77,7 @@ class MeUserSerializer(serializers.ModelSerializer):
 class LogoutSerializer(serializers.Serializer):
     refresh = serializers.CharField()
 
-#Other Serializers
+# AI Business Serializer classic
 class ServiceListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
@@ -278,7 +278,7 @@ class PackagePlanSerializer(serializers.ModelSerializer):
             if paragraph.strip()
         ]
 
-
+# AI Business Serializer Logical chain 
 class PackageOrderCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = PackageOrder
@@ -309,6 +309,7 @@ class PackageOrderCreateSerializer(serializers.ModelSerializer):
 
         return attrs
     
+
 class UserPackageAccessSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserPackageAccess
@@ -340,14 +341,15 @@ class UserTrainingAccessSerializer(serializers.ModelSerializer):
             "created_at",
             )
 
+
 class UserServiceAccessSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserServiceAccess
         fields = (
             "id", "user",
             "service", "source_order",
-            "source_package_access", "created_at",
-            "is_active", "expires_at"
+            "source_package_access", "is_active",
+            "created_at", "expires_at"
         )
         read_only_fields = (
             "id", "user",
