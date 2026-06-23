@@ -205,41 +205,77 @@ class PackagePlanViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 # AI Business Logical chain
-class PackageOrderViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
+class PackageOrderViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     permission_classes = [IsAuthenticated]
-    queryset = PackageOrder.objects.all()
     lookup_field = "id"
-
 
     def get_serializer_class(self):
         return PackageOrderCreateSerializer
     
+    def get_queryset(self):
+        current_user = self.request.user
+        if current_user.is_staff:
+            return PackageOrder.objects.all()
+        return PackageOrder.objects.filter(user=current_user)
 
-class UserPackageAccessViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet):
-    permission_classes = [IsAuthenticated]
-    queryset = UserPackageAccess.objects.all()
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
+
+
+class UserPackageAccessViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    # permission_classes = [IsAuthenticated]
     lookup_field = "id"
 
     def get_serializer_class(self):
         return UserPackageAccessSerializer
     
+    def get_permissions(self):
+        if self.action in ("update", "partial_update"):
+            return[IsAdminUser()]
+        return[IsAuthenticated()]
+    
+    def get_queryset(self):
+        current_user = self.request.user
+        if current_user.is_staff:
+            return UserPackageAccess.objects.all()
+        return UserPackageAccess.objects.filter(user=current_user)
+        
 
-class UserTrainingAccessViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet):
-    permission_classes = [IsAuthenticated]
-    queryset = UserTrainingAccess.objects.all()
-
+class UserTrainingAccessViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin,mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    # permission_classes = [IsAuthenticated]
     lookup_field = "id"
 
     def get_serializer_class(self):
         return UserTrainingAccessSerializer
     
+    def get_permissions(self):
+        if self.action in ("update", "partial_update"):
+            return[IsAdminUser()]
+        return[IsAuthenticated()]
 
-class UserServiceAccessViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet):
-    permission_classes = [IsAuthenticated]
-    queryset = UserServiceAccess.objects.all()
+    def get_queryset(self):
+        current_user = self.request.user
+        if current_user.is_staff:
+            return UserTrainingAccess.objects.all()
+        return UserTrainingAccess.objects.filter(user=current_user)
+    
 
+class UserServiceAccessViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    # permission_classes = [IsAuthenticated]
     lookup_field = "id"
 
     def get_serializer_class(self):
         return UserServiceAccessSerializer
+
+    def get_permissions(self):
+        if self.action in ("update", "partial_update"):
+            return[IsAdminUser()]
+        return[IsAuthenticated()]
+
+    def get_queryset(self):
+        current_user = self.request.user
+        if current_user.is_staff:
+            return UserServiceAccess.objects.all()
+        return UserServiceAccess.objects.filter(user =current_user)
+    
