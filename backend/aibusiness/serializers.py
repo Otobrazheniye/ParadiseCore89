@@ -3,10 +3,12 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import get_user_model
 
 from .models import(
+    User,
     Service, ContactRequest, 
     Review, TrainingProgram, 
     AboutAiBusiness, PackagePlan,
-    PackageOrder, User,
+    PackageOrder, UserPackageAccess,
+    UserTrainingAccess, UserServiceAccess,
 ) 
 
 #User
@@ -71,10 +73,11 @@ class MeUserSerializer(serializers.ModelSerializer):
         
         read_only_fields = ("id", "email", "created_at")
 
+
 class LogoutSerializer(serializers.Serializer):
     refresh = serializers.CharField()
 
-#Other Serializers
+# AI Business Serializer classic
 class ServiceListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
@@ -83,7 +86,6 @@ class ServiceListSerializer(serializers.ModelSerializer):
             'slug', 'short_description',
             'icon_name', 'order',
         )
-
 
 class ServiceDetailSerializer(serializers.ModelSerializer):
     class Meta:
@@ -135,6 +137,7 @@ class ReviewListSerializer(serializers.ModelSerializer):
             "id", "created_at",
         )
 
+
 class ReviewCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
@@ -163,6 +166,7 @@ class ReviewCreateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Rating must be between 1 and 5.")
         return value
 
+
 class TrainingProgramListSerializer(serializers.ModelSerializer):
     class Meta:
         model = TrainingProgram
@@ -172,6 +176,7 @@ class TrainingProgramListSerializer(serializers.ModelSerializer):
             "level", "duration",
             "target_audience", "order",
         )
+
 
 class TrainingProgramDetailSerializer(serializers.ModelSerializer):
     class Meta:
@@ -185,6 +190,7 @@ class TrainingProgramDetailSerializer(serializers.ModelSerializer):
             "updated_at",
         )
     
+
 class AboutAiBusinessSerializer(serializers.ModelSerializer):
     paragraphs = serializers.SerializerMethodField()
     class Meta:
@@ -271,21 +277,21 @@ class PackagePlanSerializer(serializers.ModelSerializer):
             for paragraph in obj.best_for_text.split("\n\n")
             if paragraph.strip()
         ]
-    
 
+# AI Business Serializer Logical chain 
 class PackageOrderCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = PackageOrder
         fields = (
-        "id", "customer_name",
-        "customer_email", "company", 
-        "message", "package_plan",
-        "selected_services", "status",
-        "created_at", 
+        "id", "user",
+        "customer_name", "customer_email", 
+        "company", "message", 
+        "package_plan", "selected_services", 
+        "status", "created_at", 
         )
         read_only_fields = (
-            "id", "status",
-            "created_at",
+            "id", "user", 
+            "status", "created_at",
         )
         
     def validate(self, attrs):
@@ -303,3 +309,50 @@ class PackageOrderCreateSerializer(serializers.ModelSerializer):
 
         return attrs
     
+
+class UserPackageAccessSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserPackageAccess
+        fields = (
+            "id", "user",
+            "package_plan", "source_order",
+            "is_active", "created_at", 
+            "expires_at",
+        )
+        read_only_fields = (
+            "id", "user",
+            "source_order", "created_at",
+            )
+
+
+class UserTrainingAccessSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserTrainingAccess
+        fields = (
+            "id", "user",
+            "training_program", "source_order",
+            "access_type", "source_package_access",
+            "is_active", "created_at", 
+            "expires_at", 
+        )
+        read_only_fields = (
+            "id", "user",
+            "source_order", "source_package_access",
+            "created_at",
+            )
+
+
+class UserServiceAccessSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserServiceAccess
+        fields = (
+            "id", "user",
+            "service", "source_order",
+            "source_package_access", "is_active",
+            "created_at", "expires_at"
+        )
+        read_only_fields = (
+            "id", "user",
+            "source_order", "source_package_access", 
+            "created_at",
+            )

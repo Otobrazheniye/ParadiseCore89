@@ -2,21 +2,23 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import get_user_model
 
 
-
+# Rest
 from rest_framework import viewsets, serializers, status, mixins
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
-
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
 
+
+# Models
 from .models import (
     User,
     Service, ContactRequest, 
     Review, TrainingProgram, 
     AboutAiBusiness, PackagePlan,
-    PackageOrder,
+    PackageOrder, UserPackageAccess,
+    UserTrainingAccess, UserServiceAccess,
 )
 from .serializers import (    
     RegistrationUserSerializer, LoginUserSerializer,
@@ -26,11 +28,12 @@ from .serializers import (
     ReviewListSerializer, ReviewCreateSerializer,
     TrainingProgramListSerializer, TrainingProgramDetailSerializer,
     AboutAiBusinessSerializer, PackagePlanSerializer,
-    PackageOrderCreateSerializer,
+    PackageOrderCreateSerializer, UserPackageAccessSerializer,
+    UserTrainingAccessSerializer, UserServiceAccessSerializer,
     )
 
 
-
+# User
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
 
@@ -133,9 +136,7 @@ class UserViewSet(viewsets.ModelViewSet):
         )
        
 
-        
-
-
+# AI Business Classic
 class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [AllowAny]
     queryset = Service.objects.filter(is_active=True)
@@ -178,7 +179,8 @@ class TrainingProgramViewSet(viewsets.ReadOnlyModelViewSet):
         if self.action == "retrieve":
             return TrainingProgramDetailSerializer
         return TrainingProgramListSerializer
-                
+
+
 class AboutAiBusinessViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [AllowAny]
     queryset = AboutAiBusiness.objects.filter(is_active=True)
@@ -188,6 +190,7 @@ class AboutAiBusinessViewSet(viewsets.ReadOnlyModelViewSet):
         return AboutAiBusinessSerializer
 
     http_method_names = ["get", "head", "options"]
+
 
 class PackagePlanViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [AllowAny]
@@ -200,10 +203,79 @@ class PackagePlanViewSet(viewsets.ReadOnlyModelViewSet):
         
     http_method_names = ["get", "head", "options"]
 
-class PackageOrderViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
-    permission_classes = [AllowAny]
-    queryset = PackageOrder.objects.all()
+
+# AI Business Logical chain
+class PackageOrderViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    permission_classes = [IsAuthenticated]
     lookup_field = "id"
 
     def get_serializer_class(self):
         return PackageOrderCreateSerializer
+    
+    def get_queryset(self):
+        current_user = self.request.user
+        if current_user.is_staff:
+            return PackageOrder.objects.all()
+        return PackageOrder.objects.filter(user=current_user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+
+
+class UserPackageAccessViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    # permission_classes = [IsAuthenticated]
+    lookup_field = "id"
+
+    def get_serializer_class(self):
+        return UserPackageAccessSerializer
+    
+    def get_permissions(self):
+        if self.action in ("update", "partial_update"):
+            return[IsAdminUser()]
+        return[IsAuthenticated()]
+    
+    def get_queryset(self):
+        current_user = self.request.user
+        if current_user.is_staff:
+            return UserPackageAccess.objects.all()
+        return UserPackageAccess.objects.filter(user=current_user)
+        
+
+class UserTrainingAccessViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin,mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    # permission_classes = [IsAuthenticated]
+    lookup_field = "id"
+
+    def get_serializer_class(self):
+        return UserTrainingAccessSerializer
+    
+    def get_permissions(self):
+        if self.action in ("update", "partial_update"):
+            return[IsAdminUser()]
+        return[IsAuthenticated()]
+
+    def get_queryset(self):
+        current_user = self.request.user
+        if current_user.is_staff:
+            return UserTrainingAccess.objects.all()
+        return UserTrainingAccess.objects.filter(user=current_user)
+    
+
+class UserServiceAccessViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    # permission_classes = [IsAuthenticated]
+    lookup_field = "id"
+
+    def get_serializer_class(self):
+        return UserServiceAccessSerializer
+
+    def get_permissions(self):
+        if self.action in ("update", "partial_update"):
+            return[IsAdminUser()]
+        return[IsAuthenticated()]
+
+    def get_queryset(self):
+        current_user = self.request.user
+        if current_user.is_staff:
+            return UserServiceAccess.objects.all()
+        return UserServiceAccess.objects.filter(user =current_user)
+    
