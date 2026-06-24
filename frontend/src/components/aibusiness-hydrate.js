@@ -1,5 +1,51 @@
+import { getUserPackageAccesses, getUserTrainingAccesses, getUserServiceAccesses } from "../api/accessApi";
 import { getServices, getPackagePlans } from "../api/servicesApi";
 
+
+// User
+export async function hydrateUserAccess(){
+  try{
+    const userAccessPackage = await getUserPackageAccesses()
+    const userAccessTraining = await getUserTrainingAccesses()
+    const userAccessService = await getUserServiceAccesses()
+    const packageContainer = document.querySelector("#user-packages")
+    const trainingContainer = document.querySelector("#user-trainings")
+    const serviceContainer = document.querySelector("#user-services")
+    
+    console.log("USER ACCESS PACKAGE FROM API:", userAccessPackage)
+    console.log("USER ACCESS TRAINING FROM API:", userAccessTraining)
+    console.log("USER ACCESS SERVICE FROM API:", userAccessService)
+  
+    if (!packageContainer || !trainingContainer || !serviceContainer) return
+
+    packageContainer.innerHTML = ""
+    trainingContainer.innerHTML = ""
+    serviceContainer.innerHTML = ""
+
+    
+    if (!userAccessPackage){
+      setText([...], "User have not Packages")
+    }
+    elseuserAccessPackage.forEach((pack)=>{
+      setText()
+      setList()
+    })
+
+    userAccessTraining.forEach((training)=>{
+
+    })
+
+    userAccessService.forEach((service)=>{
+
+    })
+  }
+  catch(error){
+    console.error("Failed to load User Access", error)
+  }
+}
+
+
+// Package Plans
 export async function hydratePackagePlansPrepare(packageSlug){
   try{
     const packagePlans = await getPackagePlans()
@@ -119,47 +165,6 @@ function renderIncludedTrainings(trainings) {
   }
 }
 
-
-
-function setText(selector, value){
-  const element = document.querySelector(selector)
-  if(!element || value === undefined || value === null) return
-
-  element.textContent = value
-}
-
-function setList(selector, items){
-  const list = document.querySelector(selector)
-  if(!list || !Array.isArray(items)) return
-
-  // console.log("SET LIST SELECTOR:", selector)
-  // console.log("SET LIST ELEMENT:", list)
-  // console.log("SET LIST ITEMS:", items)
-
-  list.innerHTML = ""
-
-  items.forEach((itemText)=>{
-    const item = document.createElement("li")
-    item.textContent = itemText
-    list.append(item)
-  })
-  // console.log("SET LIST RESULT:", list.innerHTML)
-}
-
-function setParagraphs(selector, paragraphs){
-  const container = document.querySelector(selector)
-  if(!container || !Array.isArray(paragraphs)) return
-
-  container.innerHTML = ""
-
-  paragraphs.forEach((paragraphText)=>{
-    const paragraph = document.createElement("p")
-    paragraph.textContent = paragraphText
-    container.append(paragraph)
-  })
-}
-
-
 export async function hydratePackagePlans(){
   try{
     const PackageGrid = await getPackagePlans()
@@ -185,4 +190,77 @@ export async function hydratePackagePlans(){
   catch(error){
     console.error("Failed to load About AI Business", error)
   }
+}
+
+
+// Set
+function setText(selector, value){
+  const element = document.querySelector(selector)
+  if(!element || value === undefined || value === null) return
+
+  element.textContent = value
+}
+
+function setList(selector, items){
+  const list = document.querySelector(selector)
+  if(!list || !Array.isArray(items)) return
+
+  // console.log("SET LIST SELECTOR:", selector)
+  // console.log("SET LIST ELEMENT:", list)
+  // console.log("SET LIST ITEMS:", items)
+
+  list.innerHTML = ""
+
+  items.forEach((itemText)=>{
+    const item = document.createElement("li")
+    item.textContent = itemText
+    list.append(item)
+  })
+  // console.log("SET LIST RESULT:", list.innerHTML)
+}
+
+
+function renderAccessList(selector, items, emptyText, getTitle) {
+  const container = document.querySelector(selector)
+
+  if (!container) return
+
+  container.innerHTML = ""
+
+  if (!items || items.length === 0) {
+    const emptyMessage = document.createElement("p")
+    emptyMessage.className = "user-access__empty"
+    emptyMessage.textContent = emptyText
+
+    container.append(emptyMessage)
+    return
+  }
+
+  items.forEach((item) => {
+    const accessItem = document.createElement("div")
+    accessItem.className = "user-access__item"
+
+    const title = document.createElement("strong")
+    title.textContent = getTitle(item)
+
+    const status = document.createElement("span")
+    status.textContent = item.is_active ? "Active" : "Inactive"
+
+    accessItem.append(title, status)
+    container.append(accessItem)
+  })
+}
+
+
+function setParagraphs(selector, paragraphs){
+  const container = document.querySelector(selector)
+  if(!container || !Array.isArray(paragraphs)) return
+
+  container.innerHTML = ""
+
+  paragraphs.forEach((paragraphText)=>{
+    const paragraph = document.createElement("p")
+    paragraph.textContent = paragraphText
+    container.append(paragraph)
+  })
 }
