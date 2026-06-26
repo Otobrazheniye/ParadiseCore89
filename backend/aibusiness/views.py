@@ -28,8 +28,10 @@ from .serializers import (
     ReviewListSerializer, ReviewCreateSerializer,
     TrainingProgramListSerializer, TrainingProgramDetailSerializer,
     AboutAiBusinessSerializer, PackagePlanSerializer,
-    PackageOrderCreateSerializer, UserPackageAccessSerializer,
-    UserTrainingAccessSerializer, UserServiceAccessSerializer,
+    PackageOrderCreateSerializer, 
+    UserPackageAccessSerializer, UserPackageAccessReadSerializer,
+    UserTrainingAccessSerializer, UserTrainingAccessReadSerializer,
+    UserServiceAccessSerializer, UserServiceAccessReadSerializer,
     )
 
 
@@ -227,12 +229,14 @@ class UserPackageAccessViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, m
     lookup_field = "id"
 
     def get_serializer_class(self):
-        return UserPackageAccessSerializer
+        if self.action in ("list", "retrieve"):
+            return UserPackageAccessReadSerializer
+        return  UserPackageAccessSerializer
     
     def get_permissions(self):
         if self.action in ("update", "partial_update"):
-            return[IsAdminUser()]
-        return[IsAuthenticated()]
+            return [IsAdminUser()]
+        return [IsAuthenticated()]
     
     def get_queryset(self):
         current_user = self.request.user
@@ -246,12 +250,14 @@ class UserTrainingAccessViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin,m
     lookup_field = "id"
 
     def get_serializer_class(self):
+        if self.action in ("list", "retrieve"):
+            return UserTrainingAccessReadSerializer
         return UserTrainingAccessSerializer
     
     def get_permissions(self):
         if self.action in ("update", "partial_update"):
-            return[IsAdminUser()]
-        return[IsAuthenticated()]
+            return [IsAdminUser()]
+        return [IsAuthenticated()]
 
     def get_queryset(self):
         current_user = self.request.user
@@ -265,12 +271,14 @@ class UserServiceAccessViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, m
     lookup_field = "id"
 
     def get_serializer_class(self):
+        if self.action in ("list", "retrieve"):
+            return UserServiceAccessReadSerializer
         return UserServiceAccessSerializer
 
     def get_permissions(self):
         if self.action in ("update", "partial_update"):
-            return[IsAdminUser()]
-        return[IsAuthenticated()]
+            return [IsAdminUser()]
+        return [IsAuthenticated()]
 
     def get_queryset(self):
         current_user = self.request.user
