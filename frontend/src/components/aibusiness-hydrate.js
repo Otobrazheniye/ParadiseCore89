@@ -8,6 +8,7 @@ export async function hydrateUserAccess(){
     const userAccessPackage = await getUserPackageAccesses()
     const userAccessTraining = await getUserTrainingAccesses()
     const userAccessService = await getUserServiceAccesses()
+
     const packageContainer = document.querySelector("#user-packages")
     const trainingContainer = document.querySelector("#user-trainings")
     const serviceContainer = document.querySelector("#user-services")
@@ -22,22 +23,23 @@ export async function hydrateUserAccess(){
     trainingContainer.innerHTML = ""
     serviceContainer.innerHTML = ""
 
-    
-    if (!userAccessPackage){
-      setText([...], "User have not Packages")
-    }
-    elseuserAccessPackage.forEach((pack)=>{
-      setText()
-      setList()
-    })
+    renderAccessList(
+      "[data-user-packages]", userAccessPackage,
+      "Packages have not been purchased yet or access has expired.",
+      (item) => item.package_plan.title
+    )
 
-    userAccessTraining.forEach((training)=>{
+    renderAccessList(
+      "[data-user-services]", userAccessService,
+      "Services have not been unlocked yet.",
+      (item) => item.service.title
+    )
 
-    })
-
-    userAccessService.forEach((service)=>{
-
-    })
+    renderAccessList(
+      "[data-user-trainings]", userAccessTraining,
+      "Training access has not been unlocked yet.",
+      (item) => item.training_program.title
+    )
   }
   catch(error){
     console.error("Failed to load User Access", error)

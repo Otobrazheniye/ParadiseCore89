@@ -1,6 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+
 from django.utils.text import slugify
+from django.utils import timezone
+
+from django.db import transaction
 from django.db.models import Q
 
 
@@ -259,7 +263,7 @@ class PackageOrder(models.Model):
         (STATUS_REJECTED, "REJECTED"),
     ]
 
-    user = models.ForeignKey("User", on_delete=models.CASCADE, null=True, related_name="package_orders")
+    user = models.ForeignKey("User", on_delete=models.CASCADE, related_name="package_orders")
     customer_name = models.CharField(max_length=100)
     customer_email = models.EmailField(max_length=255)
     company = models.CharField(max_length=255, blank=True)
@@ -282,6 +286,34 @@ class PackageOrder(models.Model):
     def __str__(self):
         return f"{self.customer_name} - {self.package_plan.title}"
 
+    def approve(self, admin_user):
+        with transaction.atomic():
+            self.status = self.STATUS_APPROVED
+            self.approved_by = admin_user
+            self.approved_at = timezone.now()
+            self.save()
+
+            package_access, created = UserPackageAccess.objects.get_or_create(
+                user = self.user, package_plan = self.package_plan,
+                source_order = self, defaults = {"is_active": True, }
+            )
+            
+            for service in self.selected_services.all():
+                UserServiceAccess.objects.get_or_create(
+                    user = self.user, service = service,
+                    source_order = self, source_package_access = package_access,
+                    defaults = {"is_active": True}
+                )
+
+            for training in self.package_plan.included_trainings.all():
+                UserTrainingAccess.objects.get_or_create(
+                    user=self.user, training_program=training,
+                    source_order=self, source_package_access=package_access,
+                    defaults={
+                        "access_type": UserTrainingAccess.ACCESS_TYPE_PACKAGE,
+                        "is_active": True,
+                    }
+                )
 
 class UserPackageAccess(models.Model):
     user = models.ForeignKey("User", on_delete=models.CASCADE, related_name="package_accesses")

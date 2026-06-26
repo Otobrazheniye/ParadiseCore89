@@ -308,7 +308,8 @@ class PackageOrderCreateSerializer(serializers.ModelSerializer):
         })
 
         return attrs
-    
+# PackageOrderReadSerializer 
+
 
 class UserPackageAccessSerializer(serializers.ModelSerializer):
     class Meta:
@@ -323,6 +324,26 @@ class UserPackageAccessSerializer(serializers.ModelSerializer):
             "id", "user",
             "source_order", "created_at",
             )
+        
+class PackagePlanShortSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PackagePlan
+        fields = (
+            "id", "name", 
+            "slug","title",
+            "summary","max_services",
+        )
+
+class UserPackageAccessReadSerializer(serializers.ModelSerializer):
+    package_plan = PackagePlanShortSerializer(read_only=True)
+
+    class Meta:
+        model = UserPackageAccess
+        fields = (
+            "id", "package_plan", 
+            "source_order", "is_active", 
+            "created_at", "expires_at",
+        )
 
 
 class UserTrainingAccessSerializer(serializers.ModelSerializer):
@@ -341,6 +362,28 @@ class UserTrainingAccessSerializer(serializers.ModelSerializer):
             "created_at",
             )
 
+class TrainingProgramShortSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TrainingProgram
+        fields = (
+            "id", "title",
+            "slug", "level",
+            "duration",
+        )
+
+
+class UserTrainingAccessReadSerializer(serializers.ModelSerializer):
+    training_program = TrainingProgramShortSerializer(read_only=True)
+
+    class Meta:
+        model = UserTrainingAccess
+        fields = (
+            "id", "training_program",
+            "source_order", "access_type",
+            "source_package_access", "is_active",
+            "created_at", "expires_at",
+        )
+
 
 class UserServiceAccessSerializer(serializers.ModelSerializer):
     class Meta:
@@ -356,3 +399,24 @@ class UserServiceAccessSerializer(serializers.ModelSerializer):
             "source_order", "source_package_access", 
             "created_at",
             )
+        
+class ServiceShortSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Service
+        fields = (
+            "id", "title",
+            "slug", "short_description",
+            "icon_name",
+        )
+
+class UserServiceAccessReadSerializer(serializers.ModelSerializer):
+    service = ServiceShortSerializer(read_only=True)
+
+    class Meta:
+        model = UserServiceAccess
+        fields = (
+            "id", "service",
+            "source_order", "source_package_access",
+            "is_active", "created_at",
+            "expires_at",
+        )

@@ -189,6 +189,13 @@ class PackageOrderAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at",)
     ordering = ("-created_at",)
 
+    actions = ("approve_orders",)
+
+    @admin.action(description="Approve selected package orders")
+    def approve_orders(self, request, queryset):
+        for order in queryset:
+            order.approve(request.user)
+
 
 @admin.register(UserPackageAccess)
 class UserPackageAccessAdmin(admin.ModelAdmin):
