@@ -3,13 +3,13 @@ export function renderUserAccount() {
     <section class="user-account">
       <div class="user-account__inner">
 
-        <header class="user-account__header">
+        <nav class="user-account__header">
           <span class="user-account__eyebrow">Personal access</span>
           <h1 class="user-account__title">My Account</h1>
           <p class="user-account__text">
             Here you can see your purchased packages, unlocked services and training access.
           </p>
-        </header>
+        </nav>
 
         <div class="user-access">
 

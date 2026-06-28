@@ -195,7 +195,7 @@ class PackageOrderAdmin(admin.ModelAdmin):
     def approve_orders(self, request, queryset):
         for order in queryset:
             order.approve(request.user)
-
+    
 
 @admin.register(UserPackageAccess)
 class UserPackageAccessAdmin(admin.ModelAdmin):

@@ -148,16 +148,6 @@ function renderBasePageMain(){
           Login
         </button>
 
-        
-        <button class="basepage-main-auth__btn wish-auth__btn--register" type="button" data-auth-open="register" data-i18n="auth.registration">
-          Registration
-        </button>
-
-        <button class="basepage-main-auth__btn wish-auth__btn--login" type="button" data-auth-open="login" data-i18n="auth.login">
-          Login
-        </button>
-
-
       <dialog id="auth-dialog" aria-labelledby="authTitle">
         <div class="auth-modal">
           <div class="auth-modal__header">

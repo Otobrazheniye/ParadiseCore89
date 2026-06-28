@@ -9,9 +9,9 @@ export async function hydrateUserAccess(){
     const userAccessTraining = await getUserTrainingAccesses()
     const userAccessService = await getUserServiceAccesses()
 
-    const packageContainer = document.querySelector("#user-packages")
-    const trainingContainer = document.querySelector("#user-trainings")
-    const serviceContainer = document.querySelector("#user-services")
+    const packageContainer = document.querySelector("[data-user-packages]")
+    const trainingContainer = document.querySelector("[data-user-trainings]")
+    const serviceContainer = document.querySelector("[data-user-services]")
     
     console.log("USER ACCESS PACKAGE FROM API:", userAccessPackage)
     console.log("USER ACCESS TRAINING FROM API:", userAccessTraining)
