@@ -1,7 +1,11 @@
 export function authModal() {
-  const dialog = document.querySelector('#auth-dialog');
-  const openBtn = document.querySelector('.wish-auth__btn--login');
-  const closeBtn = document.querySelector('[data-auth-close]');
+  // const dialog = document.querySelector('#auth-dialog');
+  // const openBtn = document.querySelector('.wish-auth__btn--login');
+  // const closeBtn = document.querySelector('[data-auth-close]');
+
+  const dialog = document.querySelector('#auth-dialog')
+  const openButtons = document.querySelectorAll('[data-auth-open]')
+  const closeBtn = document.querySelector('[data-auth-close]')
 
   if (!dialog || !openBtn || !closeBtn) return;
 

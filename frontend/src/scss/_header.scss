@@ -11,8 +11,10 @@ header {
   position: relative;
   overflow: visible;
   // background: linear-gradient(180deg, #80061b 0%, #0f131a 100%);
-  background: linear-gradient(180deg, #001a33 0%, #0f131a 100%);
-  background: linear-gradient(180deg, #0a0f2a 0%, #1a1400 100%);
+
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 210, 90, 0.12), transparent 34%),
+    linear-gradient(180deg, #061126 0%, #070a13 58%, #050507 100%);
   z-index: 10;
   
   @include listFlex;
@@ -148,17 +150,139 @@ background: linear-gradient(
 // ==========================
 // TABLET / PHONE
 // ==========================
+
 @include respond(tablet) {
   header {
-    height: 15vh;
-    min-height: 10px;
     height: auto;
-    padding: 0.75rem 0 1rem;
+    min-height: 150px;
+    padding: 0;
+    position: relative;
   }
 
   .pc89-header__bg {
-    height: clamp(50px, 80px, 80px);
-    object-fit:cover;
+    height: 96px;
+    object-fit: cover;
+    object-position: top center;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .navbar {
+    width: 100%;
+    min-height: 150px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: block;
+    z-index: 20;
+  }
+
+  .header-list {
+    display: none;
+  }
+
+  .header-item-img {
+    position: absolute;
+    top: 38px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    margin: 0;
+    z-index: 25;
+  }
+
+  header .navbar-logo_img {
+    width: 86px;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+
+  .header-burger {
+    display: block;
+    position: absolute;
+    top: 76px;
+    right: 1rem;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: 1px solid rgba(255, 215, 0, 0.28);
+    border-radius: 10px;
+    background: rgba(8, 10, 20, 0.78);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    z-index: 40;
+  }
+
+  .header-burger span {
+    position: absolute;
+    left: 10px;
+    width: 24px;
+    height: 2px;
+    background: #ffd700;
+    transition: 0.25s ease;
+  }
+
+  .header-burger span:nth-child(1) {
+    top: 14px;
+  }
+
+  .header-burger span:nth-child(2) {
+    top: 22px;
+  }
+
+  .header-burger span:nth-child(3) {
+    top: 30px;
+  }
+
+  .header-burger.is-active span:nth-child(1) {
+    top: 22px;
+    transform: rotate(45deg);
+  }
+
+  .header-burger.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header-burger.is-active span:nth-child(3) {
+    top: 22px;
+    transform: rotate(-45deg);
+  }
+
+  .header-mobile-menu {
+    display: block;
+    position: absolute;
+    top: calc(100% + 0.4rem);
+    left: 1rem;
+    right: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: 0.25s ease;
+    z-index: 35;
+  }
+
+  .header-mobile-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+@include respond(tablet) {
+ header {
+    height: auto;
+    min-height: 150px;
+    padding: 0;
+    position: relative;
+  }
+
+  .pc89-header__bg {
+    height: 96px;
+    object-fit: cover;
+    object-position: top center;
     pointer-events: none;
     z-index: 0;
   }
