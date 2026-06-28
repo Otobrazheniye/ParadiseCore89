@@ -255,7 +255,7 @@ async function bodySwitchAiBusiness(activePage) {
   switch (activePage) {
     case 'home':
       pageRoot.innerHTML = renderHome()
-
+      
       initHomePage()
       break
 
