@@ -275,10 +275,14 @@ async function bodySwitchAiBusiness(activePage) {
       prepareTraining()
       break
 
-    case 'contact':
-      pageRoot.innerHTML = renderContact()
-      break
-
+    // case 'contact':
+    //   pageRoot.innerHTML = renderContact()
+    //   break
+    case 'user-access':
+      pageRoot.innerHTML = renderUserAccount()
+      await hydrateUserAccess()
+      break;
+    
     default:
       pageRoot.innerHTML = `<h1>Page not found</h1>`
   }
@@ -437,6 +441,7 @@ function bodySwitchAiBusinessProtocol(activePage) {
 
 function initHomePage() {
   initAuthUI()
+  initBurgerMenu()
 }
 
 

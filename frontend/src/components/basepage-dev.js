@@ -1,21 +1,38 @@
 export function authModal() {
-  // const dialog = document.querySelector('#auth-dialog');
-  // const openBtn = document.querySelector('.wish-auth__btn--login');
-  // const closeBtn = document.querySelector('[data-auth-close]');
-
   const dialog = document.querySelector('#auth-dialog')
   const openButtons = document.querySelectorAll('[data-auth-open]')
   const closeBtn = document.querySelector('[data-auth-close]')
 
-  if (!dialog || !openBtn || !closeBtn) return;
+  if (!dialog  || !closeBtn) return;
 
-  openBtn.addEventListener('click', () => {
-    dialog.showModal();
-  });
+ openButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const mode = button.dataset.authOpen
+
+      dialog.showModal()
+
+      const forms = document.querySelectorAll('[data-auth-form]')
+      const tabButtons = document.querySelectorAll('[data-auth-tab]')
+
+      forms.forEach((form) => {
+        form.hidden = true
+      })
+
+      const activeForm = document.querySelector(`[data-auth-form="${mode}"]`)
+      if (activeForm) activeForm.hidden = false
+
+      tabButtons.forEach((tabButton) => {
+        tabButton.classList.remove('active')
+      })
+
+      const activeTab = document.querySelector(`[data-auth-tab="${mode}"]`)
+      if (activeTab) activeTab.classList.add('active')
+    })
+  })
 
   closeBtn.addEventListener('click', () => {
-    dialog.close();
-  });
+    dialog.close()
+  })
 }
 
 export function tabsLoginRegister(){
