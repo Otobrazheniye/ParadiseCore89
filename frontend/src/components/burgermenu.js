@@ -1,25 +1,18 @@
-export function initBurgerMenu(){
-  const burgerBtn = document.querySelector('.header-burger');
-  const mobileMenu = document.querySelector('.header-mobile-menu');
+export function initBurgerMenu() {
+  const burger = document.querySelector('.header-burger')
+  const mobileMenu = document.querySelector('.header-mobile-menu')
 
-  if (burgerBtn && mobileMenu) {
-    burgerBtn.addEventListener('click', () => {
-      burgerBtn.classList.toggle('is-active');
-      mobileMenu.classList.toggle('is-open');
+  if (!burger || !mobileMenu) return
 
-      const expanded = burgerBtn.classList.contains('is-active');
-      burgerBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-    });
+  if (burger.dataset.burgerInitialized === 'true') return
 
-  document.addEventListener('click', (event) => {
-    const clickInsideBurger = burgerBtn.contains(event.target);
-    const clickInsideMenu = mobileMenu.contains(event.target);
+  burger.dataset.burgerInitialized = 'true'
 
-    if (!clickInsideBurger && !clickInsideMenu) {
-      burgerBtn.classList.remove('is-active');
-      mobileMenu.classList.remove('is-open');
-      burgerBtn.setAttribute('aria-expanded', 'false');
-    }
-  });
-}
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('is-active')
+    mobileMenu.classList.toggle('is-open')
+
+    const isOpen = mobileMenu.classList.contains('is-open')
+    burger.setAttribute('aria-expanded', String(isOpen))
+  })
 }

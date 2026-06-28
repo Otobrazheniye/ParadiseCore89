@@ -46,19 +46,19 @@ export function renderHeader() {
     <div class="header-mobile-menu">
       <ul class="header-mobile-list">
         <li class="header-item header-item-first">
-          <a class="header-link link-research pageButton" href="#">
+          <a class="header-link link-research pageButton" href="#" data-page="research">
             <span class="header-link__text" data-i18n="header.research" data-page="research">Research</span>
           </a>
         </li>
     
         <li class="header-item header-item-second">
-          <a class="header-link link-divisions pageButton" href="#">
+          <a class="header-link link-divisions pageButton" href="#" data-page="division">
             <span class="header-link__text" data-i18n="header.division" data-page="division">Divisions</span>
           </a>
         </li>
     
         <li class="header-item header-item-third">
-          <a class="header-link link-archives" href="#">
+          <a class="header-link link-archives" href="#" data-page="archives">
             <span class="header-link__text" data-i18n="header.archives">Archives</span>
           </a>
         </li>
@@ -165,14 +165,14 @@ export function renderHeaderAIBusiness() {
           </span>
         </a>
 
-        <a   class="ai-business-auth__link ai-business-auth__link--profile headeraiButton" href="#" data-page="user-access">
+        <a class="ai-business-auth__link ai-business-auth__link--profile headeraiButton" href="#" data-page="user-access">
         
           <span class="ai-business-auth__avatar" aria-hidden="true">
             <span class="ai-business-auth__avatar-core">
               AI
             </span>
           </span>
-          <span class="ai-business-auth__text headeraiButton" data-page="user-acces">
+          <span class="ai-business-auth__text headeraiButton" data-page="user-access">
             Profile
           </span>
         </a>
@@ -253,33 +253,51 @@ export function renderHeaderAIBusiness() {
               <span></span>
             </button>
 
-        <div class="header-mobile-menu">
-          <ul class="header-mobile-list">
-            <li class="header-item header-item-first">
-              <a class="header-link link-research pageButton" href="#">
-                <span class="header-link__text" data-i18n="header.research" data-page="research">Research</span>
-              </a>
-            </li>
-        
-            <li class="header-item header-item-second">
-              <a class="header-link link-divisions pageButton" href="#">
-                <span class="header-link__text" data-i18n="header.division" data-page="division">Divisions</span>
-              </a>
-            </li>
-        
-            <li class="header-item header-item-third">
-              <a class="header-link link-archives" href="#">
-                <span class="header-link__text" data-i18n="header.archives">Archives</span>
-              </a>
-            </li>
-        
-            <li class="header-item header-item-fourth">
-              <a class="header-link link-access pageButton" data-page="aibusiness" href="#">
-                <span class="header-link__text" data-i18n="header.aibusiness">AI Business</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+            <div class="header-mobile-menu">
+              <ul class="header-mobile-list">
+
+                <li class="header-item">
+                  <a class="header-link headeraiButton" href="#" data-page="about">
+                    <span class="header-link__text" data-i18n="header.about">
+                      About
+                    </span>
+                  </a>
+                </li>
+
+                <li class="header-item">
+                  <a class="header-link headeraiButton" href="#" data-page="services">
+                    <span class="header-link__text" data-i18n="header.services">
+                      Services
+                    </span>
+                  </a>
+                </li>
+
+                <li class="header-item">
+                  <a class="header-link headeraiButton" href="#" data-page="reviews">
+                    <span class="header-link__text" data-i18n="header.reviews">
+                      Reviews
+                    </span>
+                  </a>
+                </li>
+
+                <li class="header-item">
+                  <a class="header-link headeraiButton" href="#" data-page="training">
+                    <span class="header-link__text" data-i18n="header.training">
+                      Training
+                    </span>
+                  </a>
+                </li>
+
+                <li class="header-item">
+                  <a class="header-link headeraiButton" href="#" data-page="user-access">
+                    <span class="header-link__text">
+                      Profile
+                    </span>
+                  </a>
+                </li>
+
+              </ul>
+            </div>
 
           </nav>
 
