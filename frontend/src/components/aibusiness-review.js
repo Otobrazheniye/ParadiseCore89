@@ -88,6 +88,8 @@ export function setupReviewForm() {
 
 export function renderAIBusinessReview() {
   return `
+    
+
     <section class="reviews-section">
       <div class="reviews-canvas">
         <div class="reviews-hero">

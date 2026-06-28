@@ -1,56 +1,99 @@
 import './main.scss'
-
-//#region FRONTEND
-
-//#region Frame Imports
-//Import Frame Base page
-import { renderHeader, renderHeaderAIBusiness } from './components/header.js'
-import { renderFooter, renderFooterDirectory, renderFooterNexus, renderFooterVault} from './components/footer.js'
-import { initFooterSwitcher } from './components/footer-dev.js'
-import { renderBasePageJS } from './components/basepage.js'
-// import { renderBasePageMain, renderBasePageTopics} from './components/basepage.js'
+//#region GLOBAL
+import './main.scss'
 //#endregion
 
 
-//Import Dev
-import { LanguageSwitchButton } from './components/translations/dev-lang.js'
-import { authModal } from './components/basepage-dev.js'
-import { tabsLoginRegister } from './components/basepage-dev.js'
+//#region FRAME / LAYOUT
+import {
+  renderHeader,
+  renderHeaderAIBusiness,
+} from './components/header.js'
+
+import {
+  renderFooter,
+  renderFooterDirectory, renderFooterNexus,
+  renderFooterVault,
+} from './components/footer.js'
+
+import { initFooterSwitcher } from './components/footer-dev.js'
+import { initBurgerMenu } from './components/burgermenu.js'
+//#endregion
 
 
+//#region BASE PAGE
+import { renderBasePageJS } from './components/basepage.js'
 import { renderResearch } from './components/page-research.js'
 import { renderDivision } from './components/page-division.js'
+//#endregion
 
 
-// Import Burger menu
-import { initBurgerMenu } from './components/burgermenu.js'
+//#region DEV / UI HELPERS
+import { LanguageSwitchButton } from './components/translations/dev-lang.js'
+import {
+  authModal,
+  tabsLoginRegister,
+} from './components/basepage-dev.js'
+//#endregion
 
 
-// Import AIBusiness
-import { renderAIBusinessServices, serviceDragScroll, renderaiaccounting } from './components/aibusiness-services.js'
-import { renderPackagePlansPrepare } from './components/aibusiness-package-prepare.js'
+//#region AUTH
+import {
+  setupRegistrationForm,
+  setupLoginForm,
+  setupLogoutButton,
+  initAuth,
+} from './components/basepage.js'
+//#endregion
 
-import { renderAIBusinessReview } from './components/aibusiness-review.js'
 
-import { renderAIBusinessAbout } from './components/aibusiness-about.js'
-import { renderAIBusinessTrainingProgram } from './components/aibusiness-training.js'
-//#endregion 
+//#region USER ACCOUNT
+import { renderUserAccount } from './components/user.js'
+//#endregion
 
-//#region BACKEND
-import { renderServices } from './components/aibusiness-services.js'
+
+//#region AI BUSINESS PAGES
+import { renderAIBusinessBasepage } from './components/aibusiness-basepage.js'
+
+import {
+  renderAIBusinessServices,
+  renderServices,
+  serviceDragScroll,
+  renderaiaccounting,
+} from './components/aibusiness-services.js'
+
+import {
+  renderPackagePlansPrepare,
+  setupPackageOrderForm,
+} from './components/aibusiness-package-prepare.js'
+
+import {
+  renderAIBusinessReview,
+  renderReviews,
+  setupReviewForm,
+} from './components/aibusiness-review.js'
+
+import {
+  renderAIBusinessAbout,
+  hydrateAboutAi,
+} from './components/aibusiness-about.js'
+
+import {
+  renderAIBusinessTrainingProgram,
+  renderTrainingPrograms,
+} from './components/aibusiness-training.js'
+
 import { setupContactForm } from './components/aibusiness-contact.js'
-import { renderReviews, setupReviewForm } from './components/aibusiness-review.js'
-import { renderTrainingPrograms } from './components/aibusiness-training.js'
-import { setupPackageOrderForm } from './components/aibusiness-package-prepare.js'
 //#endregion
 
-//#region Hydrate
-import { hydrateAboutAi } from './components/aibusiness-about.js'
-import { hydratePackagePlans, hydratePackagePlansPrepare } from './components/aibusiness-hydrate.js'
+
+//#region HYDRATE
+import {
+  hydratePackagePlans,
+  hydratePackagePlansPrepare,
+  hydrateUserAccess,
+} from './components/aibusiness-hydrate.js'
 //#endregion
-
-import {setupRegistrationForm,  setupLoginForm, initAuth, setupLogoutButton } from './components/basepage.js'
-
 
 const app = document.querySelector('#app')
 
@@ -92,19 +135,19 @@ function headerSwitch(activePage){
 
     case 'aibusiness':
       headerRoot.innerHTML = renderHeaderAIBusiness()
-      initBurgerMenu()
-      bodySwitchAiBusinessButton()
       break
 
     default:
       headerRoot.innerHTML = `<h1>Page not found</h1>`
   }
 
+  initBurgerMenu()
+
   headerSwitchButton()
   bodySwitchButton()
   bodySwitchAiBusinessButton()
-  initFooterSwitcher()
 
+  initFooterSwitcher()
   LanguageSwitchButton()
 }
 //#endregion
@@ -112,9 +155,17 @@ function headerSwitch(activePage){
 //#region Prepare
 function prepareAIBusiness(){
   headerRoot.innerHTML = renderHeaderAIBusiness()
+  pageRoot.innerHTML = renderAIBusinessBasepage()
   
   initBurgerMenu()
+
+  headerSwitchButton()
+  bodySwitchButton()
   bodySwitchAiBusinessButton()
+
+  initAuthUI()
+
+  LanguageSwitchButton()
 }
 
 async function prepareServices(){
@@ -204,6 +255,8 @@ async function bodySwitchAiBusiness(activePage) {
   switch (activePage) {
     case 'home':
       pageRoot.innerHTML = renderHome()
+
+      initHomePage()
       break
 
     case 'about':
@@ -383,6 +436,11 @@ function bodySwitchAiBusinessProtocol(activePage) {
 
 
 function initHomePage() {
+  initAuthUI()
+}
+
+
+function initAuthUI() {
   authModal()
   tabsLoginRegister()
   setupRegistrationForm()
@@ -390,6 +448,7 @@ function initHomePage() {
   initAuth()
   setupLogoutButton()
 }
+
 
 //#region Default function
 headerSwitch('home')
