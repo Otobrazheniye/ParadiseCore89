@@ -1,34 +1,6 @@
 import { getServices, getPackagePlans } from "../api/servicesApi";
 import { hydratePackagePlans } from "./aibusiness-hydrate";
 
-export async function renderServices(){
-  const serviceGrid = document.querySelector("#services-grid") 
-  if(!serviceGrid) return
-
-  try{
-    const serviceList = await getServices()
-    serviceGrid.innerHTML = ""
-
-    serviceList.forEach((service) => {
-      const listItem = document.createElement("li")
-      listItem.classList.add("ai-protocol-list__item")
-      listItem.classList.add(`ai-protocol-list__item--${service.icon_name}`)
-      listItem.id= service.slug
-
-      const subTitleItem = document.createElement("h3")
-      subTitleItem.classList.add("protocolButton")
-      subTitleItem.dataset.page = service.slug
-      subTitleItem.textContent = service.title
-
-      listItem.append(subTitleItem)
-      serviceGrid.append(listItem)
-  })
-  }
-
-  catch (error){
-    console.log("Failed to load services:", error)
-  }
-}
 
 
 export function renderAIBusinessServices(){
@@ -218,14 +190,14 @@ export function renderAIBusinessServices(){
           </p>
         </article>
 
-        <article class="ai-services-flow__benefit ai-services-flow__benefit--down">
+        <article class="ai-services-flow__benefit ai-services-flow__benefit2 ai-services-flow__benefit--down">
           <span class="ai-services-flow__benefit-number">02</span>
           <p class="ai-services-flow__benefit-text">
             Focus on scenarios with a fast first measurable effect.
           </p>
         </article>
 
-        <article class="ai-services-flow__benefit ai-services-flow__benefit--up">
+        <article class="ai-services-flow__benefit  ai-services-flow__benefit--up">
           <span class="ai-services-flow__benefit-number">03</span>
           <p class="ai-services-flow__benefit-text">
             Result measurement before, during, and after implementation.
@@ -346,11 +318,11 @@ export function renderAIBusinessServices(){
       </h2>
       <ul class="ai-protocol-list__grid" id="services-grid">
       
-      <li>AI Accounting</li>
-      <li>AI Marketing & Design</li>
-      <li>CRM Intelligence</li>
-      <li>Operations Automation</li>
-      <li>Business Analytics & AI Auditorr</li>
+        <li class="ai-protocol-list__item">AI Accounting</li>
+        <li class="ai-protocol-list__item">AI Marketing & Design</li>
+        <li class="ai-protocol-list__item">CRM Intelligence</li>
+        <li class="ai-protocol-list__item">Operations Automation</li>
+        <li class="ai-protocol-list__item">Business Analytics & AI Auditorr</li>
       </ul>
 
     </div>
@@ -651,20 +623,267 @@ export function renderAIBusinessServices(){
             <td>Move one function into a working AI contour</td>
             <td>Rebuild several business contours at company level</td>
           </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </section>
     `
 }
 
-
-export function renderaiaccounting(){
+export function renderAIAccounting(){
   return `
-  test
+    <section class="service-detail">
+      <div class="service-detail__hero">
+        <div class="service-detail__intro">
+          <span class="service-detail__eyebrow">
+            AI Business Service
+          </span>
+
+          <h1>
+            AI Accounting
+          </h1>
+
+          <p>
+            Intelligent automation for invoices, reports, document flow and financial control.
+          </p>
+        </div>
+
+        <aside class="service-detail__panel">
+          <span class="service-detail__panel-label">
+            Operational Focus
+          </span>
+
+          <h2>
+            Financial processes without manual overload
+          </h2>
+
+          <p>
+            AI Accounting helps companies reduce repetitive accounting work, organize financial data and create a clearer control system for daily operations.
+          </p>
+        </aside>
+      </div>
+
+      <div class="service-detail__content">
+        <p>
+          AI Accounting is designed for companies that work with invoices, reports, payment documents, internal financial requests and recurring accounting operations. Instead of processing every document manually, the system helps structure incoming information, recognize key data, organize it by category and prepare it for further review or reporting.
+        </p>
+
+        <p>
+          The service is useful when a company wants to reduce time spent on repetitive financial tasks. It can support invoice preparation, document classification, report drafts, transaction summaries, expense analysis and internal control scenarios. The goal is not to replace financial responsibility, but to make the accounting workflow faster, more transparent and easier to supervise.
+        </p>
+
+        <p>
+          AI Accounting can become part of a larger corporate automation system. It connects financial documents with business logic, improves consistency in reporting and helps teams detect missing information, repeated actions or process bottlenecks. This creates a more stable financial workflow where employees spend less time on routine document handling and more time on decisions.
+        </p>
+      </div>
+    </section>
   `
 }
+
+export function renderAIMarketingDesign(){
+  return `
+    <section class="service-detail">
+      <div class="service-detail__hero">
+        <div class="service-detail__intro">
+          <span class="service-detail__eyebrow">
+            AI Business Service
+          </span>
+
+          <h1>
+            AI Marketing &amp; Design
+          </h1>
+
+          <p>
+            AI-powered generation of marketing materials, campaign concepts, visual direction and brand-consistent content for business growth.
+          </p>
+        </div>
+
+        <aside class="service-detail__panel">
+          <span class="service-detail__panel-label">
+            Creative Focus
+          </span>
+
+          <h2>
+            Faster marketing production with stronger brand consistency
+          </h2>
+
+          <p>
+            AI Marketing &amp; Design helps teams create promotional materials, content ideas, visual concepts and campaign drafts faster while keeping the brand clear, recognizable and consistent across every communication channel.
+          </p>
+        </aside>
+      </div>
+
+      <div class="service-detail__content">
+        <p>
+          AI Marketing &amp; Design is created for companies that need to produce marketing content regularly: social media posts, advertising texts, landing page blocks, product descriptions, email campaigns, presentation materials and visual concepts. The service helps turn raw business ideas into structured, polished and ready-to-use marketing assets.
+        </p>
+
+        <p>
+          The main value of this service is speed without losing quality. Instead of starting every campaign from a blank page, the team receives clear content directions, message variations, visual ideas and design logic that match the company’s positioning. This allows marketing specialists, founders and sales teams to test ideas faster, prepare campaigns quicker and keep communication more professional.
+        </p>
+
+        <p>
+          AI Marketing &amp; Design can support both daily content production and strategic brand development. It helps define tone of voice, organize campaign messages, prepare creative briefs, generate design references and maintain consistency between text and visuals. As a result, the company gets a stronger marketing system where every material feels connected, intentional and aligned with business goals.
+        </p>
+      </div>
+    </section>
+  `
+}
+
+
+export function renderAICRMIntelligence(){
+  return `
+    <section class="service-detail">
+      <div class="service-detail__hero">
+        <div class="service-detail__intro">
+          <span class="service-detail__eyebrow">
+            AI Business Service
+          </span>
+
+          <h1>
+            CRM Intelligence
+          </h1>
+
+          <p>
+            Customer request structuring, sales pipeline logic, lead tracking and intelligent follow-up support for stronger client relationships.
+          </p>
+        </div>
+
+        <aside class="service-detail__panel">
+          <span class="service-detail__panel-label">
+            Sales Focus
+          </span>
+
+          <h2>
+            Customer communication without lost leads
+          </h2>
+
+          <p>
+            CRM Intelligence helps companies organize client requests, understand lead status, build clear sales scenarios and maintain consistent follow-up logic across every customer interaction.
+          </p>
+        </aside>
+      </div>
+
+      <div class="service-detail__content">
+        <p>
+          CRM Intelligence is designed for companies that receive customer requests from different channels: website forms, email, messengers, sales calls, consultations and internal referrals. The service helps structure this information, identify the stage of each lead and organize communication so that no important client request disappears inside scattered messages or manual notes.
+        </p>
+
+        <p>
+          The main value of CRM Intelligence is control over the full customer path. It can support lead qualification, sales pipeline organization, follow-up reminders, client segmentation, request prioritization and scenario preparation for sales teams. This gives the company a clearer understanding of who is interested, what they need, how urgent the request is and what action should happen next.
+        </p>
+
+        <p>
+          CRM Intelligence can become a practical layer between marketing, sales and customer support. It helps teams keep communication consistent, reduce repeated manual checking and improve response quality. As a result, the business gets a more reliable client management system where every lead has context, every request has direction and every follow-up becomes part of a structured sales process.
+        </p>
+      </div>
+    </section>  
+  `
+}
+
+
+export function renderAIOperationsAutomation(){
+  return `
+    <section class="service-detail">
+      <div class="service-detail__hero">
+        <div class="service-detail__intro">
+          <span class="service-detail__eyebrow">
+            AI Business Service
+          </span>
+
+          <h1>
+            Operations Automation
+          </h1>
+
+          <p>
+            Automation of internal business processes, routine task flows, approvals, notifications and standard operational scenarios.
+          </p>
+        </div>
+
+        <aside class="service-detail__panel">
+          <span class="service-detail__panel-label">
+            Process Focus
+          </span>
+
+          <h2>
+            Internal operations without repetitive manual work
+          </h2>
+
+          <p>
+            Operations Automation helps companies reduce routine tasks, organize internal workflows and create predictable operational scenarios that save time, improve control and make daily execution more stable.
+          </p>
+        </aside>
+      </div>
+
+      <div class="service-detail__content">
+        <p>
+          Operations Automation is designed for companies that depend on repeated internal actions: task assignments, approvals, notifications, document routing, status updates, operational checklists and standard business procedures. Instead of forcing employees to manually repeat the same steps every day, the system helps structure these processes and turn them into clear automated workflows.
+        </p>
+
+        <p>
+          The main value of this service is operational consistency. It can support approval chains, internal request handling, reminder logic, workflow templates, responsibility tracking and automatic task movement between stages. This helps teams understand what needs to happen, who is responsible, what is waiting for approval and where delays appear inside the company.
+        </p>
+
+        <p>
+          Operations Automation can become the foundation of a more disciplined business system. It connects people, tasks and internal rules into one reliable process layer, reducing chaos and unnecessary manual coordination. As a result, the company gets faster execution, fewer missed steps and a stronger operational structure where routine work becomes predictable, measurable and easier to manage.
+        </p>
+      </div>
+    </section>
+  `
+}
+
+
+export function renderAIBusinessAnalyticsAuditor(){
+  return `
+    <section class="service-detail">
+      <div class="service-detail__hero">
+        <div class="service-detail__intro">
+          <span class="service-detail__eyebrow">
+            AI Business Service
+          </span>
+    
+          <h1>
+            Business Analytics &amp; AI Auditor
+          </h1>
+    
+          <p>
+            AI-based analysis of business data, reports, performance indicators and internal process efficiency.
+          </p>
+        </div>
+    
+        <aside class="service-detail__panel">
+          <span class="service-detail__panel-label">
+            Intelligence Focus
+          </span>
+    
+          <h2>
+            Clear business decisions based on real operational data
+          </h2>
+    
+          <p>
+            Business Analytics &amp; AI Auditor helps companies understand what is working, where weak points appear and which processes need attention before they become expensive problems.
+          </p>
+        </aside>
+      </div>
+    
+      <div class="service-detail__content">
+        <p>
+          Business Analytics &amp; AI Auditor is designed for companies that want to make decisions using structured business data instead of assumptions. The service helps analyze reports, performance indicators, internal results, operational activity and process efficiency to reveal patterns that are difficult to see during daily work.
+        </p>
+    
+        <p>
+          The main value of this service is business clarity. It can support KPI analysis, report preparation, weak point detection, process comparison, performance review and internal audit scenarios. This helps managers understand which areas are growing, which departments or workflows are slowing down and where resources may be used inefficiently.
+        </p>
+    
+        <p>
+          Business Analytics &amp; AI Auditor can become a strategic control layer for the company. It connects data, reports and operational logic into a clearer management picture, helping teams find risks earlier, evaluate decisions faster and improve business performance with more confidence. As a result, the company gets not just reports, but practical insight for better control, planning and growth.
+        </p>
+      </div>
+    </section>
+  `
+}
+
 
 export function serviceDragScroll() {
   const slider = document.querySelector('.ai-protocol-list__grid');
@@ -704,3 +923,5 @@ export function serviceDragScroll() {
     slider.scrollLeft = scrollLeft - walk;
   });
 }
+
+
