@@ -110,7 +110,7 @@ li {
 }
 
 .globalnode-active{
-    font-size: $fontLS;
+    font-size: $fontP;
     margin-top: 1em;
 }
 
@@ -315,7 +315,7 @@ li {
   margin-bottom: 0.45em;
 
   color: rgba(255, 246, 204, 0.92);
-  font-size: $fontL;
+  font-size: $fontP;
   font-weight: 700;
   line-height: 1.35;
   letter-spacing: 0.02em;
@@ -485,13 +485,13 @@ h3 {
   
 
   .main-bar_corelist {
-    gap: 10px;
+    gap: 12px;
     padding: 0;
     flex-direction: column;
   }
 
   .globalnode-active{
-    font-size: $fontP;
+    font-size: 10px;
     margin-top: 1em;
   }
 
@@ -500,7 +500,7 @@ h3 {
   }
 
   .globalnode-text {
-    font-size: $fontT;
+    font-size: 10px;
     margin-bottom: 1em;
     list-style:square ;
   }
