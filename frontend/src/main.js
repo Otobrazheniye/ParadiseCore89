@@ -6,8 +6,7 @@ import './main.scss'
 
 //#region FRAME / LAYOUT
 import {
-  renderHeader,
-  renderHeaderAIBusiness,
+  renderHeader, renderHeaderAIBusiness,
 } from './components/header.js'
 
 import {
@@ -31,18 +30,15 @@ import { renderDivision } from './components/page-division.js'
 //#region DEV / UI HELPERS
 import { LanguageSwitchButton } from './components/translations/dev-lang.js'
 import {
-  authModal,
-  tabsLoginRegister,
+  authModal, tabsLoginRegister,
 } from './components/basepage-dev.js'
 //#endregion
 
 
 //#region AUTH
 import {
-  setupRegistrationForm,
-  setupLoginForm,
-  setupLogoutButton,
-  initAuth,
+  setupRegistrationForm, setupLoginForm,
+  setupLogoutButton, initAuth,
 } from './components/basepage.js'
 //#endregion
 
@@ -56,31 +52,27 @@ import { renderUserAccount } from './components/user.js'
 import { renderAIBusinessBasepage } from './components/aibusiness-basepage.js'
 
 import {
-  renderAIBusinessServices,
-  renderServices,
-  serviceDragScroll,
-  renderaiaccounting,
+  renderAIBusinessServices, serviceDragScroll,
+  renderAIAccounting, renderAIMarketingDesign,
+  renderAICRMIntelligence, renderAIOperationsAutomation,
+  renderAIBusinessAnalyticsAuditor,
 } from './components/aibusiness-services.js'
 
 import {
-  renderPackagePlansPrepare,
-  setupPackageOrderForm,
+  renderPackagePlansPrepare, setupPackageOrderForm,
 } from './components/aibusiness-package-prepare.js'
 
 import {
-  renderAIBusinessReview,
-  renderReviews,
+  renderAIBusinessReview, renderReviews,
   setupReviewForm,
 } from './components/aibusiness-review.js'
 
 import {
-  renderAIBusinessAbout,
-  hydrateAboutAi,
+  renderAIBusinessAbout, hydrateAboutAi,
 } from './components/aibusiness-about.js'
 
 import {
-  renderAIBusinessTrainingProgram,
-  renderTrainingPrograms,
+  renderAIBusinessTrainingProgram, renderTrainingPrograms,
 } from './components/aibusiness-training.js'
 
 import { setupContactForm } from './components/aibusiness-contact.js'
@@ -89,9 +81,8 @@ import { setupContactForm } from './components/aibusiness-contact.js'
 
 //#region HYDRATE
 import {
-  hydratePackagePlans,
-  hydratePackagePlansPrepare,
-  hydrateUserAccess,
+  hydratePackagePlans, hydratePackagePlansPrepare,
+  hydrateUserAccess, renderServices
 } from './components/aibusiness-hydrate.js'
 //#endregion
 
@@ -175,6 +166,7 @@ async function prepareServices(){
   await hydratePackagePlans()
   
   bodySwitchAiBusinessPackagePrepareButton()
+  bodySwitchAiBusinessProtocol("business-analytics-ai-auditor")
   
   serviceDragScroll()
   bodySwitchAiBusinessProtocolButton()
@@ -383,46 +375,44 @@ async function bodySwitchAiBusinessService(activePage){
 }
 
 
-
-
-
 function bodySwitchAiBusinessProtocolButton(){
   const protocolButton = document.querySelectorAll(".protocolButton")
 
   protocolButton.forEach((btn)=>{
     btn.addEventListener('click',(event)=>{
       event.preventDefault()
-      const activePage = btn.dataset.page
+      const searchBySlug= btn.dataset.page
 
-      bodySwitchAiBusinessProtocol(activePage)
+      bodySwitchAiBusinessProtocol(searchBySlug)
     })
   })
 }
 
-function bodySwitchAiBusinessProtocol(activePage) {
+
+function bodySwitchAiBusinessProtocol(searchBySlug) {
   const pageProtocolSwitcher = document.querySelector("#page-protocol-switcher");
 
   if (!pageProtocolSwitcher) return;
 
-  switch (activePage) {
-    case "aiaccounting":
-      pageProtocolSwitcher.innerHTML = renderaiaccounting();
+  switch (searchBySlug) {
+    case "ai-accounting":
+      pageProtocolSwitcher.innerHTML = renderAIAccounting();
       break
 
-    case "aimarketingdesign":
-      pageProtocolSwitcher.innerHTML = renderNone();
+    case "ai-marketing-design":
+      pageProtocolSwitcher.innerHTML = renderAIMarketingDesign();
       break
 
-    case "crmintelligence":
-      pageProtocolSwitcher.innerHTML = renderNone();
+    case "crm-intelligence":
+      pageProtocolSwitcher.innerHTML = renderAICRMIntelligence();
       break
 
-    case "operationsautomation":
-      pageProtocolSwitcher.innerHTML = renderNone();
+    case "operations-automation":
+      pageProtocolSwitcher.innerHTML = renderAIOperationsAutomation();
       break
 
-    case "businessanalyticsaiauditor":
-      pageProtocolSwitcher.innerHTML = renderNone();
+    case "business-analytics-ai-auditor":
+      pageProtocolSwitcher.innerHTML = renderAIBusinessAnalyticsAuditor();
       break
 
     default:

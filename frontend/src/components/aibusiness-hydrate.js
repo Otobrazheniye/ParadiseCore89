@@ -195,6 +195,37 @@ export async function hydratePackagePlans(){
 }
 
 
+// Sevices grid
+export async function renderServices(){
+  const serviceGrid = document.querySelector("#services-grid") 
+  if(!serviceGrid) return
+
+  try{
+    const serviceList = await getServices()
+    serviceGrid.innerHTML = ""
+
+    serviceList.forEach((service) => {
+      const listItem = document.createElement("li")
+      listItem.classList.add("ai-protocol-list__item")
+      listItem.classList.add(`ai-protocol-list__item--${service.icon_name}`)
+      listItem.id= service.slug
+
+      const subTitleItem = document.createElement("h3")
+      subTitleItem.classList.add("protocolButton")
+      subTitleItem.dataset.page = service.slug
+      subTitleItem.textContent = service.title
+
+      listItem.append(subTitleItem)
+      serviceGrid.append(listItem)
+  })
+  }
+
+  catch (error){
+    console.log("Failed to load services:", error)
+  }
+}
+
+
 // Set
 function setText(selector, value){
   const element = document.querySelector(selector)
@@ -202,6 +233,7 @@ function setText(selector, value){
 
   element.textContent = value
 }
+
 
 function setList(selector, items){
   const list = document.querySelector(selector)
