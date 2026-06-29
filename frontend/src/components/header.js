@@ -176,7 +176,7 @@ export function renderHeaderAIBusiness() {
             Profile
           </span>
         </a>
-        <a class="ai-business-auth__link ai-business-auth__link--logout" href="#" data-auth-action="logout">
+        <a class="ai-business-auth__link ai-business-auth__link--logout" href="#"  data-auth-logout="logout" data-auth-action="logout">
           <span class="ai-business-auth__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
@@ -188,64 +188,188 @@ export function renderHeaderAIBusiness() {
             Logout
           </span>
         </a>
-        
-      <dialog id="auth-dialog" aria-labelledby="authTitle">
-        <div class="auth-modal">
-          <div class="auth-modal__header">
-            <h2 id="authTitle" data-i18n="auth.authentication">Authentication</h2>
-            <button type="button" data-auth-close aria-label="Close">×</button>
-          </div>
 
-          <div class="auth-modal__tabs">
-            <button type="button" class="active" data-auth-tab="login" data-i18n="auth.login"> Login
-            </button>
+          <dialog id="auth-dialog" class="auth-dialog" aria-labelledby="authTitle">
+            <div class="auth-modal">
 
-            <button type="button" data-auth-tab="register"  data-i18n="auth.registration">
-              Registration
-            </button>
+              <div class="auth-modal__header">
+                <h2 id="authTitle" data-i18n="auth.authentication">
+                  Authentication
+                </h2>
+
+                <button 
+                  class="auth-modal__close" 
+                  type="button" 
+                  data-auth-close 
+                  aria-label="Close"
+                >
+                  ×
+                </button>
+              </div>
+
+              <div class="auth-modal__tabs">
+                <button 
+                  type="button" 
+                  class="active" 
+                  data-auth-tab="login" 
+                  data-i18n="auth.login"
+                >
+                  Login
+                </button>
+
+                <button 
+                  type="button" 
+                  data-auth-tab="register"  
+                  data-i18n="auth.registration"
+                >
+                  Registration
+                </button>
+              </div>
+
+
+              <form class="auth-login" data-auth-form="login">
+
+                <div class="auth-login__content">
+
+                  <div class="auth-login__brand">
+                    <span class="auth-login__brand-main">
+                      PARADISE CORE
+                    </span>
+
+                    <span class="auth-login__brand-sub">
+                      SECURE AI BUSINESS ACCESS
+                    </span>
+                  </div>
+
+                  <div class="auth-login__intro">
+                    <h3>
+                      Account Login
+                    </h3>
+
+                    <p>
+                      Enter your credentials to open your personal access area.
+                    </p>
+                  </div>
+
+                  <label class="auth-login__field">
+                    <span>Email</span>
+
+                    <input 
+                      type="email" 
+                      name="email" 
+                      placeholder="Enter email" 
+                      required 
+                    />
+                  </label>
+
+                  <label class="auth-login__field">
+                    <span data-i18n="auth.password">
+                      Password
+                    </span>
+
+                    <input 
+                      type="password" 
+                      name="password" 
+                      data-i18n-placeholder="auth.passwordPlaceholder" 
+                      placeholder="Enter password" 
+                      required 
+                    />
+                  </label>
+
+                  <button class="auth-login__submit" type="submit">
+                    Sign in
+                  </button>
+
+                </div>
+
+                <aside class="auth-login__visual" aria-hidden="true">
+                  <div class="auth-login__visual-overlay">
+                    <span>AI BUSINESS</span>
+                    <strong>ACCESS NODE</strong>
+                  </div>
+                </aside>
+
+              </form>
+
+              <form class="auth-register" data-auth-form="register" hidden>
+
+                <div class="auth-register__brand">
+                  <span class="auth-register__brand-main">
+                    CREATE ACCESS
+                  </span>
+
+                  <span class="auth-register__brand-sub">
+                    We’re glad to have you with us.
+                  </span>
+                </div>
+
+                <div class="auth-register__intro">
+                  <h3>
+                    Registration
+                  </h3>
+
+                  <p>
+                    Create your personal account for AI Business access.
+                  </p>
+                </div>
+
+                <label class="auth-register__field">
+                  <span>Email</span>
+
+                  <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Enter email" 
+                    required 
+                  />
+                </label>
+
+                <label class="auth-register__field">
+                  <span>Password</span>
+
+                  <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Create password" 
+                    required 
+                  />
+                </label>
+
+                <label class="auth-register__field"> 
+                  <span data-i18n="auth.full_name">
+                    Full Name
+                  </span> 
+
+                  <input 
+                    type="text" 
+                    name="full_name" 
+                    data-i18n-placeholder="auth.fullname" 
+                    placeholder="Enter your full name" 
+                    required 
+                  /> 
+                </label> 
+
+                <label class="auth-register__field"> 
+                  <span data-i18n="auth.company">
+                    Company
+                  </span> 
+
+                  <input 
+                    type="text" 
+                    name="company" 
+                    data-i18n-placeholder="auth.company" 
+                    placeholder="Enter your company"
+                  /> 
+                </label>
+
+                <button class="auth-register__submit" type="submit">
+                  Create account
+                </button>
+
+              </form>
+
             </div>
-
-            <form data-auth-form="login">
-              <label>
-                Email
-                <input type="email" name="email" required />
-              </label>
-
-              <label>
-                <span data-i18n="auth.password">Password</span>
-                <input type="password" name="password" data-i18n-placeholder="auth.passwordPlaceholder" placeholder = "Enter password" required />
-              </label>
-
-              <button type="submit">Sign in</button>
-              <button type="button" data-auth-logout> Logout </button>
-            </form>
-
-            <form data-auth-form="register" hidden>
-              <label>
-                Email
-                <input type="email" name="email" required />
-              </label>
-
-              <label>
-                Password
-                <input type="password" name="password" required />
-              </label>
-
-              <label> 
-                <span data-i18n="auth.full_name">Full Name</span> 
-                <input type="text" name="full_name" data-i18n-placeholder="auth.fullname" placeholder = "Enter your full name" required /> 
-              </label> 
-
-              <label> 
-                <span data-i18n="auth.company">Company</span> 
-                <input type="text" name="company" data-i18n-placeholder="auth.company" placeholder = "Enter Your Company"> 
-              </label>
-
-
-              <button type="submit">Create account</button>
-            </form>
-        </div>
-      </dialog>
+          </dialog>
 
             <button class="header-burger" type="button" aria-label="Open menu" aria-expanded="false">
               <span></span>

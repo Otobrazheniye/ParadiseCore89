@@ -59,11 +59,11 @@ export function renderDivision(){
     </div>
 
     <ul>
-        <li class="globalnode-active">EUROPE: ACTIVE</li>  
-        <li class="globalnode-active">NORTH AMERICA: ACTIVE</li>  
-        <li class="globalnode-active">ASIA: MONITORING</li>  
-        <li class="globalnode-active">OCEANIA: STANDBY</li>  
-        <li class="globalnode-active">AFRICA: UNDER REVIEW</li>  
+        <li class="globalnode-active">EUROPE: 💠ACTIVE</li>  
+        <li class="globalnode-active">NORTH AMERICA: 💠ACTIVE</li>  
+        <li class="globalnode-active">ASIA: 🔸MONITORING</li>  
+        <li class="globalnode-active">OCEANIA: 🔸STANDBY</li>  
+        <li class="globalnode-active">AFRICA: 🔸UNDER REVIEW</li>  
     </ul>
 
     <div class="main-bar-globalnode_livedata">

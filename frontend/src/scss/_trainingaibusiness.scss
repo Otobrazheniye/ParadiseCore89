@@ -1,0 +1,221 @@
+@use "sass:map";
+@use "./variables" as *;
+
+.training-section {
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(90px, 9vw, 150px) clamp(18px, 5vw, 80px);
+  overflow: hidden;
+  color: #f7f1e8;
+
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 213, 120, 0.13), transparent 28%),
+    radial-gradient(circle at 82% 12%, rgba(65, 120, 255, 0.14), transparent 24%),
+    radial-gradient(circle at 50% 100%, rgba(0, 220, 255, 0.08), transparent 34%),
+    linear-gradient(135deg, #050811 0%, #0d1320 48%, #040509 100%);
+}
+
+.training-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(rgba(255, 230, 170, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 230, 170, 0.025) 1px, transparent 1px);
+  background-size: 58px 58px;
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  opacity: 0.45;
+}
+
+.training-section::after {
+  content: "TRAINING PROTOCOLS";
+  position: absolute;
+  right: clamp(18px, 5vw, 80px);
+  top: clamp(70px, 8vw, 120px);
+  pointer-events: none;
+
+  color: rgba(255, 225, 150, 0.055);
+  font-family: serif;
+  font-size: clamp(48px, 9vw, 150px);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 0.9;
+  text-align: right;
+}
+
+.training-grid {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 34px);
+
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.training-card {
+  position: relative;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+
+  padding: clamp(24px, 3vw, 34px);
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 226, 165, 0.18);
+  border-radius: 28px;
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 28%),
+    radial-gradient(circle at 20% 12%, rgba(255, 215, 120, 0.12), transparent 34%),
+    radial-gradient(circle at 90% 88%, rgba(70, 130, 255, 0.13), transparent 34%),
+    rgba(10, 15, 26, 0.74);
+
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(14px);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.training-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(135deg, rgba(255, 230, 170, 0.16), transparent 28%),
+    linear-gradient(315deg, rgba(90, 150, 255, 0.14), transparent 34%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.training-card::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  top: -70px;
+
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 226, 165, 0.18);
+
+  background:
+    radial-gradient(circle, rgba(255, 226, 165, 0.18), transparent 12%),
+    radial-gradient(circle, transparent 50%, rgba(255, 226, 165, 0.12) 51%, transparent 54%);
+  opacity: 0.7;
+}
+
+.training-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 226, 165, 0.48);
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.48),
+    0 0 38px rgba(255, 210, 120, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.training-card:hover::before {
+  opacity: 1;
+}
+
+.training-card__level {
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 226, 165, 0.34);
+  border-radius: 999px;
+
+  background: rgba(255, 220, 140, 0.08);
+  color: rgba(255, 226, 165, 0.92);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.training-card h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+  color: #fff7e8;
+
+  font-family: serif;
+  font-size: clamp(30px, 3.4vw, 48px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+
+  text-shadow:
+    0 5px 22px rgba(0, 0, 0, 0.65),
+    0 0 24px rgba(255, 220, 140, 0.08);
+}
+
+.training-card p {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+  color: rgba(240, 232, 218, 0.68);
+
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.65;
+}
+
+.training-card__meta {
+  margin-top: auto !important;
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(255, 226, 165, 0.14);
+
+  color: rgba(255, 226, 165, 0.78) !important;
+  font-size: 13px !important;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@include respond(tablet) {
+  .training-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@include respond(phone) {
+  .training-section {
+    padding: 80px 16px;
+  }
+
+  .training-section::after {
+    display: none;
+  }
+
+  .training-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .training-card {
+    min-height: 300px;
+    border-radius: 22px;
+  }
+
+  .training-card h3 {
+    font-size: clamp(30px, 10vw, 44px);
+  }
+}

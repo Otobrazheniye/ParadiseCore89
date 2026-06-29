@@ -147,65 +147,186 @@ function renderBasePageMain(){
         <button class="basepage-main-auth__btn wish-auth__btn--login" type="button" data-auth-open="login" data-i18n="auth.login">
           Login
         </button>
+     
+        
+        <dialog id="auth-dialog" class="pc89-auth-dialog" aria-labelledby="pc89AuthTitle">
+          <div class="pc89-auth-shell">
 
-      <dialog id="auth-dialog" aria-labelledby="authTitle">
-        <div class="auth-modal">
-          <div class="auth-modal__header">
-            <h2 id="authTitle" data-i18n="auth.authentication">Authentication</h2>
-            <button type="button" data-auth-close aria-label="Close">×</button>
+            <div class="pc89-auth-head">
+              <div class="pc89-auth-head__text">
+                <span class="pc89-auth-head__eyebrow">
+                  PARADISE CORE 89
+                </span>
+
+                <h2 id="pc89AuthTitle">
+                  Core Authentication
+                </h2>
+              </div>
+
+              <button 
+                class="pc89-auth-head__close" 
+                type="button" 
+                data-auth-close 
+                aria-label="Close"
+              >
+                ×
+              </button>
+            </div>
+
+            <div class="pc89-auth-tabs">
+              <button 
+                class="pc89-auth-tabs__button active" 
+                type="button" 
+                data-auth-tab="login"
+              >
+                Login
+              </button>
+
+              <button 
+                class="pc89-auth-tabs__button" 
+                type="button" 
+                data-auth-tab="register"
+              >
+                Registration
+              </button>
+            </div>
+
+            <form class="pc89-login" data-auth-form="login">
+
+              <div class="pc89-login__main">
+                <div class="pc89-login__brand">
+                  <span class="pc89-login__code">
+                    CORE ACCESS
+                  </span>
+
+                  <h3>
+                    Enter Paradise
+                  </h3>
+
+                  <p>
+                    Authorize your identity to access Paradise Core 89 personal systems.
+                  </p>
+                </div>
+
+                <label class="pc89-login__field">
+                  <span>Email</span>
+
+                  <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Enter email" 
+                    required 
+                  />
+                </label>
+
+                <label class="pc89-login__field">
+                  <span>Password</span>
+
+                  <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Enter password" 
+                    required 
+                  />
+                </label>
+
+                <button class="pc89-login__submit" type="submit">
+                  Sign in
+                </button>
+              </div>
+
+              <aside class="pc89-login__media" aria-hidden="true">
+                <div class="pc89-login__media-core"></div>
+
+                <div class="pc89-login__media-card">
+                  <span>PARADISE CORE 89</span>
+                  <strong>AUTHORIZED NODE</strong>
+                </div>
+              </aside>
+
+            </form>
+
+  
+            <form class="pc89-register" data-auth-form="register" hidden>
+
+              <div class="pc89-register__main">
+                <div class="pc89-register__brand">
+                  <span class="pc89-register__code">
+                    GENESIS PROFILE
+                  </span>
+
+                  <h3>
+                    Create Identity
+                  </h3>
+
+                  <p>
+                    Create a new Paradise Core 89 profile and connect your access layer.
+                  </p>
+                </div>
+
+                <div class="pc89-register__grid">
+                  <label class="pc89-register__field">
+                    <span>Email</span>
+
+                    <input 
+                      type="email" 
+                      name="email" 
+                      placeholder="Enter email" 
+                      required 
+                    />
+                  </label>
+
+                  <label class="pc89-register__field">
+                    <span>Password</span>
+
+                    <input 
+                      type="password" 
+                      name="password" 
+                      placeholder="Create password" 
+                      required 
+                    />
+                  </label>
+
+                  <label class="pc89-register__field">
+                    <span>Full Name</span>
+
+                    <input 
+                      type="text" 
+                      name="full_name" 
+                      placeholder="Enter your full name" 
+                      required 
+                    />
+                  </label>
+
+                  <label class="pc89-register__field">
+                    <span>Company</span>
+
+                    <input 
+                      type="text" 
+                      name="company" 
+                      placeholder="Enter your company"
+                    />
+                  </label>
+                </div>
+
+                <button class="pc89-register__submit" type="submit">
+                  Create account
+                </button>
+              </div>
+
+              <aside class="pc89-register__media" aria-hidden="true">
+                <div class="pc89-register__media-core"></div>
+
+                <div class="pc89-register__media-card">
+                  <span>PARADISE CORE 89</span>
+                  <strong>NEW ACCESS LAYER</strong>
+                </div>
+              </aside>
+
+            </form>
+
           </div>
-
-          <div class="auth-modal__tabs">
-            <button type="button" class="active" data-auth-tab="login" data-i18n="auth.login"> Login
-            </button>
-
-            <button type="button" data-auth-tab="register"  data-i18n="auth.registration">
-              Registration
-            </button>
-          </div>
-
-          <form data-auth-form="login">
-            <label>
-              Email
-              <input type="email" name="email" required />
-            </label>
-
-            <label>
-              <span data-i18n="auth.password">Password</span>
-              <input type="password" name="password" data-i18n-placeholder="auth.passwordPlaceholder" placeholder = "Enter password" required />
-            </label>
-
-            
-            <button type="submit">Sign in</button>
-            <button type="button" data-auth-logout> Logout </button>
-          </form>
-
-          <form data-auth-form="register" hidden>
-            <label>
-              Email
-              <input type="email" name="email" required />
-            </label>
-
-            <label>
-              Password
-              <input type="password" name="password" required />
-            </label>
-
-            <label> 
-              <span data-i18n="auth.full_name">Full Name</span> 
-              <input type="text" name="full_name" data-i18n-placeholder="auth.fullname" placeholder = "Enter your full name" required /> 
-            </label> 
-
-            <label> 
-              <span data-i18n="auth.company">Company</span> 
-              <input type="text" name="company" data-i18n-placeholder="auth.company" placeholder = "Enter Your Company"> 
-            </label>
-
-
-            <button type="submit">Create account</button>
-          </form>
-        </div>
-      </dialog>
+        </dialog>
     </div>
 
     <div class="wish-language">
