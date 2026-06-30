@@ -44,10 +44,13 @@ export function renderFooterDirectory(){
     <nav class="site-footer__nav">
       <div class="site-footer__col">
         <h3>Navigation</h3>
-        <a href="#">Research</a>
-        <a href="#">Divisions</a>
-        <a href="#">Archives</a>
-        <a href="#">Access</a>
+       <a class="site-footer__link pageButton" href="#" data-i18n="header.research" data-page="research"> Research </a>
+
+    <a class="site-footer__link pageButton" href="#" data-i18n="header.division" data-page="division"> Divisions</a>
+
+    <a class="site-footer__link pageButton"  href="#"  data-page="archives" Archives </a>
+
+    <a class="site-footer__link pageButton" href="#" data-i18n="header.aibusiness"  data-page="aibusiness"> AI Business </a>
       </div>
 
       <div class="site-footer__col">
@@ -60,9 +63,9 @@ export function renderFooterDirectory(){
 
       <div class="site-footer__col">
         <h3>Network</h3>
-        <a href="#">GitHub</a>
-        <a href="#">Instagram</a>
-        <a href="#">Telegram</a>
+        <a href="https://github.com/Otobrazheniye">GitHub</a>
+        <a href="https://www.instagram.com/otobrazheniye/">Instagram</a>
+        <a href="https://t.me/Otobrazheniye">Telegram</a>
         <a href="#">LinkedIn</a>
       </div>
     </nav>
@@ -98,10 +101,10 @@ export function renderFooterNexus(){
     <section class="nexus-footer__grid">
       <div class="nexus-footer__panel">
         <h3>Live Channels</h3>
-        <a href="#">GitHub</a>
+        <a href="https://github.com/Otobrazheniye">GitHub</a>
+        <a href="https://www.instagram.com/otobrazheniye/">Instagram</a>
+        <a href="https://t.me/Otobrazheniye">Telegram</a>
         <a href="#">LinkedIn</a>
-        <a href="#">Instagram</a>
-        <a href="#">Telegram</a>
       </div>
 
       <div class="nexus-footer__panel">

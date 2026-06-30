@@ -335,7 +335,7 @@ function renderBasePageMain(){
       </button>
     </div>
 
-    <div class="wish-language">
+    <div class="wish-language2">
       <button class="basepage-main-language__btn" type="button" data-lang="EN">EN</button>
       <button class="basepage-main-language__btn" type="button" data-lang="CZ">CZ</button>
       <button class="basepage-main-language__btn" type="button" data-lang="RU">RU</button>
