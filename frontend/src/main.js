@@ -150,8 +150,10 @@ function headerSwitch(activePage){
 //#region Prepare
 function prepareAIBusiness(){
   headerRoot.innerHTML = renderHeaderAIBusiness()
-  pageRoot.innerHTML = renderAIBusinessBasepage()
-  
+  // pageRoot.innerHTML = renderAIBusinessBasepage()
+  pageRoot.innerHTML = renderAIBusinessServices()
+  prepareServices()
+
   initBurgerMenu()
 
   headerSwitchButton()
