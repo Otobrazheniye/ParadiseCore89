@@ -14,7 +14,7 @@ export function renderHeader() {
         </li>
         <li class="header-item header-item-second">
           <a class="header-link link-divisions pageButton" href="#" data-i18n="header.division" data-page="division">Divisions</a>
-        </li>
+          </li>
       </ul>
     </div>
     

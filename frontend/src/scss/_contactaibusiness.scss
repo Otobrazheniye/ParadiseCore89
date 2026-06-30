@@ -1,0 +1,297 @@
+@use "sass:map";
+@use "./variables" as *;
+
+
+.mint-contact {
+  min-height: 100vh;
+  padding: clamp(95px, 8vw, 145px) clamp(18px, 5vw, 80px);
+  color: #eafff8;
+
+  background:
+    linear-gradient(135deg, #03110f 0%, #071b1a 45%, #03080a 100%);
+}
+
+.mint-contact * {
+  box-sizing: border-box;
+}
+
+.mint-contact__inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.mint-contact__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: clamp(22px, 4vw, 44px);
+  margin-bottom: clamp(34px, 5vw, 58px);
+}
+
+.mint-contact__intro,
+.mint-contact__support,
+.mint-contact__info,
+.mint-contact__form-card {
+  border: 1px solid rgba(129, 255, 218, 0.24);
+  background:
+    linear-gradient(135deg, rgba(6, 25, 23, 0.96), rgba(4, 12, 15, 0.98));
+}
+
+.mint-contact__intro {
+  padding: clamp(30px, 5vw, 58px);
+}
+
+.mint-contact__eyebrow,
+.mint-contact__support-label,
+.mint-contact__info-label,
+.mint-contact__form-label {
+  display: inline-block;
+  margin-bottom: 18px;
+
+  color: rgba(139, 255, 221, 0.86);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.mint-contact__intro h1 {
+  max-width: 760px;
+  margin: 0 0 24px;
+
+  color: #f0fff9;
+  font-family: serif;
+  font-size: clamp(42px, 5.3vw, 76px);
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.mint-contact__intro p {
+  max-width: 680px;
+  margin: 0;
+
+  color: rgba(220, 255, 243, 0.72);
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.65;
+}
+
+.mint-contact__support {
+  padding: clamp(28px, 4vw, 44px);
+}
+
+.mint-contact__support ul {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mint-contact__support li {
+  position: relative;
+  padding-left: 24px;
+
+  color: rgba(226, 255, 246, 0.78);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.mint-contact__support li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+
+  width: 7px;
+  height: 7px;
+  background: rgba(113, 255, 213, 0.9);
+}
+
+.mint-contact__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(380px, 1.1fr);
+  gap: clamp(22px, 4vw, 44px);
+  align-items: start;
+}
+
+.mint-contact__info {
+  padding: clamp(28px, 4vw, 44px);
+}
+
+.mint-contact__info h2,
+.mint-contact__form-card h2 {
+  margin: 0 0 20px;
+
+  color: #f0fff9;
+  font-family: serif;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.mint-contact__info p {
+  margin: 0;
+
+  color: rgba(226, 255, 246, 0.72);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.mint-contact__info p + p {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(129, 255, 218, 0.14);
+}
+
+.mint-contact__form-card {
+  padding: clamp(28px, 4vw, 48px);
+}
+
+.mint-contact__form-text {
+  margin: -6px 0 24px;
+  color: rgba(220, 255, 243, 0.66);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.mint-request-form {
+  display: grid;
+  gap: 18px;
+}
+
+.mint-request-form__field {
+  display: grid;
+  gap: 9px;
+}
+
+.mint-request-form__field span {
+  color: rgba(220, 255, 243, 0.82);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.mint-request-form input,
+.mint-request-form select,
+.mint-request-form textarea {
+  width: 100%;
+  border: 1px solid rgba(129, 255, 218, 0.26);
+  outline: none;
+
+  background: rgba(3, 12, 14, 0.86);
+  color: #effff9;
+
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.mint-request-form input,
+.mint-request-form select {
+  min-height: 56px;
+  padding: 0 18px;
+}
+
+.mint-request-form textarea {
+  min-height: 150px;
+  padding: 16px 18px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.mint-request-form input::placeholder,
+.mint-request-form textarea::placeholder {
+  color: rgba(220, 255, 243, 0.34);
+}
+
+.mint-request-form select {
+  cursor: pointer;
+}
+
+.mint-request-form input:focus,
+.mint-request-form select:focus,
+.mint-request-form textarea:focus {
+  border-color: rgba(146, 255, 224, 0.76);
+  background: rgba(4, 16, 18, 0.96);
+  box-shadow:
+    0 0 0 3px rgba(92, 255, 209, 0.1),
+    inset 0 0 18px rgba(0, 0, 0, 0.35);
+}
+
+.mint-request-form__submit {
+  min-height: 62px;
+  margin-top: 6px;
+
+  border: 1px solid rgba(165, 255, 230, 0.5);
+  background:
+    linear-gradient(180deg, rgba(122, 255, 218, 0.96), rgba(35, 154, 132, 0.94));
+
+  color: #03110f;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mint-request-form__submit:hover {
+  transform: translateY(-2px);
+  background:
+    linear-gradient(180deg, rgba(178, 255, 235, 0.98), rgba(57, 190, 162, 0.96));
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.36),
+    0 0 28px rgba(92, 255, 209, 0.12);
+}
+
+.mint-request-form__submit:active {
+  transform: translateY(0);
+}
+
+
+@include respond(tablet) {
+  .mint-contact__hero,
+  .mint-contact__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .mint-contact__intro h1 {
+    font-size: clamp(42px, 10vw, 66px);
+  }
+}
+
+@include respond(phone) {
+  .mint-contact {
+    padding: 76px 14px;
+  }
+
+  .mint-contact__intro,
+  .mint-contact__support,
+  .mint-contact__info,
+  .mint-contact__form-card {
+    padding: 22px;
+  }
+
+  .mint-contact__intro h1 {
+    font-size: clamp(36px, 12vw, 52px);
+  }
+
+  .mint-contact__info h2,
+  .mint-contact__form-card h2 {
+    font-size: clamp(30px, 10vw, 42px);
+  }
+
+  .mint-request-form input,
+  .mint-request-form select {
+    min-height: 52px;
+  }
+
+  .mint-request-form textarea {
+    min-height: 130px;
+  }
+
+  .mint-request-form__submit {
+    min-height: 56px;
+  }
+}

@@ -67,6 +67,10 @@ import {
   setupReviewForm,
 } from './components/aibusiness-review.js'
 
+import { 
+  renderAIBusinessContactPage 
+} from './components/aibusiness-contact.js'
+
 import {
   renderAIBusinessAbout, hydrateAboutAi,
 } from './components/aibusiness-about.js'
@@ -155,6 +159,10 @@ function prepareAIBusiness(){
   bodySwitchAiBusinessButton()
 
   initAuthUI()
+  initFooterSwitcher(() => {
+  bodySwitchButton()
+  LanguageSwitchButton()
+  })
 
   LanguageSwitchButton()
 }
@@ -177,6 +185,7 @@ async function prepareAbout(){
   pageRoot.innerHTML = renderAIBusinessAbout()
   await hydrateAboutAi()
   bodySwitchAiBusinessAboutButton()
+  bodySwitchAiBusinessButton()
 }
 
 async function prepareReview(){
@@ -184,6 +193,12 @@ async function prepareReview(){
 
   await renderReviews()
   await setupReviewForm()
+}
+
+function initPageNavigation() {
+  headerSwitchButton()
+  bodySwitchButton()
+  bodySwitchAiBusinessButton()
 }
 
 //#endregion
@@ -202,6 +217,7 @@ function bodySwitchButton(){
   })
 }
 
+
 function bodySwitch(activePage){
   switch(activePage){
     case 'home':
@@ -214,6 +230,9 @@ function bodySwitch(activePage){
       break
     case 'division':
       pageRoot.innerHTML = renderDivision()
+      break
+    case 'archives':
+      pageRoot.innerHTML = `<h1>Archives</h1>`
       break
     case 'aibusiness':
       prepareAIBusiness()
@@ -267,9 +286,10 @@ async function bodySwitchAiBusiness(activePage) {
       prepareTraining()
       break
 
-    // case 'contact':
-    //   pageRoot.innerHTML = renderContact()
-    //   break
+    case 'contact':
+      pageRoot.innerHTML = renderAIBusinessContactPage()
+      break
+
     case 'user-access':
       pageRoot.innerHTML = renderUserAccount()
       await hydrateUserAccess()
@@ -341,7 +361,9 @@ async function bodySwitchAiBusinessAbout(activePage){
       break
 
     case "opencontact":
-      pageProtocolSwitcher.innerHTML = renderNone();
+      pageRoot.innerHTML = renderAIBusinessContactPage();
+
+      setupContactForm()
       break
 
     default:
@@ -419,10 +441,6 @@ function bodySwitchAiBusinessProtocol(searchBySlug) {
       pageProtocolSwitcher.innerHTML = `<h1>Page not found</h1>`;
   }
 
-  pageProtocolSwitcher.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
   
 }
 //#endregion
@@ -456,7 +474,10 @@ bodySwitchAiBusinessProtocolButton()
 // bodySwitchAiBusinessPackagePrepareButton()
 
 initBurgerMenu()
-initFooterSwitcher()
+initFooterSwitcher(() => {
+  bodySwitchButton()
+  LanguageSwitchButton()
+})
 
 
 LanguageSwitchButton()
