@@ -249,7 +249,7 @@ class PackagePlan(models.Model):
         super().save(*args, **kwargs)
 
 
-# AI Business Models Logical chain 
+# AI Business Models Logical chain  
 class PackageOrder(models.Model):
     STATUS_NEW = "new"
     STATUS_IN_REVIEW = "in_review"
@@ -398,4 +398,21 @@ class UserServiceAccess(models.Model):
 
     def __str__(self):
         return f"{self.user} - {self.service}"
+    
+
+# UPGRADE
+class AutomationScenario(models.Model):
+    service = models.ForeignKey("Service", on_delete=models.PROTECT, related_name="automation_scenarios")
+    title = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=110, unique=True)
+    problem = models.TextField()
+    solution = models.TextField()
+    expected_result = models.TextField()
+    estimated_hours = models.PositiveSmallIntegerField()
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str: 
+        return self.title
     
