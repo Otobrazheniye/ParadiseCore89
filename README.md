@@ -816,7 +816,12 @@ http://127.0.0.1:8000/api/
 - [x] Package plans frontend
 - [x] Package order frontend flow
 - [x] User account interface
-  
+- [x] Awaiting commission review and feedback
+
+###  UPGRADE
+
+
 ###  In Progress
-- [ ] Awaiting commission review and feedback
+
+- [ ] Advanced Python: closures, *args/**kwargs, decorators, descriptors, metaclasses, and advanced typing
 
