@@ -402,6 +402,17 @@ class UserServiceAccess(models.Model):
 
 # UPGRADE
 class AutomationScenario(models.Model):
+    class Status(models.TextChoices):
+        DRAFT = "draft", "Draft"
+        REVIEW = "review", "Review"
+        PUBLISHED = "published", "Published"
+        ARCHIVED = "archived", "Archived"
+
+    class Complexity(models.TextChoices):
+        LOW = "low", "Low"
+        MEDIUM = "medium", "Medium"
+        HIGH = "high", "High"
+
     service = models.ForeignKey("Service", on_delete=models.PROTECT, related_name="automation_scenarios")
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=110, unique=True)
@@ -409,6 +420,8 @@ class AutomationScenario(models.Model):
     solution = models.TextField()
     expected_result = models.TextField()
     estimated_hours = models.PositiveSmallIntegerField()
+    status = models.CharField(max_length=50, choices=Status.choices, default=Status.DRAFT)
+    complexity = models.CharField(max_length=50, choices=Complexity.choices, default=Complexity.MEDIUM) 
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
