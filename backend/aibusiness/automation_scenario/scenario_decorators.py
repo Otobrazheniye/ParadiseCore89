@@ -9,7 +9,20 @@ R = TypeVar("R")      # тип возвращаемого значения
 P = ParamSpec("P")    # набор параметров функции
 
 
-
+def audit_action(action_name: str) -> Callable[[Callable[P,R]], Callable[P,R]]:
+    def decorator(function: Callable[P,R]) -> Callable[P,R]:
+        @wraps(function)
+        def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
+            try:
+                result = function(*args, **kwargs)
+            except Exception as error:
+                print(f"Action: {action_name} \n  Function: {function.__name__} \n  Result: failed \n  Error: {error}")
+                raise
+            else:
+                print(f"Action: {action_name} \n Function: {function.__name__}\n Result: success")
+            return result
+        return wrapper
+    return decorator
 
 
 class CountPublishCalls:
@@ -30,7 +43,7 @@ class CountSuccessPublishCalls:
 
     def __call__(self, function: Callable[P,R]) -> Callable[P,R]:
         @wraps(function)
-        def wrapper(*args: P.args, **kwargs: P.kwargs):
+        def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
             result = function(*args, **kwargs)
             self.count += 1
             return result

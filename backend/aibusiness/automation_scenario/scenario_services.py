@@ -1,7 +1,9 @@
 from ..models import AutomationScenario
 from .scenario_decorators import (
     log_execution, allowed_status,
-    CountPublishCalls, CountSuccessPublishCalls)
+    CountPublishCalls, CountSuccessPublishCalls,
+    audit_action, )
+
 
 # decorator = allowed_statuses("draft", "review")
 # publish_scenario = decorator(publish_scenario)
@@ -11,6 +13,7 @@ from .scenario_decorators import (
 try_publish_counter = CountPublishCalls()
 success_publish_counter = CountSuccessPublishCalls()
 
+@audit_action("scenario.publish")
 @try_publish_counter
 @log_execution
 @allowed_status("draft","review")
@@ -20,8 +23,7 @@ def publish_scenario(scenario: AutomationScenario,) -> AutomationScenario:
     scenario.save()
     return scenario
 
-
-
+# change_scenario_status = log_execution(change_scenario_status)
 @log_execution
 def change_scenario_status(scenario: AutomationScenario, name_status: str,) -> AutomationScenario:
     if name_status not in AutomationScenario.Status.values:
