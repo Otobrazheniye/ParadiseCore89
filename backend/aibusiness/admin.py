@@ -7,6 +7,8 @@ from .models import(
     AboutAiBusiness, PackagePlan,
     PackageOrder, UserPackageAccess,
     UserTrainingAccess, UserServiceAccess,
+
+    AutomationScenario
     )
 
 # User
@@ -278,4 +280,27 @@ class UserServiceAccessAdmin(admin.ModelAdmin):
     )
     readonly_fields = ("user", "created_at",)
     ordering = ("-created_at",)
-    
+
+
+
+# UPGRADE
+@admin.register(AutomationScenario)
+class AutomationScenarioAdmin(admin.ModelAdmin):
+    list_display = (
+        "id", "title",
+        "service", "status",
+        "complexity", "estimated_hours",
+        "created_at",
+    )
+
+    list_filter = (
+        "status", "complexity",
+        "service",
+    )
+
+    search_fields = (
+        "title", "slug",
+        "problem", "solution",
+    )
+
+    prepopulated_fields = {"slug": ("title",),}
