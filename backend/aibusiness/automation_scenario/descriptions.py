@@ -79,3 +79,27 @@ if hasattr(scenario, field_name):
 # hasattr -> есть ли?
 # getattr -> дай значение
 # setattr -> запиши значение
+
+
+# <-------------------@PROPERTY------------------->
+class ScenarioDraft:
+    def __init__(self, title):
+        self._title = title
+
+    @property
+    def title(self):
+        return self._title
+
+    @title.setter
+    def title(self, value):
+        if not value:
+            raise ValueError("Title cannot be empty")
+
+        self._title = value
+
+scenario = ScenarioDraft("Invoice Automation")
+
+scenario.title = "CRM Automation"
+
+print(scenario.title)
+# CRM Automation
